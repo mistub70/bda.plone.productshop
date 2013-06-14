@@ -3,7 +3,8 @@ from zope.interface import implements, Interface
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 
-from bda.plone.shopviews import shopviewMessageFactory as _
+
+from bda.plone.shopviews import shopviewsMessageFactory  as _
 
 class IProductsView(Interface):
     """
@@ -14,7 +15,7 @@ class IProductsView(Interface):
         """ test method"""
 
 
-class IProductsView(BrowserView):
+class ProductsView(BrowserView):
     """
     Products browser view
     """
