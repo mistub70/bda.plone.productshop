@@ -1,0 +1,6 @@
+
+*.pyc
+
+bda/plone/shopviews/profiles/.DS_Store
+
+.DS_Store

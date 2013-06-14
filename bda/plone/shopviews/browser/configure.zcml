@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="bda.plone.shopviews">
+
+  <include package="plone.app.contentmenu" />
+
+  <!-- -*- extra stuff goes here -*- -->
+
+  <browser:page
+      for="*"
+      name="products_view"
+      class=".views.ProductsView"
+      template="productsview.pt"
+      allowed_interface=".views.IProductsView"
+      permission="zope.Public"
+      />
+
+
+</configure>

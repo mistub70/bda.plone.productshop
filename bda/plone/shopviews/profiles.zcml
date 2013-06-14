@@ -1,0 +1,13 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="shopbda.plone.shopviews">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Views for bda.plone.shop"
+      directory="profiles/default"
+      description="Product that adds views to bda.plone.shop"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+</configure>
