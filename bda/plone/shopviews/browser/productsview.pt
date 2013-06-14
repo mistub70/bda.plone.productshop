@@ -40,9 +40,6 @@
                     <!-- div class="visualClear" --><!-- --><!--/div -->
  
                     </div>
-                 <a href="" class="add_cart_item buyable_add_to_cart"
-                        i18n:translate="buy">buy
-                    </a>
                     </metal:entry>
                 </metal:block>
             </metal:entries>
