@@ -2,7 +2,6 @@
 	width: 200px;
 	border:  1px solid silver;
 	background-color: #ececec;
-	padding-top: 8px;
 	float: left;
 	margin: 0 10px 10px 0;
 }
@@ -10,18 +9,21 @@
 h4.ProductHeadline {
 	font-size: 15px;
 	text-align: left;
-	padding-left: 12px;
+	padding-left: 15px;
+	color: black;
+
 }
 
 .bda_products p{
 	text-align: left;
-	padding-left: 12px;
+	padding-left: 15px;
 	}
 
 
-.bda_products a p.tileBody {
+#content .bda_products a  {
 	font-size: 12px;
-	color: black; 
+	color: black;
+	text-decoration: none;
 }
 .imagebox {
 	background: white;
@@ -44,7 +46,7 @@ p.itemprice.span {
 
 .add_cart_item {
 	float: right;
-	margin: 0 7px;
+	margin: 0 12px;
 	font-weight: bold;
 }
  
