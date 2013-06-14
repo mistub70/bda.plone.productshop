@@ -6,6 +6,8 @@
 	margin: 0 10px 10px 0;
 }
 
+
+
 h4.ProductHeadline {
 	font-size: 15px;
 	text-align: left;
@@ -50,3 +52,32 @@ p.itemprice.span {
 	font-weight: bold;
 }
  
+ 
+ #portlet-cart {
+	border:  1px solid silver;
+	padding-bottom: 10px;
+}
+
+
+
+#portlet-cart dt.portletHeader a.tile {
+	background-color: #ececec;
+	padding: 7px 15px;
+}
+
+ul#cart_items {
+	list-style-image: none;
+	list-style-type: none;
+	background: white;
+	padding: 0
+}
+
+li.cart_item {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#cart_summary table.cart_sum_content  {
+	padding-left: 10px;
+	padding-right: 10px;
+}
