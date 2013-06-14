@@ -63,6 +63,7 @@ p.itemprice.span {
 #portlet-cart dt.portletHeader a.tile {
 	background-color: #ececec;
 	padding: 7px 15px;
+	color:  #777;
 }
 
 ul#cart_items {
