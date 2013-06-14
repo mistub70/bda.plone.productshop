@@ -1,0 +1,50 @@
+.bda_products {
+	width: 200px;
+	border:  1px solid silver;
+	background-color: #ececec;
+	padding-top: 8px;
+	float: left;
+	margin: 0 10px 10px 0;
+}
+
+h4.ProductHeadline {
+	font-size: 15px;
+	text-align: left;
+	padding-left: 12px;
+}
+
+.bda_products p{
+	text-align: left;
+	padding-left: 12px;
+	}
+
+
+.bda_products a p.tileBody {
+	font-size: 12px;
+	color: black; 
+}
+.imagebox {
+	background: white;
+	min-height: 128px;
+}
+img.ProductImage {
+	margin: 0 auto;
+	display: block;
+}
+
+p.itemprice {
+	float: left;
+	font-size: 16px;
+
+}
+
+p.itemprice.span {
+	float: left;
+}
+
+.add_cart_item {
+	float: right;
+	margin: 0 7px;
+	font-weight: bold;
+}
+ 

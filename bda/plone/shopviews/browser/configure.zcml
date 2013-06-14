@@ -16,5 +16,9 @@
       permission="zope.Public"
       />
 
+  <browser:resource
+    name="bda.plone.shopview.css"
+    file="shopview.css" />
+  
 
 </configure>

@@ -4,8 +4,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="plone">
-
+      i18n:domain="bda.plone.shop">
 <body>
 
     <metal:content-core fill-slot="content-core">
@@ -25,22 +24,26 @@
                                 description
                             </span>
                         </p>
+                        <div class="imagebox">
+                        <!-- maybe use background image so we can vertical align it-->
                         <img src="" alt=""  
                            tal:condition="item_object/image|nothing"
                            tal:define="scales item_object/@@images;
-                                       scale python:scales.scale('image', 'thumb')"
+                                       scale python:scales.scale('image', 'mini')"
                            tal:replace="structure python:scale and scale.tag(css_class='ProductImage') or None" />
- 
-                    <p  tal:define="item_sum python:float(item_object.item_net) * (100+int(item_object.item_vat))/100" 
-                        tal:content="item_sum" />
+                        </div>
                     </a>  
-                    <a href="" class="add_cart_item buyable_add_to_cart"
-                        i18n:translate="buy">buy
-                    </a>
-                    <!-- div class="visualClear" --><!-- --><!--/div -->
- 
+                    <div class="productfooter">
+                        <p  class="itemprice" tal:define="item_sum python:float(item_object.item_net) * (100+int(item_object.item_vat))/100"> 
+                        <span tal:content="item_sum">100</span><span>,–</span></p>
+                        <a href="" class="add_cart_item buyable_add_to_cart"
+                         i18n:translate="buy">buy
+                        </a>
                     </div>
-                    </metal:entry>
+
+                <div class="visualClear" ><!-- --></div>
+                 </div>
+                </metal:entry>
                 </metal:block>
             </metal:entries>
         </metal:block>
