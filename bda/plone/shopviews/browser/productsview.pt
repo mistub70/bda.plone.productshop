@@ -15,7 +15,9 @@
                 <metal:entry fill-slot="entry">
                 <div class="bda_products buyable"
                     tal:define="item_object item/getObject;">
-                    
+                    <span class="cart_item_uid"
+                              style="display: none;"
+                              tal:content="item/UID">12345678</span>
                     <a href="#" tal:attributes="href item/getURL">
                         <h4 class="ProductHeadline" tal:content="item_title_or_id" />
              
