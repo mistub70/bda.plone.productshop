@@ -2,7 +2,7 @@
 bda.plone.shopviews
 =========================
 
-Shopviews portlet for plone.
+Views for bda.plone.shop
 
 .. contents::
 
