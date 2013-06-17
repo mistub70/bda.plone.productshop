@@ -15,9 +15,7 @@
                 <metal:entry fill-slot="entry">
                 <div class="bda_products buyable"
                     tal:define="item_object item/getObject;">
-                    <span class="cart_item_uid"
-                              style="display: none;"
-                              tal:content="item/UID">12345678</span>
+                   
                     <a href="#" tal:attributes="href item/getURL">
                         <h4 class="ProductHeadline" tal:content="item_title_or_id" />
              
@@ -34,15 +32,22 @@
                                        scale python:scales.scale('image', 'mini')"
                            tal:replace="structure python:scale and scale.tag(css_class='ProductImage') or None" />
                         </div>
-                    </a>  
-                    <div class="productfooter">
+                     </a>  
+                     <span class="cart_item_uid"
+                              style="display: none;"
+                              tal:content="item/UID">12345678</span>
+
+                     <div class="productfooter">
                         <p  class="itemprice" tal:define="item_sum python:float(item_object.item_net) * (100+int(item_object.item_vat))/100"> 
                         <span tal:content="item_sum">100</span><span>,–</span></p>
+                        <input type="text"
+                            size="2"
+                            value="1"
+                            class="cart_item_count" />
                         <a href="" class="add_cart_item buyable_add_to_cart"
                          i18n:translate="buy">buy
-                        </a>
+                        </a>                  
                     </div>
-
                 <div class="visualClear" ><!-- --></div>
                  </div>
                 </metal:entry>
