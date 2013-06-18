@@ -1,3 +1,5 @@
+/* @override http://localhost:8080/fadsfasdfsadfasdfasdf/portal_css/Sunburst%20Theme/++resource++bda.plone.shopview.css */
+
 
 .bda_products {
 	width: 200px;
@@ -20,8 +22,12 @@ h4.ProductHeadline {
 .bda_products p{
 	text-align: left;
 	padding-left: 15px;
-	}
+}
 
+.bda_productlist.buyable {
+	padding-top: 10px;
+	padding-bottom: 3px;
+}
 
 #content .bda_products a  {
 	font-size: 12px;
@@ -34,15 +40,43 @@ h4.ProductHeadline {
 	/* min-height: 160px; */
 }
 
+.bda_productlist div.imagebox {
+	float: left;
+	width: 220px;
+}
+.bda_productlist div.imagebox img{
+	float: left;
+}
+
+
 img.ProductImage {
 	margin: 0 auto;
 	display: block;
 }
 
+.ProductBody {
+text-align: left;	
+}
+
+.bda_productlist div.productfooter {
+	border-top: 1px solid silver;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid silver;
+}
+
+
+
 p.itemprice {
 	float: left;
 	font-size: 16px;
 }
+
+.bda_productlist p.itemprice {
+	font-weight: bold;
+	font-size: 14px;
+}
+
 
 p.itemprice.span {
 	float: left;

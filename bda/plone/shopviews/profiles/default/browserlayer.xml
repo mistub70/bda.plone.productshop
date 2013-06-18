@@ -1,0 +1,6 @@
+<layers>
+    <layer
+        name="bda.plone.shopviews"
+         interface="bda.plone.shopviews.interfaces.IShopviews"
+         />
+</layers>

@@ -9,10 +9,21 @@
 
   <browser:page
       for="*"
+      name="productlist_view"
+      class=".views.ProductsView"
+      template="productslistview.pt"
+      allowed_interface=".views.IProductsView"
+      layer="bda.plone.shopviews.interfaces.IShopviews"
+      permission="zope.Public"
+      />
+      
+  <browser:page
+      for="*"
       name="products_view"
       class=".views.ProductsView"
       template="productsview.pt"
       allowed_interface=".views.IProductsView"
+      layer="bda.plone.shopviews.interfaces.IShopviews"
       permission="zope.Public"
       />
 
