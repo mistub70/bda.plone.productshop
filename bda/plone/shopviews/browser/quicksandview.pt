@@ -8,10 +8,10 @@
       
 	<metal:js fill-slot="javascript_head_slot">
     	<script type="text/javascript"
-		src="++resource++bda.plone/jquery.quicksand.js">
+		src="++resource++jquery.quicksand.js">
 	</script>
 	<script type="text/javascript"
-	src="++resource++bda.plone/jquery.easing.1.3.js">
+	src="++resource++jquery.easing.1.3.js">
 	</script>
 	
 	<script type="text/javascript">
@@ -130,7 +130,32 @@
                 </metal:block>
             </metal:entries>
         </metal:block>
-    </metal:content-core>
+        
+        <div class="quicksand">
+     
+    <ul id="quicksandbox" class="image-grid">
+ 
+         <li  data-id="1"  class="bilde quicker"> 
+        	    
+            <h3>Title</h3> 
+            <p >ost</p> 
+  
+        </li>  
+ 
+         <li  data-id="2"  class="Bilde quicker"> 
+        	    
+            <h3>Title</h3> 
+            <p >ost</p> 
+  
+        </li>  
+ 
+ 
+    </ul>     
+ </div>
 
+
+        
+        
+    </metal:content-core>
 </body>
 </html>
