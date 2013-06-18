@@ -37,9 +37,27 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="*"
+      name="quicksand_view"
+      class=".views.ProductsView"
+      template="quicksandview.pt"
+      allowed_interface=".views.IProductsView"
+      layer="bda.plone.shopviews.interfaces.IShopviews"
+      permission="zope.Public"
+      />
+
+
   <browser:resource
     name="bda.plone.shopview.css"
     file="shopview.css" />
-  
+ 
+   <browser:resource
+    name="jquery.quicksand.js"
+    file="jquery.quicksand.js" />
+    
+    <browser:resource
+    name="jquery.easing.1.3.js"
+    file="jquery.easing.1.3.js" /> 
 
 </configure>
