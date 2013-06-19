@@ -18,5 +18,14 @@
         id="++resource++jquery.easing.1.3.js"
         inline="False"
     />
+	
+	<javascript 
+        cacheable="True" 
+        compression="none" 
+        cookable="True"
+        enabled="False" 
+        id="++resource++quicksand.js"
+        inline="False"
+    />
     
 </object>

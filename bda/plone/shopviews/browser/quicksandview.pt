@@ -7,90 +7,35 @@
       i18n:domain="bda.plone.shop">
       
 	<metal:js fill-slot="javascript_head_slot">
-    	<script type="text/javascript"
-		src="++resource++jquery.quicksand.js">
-	</script>
-	<script type="text/javascript"
-	src="++resource++jquery.easing.1.3.js">
-	</script>
-	
-	<script type="text/javascript">
-  // Custom sorting plugin
-  (function($) {
-	$.fn.sorted = function(customOptions) {
-		var options = {
-			by: function(a) { return a.text(); }
-		};
-		$.extend(options, customOptions);
-		$data = $(this);
-		arr = $data.get();
-		return $(arr);
-	};
-  });
+    	<script type="text/javascript" src="++resource++jquery.quicksand.js"></script>
+		<script type="text/javascript" src="++resource++jquery.easing.1.3.js"></script>
+	    <script type="text/javascript" src="++resource++quicksand.js"></script>
+   	</metal:js>    
 
-  // DOMContentLoaded
-  $(function() {
-  
-	// bind radiobuttons in the form
-	var $filterType = $('#filter input[name="type"]');
-	var $filterSort = '';
-	
-	// get the first collection
-	var $quicksandbox = $('#quicksandbox');
-	
-	// clone quicksandbox to get a second collection
-	var $data = $quicksandbox.clone();
-
-	// attempt to call Quicksand on every form change
-	$filterType.add($filterSort).change(function(e) {
-		if ($($filterType+':checked').val() == 'all') {
-			var $filteredData = $data.find('.quicker');
-		} else {
-			var $filteredData = $data.find('.' + $($filterType+":checked").val());
-		}
-	
-	  // no sorting
-		var $sortedData = $filteredData; 
-
-		
-		// finally, call quicksand
-		$quicksandbox.quicksand($sortedData, {
-			duration: 750,
-			easing: 200
-		});
-	});
-  });
-</script> 
-	
-  </metal:js>    
-
- 
-
-<body>
-
+	<body>
     <metal:content-core fill-slot="content-core">
-     <form id="filter">
-    	<fieldset>
-    	    <legend>Filter by type</legend>
-	        <label><input type="radio" name="type" value="all" checked="checked">Everything</label>
-			<label><input type="radio" name="type" value="bilde">Bilde</label>
-        	<label><input type="radio" name="type" value="util">Utilities</label>
-        	<label><input type="radio" name="type" value="espen">Espen</label>
-        </fieldset>
- 	</form>
+		<form id="filter">
+			<fieldset>
+				<legend>Filter by type</legend>
+				<label><input type="radio" name="type" value="all" checked="checked">Everything</label>
+				<label><input type="radio" name="type" value="bilde">Bilde</label>
+				<label><input type="radio" name="type" value="util">Utilities</label>
+				<label><input type="radio" name="type" value="espen">Espen</label>
+			</fieldset>
+		</form>
  
         <metal:block use-macro="context/folder_listing/macros/content-core">
             <!-- we don't want the dl -->
             <metal:entries fill-slot="entries">
              <metal:block use-macro="context/folder_listing/macros/entries">
                 <metal:entry fill-slot="entry">
-                <div id="quicksandbox" 
+                <ul class="shopitems group"> 
                 	 	 class="bda_products buyable"
                       	tal:define="item_object item/getObject;"
                     	tal:condition="exists: item_object/item_net">
-                    <span class="quicker"
+                    <li class="shopitem"
                     	 tal:define="theclass item_object/Subject">
-                    <a href="#" tal:attributes="href item/getURL">
+                      <a href="#" tal:attributes="href item/getURL">
                         <h4 class="ProductHeadline" tal:content="item_title_or_id" />
              
                         <p class="tileBody" tal:condition="item_description">
@@ -98,20 +43,20 @@
                                 description
                             </span>
                         </p>
-                        <div class="imagebox">
+                        <span class="imagebox">
                         <!-- maybe use background image so we can vertical align it-->
                         <img src="" alt=""  
                            tal:condition="item_object/image|nothing"
                            tal:define="scales item_object/@@images;
                                        scale python:scales.scale('image', 'mini')"
                            tal:replace="structure python:scale and scale.tag(css_class='ProductImage') or None" />
-                        </div>
-                     </a>  
+                        </span>
+                       </a>  
                      <span class="cart_item_uid"
                               style="display: none;"
                               tal:content="item/UID">12345678</span>
 
-                     <div class="productfooter" >
+                     <span class="productfooter" >
                         <p  class="itemprice" 
                             tal:define="item_sum python:float(item_object.item_net) * (100+int(item_object.item_vat))/100"> 
                         <span tal:content="item_sum">100</span><span>,–</span></p>
@@ -122,8 +67,8 @@
                         <a href="" class="add_cart_item buyable_add_to_cart"
                          i18n:translate="buy">buy
                         </a>    
-                     </div>
-                     </span>
+                       </span>
+                     </li>
                 <div class="visualClear" ><!-- --></div>
                  </div>
                 </metal:entry>
@@ -131,28 +76,43 @@
             </metal:entries>
         </metal:block>
         
-        <div class="quicksand">
-     
-    <ul id="quicksandbox" class="image-grid">
- 
-         <li  data-id="1"  class="bilde quicker"> 
-        	    
-            <h3>Title</h3> 
-            <p >ost</p> 
-  
-        </li>  
- 
-         <li  data-id="2"  class="Bilde quicker"> 
-        	    
-            <h3>Title</h3> 
-            <p >ost</p> 
-  
-        </li>  
- 
- 
-    </ul>     
- </div>
+        	 
+	<!-- Category Filter -->
+	<dl class="group">
+		<dd>
+			<ul class="filter group"> 
+				<li class="current all"><a href="#">All</a></li> 
+				<li class="hair"><a href="#">Hair</a></li> 
+	
+			</ul> 
+		</dd>
+	</dl>
 
+	<!-- shopitems Items -->
+	<ul class="shopitems group"> 
+		<li class="item" data-id="id-1" data-type="hannah">
+			<a href="images/hannah_yg.jpg"><img src="images/hannah_yg_thumb.jpg" width="210" height="130" alt="Yulia Gorbachenko, Hannah 1" /></a>
+		</li> 
+		<li class="item" data-id="id-2" data-type="hair">
+			<a href="images/bianca_yg.jpg"><img src="images/bianca_yg_thumb.jpg" width="210" height="130" alt="Yulia Gorbachenko, Hair 1" /></a>
+		</li>
+		<li class="item" data-id="id-3" data-type="hair">
+			<a href="images/gisela_yg.jpg"><img src="images/gisela_yg_thumb.jpg" width="210" height="130" alt="Yulia Gorbachenko, Hair 2" /></a>
+		</li>
+		<li class="item" data-id="id-4" data-type="traction">
+			<a href="images/heather_yg.jpg"><img src="images/heather_yg_thumb.jpg" width="210" height="130" alt="Yulia Gorbachenko, Traction 1" /></a>
+		</li>
+		<li class="item" data-id="id-5" data-type="traction">
+			<a href="images/heather_yg_2.jpg"">
+			  <img src="images/heather_yg_2_thumb.jpg" width="210" height="130" alt="Yulia Gorbachenko, Traction 1" />
+			</a>
+		</li>
+
+	</ul>
+ 
+        
+        
+        
 
         
         
