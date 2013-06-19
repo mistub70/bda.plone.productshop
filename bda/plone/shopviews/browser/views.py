@@ -38,3 +38,18 @@ class ProductsView(BrowserView):
         dummy = _(u'a dummy string')
 
         return {'dummy': dummy}
+
+	#this is just for quicksand, probably
+	def all_keywords(self):
+		#finding unique keywords
+		#must be a faster way to do this
+		object = ["a", "b", "c"]
+		#objects = ???
+		uniques = ""
+		for item in objects:
+			uniques += " "
+			uniques += (item['keywords'])
+		tags = uniques.split()
+		tags = set(tags)
+		return sorted(tags)
+		#Need to fix this for keywords containing spaces
