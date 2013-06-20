@@ -21,7 +21,7 @@ $(document).ready(function(){
 	var $filterSort = '';
 	
 	// get the first collection
-	var $quicksandbox = $('.shopitems');
+	var $quicksandbox = $('#shopitems');
 	
 	// clone quicksandbox to get a second collection
 	var $data = $quicksandbox.clone();
@@ -34,7 +34,7 @@ $(document).ready(function(){
 			var $filteredData = $data.find('.' + $($filterType+":checked").val());
 		}
 	
-	  // no sorting
+	  // no sorting until price is an index
 		var $sortedData = $filteredData; 
 
 		
