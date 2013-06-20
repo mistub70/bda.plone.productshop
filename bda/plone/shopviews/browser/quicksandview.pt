@@ -15,13 +15,10 @@
 	<body>
     <metal:content-core fill-slot="content-core">
 		<form id="filter">
-			<fieldset>
-				<legend>Filter by type</legend>
-				<label><input type="radio" name="type" value="all" checked="checked">Everything</label>
+				<label><input type="radio" name="type" value="all" checked="checked">All</label>
 				<label><input type="radio" name="type" value="bilde">Bilde</label>
 				<label><input type="radio" name="type" value="util">Utilities</label>
 				<label><input type="radio" name="type" value="espen">Espen</label>
-			</fieldset>
 		</form>
  
         <metal:block use-macro="context/folder_listing/macros/content-core">
@@ -29,8 +26,7 @@
             <metal:entries fill-slot="entries">
              <metal:block use-macro="context/folder_listing/macros/entries">
                 <metal:entry fill-slot="entry">
-                <ul class="shopitems group"> 
-                	 	 class="bda_products buyable"
+                <ul class="shopitems  buyable"
                       	tal:define="item_object item/getObject;"
                     	tal:condition="exists: item_object/item_net">
                     <li class="shopitem"
@@ -43,6 +39,7 @@
                                 description
                             </span>
                         </p>
+                        <p>test</p>
                         <span class="imagebox">
                         <!-- maybe use background image so we can vertical align it-->
                         <img src="" alt=""  
@@ -69,53 +66,18 @@
                         </a>    
                        </span>
                      </li>
+                     		<li class="item" data-id="id-4" data-type="traction">
+			<a href="images/heather_yg.jpg"><img src="images/heather_yg_thumb.jpg" width="210" height="130" alt="Yulia Gorbachenko, Traction 1" /></a>
+		</li>
+                    </ul>
                 <div class="visualClear" ><!-- --></div>
-                 </div>
+         
                 </metal:entry>
                 </metal:block>
             </metal:entries>
         </metal:block>
-        
-        	 
-	<!-- Category Filter -->
-	<dl class="group">
-		<dd>
-			<ul class="filter group"> 
-				<li class="current all"><a href="#">All</a></li> 
-				<li class="hair"><a href="#">Hair</a></li> 
-	
-			</ul> 
-		</dd>
-	</dl>
-
-	<!-- shopitems Items -->
-	<ul class="shopitems group"> 
-		<li class="item" data-id="id-1" data-type="hannah">
-			<a href="images/hannah_yg.jpg"><img src="images/hannah_yg_thumb.jpg" width="210" height="130" alt="Yulia Gorbachenko, Hannah 1" /></a>
-		</li> 
-		<li class="item" data-id="id-2" data-type="hair">
-			<a href="images/bianca_yg.jpg"><img src="images/bianca_yg_thumb.jpg" width="210" height="130" alt="Yulia Gorbachenko, Hair 1" /></a>
-		</li>
-		<li class="item" data-id="id-3" data-type="hair">
-			<a href="images/gisela_yg.jpg"><img src="images/gisela_yg_thumb.jpg" width="210" height="130" alt="Yulia Gorbachenko, Hair 2" /></a>
-		</li>
-		<li class="item" data-id="id-4" data-type="traction">
-			<a href="images/heather_yg.jpg"><img src="images/heather_yg_thumb.jpg" width="210" height="130" alt="Yulia Gorbachenko, Traction 1" /></a>
-		</li>
-		<li class="item" data-id="id-5" data-type="traction">
-			<a href="images/heather_yg_2.jpg"">
-			  <img src="images/heather_yg_2_thumb.jpg" width="210" height="130" alt="Yulia Gorbachenko, Traction 1" />
-			</a>
-		</li>
-
-	</ul>
- 
-        
-        
-        
-
-        
-        
+    
     </metal:content-core>
 </body>
 </html>
+ 

@@ -1,30 +1,48 @@
 $(document).ready(function(){
-
-	// Clone shopitems items to get a second collection for Quicksand plugin
-	var $shopitemsClone = $(".shopitems").clone();
+ 
+ // Custom sorting plugin
+  (function($) {
+	$.fn.sorted = function(customOptions) {
+		var options = {
+			by: function(a) { return a.text(); }
+		};
+		$.extend(options, customOptions);
+		$data = $(this);
+		arr = $data.get();
+		return $(arr);
+	};
+  });
+ 
+  // DOMContentLoaded
+  $(function() {
+  
+	// bind radiobuttons in the form
+	var $filterType = $('#filter input[name="type"]');
+	var $filterSort = '';
 	
-	// Attempt to call Quicksand on every click event handler
-	$(".filter a").click(function(e){
-		
-		$(".filter li").removeClass("current");	
-		
-		// Get the class attribute value of the clicked link
-		var $filterClass = $(this).parent().attr("class");
+	// get the first collection
+	var $quicksandbox = $('.shopitems');
+	
+	// clone quicksandbox to get a second collection
+	var $data = $quicksandbox.clone();
 
-		if ( $filterClass == "all" ) {
-			var $filteredshopitems = $shopitemsClone.find("li");
+	// attempt to call Quicksand on every form change
+	$filterType.add($filterSort).change(function(e) {
+		if ($($filterType+':checked').val() == 'all') {
+			var $filteredData = $data.find('li');
 		} else {
-			var $filteredshopitems = $shopitemsClone.find("li[data-type~=" + $filterClass + "]");
+			var $filteredData = $data.find('.' + $($filterType+":checked").val());
 		}
+	
+	  // no sorting
+		var $sortedData = $filteredData; 
+
 		
-		// Call quicksand
-		$(".shopitems").quicksand( $filteredshopitems, { 
+		// finally, call quicksand
+		$quicksandbox.quicksand($sortedData, {
 			duration: 800, 
 			easing: 'easeInOutQuad' 
-		}, function(){
 		});
-
-		$(this).parent().addClass("current");
-
-	})
+	});
+  });
 });
