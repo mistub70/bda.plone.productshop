@@ -12,8 +12,10 @@
 	    <script type="text/javascript" src="++resource++quicksand.js"></script>
    	</metal:js>    
 
-	<body>
+	<body>                        
+
     <metal:content-core fill-slot="content-core">
+    	<span tal:content="view/ukeywords">can not get this to work</span>
 		<form id="filter">
 				<label><input type="radio" name="type" value="all" checked="checked">all</label>
 				<label><input type="radio" name="type" value="bilde">nilde</label>
@@ -37,6 +39,7 @@
                     	 tal:attributes="class theclass; data-id item/getId">
                       <a href="#" tal:attributes="href item/getURL">
                         <h4 class="ProductHeadline" tal:content="item_title_or_id" />
+
                         <p class="tileBody" tal:condition="item_description">
                             <span class="description" tal:content="item_description">
                                 description
