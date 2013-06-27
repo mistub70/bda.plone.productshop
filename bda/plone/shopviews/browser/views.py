@@ -18,12 +18,9 @@ class IProductsView(Interface):
         """ test method"""
         
 
-    def unique_keywords():
+    def ukeywords():
         """ get all keywords so we can sort on them """
 
-
-    def all_keywords():
-        """ get all keywords so we can sort on them """
 
 
 #I am not sure if this is the right way to define the view
@@ -46,21 +43,6 @@ class ProductsView(BrowserView):
 
         return {'dummy': dummy}
         
-
-	#this is just for quicksand, probably
-	@property
-	def all_keywords(self, context):
-		#finding unique keywords
-		#must be a faster way to do this
-		objects = self.context.portal_catalog
-		uniques = catalog.uniqueValuesFor('Subject')
-		for item in objects:
-			uniques += " "
-			uniques += (item['keywords'])
-		tags = uniques.split()
-		tags = set(tags)
-		return sorted(tags)
-		#Need to fix this for keywords containing spaces
 	    
 	def ukeywords(self):	
 	    import pdb; pdb.set_trace()
