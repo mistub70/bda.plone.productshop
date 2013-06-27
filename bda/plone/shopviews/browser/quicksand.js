@@ -1,6 +1,8 @@
 $(document).ready(function(){
  
  // Custom sorting plugin
+ // not done yet, more here:
+ // http://razorjack.net/quicksand/demos/one-set-clone.html
   (function($) {
 	$.fn.sorted = function(customOptions) {
 		var options = {

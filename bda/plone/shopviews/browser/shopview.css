@@ -29,7 +29,8 @@ ul#shopitems {
 #shopitems li{
 	list-style-type: none;
 	list-style-image: none;
-	display: inline-block;
+	float: left;
+	width: 200px;
 	border: 1px solid #AAA;
 	margin: 20px 10px 0 0;
 	padding: 10px;
