@@ -19,12 +19,27 @@
 	box-shadow:         2px 2px 7px rgba(152, 154, 152, 0.65);
 }
 
+ul#shopitems {
+	width: 100%;
+	margin: 0;
+	padding: 0;	
+	position: relative;
+}
+
+#shopitems li{
+	list-style-type: none;
+	list-style-image: none;
+	display: inline-block;
+	border: 1px solid #AAA;
+	margin: 20px 10px 0 0;
+	padding: 10px;
+}
+
 h4.ProductHeadline {
 	font-size: 15px;
 	text-align: left;
 	padding-left: 15px;
 	color: black;
-
 }
 
 .bda_products p{
