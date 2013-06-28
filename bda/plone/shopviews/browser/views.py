@@ -18,7 +18,7 @@ class IProductsView(Interface):
         """ test method"""
         
 
-    def ukeywords():
+    def all_keywords():
         """ get all keywords so we can sort on them """
 
 
@@ -39,13 +39,18 @@ class ProductsView(BrowserView):
         """
         test method
         """
+        
         dummy = _(u'a dummy string')
-
         return {'dummy': dummy}
         
-	    
-	def ukeywords(self):	
-	    import pdb; pdb.set_trace()
-	    catalog = self.context.portal_catalog
-	    my_keys = catalog.uniqueValuesFor('Subject')
+    
+    @property
+    def all_keywords(self):
+        """
+        get all keywords so we can sort on them
+        """
+        
+        catalog = self.context.portal_catalog
+        my_keys = catalog.uniqueValuesFor('Subject')
         return sorted(my_keys)
+        
