@@ -17,12 +17,12 @@
     <metal:content-core fill-slot="content-core"
                         tal:define="keywords view/all_keywords">
     	<form id="filter">
-			<label>
+			<label class="default">
 			    <input type="radio" name="type" value="all" checked="checked" i18n:translate="all">
 			    Everything
 			</label>
 			<tal:keywords tal:repeat="keyword view/all_keywords" >
-    	        <label>
+    	        <label class="" tal:attributes="class keyword">
     	            <input type="radio" name="type" tal:attributes="value keyword">
     	            <span tal:content="keyword">keyword</span> 
     	        </label>
