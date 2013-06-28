@@ -1,4 +1,5 @@
 
+
 .bda_products {
 	width: 200px;
 	border:  1px solid silver;
@@ -17,23 +18,6 @@
 	-webkit-box-shadow: 2px 2px 7px rgba(152, 154, 152, 0.65);
 	-moz-box-shadow:    2px 2px 7px rgba(152, 154, 152, 0.65);
 	box-shadow:         2px 2px 7px rgba(152, 154, 152, 0.65);
-}
-
-ul#shopitems {
-	width: 100%;
-	margin: 0;
-	padding: 0;	
-	position: relative;
-}
-
-#shopitems li{
-	list-style-type: none;
-	list-style-image: none;
-	float: left;
-	width: 200px;
-	border: 1px solid #AAA;
-	margin: 20px 10px 0 0;
-	padding: 10px;
 }
 
 h4.ProductHeadline {
@@ -157,4 +141,50 @@ li.cart_item {
 .bda_products .cart_item_count {
 	display: none !important;
 }
+
+
+
+/* @group Quicksand */
+
+
+.image-grid {
+	margin: 0;
+}
+
+.image-grid:after {
+	content: "";
+	display: block;
+	height: 0;
+	overflow: hidden;
+	clear: both;
+}
+
+/* this is important, prevents the items from "jumping" */
+.template-quicksand_view #content-core {
+	position: relative;
+}
+
+.image-grid ul {
+	margin: 0;
+	padding: 0;	
+	position: relative;
+	list-style-image: none;
+	list-style-type: none;
+}
+
+
+/* this is important, one can not set the the same on the divs (a bug in quicksand) */
+.image-grid li {
+	margin: 0px 10px 10px 0 !important;
+	padding: 10px;
+	display: block;
+	border: 1px solid #AAA;
+	float: left;
+	overflow: hidden;
+}
+.image-grid .cart_item_count {
+	display: none; 
+}
+/* @end */
+
 

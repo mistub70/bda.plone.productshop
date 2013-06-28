@@ -32,7 +32,7 @@
         <metal:block use-macro="context/folder_listing/macros/content-core">
             <!-- we don't want the dl -->
             <metal:entries fill-slot="entries">
-             <ul id="shopitems" class="buyable">
+             <ul id="shopitems" class="buyable image-grid">
              <metal:block use-macro="context/folder_listing/macros/entries">
 
                 <metal:entry fill-slot="entry"

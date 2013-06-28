@@ -42,7 +42,7 @@ $(document).ready(function(){
 		
 		// finally, call quicksand
 		$quicksandbox.quicksand($sortedData, {
-			duration: 800, 
+			duration: 600, 
 			easing: 'easeInOutQuad' 
 		});
 	});
