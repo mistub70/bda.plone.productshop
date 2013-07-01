@@ -45,12 +45,12 @@ class ProductsView(BrowserView):
         
     
     @property
-    def all_keywords(self):
+    def all_keywords(self, context):
         """
-        get all keywords so we can sort on them
+        get all keywords in current folder so we can sort on them
         """
-        
-        catalog = self.context.portal_catalog
-        my_keys = catalog.uniqueValuesFor('Subject')
+        folder_path = '/'.join(context.getPhysicalPath())
+        results = catalog(path={'query': folder_path, 'depth': 1})
+        my_keys = results.uniqueValuesFor('Subject')
         return sorted(my_keys)
         
