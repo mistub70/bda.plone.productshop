@@ -47,6 +47,15 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="*"
+      name="productboxes_view"
+      class=".views.ProductboxesView"
+      template="productboxesview.pt"
+      allowed_interface=".views.IProductsView"
+      layer="bda.plone.shopviews.interfaces.IShopviews"
+      permission="zope.Public"
+      />
 
   <browser:resource
     name="bda.plone.shopview.css"
