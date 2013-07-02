@@ -44,7 +44,7 @@
                       <a href="#" tal:attributes="href item/getURL">
                          <div class="imagebox" 
                               tal:condition="item_object/image|nothing"
-                              tal:define="style python:'background-image:url(' + item_object + ')'"
+                              tal:define="style python:'background-image:url(' + item/getURL + '/image_thumb)'"
                               tal:attributes="style style" />
                          <h4 class="ProductHeadline" tal:content="item_title_or_id" />
                        </a>  
