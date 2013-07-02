@@ -50,25 +50,9 @@ class ProductsView(BrowserView):
         get all keywords in current folder so we can sort on them
         
         """
-        context = self.context
-        catalog = getToolByName(context, 'portal_catalog')
-        folder_path = '/'.join(context.getPhysicalPath())
+        catalog = getToolByName(self, 'portal_catalog')
+        folder_path = '/'.join(self.context.getPhysicalPath())
         results = []
-        results = catalog.searchResults(path={'query': folder_path, 'depth': 1})
+        results = catalog.searchResults(path={'query': folder_path, 'depth': 1},)
         my_keys = results.uniqueValuesFor('Subject')
         return sorted(my_keys)
-        
-        #catalog = self.context.portal_catalog
-        #my_keys = catalog.uniqueValuesFor('Subject')
-        #return sorted(my_keys)
-        
-    def courses(self):
-      """ 
-        get all keywords in current folder so we can sort on them
-        
-      """
-      catalog = getToolByName(self, 'portal_catalog')
-      folder_path = '/'.join(self.context.getPhysicalPath())
-      courses = []
-      courses =  catalog.searchResults(path={'query': folder_path, 'depth': 1},)
-      return courses
