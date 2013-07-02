@@ -45,21 +45,15 @@
                          <div class="imagebox" 
                               tal:condition="item_object/image|nothing"
                               tal:define="style python:'background-image:url(' + str(url) + '/image_thumb)'"
-                              tal:attributes="style style" />
-                         <h4 class="ProductTitle" tal:content="item_title_or_id" />
+                              tal:attributes="style style"></div>
+                         <h4 class="ProductTitle" tal:content="item_title_or_id">
+                            Title
+                         </h4>
                        </a>  
-                     <span class="cart_item_uid"
-                              style="display: none;"
-                              tal:content="item/UID">12345678</span>
-
- 
                         <p  class="itemprice" 
                             tal:define="item_sum python:float(item_object.item_net) * (100+int(item_object.item_vat))/100"> 
                         <span tal:content="item_sum">100</span></p>
-                        <input type="text"
-                            size="2"
-                            value="1"
-                            class="cart_item_count" />
+
                         <a href="#" 
                             class="button"
                             i18n:translate="read_more"
