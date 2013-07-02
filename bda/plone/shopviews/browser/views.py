@@ -50,11 +50,11 @@ class ProductsView(BrowserView):
         get all keywords in current folder so we can sort on them
         
         """
-        import pdb; pdb.set_trace()
         context = self.context
         catalog = getToolByName(context, 'portal_catalog')
         folder_path = '/'.join(context.getPhysicalPath())
-        results = catalog(path={'query': folder_path, 'depth': 1})
+        results = []
+        results = catalog.searchResults(path={'query': folder_path, 'depth': 1})
         my_keys = results.uniqueValuesFor('Subject')
         return sorted(my_keys)
         
