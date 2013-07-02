@@ -60,9 +60,10 @@
                             size="2"
                             value="1"
                             class="cart_item_count" />
-                        <a href="" 
-                            class="add_cart_item buyable_add_to_cart"
-                            i18n:translate="read_more">
+                        <a href="#" 
+                            class="button"
+                            i18n:translate="read_more"
+                            tal:attributes="href item/getURL">
                             Read More
                         </a>    
                        </span>
