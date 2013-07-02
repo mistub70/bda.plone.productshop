@@ -50,7 +50,7 @@
   <browser:page
       for="*"
       name="productboxes_view"
-      class=".views.ProductboxesView"
+      class=".views.ProductsView"
       template="productboxesview.pt"
       allowed_interface=".views.IProductsView"
       layer="bda.plone.shopviews.interfaces.IShopviews"
