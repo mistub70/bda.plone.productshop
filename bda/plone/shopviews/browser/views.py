@@ -61,3 +61,14 @@ class ProductsView(BrowserView):
         #catalog = self.context.portal_catalog
         #my_keys = catalog.uniqueValuesFor('Subject')
         #return sorted(my_keys)
+        
+    def courses(self):
+      """ 
+        get all keywords in current folder so we can sort on them
+        
+      """
+      catalog = getToolByName(self, 'portal_catalog')
+      folder_path = '/'.join(self.context.getPhysicalPath())
+      courses = []
+      courses =  catalog.searchResults(path={'query': folder_path, 'depth': 1},)
+      return courses
