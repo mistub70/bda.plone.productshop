@@ -51,14 +51,13 @@ class ProductsView(BrowserView):
         
         """
         
-        #this is not working
-        #context = self.context
-        #catalog = getToolByName(context, 'portal_catalog')
-        #folder_path = '/'.join(context.getPhysicalPath())
-        #results = catalog(path={'query': folder_path, 'depth': 1})
-        #my_keys = results.uniqueValuesFor('Subject')
-        #return sorted(my_keys)
-        
-        catalog = self.context.portal_catalog
-        my_keys = catalog.uniqueValuesFor('Subject')
+        context = self.context
+        catalog = getToolByName(context, 'portal_catalog')
+        folder_path = '/'.join(context.getPhysicalPath())
+        results = catalog(path={'query': folder_path, 'depth': 1})
+        my_keys = results.uniqueValuesFor('Subject')
         return sorted(my_keys)
+        
+        #catalog = self.context.portal_catalog
+        #my_keys = catalog.uniqueValuesFor('Subject')
+        #return sorted(my_keys)
