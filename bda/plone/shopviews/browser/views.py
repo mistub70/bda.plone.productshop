@@ -42,17 +42,18 @@ class ProductsView(BrowserView):
         
         dummy = _(u'a dummy string')
         return {'dummy': dummy}
-        
     
-    @property
+    @property    
     def all_keywords(self):
-        """ 
-        get all keywords in current folder so we can sort on them
-        
-        """
         catalog = getToolByName(self, 'portal_catalog')
         folder_path = '/'.join(self.context.getPhysicalPath())
         results = []
-        results = catalog.searchResults(path={'query': folder_path, 'depth': 1},)
-        my_keys = results.uniqueValuesFor('Subject')
-        return sorted(my_keys)
+        results =  catalog.searchResults(path={'query': folder_path})
+        uniques = ""
+        for item in results:
+            uniques += " "
+            uniques += str(item.Subject)
+        tags = uniques.split()
+        tags = set(tags)
+        return sorted(tags)
+    
