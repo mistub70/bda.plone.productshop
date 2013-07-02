@@ -2,9 +2,9 @@ from zope.interface import implements, Interface, Attribute
 from Products.Five import BrowserView
 
 #from bda.plone.cart.interfaces.ICartDataProvider import  get_data_provider
-
 from bda.plone.shopviews import shopviewsMessageFactory  as _
 
+from Products.CMFCore.utils import getToolByName
 
 class IProductsView(Interface):
     """
@@ -19,7 +19,7 @@ class IProductsView(Interface):
         
 
     def all_keywords():
-        """ get all keywords so we can sort on them """
+        """ get all keywords in folder so we can sort on them """
 
 
 
@@ -45,12 +45,20 @@ class ProductsView(BrowserView):
         
     
     @property
-    def all_keywords(self, context):
-        """
+    def all_keywords(self):
+        """ 
         get all keywords in current folder so we can sort on them
-        """
-        folder_path = '/'.join(context.getPhysicalPath())
-        results = catalog(path={'query': folder_path, 'depth': 1})
-        my_keys = results.uniqueValuesFor('Subject')
-        return sorted(my_keys)
         
+        """
+        
+        #this is not working
+        #context = self.context
+        #catalog = getToolByName(context, 'portal_catalog')
+        #folder_path = '/'.join(context.getPhysicalPath())
+        #results = catalog(path={'query': folder_path, 'depth': 1})
+        #my_keys = results.uniqueValuesFor('Subject')
+        #return sorted(my_keys)
+        
+        catalog = self.context.portal_catalog
+        my_keys = catalog.uniqueValuesFor('Subject')
+        return sorted(my_keys)

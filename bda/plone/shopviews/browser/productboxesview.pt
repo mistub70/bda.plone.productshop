@@ -41,18 +41,18 @@
                     <li class="productbox"
                     	 tal:define="theclass python:' '.join(item.Subject)"
                     	 tal:attributes="class theclass; data-id item/getId">
-                      <a href="#" tal:attributes="href item/getURL">
+                      <a href="#" tal:define="url item/getURL" tal:attributes="href url">
                          <div class="imagebox" 
                               tal:condition="item_object/image|nothing"
-                              tal:define="style python:'background-image:url(' + item/getURL + '/image_thumb)'"
+                              tal:define="style python:'background-image:url(' + str(url) + '/image_thumb)'"
                               tal:attributes="style style" />
-                         <h4 class="ProductHeadline" tal:content="item_title_or_id" />
+                         <h4 class="ProductTitle" tal:content="item_title_or_id" />
                        </a>  
                      <span class="cart_item_uid"
                               style="display: none;"
                               tal:content="item/UID">12345678</span>
 
-                     <span class="productfooter" >
+ 
                         <p  class="itemprice" 
                             tal:define="item_sum python:float(item_object.item_net) * (100+int(item_object.item_vat))/100"> 
                         <span tal:content="item_sum">100</span></p>
@@ -66,7 +66,7 @@
                             tal:attributes="href item/getURL">
                             Read More
                         </a>    
-                       </span>
+ 
                      </li>
                      </metal:entry>
 
