@@ -22,8 +22,31 @@ class IProductsView(Interface):
         """ get all keywords in folder so we can sort on them """
 
 
+class IColorsView(Interface):
+    """
+    Products  view interface
+    """
+    
 
-#I am not sure if this is the right way to define the view
+class ColorsView(BrowserView):
+    """
+    Browser view that does the following.
+    - redirects to parent folder of product.
+    - sets color to context's color
+    - uses this in the folder view
+    """
+    implements(IColorsView)
+    
+    
+    def __call__(self):
+        import pdb; pdb.set_trace()
+        request = self.request
+        color = self.context.color
+        parent = self.context.aq_parent.absolute_url()
+
+        
+        self.redirect(parent +'/productlist_view?color=' + color)
+    
 
 class ProductsView(BrowserView):
     """
@@ -42,6 +65,7 @@ class ProductsView(BrowserView):
         
         dummy = _(u'a dummy string')
         return {'dummy': dummy}
+
     
     @property    
     def all_keywords(self):
@@ -56,4 +80,3 @@ class ProductsView(BrowserView):
         tags = uniques.split()
         tags = set(tags)
         return sorted(tags)
-    

@@ -57,6 +57,15 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="*"
+      name="colors_view"
+      class=".views.ColorsView"
+      allowed_interface=".views.IColorsView"
+      layer="bda.plone.shopviews.interfaces.IShopviews"
+      permission="zope.Public"
+      />
+
   <browser:resource
     name="bda.plone.shopview.css"
     file="shopview.css" />

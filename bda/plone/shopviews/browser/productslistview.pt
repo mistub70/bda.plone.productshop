@@ -22,30 +22,31 @@
                         <img src="" alt=""  
                            tal:condition="item_object/image|nothing"
                            tal:define="scales item_object/@@images;
-                                       scale python:scales.scale('image', 'mini')"
+                                       scale python:scales.scale('image', 'produktbilde')"
                            tal:replace="structure python:scale and scale.tag(css_class='ProductImage') or None" />
-                         </div>
-                     </a>                   
+                         </div>          
                      <h4 class="ProductHeadline" tal:content="item_title_or_id" />
+                     </a>         
                      <p class="ProductBody" tal:condition="item_description">
                         <span class="description" tal:content="item_description">
                             description
                         </span>
-                     </p>                
-
-                     <span class="cart_item_uid"
+                     </p>           
+                    <a class="lesmer" href="#" tal:attributes="href item/getURL">
+                          Les mer…
+                   </a>
+                    <span class="cart_item_uid"
                               style="display: none;"
                               tal:content="item/UID">12345678</span>
 
-                     <div class="productfooter">
+                     <div class="productfooter" tal:condition="python: item_object.item_vat != None ">
                         <p  class="itemprice" tal:define="item_sum python:float(item_object.item_net) * (100+int(item_object.item_vat))/100"> 
-                        <span tal:content="item_sum">100</span></p>
+                        kr. <span tal:content=" python:'%d' %  (item_sum/1000)" tal:condition="python: item_sum >=1000">1</span> <span tal:content=" python:'%d' %  (item_sum%1000)">1</span></p>
                         <input type="text"
                             size="2"
                             value="1"
                             class="cart_item_count" />
-                        <a href="" class="add_cart_item buyable_add_to_cart"
-                         i18n:translate="buy">buy
+                        <a href="" class="add_cart_item buyable_add_to_cart">Kjøp
                         </a>                  
                     </div>
                 <div class="visualClear" ><!-- --></div>
