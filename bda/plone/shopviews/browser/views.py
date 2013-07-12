@@ -43,8 +43,8 @@ class ColorsView(BrowserView):
         request = self.request
         color = self.context.color
         redirect_url = self.context.aq_parent.absolute_url() + '/productlist_view?color=' + color
-        return self.context.redirect(redirect_url)
-    
+        #return self.context.redirect(redirect_url)
+        return redirect_url
 
 class ProductsView(BrowserView):
     """
