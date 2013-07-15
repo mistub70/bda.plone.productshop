@@ -33,7 +33,7 @@
                     	>
                       <div class="imagebox" 
                               tal:condition="item_object/image|nothing"
-                              tal:define="style python:'background-image:url(' + str(url) + '/@@images/image/thumb)'"
+                              tal:define="url item/getURL; style python:'background-image:url(' + str(url) + '/@@images/image/thumb)'"
                               tal:attributes="style style"></div>
                          <h4 class="ProductTitle" tal:content="item_title_or_id">
                             Title

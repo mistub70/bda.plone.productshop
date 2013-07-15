@@ -135,7 +135,7 @@ class ProductsView(BrowserView):
         content_type = context.portal_type
         is_folderish = ['Folder', 'ATFolder', 'Productgruppe', 'Group', 'Topic', 'Collection']
         catalog = getToolByName(self, 'portal_catalog')
-        
+        pdb; pdb.set_trace()
         if content_type in is_folderish: 
             folder_path = '/'.join(context.getPhysicalPath())
         else:
