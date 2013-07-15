@@ -42,7 +42,7 @@
                             Title
                          </h4>
                        </a>  
-                       <p class="ProductDescription" tal:content="item_object/Description">
+                       <p class="ProductDescription" tal:content="item_object/Description" />
                        <a href="#" 
                             class="button"
                             i18n:translate="read_more"
