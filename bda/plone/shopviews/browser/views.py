@@ -72,7 +72,8 @@ class ProductsView(BrowserView):
         catalog = getToolByName(self, 'portal_catalog')
         folder_path = '/'.join(self.context.getPhysicalPath())
         results = []
-        return catalog.searchResults(path={'query': folder_path})
+        results = catalog.searchResults(path={'query': folder_path})
+        return results
                 
     @property    
     def all_keywords(self):
