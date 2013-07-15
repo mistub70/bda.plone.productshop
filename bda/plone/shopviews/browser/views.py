@@ -76,7 +76,7 @@ class ProductsView(BrowserView):
         results = []
         results =  catalog.searchResults(path={'query': folder_path})
         uniques = ""
-         tags = set()
+        tags = set()
         for item in results:
             tags.update(item.Subject)
         return sorted(tags)
