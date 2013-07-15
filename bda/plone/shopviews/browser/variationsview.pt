@@ -7,7 +7,7 @@
       i18n:domain="bda.plone.shop">
 <body>
 
-    <metal:content-core fill-slot="content"
+    <metal:content-core fill-slot="content-core"
               tal:define="templateId template/getId;">
  
             <h1 tal:content="context/aq_inner/aq_parent/Title">
