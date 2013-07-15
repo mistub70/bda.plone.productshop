@@ -69,9 +69,9 @@ class ProductsView(BrowserView):
         return {'dummy': dummy}
 
     def find_objects(self):
+            import pdb; pdb.set_trace()
         context= self.context
         type = context.getType()
-        import pdb; pdb.set_trace()
         catalog = getToolByName(self, 'portal_catalog')
         is_folderish = ['Folder', 'ATFolder', 'Productgruppe', 'Group', 'Topic', 'Collection']
         if type in is_folderish: 
@@ -84,8 +84,7 @@ class ProductsView(BrowserView):
                 
     @property    
     def all_keywords(self):
-        import pdb; pdb.set_trace()
-        results = self.find_objects()
+        results = self.find_objects
         uniques = ""
         tags = set()
         for item in results:
@@ -94,7 +93,7 @@ class ProductsView(BrowserView):
         
     @property    
     def variations(self):
-        results = self.find_objects()
+        results = self.find_objects
         uniques = ""
         tags = set()
         for item in results:
@@ -106,7 +105,7 @@ class ProductsView(BrowserView):
         
     @property    
     def colors(self):
-        results = self.find_objects()
+        results = self.find_objects
         uniques = ""
         tags = set()
         for item in results:
