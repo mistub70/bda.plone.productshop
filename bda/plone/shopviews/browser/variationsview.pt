@@ -50,7 +50,7 @@
         <div tal:repeat="item foldercontents" >
            <span tal:content="item/Title" 
              tal:define="class item/Subject" 
-             tal.attributes="class class"/>
+             tal:attributes="class class"/>
            <span class="cart_item_uid"
                         style="display: none;"
                         tal:content="item/UID">12345678</span>
