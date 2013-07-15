@@ -55,7 +55,7 @@
                         style="display: none;"
                         tal:content="item/UID">12345678</span>
                         
-                        <div tal:content="item/getColor" />
+                        <div tal:content="item/color" />
                         
            <input type="text"
                   size="2"
