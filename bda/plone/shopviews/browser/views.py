@@ -124,10 +124,10 @@ class ProductsView(BrowserView):
         #results = self.find_objects
         context = self.context
         catalog = getToolByName(self, 'portal_catalog')
-        if IFolderish.isProvidedBy(context.aq_base): 
-            folder_path = '/'.join(context.getPhysicalPath())
-        else:
-            folder_path = '/'.join(context.aq_parent.getPhysicalPath())
+        #if IFolderish.isProvidedBy(context.aq_base): 
+        older_path = '/'.join(context.getPhysicalPath())
+        #else:
+        #   folder_path = '/'.join(context.aq_parent.getPhysicalPath())
         results = []
         results = catalog.searchResults(path={'query': folder_path})
         
