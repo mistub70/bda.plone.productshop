@@ -76,7 +76,7 @@ class ProductsView(BrowserView):
         if type in is_folderish: 
             folder_path = '/'.join(context.getPhysicalPath())
         else:
-            folder_path = '/'.join(context..aq_parent.getPhysicalPath())
+            folder_path = '/'.join(context.aq_parent.getPhysicalPath())
         results = []
         results = catalog.searchResults(path={'query': folder_path})
         return results
