@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="bda.plone.shop">
+<body>
+
+    <metal:content-core fill-slot="content-core">
+
+             <form id="filter">
+		<tal:keywords tal:repeat="keyword context/Subject" >
+    	        <label class="" tal:attributes="class keyword">
+    	            <input type="radio" name="type" tal:attributes="value keyword">
+    	            <span tal:content="keyword">keyword</span> 
+    	        </label>
+    	    </tal:keywords>
+		</form>
+
+    <div tal:define="foldercontents python:context.aq_inner.aq_parent.getFolderContents()"  >
+            <div tal:repeat="item foldercontents" >
+                <a href="#" tal:attributes="href item/getURL" class="variation" >
+                    <span tal:content="item/Title" />
+                </a>
+
+
+                           <span class="cart_item_uid"
+                              style="display: none;"
+                              tal:content="item/UID">12345678</span>
+                        
+                       
+                        <input type="text"
+                            size="2"
+                            value="1"
+                            class="cart_item_count" />
+                        <a href="" class="add_cart_item buyable_add_to_cart">Kjøp
+                        </a>                  
+            
+
+      
+        </div> 
+   </div>
+
+     
+
+
+
+    </metal:content-core>
+
+</body>
+</html>
