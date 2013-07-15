@@ -9,7 +9,7 @@
 
     <metal:content-core fill-slot="content">
  
-            <h1 metal:use-macro="context/aq_inner/aq_parent/Title">
+            <h1 tal:content="context/aq_inner/aq_parent/Title">
                 Generic KSS Title. Is rendered with class="documentFirstHeading".
             </h1>
  
