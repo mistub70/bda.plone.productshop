@@ -7,7 +7,18 @@
       i18n:domain="bda.plone.shop">
 <body>
 
-    <metal:content-core fill-slot="content-core">
+    <metal:content-core fill-slot="content">
+         <metal:title define-slot="content-title">
+            <h1 metal:use-macro="context/kss_generic_macros/macros/generic_title_view">
+                Generic KSS Title. Is rendered with class="documentFirstHeading".
+            </h1>
+        </metal:title>
+        <metal:description define-slot="content-description">
+            <div metal:use-macro="context/kss_generic_macros/macros/generic_description_view">
+               Generic KSS Description. Is rendered with class="documentDescription".
+            </div>
+        </metal:description>
+
         <form id="filter">
 		    <tal:keywords tal:repeat="keyword  view/all_keywords" >
     	        <label class="" tal:attributes="class keyword">
@@ -16,24 +27,25 @@
     	        </label>
     	    </tal:keywords>
 		</form>
-  
-       <tal:buyable_controls replace="structure context/@@buyable_controls" />
-
-       <img  tal:condition="context/image|nothing"
-                               tal:define="scales context/@@images;
-                                           scale python:scales.scale('visningsbilde', 'large')"
-                               alt=""  tal:replace="structure python:scale and scale.tag(css_class='ProductImage') or None" />
+        <div id="selected-variant">
+           <tal:buyable_controls replace="structure context/@@buyable_controls" />
+           <img  tal:condition="context/image|nothing"
+                                   tal:define="scales context/@@images;
+                                               scale python:scales.scale('visningsbilde', 'large')"
+                                   alt=""  tal:replace="structure python:scale and scale.tag(css_class='ProductImage') or None" />
  
-       <!-- the tabs -->
-       <ul class="tabs">
-        <li tal:condition="context/body"><a href="#">Beskrivelse</a></li>
-        <li tal:condition="context/teknisk_informasjon"><a href="#">Spesifikasjoner</a></li>
-       </ul> 
-       <!-- tab "panes" -->
-       <div class="panes">
-         <div tal:content="structure context/body/output" tal:condition="context/body" />
-         <div tal:content="structure context/teknisk_informasjon/output"  tal:condition="context/teknisk_informasjon"/>
-       </div>
+           <!-- the tabs -->
+           <ul class="tabs">
+               <li tal:condition="context/body"><a href="#">Beskrivelse</a></li>
+               <li tal:condition="context/teknisk_informasjon"><a href="#">Spesifikasjoner</a></li>
+           </ul> 
+           
+           <!-- tab "panes" -->
+           <div class="panes">
+               <div tal:content="structure context/body/output" tal:condition="context/body" />
+               <div tal:content="structure context/teknisk_informasjon/output"  tal:condition="context/teknisk_informasjon"/>
+           </div>
+       <div>
 
        <div tal:define="foldercontents python:context.aq_inner.aq_parent.getFolderContents()"  >
         <div tal:repeat="item foldercontents" class="variations">
