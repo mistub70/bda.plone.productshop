@@ -49,7 +49,7 @@
        <div tal:define="foldercontents python:context.aq_inner.aq_parent.getFolderContents()"  >
         <div tal:repeat="item foldercontents" >
            <span tal:content="item/Title" 
-             tal:define="class item/color" 
+             tal:define="class item/Subject" 
              tal.attributes="class class"/>
            <span class="cart_item_uid"
                         style="display: none;"
