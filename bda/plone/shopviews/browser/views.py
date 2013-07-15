@@ -68,12 +68,11 @@ class ProductsView(BrowserView):
         dummy = _(u'a dummy string')
         return {'dummy': dummy}
 
-    def find_objects(self, context):
-        import pdb; pdb.set_trace()
-        context= self.context
-        type = context.getType()
-        catalog = getToolByName(self, 'portal_catalog')
+    def find_objects(self):
+        context = self.context
+        content_type = context.portal_type
         is_folderish = ['Folder', 'ATFolder', 'Productgruppe', 'Group', 'Topic', 'Collection']
+        catalog = getToolByName(self, 'portal_catalog')
         if type in is_folderish: 
             folder_path = '/'.join(context.getPhysicalPath())
         else:
