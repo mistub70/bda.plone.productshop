@@ -128,7 +128,7 @@ class ProductsView(BrowserView):
         results = catalog.searchResults(path={'query': folder_path})
         
         import pdb; pdb.set_trace()
-        tags = set()
+        colors = []
         for item in results:
-            tags.update(item.color)
-        return sorted(tags)
+            colors.append(item.color)
+        return sorted(colors)
