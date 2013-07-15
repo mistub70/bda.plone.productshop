@@ -69,6 +69,8 @@ class ProductsView(BrowserView):
         return {'dummy': dummy}
 
     def find_objects(self):
+        #not working at the moment
+        #so the same code is 3 times below
         context = self.context
         content_type = context.portal_type
         is_folderish = ['Folder', 'ATFolder', 'Productgruppe', 'Group', 'Topic', 'Collection']
@@ -104,7 +106,19 @@ class ProductsView(BrowserView):
         
     @property    
     def variations(self):
-        results = self.find_objects
+        #results = self.find_objects
+        context = self.context
+        content_type = context.portal_type
+        is_folderish = ['Folder', 'ATFolder', 'Productgruppe', 'Group', 'Topic', 'Collection']
+        catalog = getToolByName(self, 'portal_catalog')
+        
+        if content_type in is_folderish: 
+            folder_path = '/'.join(context.getPhysicalPath())
+        else:
+            folder_path = '/'.join(context.aq_parent.getPhysicalPath())
+        results = []
+        results = catalog.searchResults(path={'query': folder_path})
+        
         uniques = ""
         tags = set()
         for item in results:
@@ -116,7 +130,19 @@ class ProductsView(BrowserView):
         
     @property    
     def colors(self):
-        results = self.find_objects
+        #results = self.find_objects
+        context = self.context
+        content_type = context.portal_type
+        is_folderish = ['Folder', 'ATFolder', 'Productgruppe', 'Group', 'Topic', 'Collection']
+        catalog = getToolByName(self, 'portal_catalog')
+        
+        if content_type in is_folderish: 
+            folder_path = '/'.join(context.getPhysicalPath())
+        else:
+            folder_path = '/'.join(context.aq_parent.getPhysicalPath())
+        results = []
+        results = catalog.searchResults(path={'query': folder_path})
+        
         uniques = ""
         tags = set()
         for item in results:
