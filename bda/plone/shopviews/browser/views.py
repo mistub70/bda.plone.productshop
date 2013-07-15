@@ -88,7 +88,7 @@ class ProductsView(BrowserView):
         #results = self.find_objects
         context = self.context
         content_type = context.portal_type
-        is_folderish = ['Folder', 'ATFolder', 'productgruppe', 'Group', 'Topic', 'Collection']
+        is_folderish = ['Folder', 'ATFolder', 'produktgruppe', 'Group', 'Topic', 'Collection']
         catalog = getToolByName(self, 'portal_catalog')
         
         if content_type in is_folderish: 
@@ -109,7 +109,7 @@ class ProductsView(BrowserView):
         #results = self.find_objects
         context = self.context
         content_type = context.portal_type
-        is_folderish = ['Folder', 'ATFolder', 'productgruppe', 'Group', 'Topic', 'Collection']
+        is_folderish = ['Folder', 'ATFolder', 'produktgruppe', 'Group', 'Topic', 'Collection']
         catalog = getToolByName(self, 'portal_catalog')
         
         if content_type in is_folderish: 
@@ -133,7 +133,7 @@ class ProductsView(BrowserView):
         #results = self.find_objects
         context = self.context
         content_type = context.portal_type
-        is_folderish = ['Folder', 'ATFolder', 'productgruppe', 'Group', 'Topic', 'Collection']
+        is_folderish = ['Folder', 'ATFolder', 'produktgruppe', 'Group', 'Topic', 'Collection']
         catalog = getToolByName(self, 'portal_catalog')
         import pdb; pdb.set_trace()
         if content_type in is_folderish: 
