@@ -70,17 +70,17 @@ class ProductsView(BrowserView):
 
     def find_objects(self):
         catalog = getToolByName(self, 'portal_catalog')
-        folder_path = '/'.join(self.context.getPhysicalPath())
+        if self.context.Type is in ['Folder', 'ATFolder', 'Productgruppe', 'Group', 'Topic', 'Collection']
+            folder_path = '/'.join(self.context.getPhysicalPath())
+        else
+            folder_path = '/'.join(self.context..aq_parent.getPhysicalPath())
         results = []
         results = catalog.searchResults(path={'query': folder_path})
         return results
                 
     @property    
     def all_keywords(self):
-        catalog = getToolByName(self, 'portal_catalog')
-        folder_path = '/'.join(self.context.getPhysicalPath())
-        results = []
-        results =  catalog.searchResults(path={'query': folder_path})
+        results = find_objects()
         uniques = ""
         tags = set()
         for item in results:
@@ -101,10 +101,7 @@ class ProductsView(BrowserView):
         
     @property    
     def colors(self):
-        catalog = getToolByName(self, 'portal_catalog')
-        folder_path = '/'.join(self.context.getPhysicalPath())
-        results = []
-        results =  catalog.searchResults(path={'query': folder_path})
+        results = find_objects()
         uniques = ""
         tags = set()
         for item in results:
