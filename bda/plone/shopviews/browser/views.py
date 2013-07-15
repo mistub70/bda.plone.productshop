@@ -68,7 +68,7 @@ class ProductsView(BrowserView):
         dummy = _(u'a dummy string')
         return {'dummy': dummy}
 
-    def find_objects(self):
+    def find_objects(self, context):
         import pdb; pdb.set_trace()
         context= self.context
         type = context.getType()
