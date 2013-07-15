@@ -47,7 +47,9 @@
        <div>
 
        <div tal:define="foldercontents python:context.aq_inner.aq_parent.getFolderContents()"  >
-        <div tal:repeat="item foldercontents" class="variations">
+        <div tal:repeat="item foldercontents" 
+             tal:define="class = item/color" 
+             tal.attributes="class class">
            <span tal:content="item/Title" />
            <span class="cart_item_uid"
                         style="display: none;"
