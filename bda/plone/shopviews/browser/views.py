@@ -86,7 +86,7 @@ class ProductsView(BrowserView):
     def all_keywords(self):
         #results = self.find_objects
         import pdb; pdb.set_trace()
-        content_type = self.context.Type
+        content_type = str(self.context.Type)
         catalog = getToolByName(self, 'portal_catalog')
         is_folderish = ['Folder', 'ATFolder', 'Productgruppe', 'Group', 'Topic', 'Collection']
         if content_type in is_folderish: 
