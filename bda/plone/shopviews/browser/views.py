@@ -70,7 +70,8 @@ class ProductsView(BrowserView):
 
     def find_objects(self):
         catalog = getToolByName(self, 'portal_catalog')
-        if self.context.Type in ['Folder', 'ATFolder', 'Productgruppe', 'Group', 'Topic', 'Collection']:
+        is_folderish = ['Folder', 'ATFolder', 'Productgruppe', 'Group', 'Topic', 'Collection']
+        if self.context.Type in is_folderish: 
             folder_path = '/'.join(self.context.getPhysicalPath())
         else:
             folder_path = '/'.join(self.context..aq_parent.getPhysicalPath())
