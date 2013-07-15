@@ -72,7 +72,7 @@ class ProductsView(BrowserView):
         catalog = getToolByName(self, 'portal_catalog')
         if self.context.Type in ['Folder', 'ATFolder', 'Productgruppe', 'Group', 'Topic', 'Collection']
             folder_path = '/'.join(self.context.getPhysicalPath())
-        else
+        else:
             folder_path = '/'.join(self.context..aq_parent.getPhysicalPath())
         results = []
         results = catalog.searchResults(path={'query': folder_path})
