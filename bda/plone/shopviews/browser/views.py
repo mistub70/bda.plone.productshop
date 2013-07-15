@@ -109,19 +109,16 @@ class ProductsView(BrowserView):
         results = []
         results = catalog.searchResults(path={'query': folder_path})
         
-        tags = set()
+        tags = []
         for item in results:
-            try:
-                tags.update(item.variation)
-            except:
-                pass
+            tags.append(item.variation)
         return sorted(tags)
         
     @property    
     def colors(self):
         #results = self.find_objects
         context = self.context
-        parent = context.aq_inner.aq_parent
+        parent = context.aq_parent
         catalog = getToolByName(self, 'portal_catalog')
         folder_path = '/'.join(parent.getPhysicalPath())
         results = []
