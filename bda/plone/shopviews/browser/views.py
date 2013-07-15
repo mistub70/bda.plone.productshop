@@ -84,6 +84,7 @@ class ProductsView(BrowserView):
                 
     @property    
     def all_keywords(self):
+        import pdb; pdb.set_trace()
         results = self.find_objects()
         uniques = ""
         tags = set()
