@@ -7,7 +7,8 @@
       i18n:domain="bda.plone.shop">
 <body>
 
-    <metal:content-core fill-slot="content">
+    <metal:content-core fill-slot="content"
+              tal:define="templateId template/getId;">
  
             <h1 tal:content="context/aq_inner/aq_parent/Title">
                 Generic KSS Title. Is rendered with class="documentFirstHeading".
@@ -34,14 +35,14 @@
  
            <!-- the tabs -->
            <ul class="tabs">
-               <li tal:condition="context/body"><a href="#">Beskrivelse</a></li>
-               <li tal:condition="context/teknisk_informasjon"><a href="#">Spesifikasjoner</a></li>
+               <li tal:condition="context/aq_inner/aq_parent/body"><a href="#">Beskrivelse</a></li>
+               <li tal:condition="context/aq_inner/aq_parent/teknisk_informasjon"><a href="#">Spesifikasjoner</a></li>
            </ul> 
            
            <!-- tab "panes" -->
            <div class="panes">
-               <div tal:content="structure context/body/output" tal:condition="context/body" />
-               <div tal:content="structure context/teknisk_informasjon/output"  tal:condition="context/teknisk_informasjon"/>
+               <div tal:content="structure context/aq_inner/aq_parent/body/output" tal:condition="context/body" />
+               <div tal:content="structure context/aq_inner/aq_parent/teknisk_informasjon/output"  tal:condition="context/teknisk_informasjon"/>
            </div>
        <div>
 
