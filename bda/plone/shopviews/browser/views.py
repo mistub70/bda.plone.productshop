@@ -93,7 +93,7 @@ class ProductsView(BrowserView):
             try:
                 tags.update(item.variation)
             else:
-                pass
+                #pass
         return sorted(tags)
         
     @property    
