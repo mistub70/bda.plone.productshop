@@ -13,8 +13,7 @@
 
     <metal:content-core fill-slot="content-core">
     	<form id="filter">
-
-			<tal:keywords tal:repeat="color view/colors" >
+            <tal:keywords tal:repeat="color view/colors" >
     	        <label class="" tal:attributes="class color">
     	            <input type="radio" name="type" tal:attributes="value color">
     	            <span tal:content="color">color</span> 
@@ -31,8 +30,10 @@
                         tal:define="item_object item/getObject;">
                       	
                     <li class="productbox"
+                         tal:condition="exists:item_object/color"
                     	 tal:define="theclass python:' '.join(item.color)"
-                    	 tal:attributes="class theclass; data-id item/getId">
+                    	 tal:attributes="class theclass; data-id item/getId"
+                    	>
                       <a href="#" tal:define="url item/getURL" tal:attributes="href url">
                          <div class="imagebox" 
                               tal:condition="item_object/image|nothing"

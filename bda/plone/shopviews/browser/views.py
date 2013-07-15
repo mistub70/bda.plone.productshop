@@ -76,11 +76,9 @@ class ProductsView(BrowserView):
         results = []
         results =  catalog.searchResults(path={'query': folder_path})
         uniques = ""
+         tags = set()
         for item in results:
-            uniques += " "
-            uniques += str(item.Subject)
-        tags = uniques.split()
-        tags = set(tags)
+            tags.update(item.Subject)
         return sorted(tags)
         
     @property    
@@ -90,11 +88,12 @@ class ProductsView(BrowserView):
         results = []
         results =  catalog.searchResults(path={'query': folder_path})
         uniques = ""
+        tags = set()
         for item in results:
-            uniques += " "
-            uniques += str(item.variation)
-        tags = uniques.split()
-        tags = set(tags)
+            try:
+                tags.update(item.variation)
+            else:
+                pass
         return sorted(tags)
         
     @property    
@@ -104,9 +103,10 @@ class ProductsView(BrowserView):
         results = []
         results =  catalog.searchResults(path={'query': folder_path})
         uniques = ""
+        tags = set()
         for item in results:
-            uniques += " "
-            uniques += str(item.color)
-        tags = uniques.split()
-        tags = set(tags)
+            try:
+                tags.update(item.colors)
+            else:
+                pass
         return sorted(tags)
