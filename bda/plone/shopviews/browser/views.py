@@ -71,11 +71,8 @@ class ProductsView(BrowserView):
     def find_objects(self):
         #not working at the moment
         #so the same code is 3 times below
-        context = self.context
-        content_type = context.portal_type
-        is_folderish = ['Folder', 'ATFolder', 'Productgruppe', 'Group', 'Topic', 'Collection']
         catalog = getToolByName(self, 'portal_catalog')
-        if type in is_folderish: 
+        if context.is_folderish: 
             folder_path = '/'.join(context.getPhysicalPath())
         else:
             folder_path = '/'.join(context.aq_parent.getPhysicalPath())
@@ -87,11 +84,8 @@ class ProductsView(BrowserView):
     def all_keywords(self):
         #results = self.find_objects
         context = self.context
-        content_type = context.portal_type
-        is_folderish = ['Folder', 'ATFolder', 'produktgruppe', 'Group', 'Topic', 'Collection']
         catalog = getToolByName(self, 'portal_catalog')
-        
-        if content_type in is_folderish: 
+        if context.is_folderish: 
             folder_path = '/'.join(context.getPhysicalPath())
         else:
             folder_path = '/'.join(context.aq_parent.getPhysicalPath())
@@ -108,11 +102,8 @@ class ProductsView(BrowserView):
     def variations(self):
         #results = self.find_objects
         context = self.context
-        content_type = context.portal_type
-        is_folderish = ['Folder', 'ATFolder', 'produktgruppe', 'Group', 'Topic', 'Collection']
         catalog = getToolByName(self, 'portal_catalog')
-        
-        if content_type in is_folderish: 
+        if context.is_folderish: 
             folder_path = '/'.join(context.getPhysicalPath())
         else:
             folder_path = '/'.join(context.aq_parent.getPhysicalPath())
@@ -132,11 +123,8 @@ class ProductsView(BrowserView):
     def colors(self):
         #results = self.find_objects
         context = self.context
-        content_type = context.portal_type
-        is_folderish = ['Folder', 'ATFolder', 'produktgruppe', 'Group', 'Topic', 'Collection']
         catalog = getToolByName(self, 'portal_catalog')
-        import pdb; pdb.set_trace()
-        if content_type in is_folderish: 
+        if context.is_folderish: 
             folder_path = '/'.join(context.getPhysicalPath())
         else:
             folder_path = '/'.join(context.aq_parent.getPhysicalPath())
