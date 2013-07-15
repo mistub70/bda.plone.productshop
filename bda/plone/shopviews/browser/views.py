@@ -122,10 +122,10 @@ class ProductsView(BrowserView):
     @property    
     def colors(self):
         #results = self.find_objects
-        context = self.context
+        #context = self.context
         catalog = getToolByName(self, 'portal_catalog')
         #if IFolderish.isProvidedBy(context.aq_base): 
-        folder_path = '/'.join(context.getPhysicalPath())
+        folder_path = '/'.join(self.context.getPhysicalPath())
         #else:
         #    folder_path = '/'.join(context.aq_parent.getPhysicalPath())
         results = []
