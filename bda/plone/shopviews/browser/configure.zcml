@@ -71,7 +71,7 @@
       for="*"
       name="variations_view"
       class=".views.ProductsView"
-      template="variations.pt"
+      template="variationsview.pt"
       allowed_interface=".views.IProductsView"
       layer="bda.plone.shopviews.interfaces.IShopviews"
       permission="zope.Public"
