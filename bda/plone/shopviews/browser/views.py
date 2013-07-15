@@ -126,6 +126,6 @@ class ProductsView(BrowserView):
         
         colors = []
         for item in results:
-            if len(item.color) >=1:
+            if item.color:
                 colors.append(item.color)
         return sorted(colors)
