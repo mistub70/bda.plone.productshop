@@ -92,7 +92,6 @@ class ProductsView(BrowserView):
         results = []
         results = catalog.searchResults(path={'query': folder_path})
         
-        uniques = ""
         tags = set()
         for item in results:
             tags.update(item.Subject)
@@ -110,7 +109,6 @@ class ProductsView(BrowserView):
         results = []
         results = catalog.searchResults(path={'query': folder_path})
         
-        uniques = ""
         tags = set()
         for item in results:
             try:
@@ -129,7 +127,7 @@ class ProductsView(BrowserView):
         results = []
         results = catalog.searchResults(path={'query': folder_path})
         
-        uniques = ""
+        import pdb; pdb.set_trace()
         tags = set()
         for item in results:
             tags.update(item.color)
