@@ -132,8 +132,5 @@ class ProductsView(BrowserView):
         uniques = ""
         tags = set()
         for item in results:
-            try:
-                tags.update(item.color)
-            except:
-                pass
+            tags.update(item.color)
         return sorted(tags)
