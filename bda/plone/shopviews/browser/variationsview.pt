@@ -13,7 +13,7 @@
                 Generic KSS Title. Is rendered with class="documentFirstHeading".
             </h1>
  
-            <div metal:use-macro="context/kss_generic_macros/macros/generic_description_view">
+            <div tal:content="context/aq_inner/aq_parent/Description">
                Generic KSS Description. Is rendered with class="documentDescription".
             </div>
  
