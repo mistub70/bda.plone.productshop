@@ -92,8 +92,8 @@ class ProductsView(BrowserView):
         for item in results:
             try:
                 tags.update(item.variation)
-            else:
-                #pass
+            except:
+                pass
         return sorted(tags)
         
     @property    
@@ -107,6 +107,6 @@ class ProductsView(BrowserView):
         for item in results:
             try:
                 tags.update(item.colors)
-            else:
+            except:
                 pass
         return sorted(tags)
