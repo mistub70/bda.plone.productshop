@@ -127,5 +127,6 @@ class ProductsView(BrowserView):
         import pdb; pdb.set_trace()
         colors = []
         for item in results:
-            colors.append(item.color)
+            if item.color !="":
+                colors.append(item.color)
         return sorted(colors)
