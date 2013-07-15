@@ -16,9 +16,27 @@
     	        </label>
     	    </tal:keywords>
 		</form>
+  
+       <tal:buyable_controls replace="structure context/@@buyable_controls" />
 
-    <div tal:define="foldercontents python:context.aq_inner.aq_parent.getFolderContents()"  >
-        <div tal:repeat="item foldercontents" >
+       <img  tal:condition="context/image|nothing"
+                               tal:define="scales context/@@images;
+                                           scale python:scales.scale('visningsbilde', 'large')"
+                               alt=""  tal:replace="structure python:scale and scale.tag(css_class='ProductImage') or None" />
+ 
+       <!-- the tabs -->
+       <ul class="tabs">
+        <li tal:condition="context/body"><a href="#">Beskrivelse</a></li>
+        <li tal:condition="context/teknisk_informasjon"><a href="#">Spesifikasjoner</a></li>
+       </ul> 
+       <!-- tab "panes" -->
+       <div class="panes">
+         <div tal:content="structure context/body/output" tal:condition="context/body" />
+         <div tal:content="structure context/teknisk_informasjon/output"  tal:condition="context/teknisk_informasjon"/>
+       </div>
+
+       <div tal:define="foldercontents python:context.aq_inner.aq_parent.getFolderContents()"  >
+        <div tal:repeat="item foldercontents" class="variations">
            <span tal:content="item/Title" />
            <span class="cart_item_uid"
                         style="display: none;"
@@ -30,7 +48,7 @@
                   class="cart_item_count" />
            <a href="" class="add_cart_item buyable_add_to_cart">Kjøp</a>                  
         </div> 
-    </div>
+       </div>
     </metal:content-core>
 
 </body>
