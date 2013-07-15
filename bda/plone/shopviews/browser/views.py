@@ -122,9 +122,11 @@ class ProductsView(BrowserView):
     @property    
     def colors(self):
         #results = self.find_objects
-        #context = self.context
+        context = self.context
+        parent = context.aq_parent
+        import pdb: pdb.set_trace()
         catalog = getToolByName(self, 'portal_catalog')
-        folder_path = '/'.join((self.context.aq_parent).getPhysicalPath())
+        folder_path = '/'.join((parent.getPhysicalPath())
         results = []
         results = catalog.searchResults(path={'query': folder_path})
         
