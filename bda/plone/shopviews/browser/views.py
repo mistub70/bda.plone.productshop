@@ -106,7 +106,7 @@ class ProductsView(BrowserView):
         tags = set()
         for item in results:
             try:
-                tags.update(item.colors)
+                tags.update(item.color)
             except:
                 pass
         return sorted(tags)
