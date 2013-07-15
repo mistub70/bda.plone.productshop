@@ -84,7 +84,18 @@ class ProductsView(BrowserView):
                 
     @property    
     def all_keywords(self):
-        results = self.find_objects
+        #results = self.find_objects
+        import pdb; pdb.set_trace()
+        context= self.context
+        type = context.getType()
+        catalog = getToolByName(self, 'portal_catalog')
+        is_folderish = ['Folder', 'ATFolder', 'Productgruppe', 'Group', 'Topic', 'Collection']
+        if type in is_folderish: 
+            folder_path = '/'.join(context.getPhysicalPath())
+        else:
+            folder_path = '/'.join(context.aq_parent.getPhysicalPath())
+        results = []
+        results = catalog.searchResults(path={'query': folder_path})
         uniques = ""
         tags = set()
         for item in results:
