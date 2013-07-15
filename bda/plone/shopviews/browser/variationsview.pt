@@ -18,7 +18,7 @@
             </div>
  
         <form id="filter">
-		    <tal:keywords tal:repeat="keyword  view/all_keywords" >
+		    <tal:keywords tal:repeat="keyword  view/colors" >
     	        <label class="" tal:attributes="class keyword">
     	            <input type="radio" name="type" tal:attributes="value keyword">
     	            <span tal:content="keyword">keyword</span> 
