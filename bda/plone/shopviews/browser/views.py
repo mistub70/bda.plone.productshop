@@ -83,7 +83,7 @@ class ProductsView(BrowserView):
                 
     @property    
     def all_keywords(self):
-        results = find_objects()
+        results = self.find_objects()
         uniques = ""
         tags = set()
         for item in results:
@@ -92,7 +92,7 @@ class ProductsView(BrowserView):
         
     @property    
     def variations(self):
-        results = find_objects()
+        results = self.find_objects()
         uniques = ""
         tags = set()
         for item in results:
@@ -104,7 +104,7 @@ class ProductsView(BrowserView):
         
     @property    
     def colors(self):
-        results = find_objects()
+        results = self.find_objects()
         uniques = ""
         tags = set()
         for item in results:
