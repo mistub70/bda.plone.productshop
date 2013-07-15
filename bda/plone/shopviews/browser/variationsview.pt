@@ -8,17 +8,15 @@
 <body>
 
     <metal:content-core fill-slot="content">
-         <metal:title define-slot="content-title">
+ 
             <h1 metal:use-macro="context/kss_generic_macros/macros/generic_title_view">
                 Generic KSS Title. Is rendered with class="documentFirstHeading".
             </h1>
-        </metal:title>
-        <metal:description define-slot="content-description">
+ 
             <div metal:use-macro="context/kss_generic_macros/macros/generic_description_view">
                Generic KSS Description. Is rendered with class="documentDescription".
             </div>
-        </metal:description>
-
+ 
         <form id="filter">
 		    <tal:keywords tal:repeat="keyword  view/all_keywords" >
     	        <label class="" tal:attributes="class keyword">
