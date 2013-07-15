@@ -47,7 +47,7 @@
        <div>
 
        <div tal:define="foldercontents python:context.aq_inner.aq_parent.getFolderContents()"  >
-              <div tal:content="foldercontents" / >
+              <div tal:content="foldercontents" />
         <div tal:repeat="item foldercontents" >
            <span tal:content="item/Title" 
              tal:define="class item/Subject" 
