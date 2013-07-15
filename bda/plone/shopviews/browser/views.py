@@ -126,7 +126,7 @@ class ProductsView(BrowserView):
         parent = context.aq_parent
         import pdb; pdb.set_trace()
         catalog = getToolByName(self, 'portal_catalog')
-        folder_path = '/'.join((parent.getPhysicalPath())
+        folder_path = '/'.join(parent.getPhysicalPath())
         results = []
         results = catalog.searchResults(path={'query': folder_path})
         
