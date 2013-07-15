@@ -6,6 +6,13 @@ from bda.plone.shopviews import shopviewsMessageFactory  as _
 
 from Products.CMFCore.utils import getToolByName
 
+
+
+class IColorsView(Interface):
+    """
+    Redirect  view interface
+    """
+    
 class IProductsView(Interface):
     """
     Products  view interface
@@ -17,16 +24,14 @@ class IProductsView(Interface):
     def test():
         """ test method"""
         
-
     def all_keywords():
         """ get all keywords in folder so we can sort on them """
 
+    def colors():
+        """ get (all) color (field) in your content type for folder """
 
-class IColorsView(Interface):
-    """
-    Products  view interface
-    """
-    
+    def variations():
+        """ get (all) variation (field) in your content type for folder """
 
 class ColorsView(BrowserView):
     """
@@ -39,7 +44,6 @@ class ColorsView(BrowserView):
     
     
     def __call__(self):
-        import pdb; pdb.set_trace()
         request = self.request
         color = self.context.color
         redirect_url = self.context.aq_parent.absolute_url() + '/productlist_view?color=' + color
@@ -75,6 +79,34 @@ class ProductsView(BrowserView):
         for item in results:
             uniques += " "
             uniques += str(item.Subject)
+        tags = uniques.split()
+        tags = set(tags)
+        return sorted(tags)
+        
+    @property    
+    def variations(self):
+        catalog = getToolByName(self, 'portal_catalog')
+        folder_path = '/'.join(self.context.getPhysicalPath())
+        results = []
+        results =  catalog.searchResults(path={'query': folder_path})
+        uniques = ""
+        for item in results:
+            uniques += " "
+            uniques += str(item.variation)
+        tags = uniques.split()
+        tags = set(tags)
+        return sorted(tags)
+        
+    @property    
+    def colors(self):
+        catalog = getToolByName(self, 'portal_catalog')
+        folder_path = '/'.join(self.context.getPhysicalPath())
+        results = []
+        results =  catalog.searchResults(path={'query': folder_path})
+        uniques = ""
+        for item in results:
+            uniques += " "
+            uniques += str(item.color)
         tags = uniques.split()
         tags = set(tags)
         return sorted(tags)

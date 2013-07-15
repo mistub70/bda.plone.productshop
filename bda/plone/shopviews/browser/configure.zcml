@@ -59,6 +59,16 @@
 
   <browser:page
       for="*"
+      name="colorboxes_view"
+      class=".views.ProductsView"
+      template="colorboxesview.pt"
+      allowed_interface=".views.IProductsView"
+      layer="bda.plone.shopviews.interfaces.IShopviews"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
       name="colors_view"
       class=".views.ColorsView"
       allowed_interface=".views.IColorsView"
