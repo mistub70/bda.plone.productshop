@@ -31,7 +31,7 @@
                         tal:define="item_object item/getObject;">
                       	
                     <li class="productbox"
-                    	 tal:define="theclass python:' '.join(item.Subject)"
+                    	 tal:define="theclass python:' '.join(item.color)"
                     	 tal:attributes="class theclass; data-id item/getId">
                       <a href="#" tal:define="url item/getURL" tal:attributes="href url">
                          <div class="imagebox" 
