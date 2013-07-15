@@ -68,7 +68,12 @@ class ProductsView(BrowserView):
         dummy = _(u'a dummy string')
         return {'dummy': dummy}
 
-    
+    def find_objects(self):
+        catalog = getToolByName(self, 'portal_catalog')
+        folder_path = '/'.join(self.context.getPhysicalPath())
+        results = []
+        return =  catalog.searchResults(path={'query': folder_path})
+                
     @property    
     def all_keywords(self):
         catalog = getToolByName(self, 'portal_catalog')
@@ -83,10 +88,7 @@ class ProductsView(BrowserView):
         
     @property    
     def variations(self):
-        catalog = getToolByName(self, 'portal_catalog')
-        folder_path = '/'.join(self.context.getPhysicalPath())
-        results = []
-        results =  catalog.searchResults(path={'query': folder_path})
+        results = find_objects()
         uniques = ""
         tags = set()
         for item in results:
