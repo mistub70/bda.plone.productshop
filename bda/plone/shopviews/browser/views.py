@@ -69,7 +69,7 @@ class ProductsView(BrowserView):
         return {'dummy': dummy}
 
     def find_objects(self):
-            import pdb; pdb.set_trace()
+        import pdb; pdb.set_trace()
         context= self.context
         type = context.getType()
         catalog = getToolByName(self, 'portal_catalog')
