@@ -7,15 +7,26 @@ Views for bda.plone.shop
 Views
 ============
 
-- @@productlist_view
-- @@products_view
-- @@productlisting_view
-- @@quicksand_view
+-   @@products_view
+-   @@productlist_view
+-   @@productlisting_view
+-   @@quicksand_view
+-   @@productboxes_view
+-   @@colorboxes_view
+-   @@product_view
+
 
 The views are intended as a starting point for your own views.
 
 
-TO Do
+Notice
+============
+
+- mthe quicksandview is not playing well with the add to cart when 
+new content is added to the DOM.
+
+
+TO DO
 ============
 
 - make the quicksand view sortable on price etc.
