@@ -14,9 +14,37 @@ Views
 -   @@productboxes_view
 -   @@colorboxes_view
 -   @@product_view
+-   @@variation_view
 
 
-The views are intended as a starting point for your own views.
+The views are intended as a starting point for your own views, 
+but they can also be customized TTW or used as they are.
+
+
+Checking out
+============
+
+I recomment that you install bda.shoptypes to test the views
+
+
+Productview
+============
+
+- The producview is intended as a view for a "Shop item" 
+(add "Product" from bda.shoptypes to see it in action)
+
+
+Variation view
+==============
+
+- The variations view is for variations within a "Productgroup" folder
+(add "Productgroup" and "Variation" from bda.shoptypes to see it in action)
+
+
+The other views
+================
+
+- The other views are intended as folder views.
 
 
 Notice
@@ -39,3 +67,8 @@ Installation
 Depend your instance to ``bda.plone.shopviews`` and install it as addon
 in plone control panel.
 
+
+Author
+============
+
+Espen Moe-Nilssen [espenmn]
