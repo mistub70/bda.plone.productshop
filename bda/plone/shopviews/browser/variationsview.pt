@@ -7,7 +7,7 @@
       i18n:domain="bda.plone.shop">
 <body>
     
-    	<metal:js fill-slot="javascript_head_slot">
+    <metal:js fill-slot="javascript_head_slot">
     	<script type="text/javascript" src="++resource++shop_variations.js"></script>
    	</metal:js>    
     
@@ -17,7 +17,7 @@
 
     <metal:content-core fill-slot="content-core" tal:define="templateId template/getId;">
         <h1 tal:content="context/aq_inner/aq_parent/Title">
-         Title
+           Title
         </h1>
         <div tal:content="context/aq_inner/aq_parent/Description">
            Descriptions
@@ -58,16 +58,19 @@
  
             <!-- the tabs -->
            <ul class="tabs">
-               <li tal:condition="context/aq_inner/aq_parent/body"><a href="#">Beskrivelse</a></li>
-               <li tal:condition="context/aq_inner/aq_parent/teknisk_informasjon"><a href="#">Spesifikasjoner</a></li>
+               <li tal:condition="context/aq_inner/aq_parent/body"><a href="#">Description</a></li>
+               <li tal:condition="context/aq_inner/aq_parent/teknisk_informasjon"><a href="#">Spesifications</a></li>
            </ul> 
            
            <!-- tab "panes" -->
            <div class="panes">
-               <div tal:content="structure context/aq_inner/aq_parent/body/output" tal:condition="context/body" />
-               <div tal:content="structure context/aq_inner/aq_parent/teknisk_informasjon/output"  tal:condition="context/teknisk_informasjon"/>
+               <div tal:content="structure context/aq_inner/aq_parent/body/output" 
+                    tal:condition="context/body" />
+               <div tal:content="structure context/aq_inner/aq_parent/teknisk_informasjon/output"  
+                    tal:condition="context/teknisk_informasjon" />
            </div>
-       <div>
+         <div>
+      <div class="visualClear" ><!-- --></div>
     </metal:content-core>
 </body>
 </html>
