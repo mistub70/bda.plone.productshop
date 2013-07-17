@@ -86,6 +86,17 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="*"
+      name="product_view"
+    template="productview.pt"
+      class=".views.ProductsView"
+      allowed_interface=".views.IProductsView"
+      layer="bda.plone.shopviews.interfaces.IShopviews"
+      permission="zope.Public"
+      />
+
+
   <browser:resource
     name="bda.plone.shopview.css"
     file="shopview.css" />
@@ -102,4 +113,16 @@
     name="quicksand.js"
     file="quicksand.js" /> 
 
+    <browser:resource
+    name="shopviews.js"
+    file="shopviews.js" />
+
+    <browser:resource
+    name="product.png"
+    file="product.png" />
+        
+    <browser:resource
+    name="products.png"
+    file="products.png" />
+    
 </configure>

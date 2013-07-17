@@ -6,7 +6,7 @@ from setuptools import (
 
 
 version = '0.2'
-shortdesc = "Views for bda.plone.shop"
+shortdesc = " bda.plone.shop: Demo Views"
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'CHANGES.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'LICENSE.rst')).read()

@@ -6,19 +6,24 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="bda.plone.shop">
 <body>
+    
+    	<metal:js fill-slot="javascript_head_slot">
+    	<script type="text/javascript" src="++resource++shop_variations.js"></script>
+   	</metal:js>    
+    
+    <!-- We are hiding the content titel because we use the parent title instead" -->
+    <metal:title fill-slot="content-title">
+    </metal:title>
 
-    <metal:content-core fill-slot="content"
-              tal:define="templateId template/getId;">
- 
-            <h1 tal:content="context/aq_inner/aq_parent/Title">
-                Generic KSS Title. Is rendered with class="documentFirstHeading".
-            </h1>
- 
-            <div tal:content="context/aq_inner/aq_parent/Description">
-               Generic KSS Description. Is rendered with class="documentDescription".
-            </div>
- 
-        <form id="filter">
+    <metal:content-core fill-slot="content-core" tal:define="templateId template/getId;">
+        <h1 tal:content="context/aq_inner/aq_parent/Title">
+         Title
+        </h1>
+        <div tal:content="context/aq_inner/aq_parent/Description">
+           Descriptions
+        </div>
+
+        <form id="filter"><label>[farger]   </label>
 		    <tal:keywords tal:repeat="keyword  view/colors" >
     	        <label class="" tal:attributes="class keyword">
     	            <input type="radio" name="type" tal:attributes="value keyword">
@@ -26,14 +31,32 @@
     	        </label>
     	    </tal:keywords>
 		</form>
+
+        <tal:foldercontents tal:define="foldercontents context/aq_parent/@@folderListing"  >
+            <div tal:repeat="item foldercontents" class="variations">
+              <div tal:define="color item/color; selected_color context/color; selected python:str(color==selected_color) + ' ' + color" tal:attributes="class selected">
+                <span class="cart_item_uid"
+                      style="display: none;"
+                      tal:content="item/UID">12345678</span>
+                <p class="itemprice" tal:define="item_object item/getObject">Price <span tal:define="sum python:float(item_object.item_net) * (100+int(item_object.item_vat))/100" tal:content="sum" /></p> 
+                    <input type="text"
+                           size="2"
+                           value="1"
+                           class="cart_item_count" />
+                <a href="" class="add_cart_item buyable_add_to_cart">Kjøp</a>  
+                <img tal:define="item_object item/getObject; scales item_object/@@images;
+                                 scale python:scales.scale('visningsbilde', 'large')"
+                                 alt=""  
+                                 tal:replace="structure python:scale and scale.tag(css_class='ProductImage') or None" />
+              </div>
+            </div>
+        </tal:foldercontents>
+        <div class="visualClear" ><!-- --></div>
+
         <div id="selected-variant">
-           <tal:buyable_controls replace="structure context/@@buyable_controls" />
-           <img  tal:condition="context/image|nothing"
-                                   tal:define="scales context/@@images;
-                                               scale python:scales.scale('visningsbilde', 'large')"
-                                   alt=""  tal:replace="structure python:scale and scale.tag(css_class='ProductImage') or None" />
+            <input id="fronted" tal:attributes="value context/color"/>
  
-           <!-- the tabs -->
+            <!-- the tabs -->
            <ul class="tabs">
                <li tal:condition="context/aq_inner/aq_parent/body"><a href="#">Beskrivelse</a></li>
                <li tal:condition="context/aq_inner/aq_parent/teknisk_informasjon"><a href="#">Spesifikasjoner</a></li>
@@ -45,26 +68,6 @@
                <div tal:content="structure context/aq_inner/aq_parent/teknisk_informasjon/output"  tal:condition="context/teknisk_informasjon"/>
            </div>
        <div>
-
-       <div tal:define="foldercontents python:context.aq_inner.aq_parent.getFolderContents()"  >
-        <div tal:repeat="item foldercontents" >
-           <span tal:content="item/Title" 
-             tal:define="class item/Subject" 
-             tal:attributes="class class"/>
-           <span class="cart_item_uid"
-                        style="display: none;"
-                        tal:content="item/UID">12345678</span>
-                        
-                        <div tal:content="item/color" />
-                        
-           <input type="text"
-                  size="2"
-                  value="1"
-                  class="cart_item_count" />
-           <a href="" class="add_cart_item buyable_add_to_cart">Kjøp</a>                  
-        </div> 
-       </div>
     </metal:content-core>
-
 </body>
 </html>

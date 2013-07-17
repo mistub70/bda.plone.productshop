@@ -28,4 +28,13 @@
         inline="False"
     />
     
+    <javascript 
+        cacheable="True" 
+        compression="none" 
+        cookable="True"
+        enabled="True" 
+        id="++resource++shopviews.js"
+        inline="False"
+    />
+    
 </object>
