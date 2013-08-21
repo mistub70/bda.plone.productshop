@@ -60,6 +60,7 @@
            <ul class="tabs">
                <li tal:condition="context/aq_inner/aq_parent/body"><a href="#">Description</a></li>
                <li tal:condition="context/aq_inner/aq_parent/teknisk_informasjon"><a href="#">Spesifications</a></li>
+               <li tal:condition="context/relatedItems"><a href="#">Related</a></li>
            </ul> 
            
            <!-- tab "panes" -->
@@ -68,6 +69,16 @@
                     tal:condition="context/body" />
                <div tal:content="structure context/aq_inner/aq_parent/teknisk_informasjon/output"  
                     tal:condition="context/teknisk_informasjon" />
+               <div tal:condition="context/relatedItems"> 
+                  <ul tal:repeat="item context/relatedItems">
+                    <li tal:define="item_object python:item.to_object;">  
+                        <a href="" tal:attributes="href item_object/absolute_url">
+                            <span tal:content="item_object/Title" />
+                        </a>
+                        <span tal:content="item_object/Description" />
+                    </li>  
+                 </ul>
+               </div>
            </div>
          <div>
       <div class="visualClear" ><!-- --></div>
