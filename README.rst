@@ -25,13 +25,10 @@ Checking it out
 To test out the views you might want to install
 bda.shoptypes, which contains 3 content types for bda.plone.shop:
 
-1) Product ((bda.shoptypes.product) which contains two images and two rich text fields.
-  The rich text fields will have their own tabs at the bottom
+1) Product ((bda.shoptypes.product) which contains two images and two rich text fields. The rich text fields will have their own tabs at the bottom
 2) Productgroup (bda.shoptypes.productgroup)
-3) Variation (bda.shoptypes.variation) that can be added inside a Productgroup folder.
-  You should set the view of Productgroup to one of the Variation (in other words: the 
-  view of "Productgroup folder" should be one content item (the default Variation)
-  
+3) Variation (bda.shoptypes.variation) that can be added inside a Productgroup folder. You should set the view of Productgroup to one of the Variation (in other words: the view of "Productgroup folder" should be one content item (the default Variation)
+
 NB: None of the views are enabled by default, but you can test them by adding /@@viewname to the url, like:
 
 - http://mysite.com/product/@@product_view
