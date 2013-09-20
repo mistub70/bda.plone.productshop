@@ -89,7 +89,7 @@
   <browser:page
       for="*"
       name="product_view"
-    template="productview.pt"
+      template="productview.pt"
       class=".views.ProductsView"
       allowed_interface=".views.IProductsView"
       layer="bda.plone.shopviews.interfaces.IShopviews"

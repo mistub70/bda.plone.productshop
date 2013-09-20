@@ -129,3 +129,19 @@ class ProductsView(BrowserView):
             if item.color:
                 colors.append(item.color)
         return sorted(colors)
+
+    @property    
+    def get_groups(self):
+        current = api.user.get_current()
+        groups_tool = getToolByName(self, 'portal_groups')
+        return groups_tool.getGroupsByUserId(current)
+    
+    @property    
+    def get_user(self):
+        return  api.user.get_current()
+        
+        
+    #@property    
+    #def get_group(self):       
+    #    return plone.api.user.get_users(groupname='forhandler')
+        
