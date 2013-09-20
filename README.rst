@@ -3,6 +3,8 @@
 bda.plone.shopviews
 =========================
 
+Views for bda.plone.shop
+
 Views
 ============
 
