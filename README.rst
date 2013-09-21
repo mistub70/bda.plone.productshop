@@ -16,7 +16,6 @@ Views
 -   @@colorboxes_view
 -   @@product_view
 -   @@variations_view
--   @@colors_view
 
 
 Checking it out
@@ -29,7 +28,7 @@ bda.shoptypes, which contains 3 content types for bda.plone.shop:
 2) Productgroup (bda.shoptypes.productgroup)
 3) Variation (bda.shoptypes.variation) that can be added inside a Productgroup folder. You should set the view of Productgroup to one of the Variation (in other words: the view of "Productgroup folder" should be one content item (the default Variation)
 
-NB: None of the views are enabled by default, but you can test them by adding /@@viewname to the url, like:
+NB: None of the FOLDER views are enabled by default, but you can test them by adding /@@viewname to the url, like:
 
 - http://mysite.com/product/@@product_view
 - http://mysite.com/folder/productlist_view
@@ -87,8 +86,10 @@ The "javascript" views
 ===========================
 -  @@quicksand_view
 -  @@productboxes_view
+-  @@colorboxes_view
 
-These two views are just used for folders that contain "Products", and they will sort on Keywords/Tags.
+The two first views are just used for folders that contain "Products", and they will sort on Keywords/Tags.
+Colorboxes will sort on "Colors"
 
 
 TO DO
