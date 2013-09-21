@@ -47,12 +47,14 @@ Let's say you have a productgroup "T-shirt", and the following Variations: "Gree
 First, you add "Productgroup" (a folderish content type) "Cool T-shirt" and inside that you add Variations "Blue", "Yellow" and "Green". 
 
 Then you set the "Green" as default view for "Cool T-Shirt" and set to view on "Blue", "Yellow" and "Green" to "variations_view" (you probably want to do this in ZMI at /portal_types.
+You SHOULD hide the "Buy viewlet" by CSS or by /@@manage-viewlets
 
 The result will be something like this:
 http://www.bmh.no/nettbutikk/platespillere/rega-rp1
 
 Currently, the cart is only working with UIDs that are present before the javascript loads. 
-Because of that, all the Variations is loaded, which might be a bit slot.
+Because of that, all the Variations is loaded, which might be a bit slow.
+
 (Suggestions on how to overcome this problem is welcome).
 
 **The views are intended as a starting point for your own views, 
