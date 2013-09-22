@@ -1,10 +1,8 @@
-""" Define interfaces for your add-on.
-"""
+from zope.interface import Interface
 
-import zope.interface
 
-class IShopviews(zope.interface.Interface):
-    """ A layer specific for this add-on product.
+class IShopviews(Interface):
+    """A layer specific for this add-on product.
 
     This interface is referred in browserlayer.xml.
 

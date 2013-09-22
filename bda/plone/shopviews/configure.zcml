@@ -3,12 +3,9 @@
            xmlns:i18n="http://namespaces.zope.org/i18n"
             i18n_domain="bda.plone.shopviews">
 
-   <five:registerPackage package="." initialize=".initialize" />
-   <include package=".browser" />
-   
-    <include file="profiles.zcml" />
-    
-    
-    
-</configure>
+  <five:registerPackage package="." initialize=".initialize" />
 
+  <include package=".browser" />
+  <include file="profiles.zcml" />
+
+</configure>

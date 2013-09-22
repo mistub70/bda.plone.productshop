@@ -1,5 +1,7 @@
+<?xml version="1.0"?>
 <metadata>
-  <description>Adds views to bda.plone.shop</description>
   <version>1.0</version>
+  <dependencies>
+    <dependency>profile-bda.plone.shop:default</dependency>
+  </dependencies>
 </metadata>
-

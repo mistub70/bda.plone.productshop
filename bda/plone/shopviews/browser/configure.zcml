@@ -1,128 +1,122 @@
-<configure
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:browser="http://namespaces.zope.org/browser"
-    i18n_domain="bda.plone.shopviews">
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           i18n_domain="bda.plone.shopviews">
 
   <include package="plone.app.contentmenu" />
 
-  <!-- -*- extra stuff goes here -*- -->
-
   <browser:page
-      for="*"
-      name="productlist_view"
-      class=".views.ProductsView"
-      template="productslistview.pt"
-      allowed_interface=".views.IProductsView"
-      layer="bda.plone.shopviews.interfaces.IShopviews"
-      permission="zope.Public"
-      />
+    for="*"
+    name="productlist_view"
+    class=".views.ProductsView"
+    template="productslistview.pt"
+    allowed_interface=".views.IProductsView"
+    layer="..interfaces.IShopviews"
+    permission="zope2.View" />
       
   <browser:page
-      for="*"
-      name="products_view"
-      class=".views.ProductsView"
-      template="productsview.pt"
-      allowed_interface=".views.IProductsView"
-      layer="bda.plone.shopviews.interfaces.IShopviews"
-      permission="zope.Public"
-      />
+    for="*"
+    name="products_view"
+    class=".views.ProductsView"
+    template="productsview.pt"
+    allowed_interface=".views.IProductsView"
+    layer="..interfaces.IShopviews"
+    permission="zope2.View" />
 
   <browser:page
-      for="*"
-      name="productlisting_view"
-      class=".views.ProductsView"
-      template="productlistingview.pt"
-      allowed_interface=".views.IProductsView"
-      layer="bda.plone.shopviews.interfaces.IShopviews"
-      permission="zope.Public"
-      />
+    for="*"
+    name="productlisting_view"
+    class=".views.ProductsView"
+    template="productlistingview.pt"
+    allowed_interface=".views.IProductsView"
+    layer="..interfaces.IShopviews"
+    permission="zope2.View" />
 
   <browser:page
-      for="*"
-      name="quicksand_view"
-      class=".views.ProductsView"
-      template="quicksandview.pt"
-      allowed_interface=".views.IProductsView"
-      layer="bda.plone.shopviews.interfaces.IShopviews"
-      permission="zope.Public"
-      />
+    for="*"
+    name="quicksand_view"
+    class=".views.ProductsView"
+    template="quicksandview.pt"
+    allowed_interface=".views.IProductsView"
+    layer="..interfaces.IShopviews"
+    permission="zope2.View" />
 
   <browser:page
-      for="*"
-      name="productboxes_view"
-      class=".views.ProductsView"
-      template="productboxesview.pt"
-      allowed_interface=".views.IProductsView"
-      layer="bda.plone.shopviews.interfaces.IShopviews"
-      permission="zope.Public"
-      />
+    for="*"
+    name="productboxes_view"
+    class=".views.ProductsView"
+    template="productboxesview.pt"
+    allowed_interface=".views.IProductsView"
+    layer="..interfaces.IShopviews"
+    permission="zope2.View" />
 
   <browser:page
-      for="*"
-      name="colorboxes_view"
-      class=".views.ProductsView"
-      template="colorboxesview.pt"
-      allowed_interface=".views.IProductsView"
-      layer="bda.plone.shopviews.interfaces.IShopviews"
-      permission="zope.Public"
-      />
+    for="*"
+    name="colorboxes_view"
+    class=".views.ProductsView"
+    template="colorboxesview.pt"
+    allowed_interface=".views.IProductsView"
+    layer="..interfaces.IShopviews"
+    permission="zope2.View" />
 
   <browser:page
-      for="*"
-      name="variations_view"
-      class=".views.ProductsView"
-      template="variationsview.pt"
-      allowed_interface=".views.IProductsView"
-      layer="bda.plone.shopviews.interfaces.IShopviews"
-      permission="zope.Public"
-      />
+    for="*"
+    name="variations_view"
+    class=".views.ProductsView"
+    template="variationsview.pt"
+    allowed_interface=".views.IProductsView"
+    layer="..interfaces.IShopviews"
+    permission="zope2.View" />
 
   <browser:page
-      for="*"
-      name="colors_view"
-      class=".views.ColorsView"
-      allowed_interface=".views.IColorsView"
-      layer="bda.plone.shopviews.interfaces.IShopviews"
-      permission="zope.Public"
-      />
+    for="*"
+    name="colors_view"
+    class=".views.ColorsView"
+    allowed_interface=".views.IColorsView"
+    layer="..interfaces.IShopviews"
+    permission="zope2.View" />
 
   <browser:page
-      for="*"
-      name="product_view"
-      template="productview.pt"
-      class=".views.ProductsView"
-      allowed_interface=".views.IProductsView"
-      layer="bda.plone.shopviews.interfaces.IShopviews"
-      permission="zope.Public"
-      />
-
+    for="*"
+    name="product_view"
+    template="productview.pt"
+    class=".views.ProductsView"
+    allowed_interface=".views.IProductsView"
+    layer="..interfaces.IShopviews"
+    permission="zope2.View" />
 
   <browser:resource
     name="bda.plone.shopview.css"
-    file="shopview.css" />
- 
-   <browser:resource
+    file="shopview.css"
+    layer="..interfaces.IShopviews" />
+
+  <browser:resource
     name="jquery.quicksand.js"
-    file="jquery.quicksand.js" />
-    
-    <browser:resource
+    file="jquery.quicksand.js"
+    layer="..interfaces.IShopviews" />
+
+  <browser:resource
     name="jquery.easing.1.3.js"
-    file="jquery.easing.1.3.js" /> 
-    
-    <browser:resource
+    file="jquery.easing.1.3.js"
+    layer="..interfaces.IShopviews" /> 
+
+  <browser:resource
     name="quicksand.js"
-    file="quicksand.js" /> 
+    file="quicksand.js"
+    layer="..interfaces.IShopviews" /> 
 
-    <browser:resource
+  <browser:resource
     name="shopviews.js"
-    file="shopviews.js" />
+    file="shopviews.js"
+    layer="..interfaces.IShopviews" />
 
-    <browser:resource
+  <browser:resource
     name="product.png"
-    file="product.png" />
-        
-    <browser:resource
+    file="product.png"
+    layer="..interfaces.IShopviews" />
+
+  <browser:resource
     name="products.png"
-    file="products.png" />
-    
+    file="products.png"
+    layer="..interfaces.IShopviews" />
+
 </configure>
