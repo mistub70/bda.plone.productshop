@@ -1,44 +1,12 @@
-from zope.interface import (
-    implementer,
-    Interface,
-    Attribute,
-)
+from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.interfaces import IFolderish
-from bda.plone.shopviews import shopviewsMessageFactory  as _
 
 
-class IColorsView(Interface):
-    """Redirect view interface.
-    """
-
-class IProductsView(Interface):
-    """Products view interface.
-    """
-
-    #def currency(self):
-    #    """Get the currency
-    #    """
-
-    def test():
-        """test method.
-        """
-
-    def all_keywords():
-        """get all keywords in folder so we can sort on them.
-        """
-
-    def colors():
-        """get (all) color (field) in your content type for folder.
-        """
-
-    def variations():
-        """get (all) variation (field) in your content type for folder.
-        """
+_ = MessageFactory('bda.plone.shopviews')
 
 
-@implementer(IColorsView)
 class ColorsView(BrowserView):
     """Browser view that does the following.
     - redirects to parent folder of product.
@@ -55,7 +23,6 @@ class ColorsView(BrowserView):
         return redirect_url
 
 
-@implementer(IProductsView)
 class ProductsView(BrowserView):
     """Products browser view.
     """
