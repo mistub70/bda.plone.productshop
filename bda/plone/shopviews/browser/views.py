@@ -9,7 +9,7 @@ _ = MessageFactory('bda.plone.shopviews')
 class Product(BrowserView):
     """Product view.
     """
-    image_scale = 'preview'
+    image_scale = 'mini'
 
     @property
     def image(self):

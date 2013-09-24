@@ -11,7 +11,7 @@
        tal:replace="structure image" />
 
   <ul class="shopview_tabs">
-    <li tal:condition="context/details">
+    <li tal:condition="context/details" class="first">
       <a href="#">Description</a>
     </li>
     <li tal:condition="context/datasheet">
