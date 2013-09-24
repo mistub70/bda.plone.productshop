@@ -4,7 +4,7 @@
            xmlns:i18n="http://namespaces.zope.org/i18n"
             i18n_domain="bda.plone.shopviews">
 
-  <include package="plone.app.contenttypes" />
+  <include package="plone.app.relationfield" />
   <include package="bda.plone.shop" />
 
   <five:registerPackage package="." initialize=".initialize" />
