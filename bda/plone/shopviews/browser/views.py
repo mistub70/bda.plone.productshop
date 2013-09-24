@@ -1,10 +1,25 @@
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.interfaces import IFolderish
 
 
 _ = MessageFactory('bda.plone.shopviews')
+
+
+class Product(BrowserView):
+    """Product view.
+    """
+    image_scale = 'preview'
+
+    @property
+    def image(self):
+        if not self.context.image:
+            return None
+        scales = self.context.restrictedTraverse('@@images')
+        scale = scales.scale('image', self.image_scale)
+        if not scale:
+            return None
+        return scale.tag(css_class='product_image')
 
 
 class ColorsView(BrowserView):

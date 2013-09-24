@@ -1,0 +1,42 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xml:lang="en"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="bda.plone.shopviews"
+     tal:omit-tag="">
+
+  <img src="" alt="" class="product_image"
+       tal:define="image view/image"
+       tal:condition="image|nothing"
+       tal:replace="structure image" />
+
+  <ul class="shopview_tabs">
+    <li tal:condition="context/details">
+      <a href="#">Description</a>
+    </li>
+    <li tal:condition="context/datasheet">
+      <a href="#">Specifications</a>
+    </li>
+    <li tal:condition="exists: context/relatedItems">
+      <a href="#">Related</a>
+    </li>
+  </ul>
+
+  <div class="shopview_panes">
+    <div tal:content="structure context/details/output"
+         tal:condition="context/details" />
+    <div tal:content="structure context/datasheet/output"
+         tal:condition="context/datasheet"/>
+    <div tal:condition="exists: context/relatedItems">
+      <ul tal:repeat="item context/relatedItems">
+        <li tal:define="item_object python:item.to_object;">
+          <a href="" tal:attributes="href item_object/absolute_url">
+            <span tal:content="item_object/Title" />
+          </a>
+          <span tal:content="item_object/Description" />
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

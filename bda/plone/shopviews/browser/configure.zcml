@@ -40,14 +40,21 @@
     file="resources/products.png"
     layer="..interfaces.IShopViews" />
 
-  <!-- viewlets -->
-
   <!-- views -->
+  <browser:page
+    for="bda.plone.shopviews.interfaces.IProduct"
+    name="bda.plone.shopviews.product"
+    permission="zope2.View"
+    class=".views.Product"
+    template="templates/product.pt"
+    layer="..interfaces.IShopViews" />
+
+  <!-- content views -->
   <browser:page
     for="*"
     name="productlist_view"
     class=".views.ProductsView"
-    template="templates/productslistview.pt"
+    template="templates/productslist_view.pt"
     layer="..interfaces.IShopViews"
     permission="zope2.View" />
 
@@ -55,7 +62,7 @@
     for="*"
     name="products_view"
     class=".views.ProductsView"
-    template="templates/productsview.pt"
+    template="templates/products_view.pt"
     layer="..interfaces.IShopViews"
     permission="zope2.View" />
 
@@ -63,7 +70,7 @@
     for="*"
     name="productlisting_view"
     class=".views.ProductsView"
-    template="templates/productlistingview.pt"
+    template="templates/productlisting_view.pt"
     layer="..interfaces.IShopViews"
     permission="zope2.View" />
 
@@ -71,7 +78,7 @@
     for="*"
     name="quicksand_view"
     class=".views.ProductsView"
-    template="templates/quicksandview.pt"
+    template="templates/quicksand_view.pt"
     layer="..interfaces.IShopViews"
     permission="zope2.View" />
 
@@ -79,7 +86,7 @@
     for="*"
     name="productboxes_view"
     class=".views.ProductsView"
-    template="templates/productboxesview.pt"
+    template="templates/productboxes_view.pt"
     layer="..interfaces.IShopViews"
     permission="zope2.View" />
 
@@ -87,7 +94,7 @@
     for="*"
     name="colorboxes_view"
     class=".views.ProductsView"
-    template="templates/colorboxesview.pt"
+    template="templates/colorboxes_view.pt"
     layer="..interfaces.IShopViews"
     permission="zope2.View" />
 
@@ -95,7 +102,7 @@
     for="*"
     name="variations_view"
     class=".views.ProductsView"
-    template="templates/variationsview.pt"
+    template="templates/variations_view.pt"
     layer="..interfaces.IShopViews"
     permission="zope2.View" />
 
@@ -109,7 +116,7 @@
   <browser:page
     for="*"
     name="product_view"
-    template="templates/productview.pt"
+    template="templates/product_view.pt"
     layer="..interfaces.IShopViews"
     permission="zope2.View" />
 

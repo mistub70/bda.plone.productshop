@@ -70,15 +70,13 @@
     <div id="selected-variant">
       <input id="fronted" tal:attributes="value context/color" />
  
-      <!-- the tabs -->
-      <ul class="tabs">
+      <ul class="shopview_tabs">
         <li tal:condition="context/aq_inner/aq_parent/body"><a href="#">Description</a></li>
         <li tal:condition="context/aq_inner/aq_parent/teknisk_informasjon"><a href="#">Spesifications</a></li>
         <li tal:condition="exists: ontext/relatedItems"><a href="#">Related</a></li>
       </ul> 
 
-      <!-- tab "panes" -->
-      <div class="panes">
+      <div class="shopview_panes">
         <div tal:content="structure context/aq_inner/aq_parent/body/output" 
              tal:condition="context/body" />
         <div tal:content="structure context/aq_inner/aq_parent/teknisk_informasjon/output"  
