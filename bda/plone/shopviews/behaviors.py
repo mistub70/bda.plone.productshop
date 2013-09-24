@@ -3,9 +3,12 @@ from zope.interface import alsoProvides
 from zope.i18nmessageid import MessageFactory
 from plone.supermodel import model
 from plone.autoform.interfaces import IFormFieldProvider
+from plone.namedfile.field import NamedBlobImage
 from plone.app.textfield import RichText
 from .interfaces import (
     IProduct,
+    IProductGroup,
+    IVariant,
     IColorVariant,
     IWeightVariant,
 )
@@ -17,6 +20,12 @@ _ = MessageFactory('bda.plone.shopviews')
 class IProductBehavior(model.Schema, IProduct):
     """Product behavior.
     """
+    image = NamedBlobImage(
+        title=_(u'image_title', default=u'Product Image'),
+        description=_(u'image_description',
+                      default=u'Preview image of Product'),
+        required=False)
+
     details = RichText(
         title=_(u'details_title', default=u'Details'),
         description=_(u'details_description',
@@ -33,7 +42,23 @@ class IProductBehavior(model.Schema, IProduct):
 alsoProvides(IProductBehavior, IFormFieldProvider)
 
 
-class IColorVariantBehavior(model.Schema, IColorVariant):
+class IProductGroupBehavior(IProductBehavior, IProductGroup):
+    """Product group behavior.
+    """
+
+
+alsoProvides(IProductGroupBehavior, IFormFieldProvider)
+
+
+class IVariantBehavior(IProductBehavior, IVariant):
+    """Variant base behavior.
+    """
+
+
+alsoProvides(IVariantBehavior, IFormFieldProvider)
+
+
+class IColorVariantBehavior(IVariantBehavior, IColorVariant):
     """Color variant behavior.
     """
     color = schema.TextLine(
@@ -46,7 +71,7 @@ class IColorVariantBehavior(model.Schema, IColorVariant):
 alsoProvides(IColorVariantBehavior, IFormFieldProvider)
 
 
-class IWeightVariantBehavior(model.Schema, IWeightVariant):
+class IWeightVariantBehavior(IVariantBehavior, IWeightVariant):
     """Weight variant behavior.
     """
     weight = schema.Float(

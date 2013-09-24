@@ -27,16 +27,6 @@ class ProductsView(BrowserView):
     """Products browser view.
     """
 
-    #property
-    #def currency(self):
-    #    return self.data_provider.currency
-
-    def test(self):
-        """test method.
-        """
-        dummy = _(u'a dummy string')
-        return {'dummy': dummy}
-
     def find_objects(self):
         #not working at the moment
         #so the same code is 3 times below
@@ -108,7 +98,3 @@ class ProductsView(BrowserView):
     @property
     def get_user(self):
         return  api.user.get_current()
-
-    #@property
-    #def get_group(self):       
-    #    return plone.api.user.get_users(groupname='forhandler')

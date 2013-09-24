@@ -28,8 +28,7 @@
     <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
 
     <!-- shop view related -->
-    <element value="plone.app.contenttypes.behaviors.leadimage.ILeadImage" />
-    <element value="bda.plone.shopviews.behaviors.IProductBehavior" />
+    <element value="bda.plone.shopviews.behaviors.IProductGroupBehavior" />
     <element value="plone.app.relationfield.behavior.IRelatedItems" />
   </property>
 

@@ -110,7 +110,6 @@
     for="*"
     name="product_view"
     template="templates/productview.pt"
-    class=".views.ProductsView"
     layer="..interfaces.IShopViews"
     permission="zope2.View" />
 

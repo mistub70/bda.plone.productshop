@@ -31,8 +31,7 @@
     <element value="bda.plone.shop.dx.IStockBehavior"/>
 
     <!-- shop view related -->
-    <element value="plone.app.contenttypes.behaviors.leadimage.ILeadImage" />
-    <element value="bda.plone.shopviews.behaviors.IProductBehavior" />
+    <element value="bda.plone.shopviews.behaviors.IVariantBehavior" />
     <element value="plone.app.relationfield.behavior.IRelatedItems" />
   </property>
 
