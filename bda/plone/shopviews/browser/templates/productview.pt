@@ -4,30 +4,33 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="bda.plone.shop">
+      i18n:domain="bda.plone.shopviews">
+
 <body>
 
   <metal:content-core fill-slot="content-core">
-      <metal:block define-macro="content-core"
-            tal:define="templateId template/getId;">
-          <img src="" alt=""  
-                      tal:condition="context/image|nothing"
-                      tal:define="scales context/@@images;
-                                  scale python:scales.scale('image', 'preview')"
-                      tal:replace="structure python:scale and scale.tag(css_class='ProductImage') or None" />      
-         <!-- the tabs -->
-         <ul class="tabs">
-            <li tal:condition="context/body"><a href="#">Description</a></li>
-            <li tal:condition="context/teknisk_informasjon"><a href="#">Specifications</a></li>
-         </ul> 
-         <!-- tab "panes" -->
-         <div class="panes">
-             <div tal:content="structure context/body/output" 
-                  tal:condition="context/body" />
-             <div tal:content="structure context/teknisk_informasjon/output"  
-                  tal:condition="context/teknisk_informasjon"/>
-         </div>
-      </metal:block>
+
+    <metal:block define-macro="content-core"
+                 tal:define="templateId template/getId;">
+      <img src="" alt=""  
+           tal:condition="context/image|nothing"
+           tal:define="scales context/@@images;
+                       scale python:scales.scale('image', 'preview')"
+           tal:replace="structure python:scale and scale.tag(css_class='ProductImage') or None" />      
+      <!-- the tabs -->
+      <ul class="tabs">
+        <li tal:condition="context/body"><a href="#">Description</a></li>
+        <li tal:condition="context/teknisk_informasjon"><a href="#">Specifications</a></li>
+      </ul> 
+      <!-- tab "panes" -->
+      <div class="panes">
+        <div tal:content="structure context/body/output" 
+             tal:condition="context/body" />
+        <div tal:content="structure context/teknisk_informasjon/output"  
+             tal:condition="context/teknisk_informasjon"/>
+      </div>
+    </metal:block>
+
   </metal:content-core>
 
 </body>

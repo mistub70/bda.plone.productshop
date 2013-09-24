@@ -4,72 +4,74 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="bda.plone.shop">
-      
-	<metal:js fill-slot="javascript_head_slot">
-    	<script type="text/javascript" src="++resource++jquery.quicksand.js"></script>
-		<script type="text/javascript" src="++resource++jquery.easing.1.3.js"></script>
-	    <script type="text/javascript" src="++resource++quicksand.js"></script>
-   	</metal:js>    
+      i18n:domain="bda.plone.shopviews">
 
-	<body>                        
+<metal:js fill-slot="javascript_head_slot">
+  <script type="text/javascript" src="++resource++jquery.quicksand.js"></script>
+  <script type="text/javascript" src="++resource++jquery.easing.1.3.js"></script>
+  <script type="text/javascript" src="++resource++quicksand.js"></script>
+</metal:js>    
 
-    <metal:content-core fill-slot="content-core">
-    	<form id="filter">
-			<label class="default">
-			    <input type="radio" name="type" value="all" checked="checked" i18n:translate="all">
-			    Everything
-			</label>
-			<tal:keywords tal:repeat="keyword view/all_keywords" >
-    	        <label class="" tal:attributes="class keyword">
-    	            <input type="radio" name="type" tal:attributes="value keyword">
-    	            <span tal:content="keyword">keyword</span> 
-    	        </label>
-    	    </tal:keywords>
-		</form>
+<body>                        
+  <metal:content-core fill-slot="content-core">
+
+    <form id="filter">
+      <label class="default">
+        <input type="radio" name="type" value="all"
+               checked="checked" i18n:translate="all" />
+        Everything
+      </label>
+      <tal:keywords tal:repeat="keyword view/all_keywords" >
+        <label class="" tal:attributes="class keyword">
+          <input type="radio" name="type" tal:attributes="value keyword" />
+          <span tal:content="keyword">keyword</span> 
+        </label>
+      </tal:keywords>
+    </form>
  
-        <metal:block use-macro="context/folder_listing/macros/content-core">
-            <metal:entries fill-slot="entries">
-             <ul id="shopitems" class="buyable productbox-grid">
-             <metal:block use-macro="context/folder_listing/macros/entries">
+    <metal:block use-macro="context/folder_listing/macros/content-core">
+      <metal:entries fill-slot="entries">
+        <ul id="shopitems" class="buyable productbox-grid">
+          <metal:block use-macro="context/folder_listing/macros/entries">
 
-                <metal:entry fill-slot="entry"
-                        tal:define="item_object item/getObject;"
-                    	tal:condition="exists: item_object/item_net">
-                      	
-                    <li class="productbox"
-                    	 tal:define="theclass python:' '.join(item.Subject)"
-                    	 tal:attributes="class theclass; data-id item/getId">
-                      <a href="#" tal:define="url item/getURL" tal:attributes="href url">
-                         <div class="imagebox" 
-                              tal:condition="item_object/image|nothing"
-                              tal:define="style python:'background-image:url(' + str(url) + '/@@images/image/thumb)'"
-                              tal:attributes="style style"></div>
-                         <h4 class="ProductTitle" tal:content="item_title_or_id">
-                            Title
-                         </h4>
-                       </a>  
-                        <p  class="itemprice" 
-                            tal:define="item_sum python:float(item_object.item_net) * (100+int(item_object.item_vat))/100"> 
- 
-                        <span tal:content="python:'%0.0f' %  item_sum">100</span></p>
+            <metal:entry fill-slot="entry"
+                         tal:define="item_object item/getObject;"
+                         tal:condition="exists: item_object/item_net">
+              <li class="productbox"
+                  tal:define="theclass python:' '.join(item.Subject)"
+                  tal:attributes="class theclass; data-id item/getId">
+                <a href="#"
+                   tal:define="url item/getURL"
+                   tal:attributes="href url">
+                  <div class="imagebox" 
+                       tal:condition="item_object/image|nothing"
+                       tal:define="style python:'background-image:url(' + str(url) + '/@@images/image/thumb)'"
+                       tal:attributes="style style"></div>
+                  <h4 class="ProductTitle" tal:content="item_title_or_id">
+                    Title
+                  </h4>
+                </a>  
+                <p class="itemprice" 
+                   tal:define="item_sum python:float(item_object.item_net) * (100+int(item_object.item_vat))/100"> 
+                  <span tal:content="python:'%0.0f' %  item_sum">100</span>
+                </p>
+                <a href="#" 
+                   class="button"
+                   i18n:translate="read_more"
+                   tal:attributes="href item/getURL">
+                  Read More
+                </a>    
+              </li>
+            </metal:entry>
 
-                        <a href="#" 
-                            class="button"
-                            i18n:translate="read_more"
-                            tal:attributes="href item/getURL">
-                            Read More
-                        </a>    
- 
-                     </li>
-                     </metal:entry>
+          </metal:block>
+        </ul>
 
-                </metal:block>
-                </ul>
-                <div class="visualClear" ><!-- --></div>
-            </metal:entries>
-        </metal:block>
-    
-    </metal:content-core>
+        <div class="visualClear" ><!-- --></div>
+
+      </metal:entries>
+    </metal:block>
+
+  </metal:content-core>
 </body>
 </html>
