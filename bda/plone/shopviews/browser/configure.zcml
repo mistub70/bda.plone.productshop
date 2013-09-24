@@ -11,21 +11,6 @@
     layer="..interfaces.IShopViews" />
 
   <browser:resource
-    name="jquery.quicksand.js"
-    file="resources/jquery.quicksand.js"
-    layer="..interfaces.IShopViews" />
-
-  <browser:resource
-    name="jquery.easing.1.3.js"
-    file="resources/jquery.easing.1.3.js"
-    layer="..interfaces.IShopViews" />
-
-  <browser:resource
-    name="quicksand.js"
-    file="resources/quicksand.js"
-    layer="..interfaces.IShopViews" />
-
-  <browser:resource
     name="shopviews.js"
     file="resources/shopviews.js"
     layer="..interfaces.IShopViews" />
@@ -47,6 +32,14 @@
 
   <!-- views -->
   <browser:page
+    for="Products.CMFCore.interfaces.IFolderish"
+    name="bda.plone.shopviews.listing"
+    permission="zope2.View"
+    class=".views.Listing"
+    template="templates/listing.pt"
+    layer="..interfaces.IShopViews" />
+
+  <browser:page
     for="bda.plone.shopviews.interfaces.IProduct"
     name="bda.plone.shopviews.product"
     permission="zope2.View"
@@ -57,64 +50,8 @@
   <!-- content views -->
   <browser:page
     for="*"
-    name="productlist_view"
-    class=".views.ProductsView"
-    template="templates/productslist_view.pt"
-    layer="..interfaces.IShopViews"
-    permission="zope2.View" />
-
-  <browser:page
-    for="*"
-    name="products_view"
-    class=".views.ProductsView"
-    template="templates/products_view.pt"
-    layer="..interfaces.IShopViews"
-    permission="zope2.View" />
-
-  <browser:page
-    for="*"
-    name="productlisting_view"
-    class=".views.ProductsView"
-    template="templates/productlisting_view.pt"
-    layer="..interfaces.IShopViews"
-    permission="zope2.View" />
-
-  <browser:page
-    for="*"
-    name="quicksand_view"
-    class=".views.ProductsView"
-    template="templates/quicksand_view.pt"
-    layer="..interfaces.IShopViews"
-    permission="zope2.View" />
-
-  <browser:page
-    for="*"
-    name="productboxes_view"
-    class=".views.ProductsView"
-    template="templates/productboxes_view.pt"
-    layer="..interfaces.IShopViews"
-    permission="zope2.View" />
-
-  <browser:page
-    for="*"
-    name="colorboxes_view"
-    class=".views.ProductsView"
-    template="templates/colorboxes_view.pt"
-    layer="..interfaces.IShopViews"
-    permission="zope2.View" />
-
-  <browser:page
-    for="*"
-    name="variations_view"
-    class=".views.ProductsView"
-    template="templates/variations_view.pt"
-    layer="..interfaces.IShopViews"
-    permission="zope2.View" />
-
-  <browser:page
-    for="*"
-    name="colors_view"
-    class=".views.ColorsView"
+    name="product_listing"
+    template="templates/product_listing.pt"
     layer="..interfaces.IShopViews"
     permission="zope2.View" />
 
