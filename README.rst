@@ -125,3 +125,9 @@ Contributors
 
 - Espen Moe-Nilssen (Autor)
 - Robert Niederreiter
+
+
+Dummy product image from
+========================
+
+- http://thelittlereaper.deviantart.com/art/Test-Crash-Dummy-169618976

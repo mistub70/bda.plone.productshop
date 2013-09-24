@@ -40,6 +40,11 @@
     file="resources/products.png"
     layer="..interfaces.IShopViews" />
 
+  <browser:resource
+    name="dummy_product.jpg"
+    file="resources/dummy_product.jpg"
+    layer="..interfaces.IShopViews" />
+
   <!-- views -->
   <browser:page
     for="bda.plone.shopviews.interfaces.IProduct"

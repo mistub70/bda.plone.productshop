@@ -5,10 +5,17 @@
      i18n:domain="bda.plone.shopviews"
      tal:omit-tag="">
 
-  <img src="" alt="" class="product_image"
-       tal:define="image view/image"
-       tal:condition="image|nothing"
-       tal:replace="structure image" />
+  <tal:image define="image view/image">
+    <img src=""
+         alt=""
+         class="product_image"
+         tal:condition="image"
+         tal:replace="structure image" />
+    <img src="++resource++dummy_product.jpg"
+         alt="product image"
+         class="product_image"
+         tal:condition="not:image" />
+  </tal:image>
 
   <ul class="shopview_tabs">
     <li tal:condition="context/details" class="first">
