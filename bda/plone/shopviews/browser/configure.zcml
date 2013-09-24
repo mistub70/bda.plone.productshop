@@ -7,37 +7,37 @@
   <!-- browser resources -->
   <browser:resource
     name="bda.plone.shopview.css"
-    file="browser/shopview.css"
+    file="resources/shopview.css"
     layer="..interfaces.IShopViews" />
 
   <browser:resource
     name="jquery.quicksand.js"
-    file="browser/jquery.quicksand.js"
+    file="resources/jquery.quicksand.js"
     layer="..interfaces.IShopViews" />
 
   <browser:resource
     name="jquery.easing.1.3.js"
-    file="browser/jquery.easing.1.3.js"
+    file="resources/jquery.easing.1.3.js"
     layer="..interfaces.IShopViews" />
 
   <browser:resource
     name="quicksand.js"
-    file="browser/quicksand.js"
+    file="resources/quicksand.js"
     layer="..interfaces.IShopViews" />
 
   <browser:resource
     name="shopviews.js"
-    file="browser/shopviews.js"
+    file="resources/shopviews.js"
     layer="..interfaces.IShopViews" />
 
   <browser:resource
     name="product.png"
-    file="browser/product.png"
+    file="resources/product.png"
     layer="..interfaces.IShopViews" />
 
   <browser:resource
     name="products.png"
-    file="browser/products.png"
+    file="resources/products.png"
     layer="..interfaces.IShopViews" />
 
   <!-- viewlets -->
