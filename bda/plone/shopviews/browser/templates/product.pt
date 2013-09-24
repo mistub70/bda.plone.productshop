@@ -24,7 +24,7 @@
     <li tal:condition="context/datasheet">
       <a href="#">Specifications</a>
     </li>
-    <li tal:condition="exists: context/relatedItems">
+    <li tal:condition="exists:context/relatedItems">
       <a href="#">Related</a>
     </li>
   </ul>
@@ -34,7 +34,7 @@
          tal:condition="context/details" />
     <div tal:content="structure context/datasheet/output"
          tal:condition="context/datasheet"/>
-    <div tal:condition="exists: context/relatedItems">
+    <div tal:condition="exists:context/relatedItems">
       <ul tal:repeat="item context/relatedItems">
         <li tal:define="item_object python:item.to_object;">
           <a href="" tal:attributes="href item_object/absolute_url">

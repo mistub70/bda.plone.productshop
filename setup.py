@@ -33,6 +33,7 @@ setup(name='bda.plone.shopviews',
       install_requires=[
           'setuptools',
           'Plone',
+          'plone.app.dexterity',
           'plone.app.relationfield',
           'bda.plone.shop',
       ],
