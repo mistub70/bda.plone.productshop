@@ -10,20 +10,32 @@ _ = MessageFactory('bda.plone.shopviews')
 class Listing(BrowserView):
     """Product Listing.
     """
+    image_scale = 'thumb'
 
     @property
     def products(self):
         cat = getToolByName(self.context, 'portal_catalog')
         ret = list()
         query = {
-            'object_provides': IProduct,
             'path': {
                 'query': '/'.join(self.context.getPhysicalPath()),
                 'depth': 1,
             },
         }
-        for brain in cat.query(**query):
-            ret.append(brain)
+        for brain in cat(**query):
+            obj = brain.getObject()
+            if not IProduct.providedBy(obj):
+                continue
+            image = None
+            if obj.image:
+                scales = obj.restrictedTraverse('@@images')
+                scale = scales.scale('image', self.image_scale)
+                if scale:
+                    image = scale.tag(css_class='product_listing_image')
+            ret.append({
+               'obj': obj,
+               'preview': image,
+            })
         return ret
 
 

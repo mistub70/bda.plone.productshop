@@ -5,6 +5,27 @@
      i18n:domain="bda.plone.shopviews"
      tal:omit-tag="">
 
-  Listing...
+  <div class="product_listing">
+    <div class="product" tal:repeat="product view/products">
+
+      <img src="" alt=""
+           tal:condition="product/preview"
+           tal:replace="structure product/preview" />
+      <img src="++resource++dummy_listing_product.jpg"
+           alt="preview"
+           class="product_listing_image"
+           tal:condition="not:product/preview" />
+
+      <h3 tal:content="product/obj/Title">Title</h3>
+      <p tal:content="product/obj/Description">Description</p>
+      <a href=""
+         tal:attributes="href product/obj/absolute_url">
+        more...
+      </a>
+
+      <tal:buyable replace="structure product/obj/@@buyable_controls" />
+
+    </div>
+  </div>
 
 </div>

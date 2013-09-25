@@ -30,6 +30,11 @@
     file="resources/dummy_product.jpg"
     layer="..interfaces.IShopViews" />
 
+  <browser:resource
+    name="dummy_listing_product.jpg"
+    file="resources/dummy_listing_product.jpg"
+    layer="..interfaces.IShopViews" />
+
   <!-- views -->
   <browser:page
     for="Products.CMFCore.interfaces.IFolderish"
