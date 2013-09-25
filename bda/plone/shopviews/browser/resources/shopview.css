@@ -1,4 +1,25 @@
-/* shopview tabs */
+/* listing */
+div.product {
+    margin-top:1em;
+    padding-top:1em;
+    border-top:#cccccc 1px solid;
+}
+img.product_listing_image {
+    margin:0 auto;
+    float:left;
+    margin-bottom:1em;
+}
+div.product_info {
+    margin-left:128px;
+    padding:0 0 0 20px;
+}
+
+/* product */
+img.product_image {
+    margin:0 auto;
+    float:left;
+    margin-bottom:1em;
+}
 #portal-columns div.shopview_panes {
     padding:20px;
     border-top:1px solid #cccccc;
@@ -39,13 +60,4 @@
     border-bottom:1px solid #ffffff;
     margin-top:0;
     padding-top:12px;
-}
-
-/* listing */
-
-/* product */
-img.product_image {
-    margin:0 auto;
-    float:left;
-    margin-bottom:1em;
 }
