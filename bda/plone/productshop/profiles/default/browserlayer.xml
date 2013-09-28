@@ -3,6 +3,6 @@
 
   <layer
     name="bda.plone.productshop"
-    interface="bda.plone.productshop.interfaces.IShopViews" />
+    interface="bda.plone.productshop.interfaces.IProductShop" />
 
 </layers>

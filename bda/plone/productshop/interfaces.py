@@ -2,7 +2,7 @@ from zope.interface import Interface
 from plone.namedfile.interfaces import IImageScaleTraversable
 
 
-class IShopViews(Interface):
+class IProductShop(Interface):
     """Shop views specific browser layer.
     """
 
