@@ -79,7 +79,7 @@ class IVariantBehavior(IProductBehavior, IVariant):
 alsoProvides(IVariantBehavior, IFormFieldProvider)
 
 
-class IColor(IVariantAspect):
+class IColorBehavior(IVariantAspect):
     """Color variant behavior.
     """
     color = schema.TextLine(
@@ -89,10 +89,10 @@ class IColor(IVariantAspect):
         required=False)
 
 
-alsoProvides(IColor, IFormFieldProvider)
+alsoProvides(IColorBehavior, IFormFieldProvider)
 
 
-class IWeight(IVariantAspect):
+class IWeightBehavior(IVariantAspect):
     """Weight variant behavior.
     """
     weight = schema.Float(
@@ -102,4 +102,4 @@ class IWeight(IVariantAspect):
         required=False)
 
 
-alsoProvides(IWeight, IFormFieldProvider)
+alsoProvides(IWeightBehavior, IFormFieldProvider)

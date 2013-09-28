@@ -36,19 +36,19 @@
   <plone:behavior
     title="Variant behavior"
     description="Extend content being a variant."
-    provides=".behaviors.IVariant"
+    provides=".behaviors.IVariantBehavior"
     for="plone.dexterity.interfaces.IDexterityContent" />
 
   <plone:behavior
     title="Color variant behavior"
     description="Extend content with product color variant."
-    provides=".behaviors.IColor"
+    provides=".behaviors.IColorBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
   <plone:behavior
     title="Weight variant behavior"
     description="Extend content with product weight."
-    provides=".behaviors.IWeight"
+    provides=".behaviors.IWeightBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
 </configure>
