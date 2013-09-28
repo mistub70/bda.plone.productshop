@@ -15,7 +15,7 @@ addon in plone control panel.
 TODO
 ====
 
-[ ] Expcude from nav default value for product, productgroup and variant
+[ ] Exclude from nav default value for product, productgroup and variant
 
 [ ] Dynamically add Variant aspects via product group
 

@@ -5,4 +5,7 @@
   <object name="bda.plone.productshop.productgroup" meta_type="Dexterity FTI" />
   <object name="bda.plone.productshop.product" meta_type="Dexterity FTI" />
 
+  <object name="Folder"
+          meta_type="Factory-based Type Information with dynamic views"/>
+
 </object>
