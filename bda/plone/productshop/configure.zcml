@@ -4,6 +4,7 @@
            xmlns:i18n="http://namespaces.zope.org/i18n"
             i18n_domain="bda.plone.productshop">
 
+  <include package="plone.app.dexterity" />
   <include package="plone.app.relationfield" />
   <include package="bda.plone.shop" />
 
