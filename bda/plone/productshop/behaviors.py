@@ -2,12 +2,12 @@ from zope import schema
 from zope.interface import alsoProvides
 from zope.component import provideAdapter
 from zope.i18nmessageid import MessageFactory
+from z3c.form.widget import ComputedWidgetAttribute
 from plone.supermodel import model
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.namedfile.field import NamedBlobImage
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 from plone.app.textfield import RichText
-from z3c.form.widget import ComputedWidgetAttribute
 from .interfaces import (
     IProduct,
     IProductGroup,

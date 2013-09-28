@@ -15,6 +15,12 @@
 
   <!-- DX behaviors -->
   <plone:behavior
+    title="Exclude From navigation for products"
+    description="Allow products to be excluded from navigation"
+    provides=".behaviors.IProductExcludeFromNavigation"
+    for="plone.dexterity.interfaces.IDexterityContent" />
+
+  <plone:behavior
     title="Product behavior"
     description="Extend content with product specific information."
     provides=".behaviors.IProductBehavior"
