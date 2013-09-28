@@ -1,5 +1,5 @@
 import unittest2 as unittest
-from bda.plone.payment.tests import (
+from bda.plone.productshop.tests import (
     ProductShop_INTEGRATION_TESTING,
     set_browserlayer,
 )
