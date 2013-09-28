@@ -4,6 +4,7 @@ from zope.component import provideAdapter
 from zope.i18nmessageid import MessageFactory
 from z3c.form.widget import ComputedWidgetAttribute
 from plone.supermodel import model
+from plone.directives import form
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.namedfile.field import NamedBlobImage
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
@@ -82,6 +83,11 @@ alsoProvides(IVariantBehavior, IFormFieldProvider)
 class IColorBehavior(IVariantAspect):
     """Color variant behavior.
     """
+    form.fieldset(
+        'aspects',
+        label=_(u'aspects', default=u'Aspects'),
+        fields=['color'])
+
     color = schema.TextLine(
         title=_(u'color_title', default=u'Product color'),
         description=_(u'color_description',
@@ -95,6 +101,11 @@ alsoProvides(IColorBehavior, IFormFieldProvider)
 class IWeightBehavior(IVariantAspect):
     """Weight variant behavior.
     """
+    form.fieldset(
+        'aspects',
+        label=_(u'aspects', default=u'Aspects'),
+        fields=['weight'])
+
     weight = schema.Float(
         title=_(u'weight_title', default=u'Product weight'),
         description=_(u'weight_description',
@@ -108,6 +119,11 @@ alsoProvides(IWeightBehavior, IFormFieldProvider)
 class ISizeBehavior(IVariantAspect):
     """Size variant behavior.
     """
+    form.fieldset(
+        'aspects',
+        label=_(u'aspects', default=u'Aspects'),
+        fields=['size'])
+
     size = schema.TextLine(
         title=_(u'size_title', default=u'Product size'),
         description=_(u'size_description',
@@ -118,9 +134,14 @@ class ISizeBehavior(IVariantAspect):
 alsoProvides(ISizeBehavior, IFormFieldProvider)
 
 
-class DemandBehavior(IVariantAspect):
+class IDemandBehavior(IVariantAspect):
     """Demand variant behavior.
     """
+    form.fieldset(
+        'aspects',
+        label=_(u'aspects', default=u'Aspects'),
+        fields=['demand'])
+
     demand = schema.Float(
         title=_(u'demand_title', default=u'Product demand'),
         description=_(u'demand_description',
@@ -128,4 +149,4 @@ class DemandBehavior(IVariantAspect):
         required=False)
 
 
-alsoProvides(DemandBehavior, IFormFieldProvider)
+alsoProvides(IDemandBehavior, IFormFieldProvider)
