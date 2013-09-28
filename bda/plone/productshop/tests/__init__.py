@@ -4,7 +4,7 @@ from plone.app.testing import (
     PLONE_FIXTURE,
     PloneSandboxLayer,
 )
-from bda.plone.productshop.interfaces import IProductShop
+from bda.plone.productshop.interfaces import IProductShopExtensionLayer
 
 
 def set_browserlayer(request):
@@ -13,7 +13,7 @@ def set_browserlayer(request):
     We have to set the browserlayer manually, since importing the profile alone
     doesn't do it in tests.
     """
-    alsoProvides(request, IProductShop)
+    alsoProvides(request, IProductShopExtensionLayer)
 
 
 class ProductShopLayer(PloneSandboxLayer):

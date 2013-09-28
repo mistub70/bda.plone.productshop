@@ -8,32 +8,32 @@
   <browser:resource
     name="bda.plone.shopview.css"
     file="resources/shopview.css"
-    layer="..interfaces.IProductShop" />
+    layer="..interfaces.IProductShopExtensionLayer" />
 
   <browser:resource
     name="productshop.js"
     file="resources/productshop.js"
-    layer="..interfaces.IProductShop" />
+    layer="..interfaces.IProductShopExtensionLayer" />
 
   <browser:resource
     name="product.png"
     file="resources/product.png"
-    layer="..interfaces.IProductShop" />
+    layer="..interfaces.IProductShopExtensionLayer" />
 
   <browser:resource
     name="products.png"
     file="resources/products.png"
-    layer="..interfaces.IProductShop" />
+    layer="..interfaces.IProductShopExtensionLayer" />
 
   <browser:resource
     name="dummy_product.jpg"
     file="resources/dummy_product.jpg"
-    layer="..interfaces.IProductShop" />
+    layer="..interfaces.IProductShopExtensionLayer" />
 
   <browser:resource
     name="dummy_listing_product.jpg"
     file="resources/dummy_listing_product.jpg"
-    layer="..interfaces.IProductShop" />
+    layer="..interfaces.IProductShopExtensionLayer" />
 
   <!-- views -->
   <browser:page
@@ -42,7 +42,7 @@
     permission="zope2.View"
     class=".views.Listing"
     template="templates/listing.pt"
-    layer="..interfaces.IProductShop" />
+    layer="..interfaces.IProductShopExtensionLayer" />
 
   <browser:page
     for="bda.plone.productshop.interfaces.IProduct"
@@ -50,21 +50,21 @@
     permission="zope2.View"
     class=".views.Product"
     template="templates/product.pt"
-    layer="..interfaces.IProductShop" />
+    layer="..interfaces.IProductShopExtensionLayer" />
 
   <!-- content views -->
   <browser:page
     for="*"
     name="product_listing"
     template="templates/product_listing.pt"
-    layer="..interfaces.IProductShop"
+    layer="..interfaces.IProductShopExtensionLayer"
     permission="zope2.View" />
 
   <browser:page
     for="*"
     name="product_view"
     template="templates/product_view.pt"
-    layer="..interfaces.IProductShop"
+    layer="..interfaces.IProductShopExtensionLayer"
     permission="zope2.View" />
 
 </configure>
