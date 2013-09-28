@@ -51,4 +51,16 @@
     provides=".behaviors.IWeightBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
+  <plone:behavior
+    title="Size variant behavior"
+    description="Extend content with product size."
+    provides=".behaviors.ISizeBehavior"
+    for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
+
+  <plone:behavior
+    title="Demand variant behavior"
+    description="Extend content with product demand."
+    provides=".behaviors.IDemandBehavior"
+    for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
+
 </configure>

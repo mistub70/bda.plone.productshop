@@ -4,6 +4,8 @@
 
   <include package="plone.app.contentmenu" />
 
+  <include file="actions.zcml" />
+
   <!-- browser resources -->
   <browser:resource
     name="bda.plone.shopview.css"

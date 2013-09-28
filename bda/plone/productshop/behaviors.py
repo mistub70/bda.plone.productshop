@@ -83,9 +83,9 @@ class IColorBehavior(IVariantAspect):
     """Color variant behavior.
     """
     color = schema.TextLine(
-        title=_(u'color_title', default=u'Product Color'),
+        title=_(u'color_title', default=u'Product color'),
         description=_(u'color_description',
-                      default=u'Product Color as hex string i.e. #000000'),
+                      default=u'Product color as hex string i.e. #000000'),
         required=False)
 
 
@@ -96,10 +96,36 @@ class IWeightBehavior(IVariantAspect):
     """Weight variant behavior.
     """
     weight = schema.Float(
-        title=_(u'weight_title', default=u'Product Weight'),
+        title=_(u'weight_title', default=u'Product weight'),
         description=_(u'weight_description',
-                      default=u'Weight of the Product in Kilo'),
+                      default=u'Weight of the product in Kilo'),
         required=False)
 
 
 alsoProvides(IWeightBehavior, IFormFieldProvider)
+
+
+class ISizeBehavior(IVariantAspect):
+    """Size variant behavior.
+    """
+    size = schema.TextLine(
+        title=_(u'size_title', default=u'Product size'),
+        description=_(u'size_description',
+                      default=u'Size of the product'),
+        required=False)
+
+
+alsoProvides(ISizeBehavior, IFormFieldProvider)
+
+
+class DemandBehavior(IVariantAspect):
+    """Demand variant behavior.
+    """
+    demand = schema.Float(
+        title=_(u'demand_title', default=u'Product demand'),
+        description=_(u'demand_description',
+                      default=u'Demand of the product'),
+        required=False)
+
+
+alsoProvides(DemandBehavior, IFormFieldProvider)
