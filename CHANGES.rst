@@ -5,18 +5,21 @@ Changelog
 0.2dev
 ------
 
-- rename package to bda.plone.productshop
+- Introduce ``IProductExcludeFromNavigation``.
   [rnix]
 
-- add content types product, productgroup, variant
+- Rename package to ``bda.plone.productshop``.
   [rnix]
 
-- reduce available views
+- Add content types product, productgroup, variant.
+  [rnix]
+
+- Reduce available views.
   [rnix]
 
 
 0.1
 ---
 
-- initial work
+- Initial work.
   [espenmn]

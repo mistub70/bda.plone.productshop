@@ -1,10 +1,13 @@
 from zope import schema
 from zope.interface import alsoProvides
+from zope.component import provideAdapter
 from zope.i18nmessageid import MessageFactory
 from plone.supermodel import model
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.namedfile.field import NamedBlobImage
+from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 from plone.app.textfield import RichText
+from z3c.form.widget import ComputedWidgetAttribute
 from .interfaces import (
     IProduct,
     IProductGroup,
@@ -15,6 +18,25 @@ from .interfaces import (
 
 
 _ = MessageFactory('bda.plone.productshop')
+
+
+class IProductExcludeFromNavigation(IExcludeFromNavigation):
+    """Exclude from navigation behavior for products.
+
+    Could not find a sane way of providing default values for general behavior
+    attributes based on content interface which the behavior is bound to.
+    Registering ComputedWidgetAttribute to context does not help because
+    context is the container in case of add form instead of a content instance.
+    """
+
+
+alsoProvides(IProductExcludeFromNavigation, IFormFieldProvider)
+
+
+provideAdapter(ComputedWidgetAttribute(
+    lambda data: True,
+    field=IProductExcludeFromNavigation['exclude_from_nav']),
+    name='default')
 
 
 class IProductBehavior(model.Schema, IProduct):

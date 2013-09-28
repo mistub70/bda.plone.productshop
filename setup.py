@@ -5,7 +5,7 @@ from setuptools import (
 )
 
 
-version = '0.2'
+version = '0.2dev'
 shortdesc = "Product shop extension for bda.plone.shop"
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'CHANGES.rst')).read()
@@ -23,8 +23,8 @@ setup(name='bda.plone.productshop',
           'Programming Language :: Python',
           'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
       ],
-      author='Espen Moe-Nilssenn',
-      author_email='post@medialog.no',
+      author='Bluedynamics Alliance',
+      author_email='dev@bluedynamics.com',
       license='GNU General Public Licence',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['bda', 'bda.plone'],

@@ -15,11 +15,11 @@ addon in plone control panel.
 TODO
 ====
 
-[ ] Exclude from nav default value for product, productgroup and variant
+[X] Exclude from nav default value for product, productgroup and variant
 
 [ ] Dynamically add Variant aspects via product group
 
-[ ] Bind listing view to folders
+[X] Bind listing view to folders
 
 [ ] consider product group in listing
 
@@ -29,6 +29,8 @@ TODO
 
 [ ] define for which richtext fields of a product tabs gets rendered in
     product view
+
+[ ] i18n
 
 
 Contributors
