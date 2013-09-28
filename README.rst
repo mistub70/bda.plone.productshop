@@ -12,6 +12,25 @@ Add ``bda.plone.productshop`` to the eggs (in buildout.cfg) and install it as
 addon in plone control panel.
 
 
+TODO
+====
+
+[ ] Expcude from nav default value for product, productgroup and variant
+
+[ ] Dynamically add Variant aspects via product group
+
+[ ] Bind listing view to folders
+
+[ ] consider product group in listing
+
+[ ] product view for product group and variant
+
+[ ] variant filters
+
+[ ] define for which richtext fields of a product tabs gets rendered in
+    product view
+
+
 Contributors
 ============
 
