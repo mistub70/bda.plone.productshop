@@ -12,8 +12,7 @@ from .interfaces import (
     IProduct,
     IProductGroup,
     IVariant,
-    IColorVariant,
-    IWeightVariant,
+    IVariantAspect,
 )
 
 
@@ -80,7 +79,7 @@ class IVariantBehavior(IProductBehavior, IVariant):
 alsoProvides(IVariantBehavior, IFormFieldProvider)
 
 
-class IColorVariantBehavior(IVariantBehavior, IColorVariant):
+class IColor(IVariantAspect):
     """Color variant behavior.
     """
     color = schema.TextLine(
@@ -90,10 +89,10 @@ class IColorVariantBehavior(IVariantBehavior, IColorVariant):
         required=False)
 
 
-alsoProvides(IColorVariantBehavior, IFormFieldProvider)
+alsoProvides(IColor, IFormFieldProvider)
 
 
-class IWeightVariantBehavior(IVariantBehavior, IWeightVariant):
+class IWeight(IVariantAspect):
     """Weight variant behavior.
     """
     weight = schema.Float(
@@ -103,4 +102,4 @@ class IWeightVariantBehavior(IVariantBehavior, IWeightVariant):
         required=False)
 
 
-alsoProvides(IWeightVariantBehavior, IFormFieldProvider)
+alsoProvides(IWeight, IFormFieldProvider)

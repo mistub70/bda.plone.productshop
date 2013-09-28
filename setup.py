@@ -36,6 +36,7 @@ setup(name='bda.plone.productshop',
           'plone.app.dexterity',
           'plone.app.relationfield',
           'bda.plone.shop',
+          'collective.instancebehavior',
       ],
       extras_require={
           'test': [

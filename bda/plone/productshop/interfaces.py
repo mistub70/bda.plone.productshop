@@ -1,5 +1,6 @@
 from zope.interface import Interface
 from plone.namedfile.interfaces import IImageScaleTraversable
+from collective.instancebehavior import IInstanceBehaviorAssignableContent
 
 
 class IProductShopExtensionLayer(Interface):
@@ -21,16 +22,11 @@ class IProductGroup(IProduct):
     """
 
 
-class IVariant(IProduct):
+class IVariant(IProduct, IInstanceBehaviorAssignableContent):
     """Marker interface for variant content.
     """
 
 
-class IColorVariant(IVariant):
-    """Marker interface for color variants content.
-    """
-
-
-class IWeightVariant(IVariant):
-    """Marker interface for weight variant content.
+class IVariantAspect(Interface):
+    """Aspect of a variant.
     """

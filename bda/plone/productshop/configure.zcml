@@ -7,6 +7,7 @@
   <include package="plone.app.dexterity" />
   <include package="plone.app.relationfield" />
   <include package="bda.plone.shop" />
+  <include package="collective.instancebehavior" />
 
   <five:registerPackage package="." initialize=".initialize" />
 
@@ -27,15 +28,27 @@
     for="plone.dexterity.interfaces.IDexterityContent" />
 
   <plone:behavior
+    title="Product group behavior"
+    description="Extend content with product specific information."
+    provides=".behaviors.IProductGroupBehavior"
+    for="plone.dexterity.interfaces.IDexterityContent" />
+
+  <plone:behavior
+    title="Variant behavior"
+    description="Extend content being a variant."
+    provides=".behaviors.IVariant"
+    for="plone.dexterity.interfaces.IDexterityContent" />
+
+  <plone:behavior
     title="Color variant behavior"
     description="Extend content with product color variant."
-    provides=".behaviors.IColorVariantBehavior"
-    for="plone.dexterity.interfaces.IDexterityContent" />
+    provides=".behaviors.IColor"
+    for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
   <plone:behavior
     title="Weight variant behavior"
     description="Extend content with product weight."
-    provides=".behaviors.IWeightVariantBehavior"
-    for="plone.dexterity.interfaces.IDexterityContent" />
+    provides=".behaviors.IWeight"
+    for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
 </configure>
