@@ -5,16 +5,9 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="Views for bda.plone.shop"
+      title="bda.plone.productshop"
       directory="profiles/default"
-      description="Product that adds views to bda.plone.shop"
-      provides="Products.GenericSetup.interfaces.EXTENSION" />
-
-  <genericsetup:registerProfile
-      name="content"
-      title="Predefined content types using shop views"
-      directory="profiles/content"
-      description="Product that adds content types to be used with shop views"
+      description="Product shop extension for bda.plone.shop"
       provides="Products.GenericSetup.interfaces.EXTENSION" />
 
 </configure>

@@ -3,7 +3,7 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 
 
 class IProductShop(Interface):
-    """Shop views specific browser layer.
+    """Product shop specific browser layer.
     """
 
 
