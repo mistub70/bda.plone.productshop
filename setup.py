@@ -12,7 +12,7 @@ longdesc += open(os.path.join(os.path.dirname(__file__), 'CHANGES.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'LICENSE.rst')).read()
 
 
-setup(name='bda.plone.shopviews',
+setup(name='bda.plone.productshop',
       version=version,
       description=shortdesc,
       long_description=longdesc,

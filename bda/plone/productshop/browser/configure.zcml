@@ -1,6 +1,6 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser"
-           i18n_domain="bda.plone.shopviews">
+           i18n_domain="bda.plone.productshop">
 
   <include package="plone.app.contentmenu" />
 
@@ -11,8 +11,8 @@
     layer="..interfaces.IShopViews" />
 
   <browser:resource
-    name="shopviews.js"
-    file="resources/shopviews.js"
+    name="productshop.js"
+    file="resources/productshop.js"
     layer="..interfaces.IShopViews" />
 
   <browser:resource
@@ -38,15 +38,15 @@
   <!-- views -->
   <browser:page
     for="Products.CMFCore.interfaces.IFolderish"
-    name="bda.plone.shopviews.listing"
+    name="bda.plone.productshop.listing"
     permission="zope2.View"
     class=".views.Listing"
     template="templates/listing.pt"
     layer="..interfaces.IShopViews" />
 
   <browser:page
-    for="bda.plone.shopviews.interfaces.IProduct"
-    name="bda.plone.shopviews.product"
+    for="bda.plone.productshop.interfaces.IProduct"
+    name="bda.plone.productshop.product"
     permission="zope2.View"
     class=".views.Product"
     template="templates/product.pt"

@@ -2,7 +2,7 @@
 <layers>
 
   <layer
-    name="bda.plone.shopviews"
-    interface="bda.plone.shopviews.interfaces.IShopViews" />
+    name="bda.plone.productshop"
+    interface="bda.plone.productshop.interfaces.IShopViews" />
 
 </layers>

@@ -4,7 +4,7 @@ from Products.CMFCore.utils import getToolByName
 from ..interfaces import IProduct
 
 
-_ = MessageFactory('bda.plone.shopviews')
+_ = MessageFactory('bda.plone.productshop')
 
 
 class Listing(BrowserView):

@@ -1,5 +1,5 @@
 ===================
-bda.plone.shopviews
+bda.plone.productshop
 ===================
 
 Views for ``bda.plone.shop``
@@ -116,7 +116,7 @@ TODO
 Installation
 ============
 
-Add ``bda.plone.shopviews`` to the eggs (in buildout.cfg) and install it as
+Add ``bda.plone.productshop`` to the eggs (in buildout.cfg) and install it as
 addon in plone control panel.
 
 

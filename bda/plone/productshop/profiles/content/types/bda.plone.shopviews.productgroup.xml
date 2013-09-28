@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
-<object name="bda.plone.shopviews.productgroup"
+<object name="bda.plone.productshop.productgroup"
         meta_type="Dexterity FTI"
-        i18n:domain="bda.plone.shopviews" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+        i18n:domain="bda.plone.productshop" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <!-- Basic metadata -->
   <property name="title" i18n:translate="">Productgroup</property>
   <property name="description"
     i18n:translate="">Productgroup to hold variations</property>
   <property name="icon_expr">string:${portal_url}/++resource++products.png</property>
-  <property name="factory">bda.plone.shopviews.productgroup</property>
+  <property name="factory">bda.plone.productshop.productgroup</property>
   <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types">
-    <element value="bda.plone.shopviews.variation"/>
+    <element value="bda.plone.productshop.variation"/>
   </property>
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">bda.plone.shopviews.interfaces.IProductGroup</property>
-  <property name="klass">bda.plone.shopviews.content.ProductGroup</property>
+  <property name="schema">bda.plone.productshop.interfaces.IProductGroup</property>
+  <property name="klass">bda.plone.productshop.content.ProductGroup</property>
 
   <property name="behaviors">
     <!-- basic -->
@@ -28,7 +28,7 @@
     <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
 
     <!-- shop view related -->
-    <element value="bda.plone.shopviews.behaviors.IProductGroupBehavior" />
+    <element value="bda.plone.productshop.behaviors.IProductGroupBehavior" />
     <element value="plone.app.relationfield.behavior.IRelatedItems" />
   </property>
 

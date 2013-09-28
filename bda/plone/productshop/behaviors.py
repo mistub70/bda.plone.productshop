@@ -14,7 +14,7 @@ from .interfaces import (
 )
 
 
-_ = MessageFactory('bda.plone.shopviews')
+_ = MessageFactory('bda.plone.productshop')
 
 
 class IProductBehavior(model.Schema, IProduct):

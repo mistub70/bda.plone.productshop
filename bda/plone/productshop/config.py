@@ -1,7 +1,7 @@
 """Common configuration constants
 """
 
-PROJECTNAME = 'bda.plone.shopviews'
+PROJECTNAME = 'bda.plone.productshop'
 
 ADD_PERMISSIONS = {
     # -*- extra stuff goes here -*-
