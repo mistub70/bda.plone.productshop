@@ -37,6 +37,12 @@ setup(name='bda.plone.productshop',
           'plone.app.relationfield',
           'bda.plone.shop',
       ],
+      extras_require={
+          'test': [
+              'plone.app.testing',
+              'bda.plone.productshop',
+          ]
+      },
       entry_points="""
       [z3c.autoinclude.plugin]
       target = plone
