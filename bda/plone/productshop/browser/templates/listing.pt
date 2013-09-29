@@ -27,7 +27,9 @@
 
       <div class="visualClear"><!--  --></div>
 
-      <tal:buyable replace="structure product/obj/@@buyable_controls" />
+      <tal:buyable
+        tal:condition="product/buyable_controls"
+        replace="structure product/obj/@@buyable_controls" />
 
     </div>
   </div>

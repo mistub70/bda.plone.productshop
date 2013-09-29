@@ -63,4 +63,10 @@
     provides=".behaviors.IDemandBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
+  <!-- indexing -->
+  <adapter name="color_aspect" factory=".indexer.color_aspect" />
+  <adapter name="weight_aspect" factory=".indexer.weight_aspect" />
+  <adapter name="size_aspect" factory=".indexer.size_aspect" />
+  <adapter name="demand_aspect" factory=".indexer.demand_aspect" />
+
 </configure>

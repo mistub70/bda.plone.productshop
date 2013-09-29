@@ -42,7 +42,15 @@
     for="Products.CMFCore.interfaces.IFolderish"
     name="bda.plone.productshop.listing"
     permission="zope2.View"
-    class=".views.Listing"
+    class=".views.ProductListing"
+    template="templates/listing.pt"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    for="bda.plone.productshop.interfaces.IProductGroup"
+    name="bda.plone.productshop.listing"
+    permission="zope2.View"
+    class=".views.ProductListing"
     template="templates/listing.pt"
     layer="..interfaces.IProductShopExtensionLayer" />
 
@@ -50,7 +58,15 @@
     for="bda.plone.productshop.interfaces.IProduct"
     name="bda.plone.productshop.product"
     permission="zope2.View"
-    class=".views.Product"
+    class=".views.ProductView"
+    template="templates/product.pt"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    for="bda.plone.productshop.interfaces.IVariant"
+    name="bda.plone.productshop.product"
+    permission="zope2.View"
+    class=".views.VariantView"
     template="templates/product.pt"
     layer="..interfaces.IProductShopExtensionLayer" />
 

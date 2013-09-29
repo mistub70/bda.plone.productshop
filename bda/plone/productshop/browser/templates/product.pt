@@ -3,39 +3,42 @@
      xmlns:tal="http://xml.zope.org/namespaces/tal"
      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
      i18n:domain="bda.plone.productshop"
-     tal:omit-tag="">
+     tal:omit-tag=""
+     tal:define="image view/image;
+                 details view/details;
+                 datasheet view/datasheet;
+                 related_items view/related_items">
 
-  <tal:image define="image view/image">
-    <img src=""
-         alt=""
-         class="product_image"
-         tal:condition="image"
-         tal:replace="structure image" />
-    <img src="++resource++dummy_product.jpg"
-         alt="product image"
-         class="product_image"
-         tal:condition="not:image" />
-  </tal:image>
+  <img src=""
+       alt=""
+       class="product_image"
+       tal:condition="image"
+       tal:replace="structure image" />
+
+  <img src="++resource++dummy_product.jpg"
+       alt="product image"
+       class="product_image"
+       tal:condition="not:image" />
 
   <ul class="shopview_tabs">
-    <li tal:condition="context/details" class="first">
+    <li tal:condition="details" class="first">
       <a href="#">Description</a>
     </li>
-    <li tal:condition="context/datasheet">
+    <li tal:condition="datasheet">
       <a href="#">Specifications</a>
     </li>
-    <li tal:condition="exists:context/relatedItems">
+    <li tal:condition="related_items">
       <a href="#">Related</a>
     </li>
   </ul>
 
   <div class="shopview_panes">
-    <div tal:content="structure context/details/output"
-         tal:condition="context/details" />
-    <div tal:content="structure context/datasheet/output"
-         tal:condition="context/datasheet"/>
-    <div tal:condition="exists:context/relatedItems">
-      <ul tal:repeat="item context/relatedItems">
+    <div tal:content="structure details/output"
+         tal:condition="details" />
+    <div tal:content="structure datasheet/output"
+         tal:condition="datasheet"/>
+    <div tal:condition="related_items">
+      <ul tal:repeat="item related_items">
         <li tal:define="item_object python:item.to_object;">
           <a href="" tal:attributes="href item_object/absolute_url">
             <span tal:content="item_object/Title" />

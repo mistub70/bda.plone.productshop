@@ -37,10 +37,10 @@
 
   <!-- View information -->
   <property name="link_target"></property>
-  <property name="immediate_view">@@product_view</property>
-  <property name="default_view">@@product_view</property>
+  <property name="immediate_view">product_view</property>
+  <property name="default_view">product_view</property>
   <property name="view_methods">
-    <element value="@@product_view"/>
+    <element value="product_view"/>
   </property>
   <property name="default_view_fallback">False</property>
   <property name="add_permission">cmf.AddPortalContent</property>
