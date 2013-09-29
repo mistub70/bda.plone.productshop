@@ -9,6 +9,7 @@ from ..interfaces import (
     IProduct,
     IProductGroup,
 )
+from ..utils import available_variant_aspects
 
 
 _ = MessageFactory('bda.plone.productshop')

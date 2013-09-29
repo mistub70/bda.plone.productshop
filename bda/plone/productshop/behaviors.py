@@ -89,9 +89,9 @@ class IColorBehavior(IVariantAspect):
         fields=['color'])
 
     color = schema.TextLine(
-        title=_(u'color_title', default=u'Product color'),
+        title=_(u'color_title', default=u'Color'),
         description=_(u'color_description',
-                      default=u'Product color as hex string i.e. #000000'),
+                      default=u'Color of the product'),
         required=False)
 
 
@@ -107,9 +107,9 @@ class IWeightBehavior(IVariantAspect):
         fields=['weight'])
 
     weight = schema.Float(
-        title=_(u'weight_title', default=u'Product weight'),
+        title=_(u'weight_title', default=u'Weight'),
         description=_(u'weight_description',
-                      default=u'Weight of the product in Kilo'),
+                      default=u'Weight of the product'),
         required=False)
 
 
@@ -125,7 +125,7 @@ class ISizeBehavior(IVariantAspect):
         fields=['size'])
 
     size = schema.TextLine(
-        title=_(u'size_title', default=u'Product size'),
+        title=_(u'size_title', default=u'Size'),
         description=_(u'size_description',
                       default=u'Size of the product'),
         required=False)
@@ -143,7 +143,7 @@ class IDemandBehavior(IVariantAspect):
         fields=['demand'])
 
     demand = schema.Float(
-        title=_(u'demand_title', default=u'Product demand'),
+        title=_(u'demand_title', default=u'Demand'),
         description=_(u'demand_description',
                       default=u'Demand of the product'),
         required=False)
