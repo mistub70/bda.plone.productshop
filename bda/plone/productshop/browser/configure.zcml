@@ -70,6 +70,14 @@
     template="templates/product.pt"
     layer="..interfaces.IProductShopExtensionLayer" />
 
+  <browser:page
+    for="bda.plone.productshop.interfaces.IVariant"
+    name="bda.plone.productshop.variant_aspects"
+    permission="zope2.View"
+    class=".views.VariantAspects"
+    template="templates/variant_aspects.pt"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
   <!-- content views -->
   <browser:page
     for="*"
@@ -79,9 +87,16 @@
     permission="zope2.View" />
 
   <browser:page
-    for="*"
+    for="bda.plone.productshop.interfaces.IProduct"
     name="product_view"
     template="templates/product_view.pt"
+    layer="..interfaces.IProductShopExtensionLayer"
+    permission="zope2.View" />
+
+  <browser:page
+    for="bda.plone.productshop.interfaces.IVariant"
+    name="product_view"
+    template="templates/variant_view.pt"
     layer="..interfaces.IProductShopExtensionLayer"
     permission="zope2.View" />
 

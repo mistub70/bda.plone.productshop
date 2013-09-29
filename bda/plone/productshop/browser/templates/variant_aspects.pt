@@ -1,0 +1,25 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xml:lang="en"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="bda.plone.productshop"
+     class="variant_aspects">
+
+  <div class="aspect" tal:repeat="aspect view/aspects">
+
+    <strong tal:content="aspect/title">Aspect</strong>
+
+    <select tal:attributes="name aspect/name;
+                            class aspect/name">
+      <tal:option repeat="option aspect/options">
+        <option tal:content="option/title"
+                tal:attributes="value option/value;
+                                selected python:option['selected'] and 'selected' or None">
+          Option
+        </option>
+      </tal:option>
+    </select>
+
+  </div>
+
+</div>

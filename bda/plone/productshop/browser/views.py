@@ -15,6 +15,18 @@ from ..utils import available_variant_aspects
 _ = MessageFactory('bda.plone.productshop')
 
 
+def query_children(context):
+    cat = getToolByName(context, 'portal_catalog')
+    query = {
+        'path': {
+            'query': '/'.join(context.getPhysicalPath()),
+            'depth': 1,
+        },
+        'order_by': 'objPositionInParent',
+    }
+    return cat(**query)
+
+
 def img_tag(context, scale, css_class):
     if not context.image:
         return None
@@ -30,15 +42,8 @@ class ProductListing(BrowserView):
 
     @property
     def products(self):
-        cat = getToolByName(self.context, 'portal_catalog')
         ret = list()
-        query = {
-            'path': {
-                'query': '/'.join(self.context.getPhysicalPath()),
-                'depth': 1,
-            },
-        }
-        for brain in cat(**query):
+        for brain in query_children(self.context):
             obj = brain.getObject()
             if not IProduct.providedBy(obj):
                 continue
@@ -75,11 +80,57 @@ class ProductView(BrowserView):
         return None
 
 
-class VariantView(ProductView):
+class VariantBase(BrowserView):
 
     @property
-    def parent(self):
+    def product_group(self):
         return aq_parent(aq_inner(self.context))
+
+
+class VariantAspects(VariantBase):
+
+    @property
+    def variants(self):
+        return [_.getObject() for _ in query_children(self.product_group)]
+
+    @property
+    def aspects(self):
+        aspects = list()
+        for definition in available_variant_aspects():
+            aspect = dict()
+            aspect['title'] = definition.title
+            aspect['name'] = definition.attribute
+            aspect['options'] = options = list()
+            selected_value = self.variant_value(definition)
+            if not selected_value:
+                continue
+            for value in self.variant_values(definition):
+                option = dict()
+                option['title'] = value
+                option['value'] = value
+                option['selected'] = value == selected_value
+                options.append(option)
+            if options:
+                aspects.append(aspect)
+        return aspects
+
+    def variant_value(self, definition, context=None):
+        if not context:
+            context = self.context
+        if not definition.interface.providedBy(context):
+            return None
+        return getattr(context, definition.attribute, None)
+
+    def variant_values(self, definition):
+        ret = list()
+        for variant in self.variants:
+            value = self.variant_value(definition, variant)
+            if value:
+                ret.append(value)
+        return ret
+
+
+class VariantView(ProductView, VariantBase):
 
     @property
     def image(self):
@@ -87,19 +138,19 @@ class VariantView(ProductView):
             self.context, self.image_scale, 'product_image')
         if context_image:
             return context_image
-        return img_tag(self.parent, self.image_scale, 'product_image')
+        return img_tag(self.product_group, self.image_scale, 'product_image')
 
     @property
     def details(self):
         if self.context.details:
             return self.context.details
-        return self.parent.details
+        return self.product_group.details
 
     @property
     def datasheet(self):
         if self.context.datasheet:
             return self.context.datasheet
-        return self.parent.datasheet
+        return self.product_group.datasheet
 
     @property
     def related_items(self):
@@ -107,8 +158,8 @@ class VariantView(ProductView):
         if hasattr(context, 'relatedItems'):
             if context.relatedItems:
                 return context.relatedItems
-        parent = self.parent
-        if hasattr(parent, 'relatedItems'):
-            if parent.relatedItems:
-                return parent.relatedItems
+        product_group = self.product_group
+        if hasattr(product_group, 'relatedItems'):
+            if product_group.relatedItems:
+                return product_group.relatedItems
         return None
