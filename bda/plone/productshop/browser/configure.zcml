@@ -37,17 +37,9 @@
     file="resources/dummy_listing_product.jpg"
     layer="..interfaces.IProductShopExtensionLayer" />
 
-  <!-- views -->
+  <!-- tiles -->
   <browser:page
     for="Products.CMFCore.interfaces.IFolderish"
-    name="bda.plone.productshop.listing"
-    permission="zope2.View"
-    class=".views.ProductListing"
-    template="templates/listing.pt"
-    layer="..interfaces.IProductShopExtensionLayer" />
-
-  <browser:page
-    for="bda.plone.productshop.interfaces.IProductGroup"
     name="bda.plone.productshop.listing"
     permission="zope2.View"
     class=".views.ProductListing"
@@ -63,6 +55,21 @@
     layer="..interfaces.IProductShopExtensionLayer" />
 
   <browser:page
+    for="bda.plone.productshop.interfaces.IProductGroup"
+    name="bda.plone.productshop.aspects"
+    permission="zope2.View"
+    class=".views.ProductGroupAspects"
+    template="templates/aspects.pt"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    for="bda.plone.productshop.interfaces.IVariant"
+    name="bda.plone.productshop.variant"
+    permission="zope2.View"
+    template="templates/variant.pt"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
     for="bda.plone.productshop.interfaces.IVariant"
     name="bda.plone.productshop.product"
     permission="zope2.View"
@@ -72,15 +79,15 @@
 
   <browser:page
     for="bda.plone.productshop.interfaces.IVariant"
-    name="bda.plone.productshop.variant_aspects"
+    name="bda.plone.productshop.aspects"
     permission="zope2.View"
     class=".views.VariantAspects"
-    template="templates/variant_aspects.pt"
+    template="templates/aspects.pt"
     layer="..interfaces.IProductShopExtensionLayer" />
 
   <!-- content views -->
   <browser:page
-    for="*"
+    for="Products.CMFCore.interfaces.IFolderish"
     name="product_listing"
     template="templates/product_listing.pt"
     layer="..interfaces.IProductShopExtensionLayer"
@@ -90,6 +97,21 @@
     for="bda.plone.productshop.interfaces.IProduct"
     name="product_view"
     template="templates/product_view.pt"
+    layer="..interfaces.IProductShopExtensionLayer"
+    permission="zope2.View" />
+
+  <browser:page
+    for="bda.plone.productshop.interfaces.IProductGroup"
+    name="product_listing"
+    template="templates/productgroup_listing.pt"
+    layer="..interfaces.IProductShopExtensionLayer"
+    permission="zope2.View" />
+
+  <browser:page
+    for="bda.plone.productshop.interfaces.IProductGroup"
+    name="product_view"
+    class=".views.ProductGroupView"
+    template="templates/productgroup_view.pt"
     layer="..interfaces.IProductShopExtensionLayer"
     permission="zope2.View" />
 

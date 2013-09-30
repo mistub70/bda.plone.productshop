@@ -80,6 +80,106 @@ class ProductView(BrowserView):
         return None
 
 
+class ProductGroupView(BrowserView):
+
+    @property
+    def variant(self):
+        cache_key = '_bda_plone_productshop_productgroup'
+        if hasattr(self.request, cache_key):
+            return getattr(self.request, cache_key)
+        obj = None
+        for brain in query_children(self.context):
+            obj = brain.getObject()
+            break
+        setattr(self.request, cache_key, obj)
+        return obj
+
+    @property
+    def title(self):
+        obj = self.variant
+        if obj:
+            return obj.Title()
+        return self.context.Title()
+
+    @property
+    def description(self):
+        obj = self.variant
+        if obj:
+            return obj.Description()
+        return self.context.Description()
+
+    @property
+    def rendered_variant(self):
+        obj = self.variant
+        if obj:
+            return obj.restrictedTraverse('@@bda.plone.productshop.variant')
+        return None
+
+    @property
+    def rendered_controls(self):
+        obj = self.variant
+        if obj:
+            return obj.restrictedTraverse('@@buyable_controls')
+        return None
+
+
+class AspectsBase(BrowserView):
+
+    @property
+    def variants(self):
+        raise NotImplementedError(u'Abstract ``AspectsBase`` does not '
+                                  u'implement ``variants``.')
+
+    @property
+    def aspects(self):
+        raise NotImplementedError(u'Abstract ``AspectsBase`` does not '
+                                  u'implement ``aspects``.')
+
+    def variant_value(self, definition, context=None):
+        if not context:
+            context = self.context
+        if not definition.interface.providedBy(context):
+            return None
+        return getattr(context, definition.attribute, None)
+
+    def variant_values(self, definition):
+        ret = list()
+        for variant in self.variants:
+            value = self.variant_value(definition, variant)
+            if value:
+                ret.append(value)
+        return ret
+
+
+class ProductGroupAspects(AspectsBase):
+
+    @property
+    def variants(self):
+        return [_.getObject() for _ in query_children(self.context)]
+
+    @property
+    def aspects(self):
+        aspects = list()
+        for definition in available_variant_aspects():
+            aspect = dict()
+            aspect['title'] = definition.title
+            aspect['name'] = definition.attribute
+            aspect['options'] = options = list()
+            #selected_value = self.variant_value(definition)
+            #if not selected_value:
+            #    continue
+            for value in self.variant_values(definition):
+                option = dict()
+                option['title'] = value
+                option['value'] = value
+                #option['selected'] = value == selected_value
+                option['selected'] = False
+                options.append(option)
+            if options:
+                aspects.append(aspect)
+        return aspects
+
+
 class VariantBase(BrowserView):
 
     @property
@@ -87,7 +187,7 @@ class VariantBase(BrowserView):
         return aq_parent(aq_inner(self.context))
 
 
-class VariantAspects(VariantBase):
+class VariantAspects(VariantBase, AspectsBase):
 
     @property
     def variants(self):
@@ -113,21 +213,6 @@ class VariantAspects(VariantBase):
             if options:
                 aspects.append(aspect)
         return aspects
-
-    def variant_value(self, definition, context=None):
-        if not context:
-            context = self.context
-        if not definition.interface.providedBy(context):
-            return None
-        return getattr(context, definition.attribute, None)
-
-    def variant_values(self, definition):
-        ret = list()
-        for variant in self.variants:
-            value = self.variant_value(definition, variant)
-            if value:
-                ret.append(value)
-        return ret
 
 
 class VariantView(ProductView, VariantBase):

@@ -1,0 +1,11 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xml:lang="en"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="bda.plone.productshop"
+     tal:omit-tag="">
+
+  <tal:product replace="structure context/@@bda.plone.productshop.aspects" />
+  <tal:product replace="structure context/@@bda.plone.productshop.product" />
+
+</div>

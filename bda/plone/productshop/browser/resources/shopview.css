@@ -14,6 +14,14 @@ div.variant_aspects div.aspect strong {
     position:relative;
     top:3px;
 }
+div.productgroup_listing div.variant_aspects {
+    padding-bottom:0;
+    margin-bottom:0;
+    padding-top:1em;
+    margin-top:1em;
+    border-bottom:none;
+    border-top:#ccc 1px solid;
+}
 
 /* listing */
 div.product {
