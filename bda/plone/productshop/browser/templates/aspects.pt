@@ -34,11 +34,14 @@
 
   <div class="invalid_aspects"
        style="display:none;">
-    No product with selected criteria. Change selection or
+    <span i18n:translate="no_product_by_criteria">
+      No product with selected criteria. Change selection or
+    </span>
     <a href="#"
        ajax:bind="click"
        tal:attributes="ajax:target context/absolute_url;
-                       ajax:event string:reset_aspects:.${css}">
+                       ajax:event string:reset_aspects:.${css}"
+       i18n:translate="reset_filter">
       reset filter
     </a>
   </div>

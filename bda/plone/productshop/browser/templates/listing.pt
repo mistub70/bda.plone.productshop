@@ -14,7 +14,9 @@
 
   <div class="no_products"
        tal:condition="not:products">
-    <strong>Sorry. No Products found.</strong>
+    <strong i18n:translate="no_products_found">
+      Sorry. No Products found.
+    </strong>
   </div>
 
   <div class="product" tal:repeat="product products">

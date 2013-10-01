@@ -1,0 +1,242 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-10-01 19:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: bda.plone.productshop\n"
+
+#: ./profiles/default/actions.xml
+msgid "Add color"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Add color to product variant"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Add demand"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Add demand to product variant"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Add size"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Add size to product variant"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Add weight"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Add weight to product variant"
+msgstr ""
+
+#: ./profiles/default/types/bda.plone.productshop.product.xml
+msgid "Product"
+msgstr ""
+
+#: ./profiles/default/types/bda.plone.productshop.product.xml
+msgid "Product for bda.plone.shop"
+msgstr ""
+
+#: ./profiles/default/types/bda.plone.productshop.productgroup.xml
+msgid "Productgroup"
+msgstr ""
+
+#: ./profiles/default/types/bda.plone.productshop.productgroup.xml
+msgid "Productgroup to hold variations"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Remove color"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Remove color from product variant"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Remove demand"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Remove demand from product variant"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Remove size"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Remove size from product variant"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Remove weight"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Remove weight from product variant"
+msgstr ""
+
+#. Default: "Color"
+#: ./browser/actions.py:54
+msgid "aspect_color"
+msgstr ""
+
+#. Default: "Demand"
+#: ./browser/actions.py:72
+msgid "aspect_demand"
+msgstr ""
+
+#. Default: "Size"
+#: ./browser/actions.py:66
+msgid "aspect_size"
+msgstr ""
+
+#. Default: "Weight"
+#: ./browser/actions.py:60
+msgid "aspect_weight"
+msgstr ""
+
+#. Default: "Aspects"
+#: ./behaviors.py:88
+msgid "aspects"
+msgstr ""
+
+#. Default: "Color of the product"
+#: ./behaviors.py:93
+msgid "color_description"
+msgstr ""
+
+#. Default: "Color"
+#: ./behaviors.py:92
+msgid "color_title"
+msgstr ""
+
+#. Default: "Datasheet of the product"
+#: ./behaviors.py:59
+msgid "datasheet_description"
+msgstr ""
+
+#. Default: "Datasheet"
+#: ./behaviors.py:58
+msgid "datasheet_title"
+msgstr ""
+
+#. Default: "Demand of the product"
+#: ./behaviors.py:147
+msgid "demand_description"
+msgstr ""
+
+#. Default: "Demand"
+#: ./behaviors.py:146
+msgid "demand_title"
+msgstr ""
+
+#. Default: "Description"
+#: ./browser/templates/product.pt:25
+msgid "description"
+msgstr ""
+
+#. Default: "Details about the product"
+#: ./behaviors.py:53
+msgid "details_description"
+msgstr ""
+
+#. Default: "Details"
+#: ./behaviors.py:52
+msgid "details_title"
+msgstr ""
+
+#. Default: "Removed ${aspect} from object."
+#: ./browser/actions.py:40
+msgid "disabled_aspect"
+msgstr ""
+
+#. Default: "Added ${aspect} to object."
+#: ./browser/actions.py:30
+msgid "enabled_aspect"
+msgstr ""
+
+#. Default: "Preview image of Product"
+#: ./behaviors.py:47
+msgid "image_description"
+msgstr ""
+
+#. Default: "Product Image"
+#: ./behaviors.py:46
+msgid "image_title"
+msgstr ""
+
+#. Default: "No product with selected criteria. Change selection or"
+#: ./browser/templates/aspects.pt:37
+msgid "no_product_by_criteria"
+msgstr ""
+
+#. Default: "Sorry. No Products found."
+#: ./browser/templates/listing.pt:17
+msgid "no_products_found"
+msgstr ""
+
+#. Default: "Related"
+#: ./browser/templates/product.pt:31
+msgid "related"
+msgstr ""
+
+#. Default: "reset filter"
+#: ./browser/templates/aspects.pt:40
+msgid "reset_filter"
+msgstr ""
+
+#. Default: "Size of the product"
+#: ./behaviors.py:129
+msgid "size_description"
+msgstr ""
+
+#. Default: "Size"
+#: ./behaviors.py:128
+msgid "size_title"
+msgstr ""
+
+#. Default: "Specifications"
+#: ./browser/templates/product.pt:28
+msgid "specifications"
+msgstr ""
+
+#: ./profiles/default/types/bda.plone.productshop.variant.xml
+msgid "variant"
+msgstr ""
+
+#: ./profiles/default/types/bda.plone.productshop.variant.xml
+msgid "variant to use within a Productgroup"
+msgstr ""
+
+#. Default: "Weight of the product"
+#: ./behaviors.py:111
+msgid "weight_description"
+msgstr ""
+
+#. Default: "Weight"
+#: ./behaviors.py:110
+msgid "weight_title"
+msgstr ""
+
