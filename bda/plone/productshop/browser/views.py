@@ -15,7 +15,7 @@ from ..utils import available_variant_aspects
 _ = MessageFactory('bda.plone.productshop')
 
 
-def query_children(context):
+def query_children(context, criteria=dict()):
     cat = getToolByName(context, 'portal_catalog')
     query = {
         'path': {
@@ -24,6 +24,7 @@ def query_children(context):
         },
         'order_by': 'objPositionInParent',
     }
+    query.update(criteria)
     return cat(**query)
 
 
@@ -213,6 +214,32 @@ class VariantAspects(VariantBase, AspectsBase):
             if options:
                 aspects.append(aspect)
         return aspects
+
+
+class VariantLookup(VariantBase):
+
+    @property
+    def filtered_variants(self):
+        criteria = dict()
+        for definition in available_variant_aspects():
+            key = definition.attribute
+            value = self.request.get(key)
+            if value:
+                criteria[key] = value
+        return query_children(self.product_group, criteria=criteria)
+
+    def variant_uid_by_criteria(self):
+        """Return UID of first variant found by aspect criteria.
+
+        Base assumption is that each variant has a unique set of aspects. It
+        makes not much sence to have 2 Variants with color red and weight 10
+        if this 2 aspects are enabled.
+        """
+        uid = None
+        for brain in self.filtered_variants:
+            uid = brain.UID
+            break
+        return uid
 
 
 class VariantView(ProductView, VariantBase):

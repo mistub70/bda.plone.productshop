@@ -122,4 +122,13 @@
     layer="..interfaces.IProductShopExtensionLayer"
     permission="zope2.View" />
 
+  <!-- helper views -->
+  <browser:page
+    for="bda.plone.productshop.interfaces.IVariant"
+    name="variant_uid_by_criteria"
+    class=".views.VariantLookup"
+    attribute="variant_uid_by_criteria"
+    layer="..interfaces.IProductShopExtensionLayer"
+    permission="zope2.View" />
+
 </configure>

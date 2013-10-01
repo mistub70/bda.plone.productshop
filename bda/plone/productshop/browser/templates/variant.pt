@@ -3,7 +3,7 @@
      xmlns:tal="http://xml.zope.org/namespaces/tal"
      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
      i18n:domain="bda.plone.productshop"
-     tal:omit-tag="">
+     class="variant_view">
 
   <tal:product replace="structure context/@@bda.plone.productshop.aspects" />
   <tal:product replace="structure context/@@bda.plone.productshop.product" />
