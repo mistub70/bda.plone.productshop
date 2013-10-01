@@ -5,7 +5,8 @@
      i18n:domain="bda.plone.productshop"
      class="variant_aspects"
      tal:define="aspects view/aspects"
-     tal:condition="aspects">
+     tal:condition="aspects"
+     tal:attributes="id string:variant_aspects_${context/UID}">
 
   <div class="aspect" tal:repeat="aspect aspects">
 

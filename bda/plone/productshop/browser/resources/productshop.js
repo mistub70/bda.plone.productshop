@@ -8,7 +8,10 @@
             // aspect filter
             $('div.variant_aspects select').bind('change', function(event) {
                 var container = $(this).parents('div.variant_aspects');
+                var cid = container.attr('id');
+                var uid = cid.substring(16, cid.length);
                 var params = {};
+                params.variant_aspects_uid = uid;
                 $('select', container).each(function() {
                     var selection = $(this);
                     params[selection.attr('name')] = selection.val();
@@ -18,7 +21,7 @@
                     type: 'json',
                     params: params,
                     success: function(data, status, request) {
-                        alert(data);
+                        alert(data.uid);
                     }
                 });
             });

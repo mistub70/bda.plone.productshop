@@ -1,3 +1,4 @@
+import json
 from Acquisition import (
     aq_inner,
     aq_parent,
@@ -5,11 +6,16 @@ from Acquisition import (
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
+from bda.plone.cart import get_object_by_uid
 from ..interfaces import (
     IProduct,
     IProductGroup,
+    IVariant,
 )
-from ..utils import available_variant_aspects
+from ..utils import (
+    request_property,
+    available_variant_aspects,
+)
 
 
 _ = MessageFactory('bda.plone.productshop')
@@ -83,16 +89,12 @@ class ProductView(BrowserView):
 
 class ProductGroupView(BrowserView):
 
-    @property
+    @request_property
     def variant(self):
-        cache_key = '_bda_plone_productshop_productgroup'
-        if hasattr(self.request, cache_key):
-            return getattr(self.request, cache_key)
         obj = None
         for brain in query_children(self.context):
             obj = brain.getObject()
             break
-        setattr(self.request, cache_key, obj)
         return obj
 
     @property
@@ -154,7 +156,7 @@ class AspectsBase(BrowserView):
 
 class ProductGroupAspects(AspectsBase):
 
-    @property
+    @request_property
     def variants(self):
         return [_.getObject() for _ in query_children(self.context)]
 
@@ -190,7 +192,7 @@ class VariantBase(BrowserView):
 
 class VariantAspects(VariantBase, AspectsBase):
 
-    @property
+    @request_property
     def variants(self):
         return [_.getObject() for _ in query_children(self.product_group)]
 
@@ -216,7 +218,21 @@ class VariantAspects(VariantBase, AspectsBase):
         return aspects
 
 
-class VariantLookup(VariantBase):
+class VariantLookup(BrowserView):
+
+    @property
+    def product_group(self):
+        uid = self.request.get('variant_aspects_uid')
+        if not uid:
+            raise ValueError(u'No execution context UID')
+        obj = get_object_by_uid(self.context, uid)
+        if not obj:
+            raise ValueError(u'Execution context object not found by UID')
+        if IProductGroup.providedBy(obj):
+            return obj
+        if IVariant.providedBy(obj):
+            return aq_parent(obj)
+        raise ValueError(u'Object not implements IProductGroup or IVariant')
 
     @property
     def filtered_variants(self):
@@ -225,7 +241,7 @@ class VariantLookup(VariantBase):
             key = definition.attribute
             value = self.request.get(key)
             if value:
-                criteria[key] = value
+                criteria['%s_aspect' % key] = value
         return query_children(self.product_group, criteria=criteria)
 
     def variant_uid_by_criteria(self):
@@ -235,11 +251,19 @@ class VariantLookup(VariantBase):
         makes not much sence to have 2 Variants with color red and weight 10
         if this 2 aspects are enabled.
         """
+        found = False
+        oid = None
         uid = None
         for brain in self.filtered_variants:
+            found = True
+            oid = brain.id
             uid = brain.UID
             break
-        return uid
+        return json.dumps({
+            'found': found,
+            'oid': oid,
+            'uid': uid,
+        })
 
 
 class VariantView(ProductView, VariantBase):

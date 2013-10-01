@@ -124,7 +124,7 @@
 
   <!-- helper views -->
   <browser:page
-    for="bda.plone.productshop.interfaces.IVariant"
+    for="*"
     name="variant_uid_by_criteria"
     class=".views.VariantLookup"
     attribute="variant_uid_by_criteria"

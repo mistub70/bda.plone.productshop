@@ -106,7 +106,7 @@ class IWeightBehavior(IVariantAspect):
         label=_(u'aspects', default=u'Aspects'),
         fields=['weight'])
 
-    weight = schema.Float(
+    weight = schema.TextLine(
         title=_(u'weight_title', default=u'Weight'),
         description=_(u'weight_description',
                       default=u'Weight of the product'),
@@ -142,7 +142,7 @@ class IDemandBehavior(IVariantAspect):
         label=_(u'aspects', default=u'Aspects'),
         fields=['demand'])
 
-    demand = schema.Float(
+    demand = schema.TextLine(
         title=_(u'demand_title', default=u'Demand'),
         description=_(u'demand_description',
                       default=u'Demand of the product'),
