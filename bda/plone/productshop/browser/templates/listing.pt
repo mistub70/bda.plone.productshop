@@ -36,8 +36,10 @@
         <h3 tal:content="product/obj/Title">Title</h3>
       </a>
       <p tal:content="product/obj/Description">Description</p>
-      <a href="" tal:attributes="href product/obj/absolute_url">
-        more...
+      <a href=""
+         tal:attributes="href product/obj/absolute_url"
+         i18n:translate="read_more">
+        read more...
       </a>
     </div>
 

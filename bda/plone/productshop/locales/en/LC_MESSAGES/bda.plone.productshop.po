@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-01 19:56+0000\n"
+"POT-Creation-Date: 2013-10-01 20:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -193,6 +193,11 @@ msgstr "No product with selected criteria. Change selection or"
 #: ./browser/templates/listing.pt:17
 msgid "no_products_found"
 msgstr "Sorry. No Products found."
+
+#. Default: "read more..."
+#: ./browser/templates/listing.pt:39
+msgid "read_more"
+msgstr "read more..."
 
 #. Default: "Related"
 #: ./browser/templates/product.pt:31
