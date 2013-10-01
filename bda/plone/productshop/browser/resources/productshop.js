@@ -1,58 +1,59 @@
 (function($) {
 
     $(document).ready(function() {
-        var binder = function(context) {
-            // bind shopview tabs
-            $('ul.shopview_tabs').tabs('div.shopview_panes > div');
+        if (typeof(window['bdajax']) != "undefined") {
+            $.extend(bdajax.binders, {
+                productshop_binder: productshop.binder
+            });
+        }
+        productshop.binder(document);
+    });
 
-            // replace variant listing
-            var replace_productgroup_listing = function(obj_uid, data) {
-                if (data.found) {
-                    alert(data.url);
-                } else {
-                }
-            }
+    productshop = {
 
-            // replace variant view
-            var replace_variant_view = function(obj_uid, data) {
-                if (data.found) {
-                    alert(data.url);
-                } else {
-                }
-            }
+        // scope callbacks
+        scopes: {
 
-            // aspect filter
-            $('div.variant_aspects select').bind('change', function(event) {
-                var container = $(this).parents('div.variant_aspects');
-                var cid = container.attr('id');
-                var uid = cid.substring(16, cid.length);
-                var params = {};
-                params.variant_aspects_uid = uid;
-                $('select', container).each(function() {
-                    var selection = $(this);
-                    params[selection.attr('name')] = selection.val();
-                });
+            // variant scope callback
+            variant: function(params) {
                 bdajax.request({
                     url: '@@variant_uid_by_criteria',
                     type: 'json',
                     params: params,
                     success: function(data, status, request) {
-                        if (data.scope == 'productgroup') {
-                            replace_productgroup_listing(uid, data);
+                        if (!data.found) {
+                            var msg = 'No Product found with defined criteria';
+                            bdajax.info(msg);
+                            return;
                         }
-                        if (data.scope == 'variant') {
-                            replace_variant_view(uid, data);
-                        }
+                        alert(data.url);
                     }
                 });
+            },
+
+            // productgroup scope callback
+            productgroup: function(params) {
+                alert('handle productgroup');
+            }
+        },
+
+        // productshop binder function
+        binder: function(context) {
+            // bind shopview tabs
+            $('ul.shopview_tabs').tabs('div.shopview_panes > div');
+
+            // aspect filter
+            $('div.variant_aspects select').bind('change', function(event) {
+                var container = $(this).parents('div.variant_aspects');
+                var cid = container.attr('id');
+                var params = { uid: cid.substring(16, cid.length) };
+                $('select', container).each(function() {
+                    var selection = $(this);
+                    params[selection.attr('name')] = selection.val();
+                });
+                productshop.scopes[container.data('scope')](params);
             });
         }
-        if (typeof(window['bdajax']) != "undefined") {
-            $.extend(bdajax.binders, {
-                productshop_binder: binder
-            });
-        }
-        binder(document);
-    });
+    };
 
 })(jQuery);

@@ -6,7 +6,8 @@
      class="variant_aspects"
      tal:define="aspects view/aspects"
      tal:condition="aspects"
-     tal:attributes="id string:variant_aspects_${context/UID}">
+     tal:attributes="id string:variant_aspects_${context/UID};
+                     data-scope view/scope">
 
   <div class="aspect" tal:repeat="aspect aspects">
 

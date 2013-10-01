@@ -106,6 +106,7 @@ class ProductGroupView(BrowserView):
 
 
 class AspectsBase(BrowserView):
+    scope = None
 
     @property
     def variants(self):
@@ -134,6 +135,7 @@ class AspectsBase(BrowserView):
 
 
 class ProductGroupAspects(AspectsBase):
+    scope = 'productgroup'
 
     @request_property
     def variants(self):
@@ -170,6 +172,7 @@ class VariantBase(BrowserView):
 
 
 class VariantAspects(VariantBase, AspectsBase):
+    scope = 'variant'
 
     @request_property
     def variants(self):
@@ -201,18 +204,15 @@ class VariantLookup(BrowserView):
 
     @property
     def product_group(self):
-        self.scope = None
-        uid = self.request.get('variant_aspects_uid')
+        uid = self.request.get('uid')
         if not uid:
             raise ValueError(u'No execution context UID')
         obj = get_object_by_uid(self.context, uid)
         if not obj:
             raise ValueError(u'Execution context object not found by UID')
         if IProductGroup.providedBy(obj):
-            self.scope = 'productgroup'
             return obj
         if IVariant.providedBy(obj):
-            self.scope = 'variant'
             return aq_parent(obj)
         raise ValueError(u'Object not implements IProductGroup or IVariant')
 
@@ -234,9 +234,7 @@ class VariantLookup(BrowserView):
         if this 2 aspects are enabled.
         """
         found = False
-        oid = None
-        uid = None
-        url = None
+        oid = uid = url = None
         for brain in self.filtered_variants:
             found = True
             oid = brain.id
@@ -244,7 +242,6 @@ class VariantLookup(BrowserView):
             url = brain.getURL()
             break
         return json.dumps({
-            'scope': self.scope,
             'found': found,
             'oid': oid,
             'uid': uid,
