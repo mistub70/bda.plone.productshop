@@ -4,10 +4,17 @@
      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
      i18n:domain="bda.plone.productshop"
      class="variant_aspects"
-     tal:define="aspects view/aspects"
+     ajax:bind="reset_aspects"
+     tal:define="aspects view/aspects;
+                 uid context/UID;
+                 cssid string:variant_aspects_${uid}"
      tal:condition="aspects"
-     tal:attributes="id string:variant_aspects_${context/UID};
-                     data-scope view/scope">
+     tal:attributes="id cssid;
+                     class string:variant_aspects ${cssid};
+                     data-uid uid;
+                     data-scope view/scope;
+                     ajax:target context/absolute_url;
+                     ajax:action string:bda.plone.productshop.aspects:.${cssid}:replace">
 
   <div class="aspect" tal:repeat="aspect aspects">
 
@@ -24,6 +31,17 @@
       </tal:option>
     </select>
 
+  </div>
+
+  <div class="invalid_aspects"
+       style="display:none;">
+    No product with selected criteria. Change selection or
+    <a href="#"
+       ajax:bind="click"
+       tal:attributes="ajax:target context/absolute_url;
+                       ajax:event string:reset_aspects:.${cssid}">
+      reset filter
+    </a>
   </div>
 
 </div>

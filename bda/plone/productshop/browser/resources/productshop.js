@@ -15,15 +15,14 @@
         scopes: {
 
             // variant scope callback
-            variant: function(params) {
+            variant: function(container, params) {
                 bdajax.request({
                     url: '@@variant_uid_by_criteria',
                     type: 'json',
                     params: params,
                     success: function(data, status, request) {
                         if (!data.found) {
-                            var msg = 'No Product found with defined criteria';
-                            bdajax.info(msg);
+                            $('.invalid_aspects', container).show();
                             return;
                         }
                         bdajax.action({
@@ -38,7 +37,7 @@
             },
 
             // productgroup scope callback
-            productgroup: function(params) {
+            productgroup: function(container, params) {
                 alert('handle productgroup');
             }
         },
@@ -51,13 +50,12 @@
             // aspect filter
             $('div.variant_aspects select').bind('change', function(event) {
                 var container = $(this).parents('div.variant_aspects');
-                var cid = container.attr('id');
-                var params = { uid: cid.substring(16, cid.length) };
+                var params = { uid: container.data('uid') };
                 $('select', container).each(function() {
                     var selection = $(this);
                     params[selection.attr('name')] = selection.val();
                 });
-                productshop.scopes[container.data('scope')](params);
+                productshop.scopes[container.data('scope')](container, params);
             });
         }
     };
