@@ -9,11 +9,9 @@
 <body>
 
   <metal:content-core fill-slot="content-core">
-
     <metal:block define-macro="content-core">
       <tal:product replace="structure context/@@bda.plone.productshop.product" />
     </metal:block>
-
   </metal:content-core>
 
 </body>

@@ -5,7 +5,28 @@
      i18n:domain="bda.plone.productshop"
      class="variant_view">
 
-  <tal:product replace="structure context/@@bda.plone.productshop.aspects" />
-  <tal:product replace="structure context/@@bda.plone.productshop.product" />
+  <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+  <h1 class="documentFirstHeading" tal:content="context/Title">
+    Title
+  </h1>
+
+  <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+  <div class="documentDescription" tal:content="context/Description">
+    Description
+  </div>
+
+  <tal:aspects replace="structure context/@@bda.plone.productshop.aspects" />
+
+  <div tal:replace="structure provider:plone.abovecontentbody" />
+
+  <div id="content-core">
+    <tal:product replace="structure context/@@bda.plone.productshop.product" />
+  </div>
+
+  <div class="visualClear"><!--  --></div>
+
+  <div tal:replace="structure provider:plone.belowcontentbody" />
 
 </div>

@@ -98,31 +98,10 @@ class ProductGroupView(BrowserView):
         return obj
 
     @property
-    def title(self):
-        obj = self.variant
-        if obj:
-            return obj.Title()
-        return self.context.Title()
-
-    @property
-    def description(self):
-        obj = self.variant
-        if obj:
-            return obj.Description()
-        return self.context.Description()
-
-    @property
     def rendered_variant(self):
         obj = self.variant
         if obj:
             return obj.restrictedTraverse('@@bda.plone.productshop.variant')
-        return None
-
-    @property
-    def rendered_controls(self):
-        obj = self.variant
-        if obj:
-            return obj.restrictedTraverse('@@buyable_controls')
         return None
 
 
@@ -222,6 +201,7 @@ class VariantLookup(BrowserView):
 
     @property
     def product_group(self):
+        self.scope = None
         uid = self.request.get('variant_aspects_uid')
         if not uid:
             raise ValueError(u'No execution context UID')
@@ -229,8 +209,10 @@ class VariantLookup(BrowserView):
         if not obj:
             raise ValueError(u'Execution context object not found by UID')
         if IProductGroup.providedBy(obj):
+            self.scope = 'productgroup'
             return obj
         if IVariant.providedBy(obj):
+            self.scope = 'variant'
             return aq_parent(obj)
         raise ValueError(u'Object not implements IProductGroup or IVariant')
 
@@ -254,15 +236,19 @@ class VariantLookup(BrowserView):
         found = False
         oid = None
         uid = None
+        url = None
         for brain in self.filtered_variants:
             found = True
             oid = brain.id
             uid = brain.UID
+            url = brain.getURL()
             break
         return json.dumps({
+            'scope': self.scope,
             'found': found,
             'oid': oid,
             'uid': uid,
+            'url': url,
         })
 
 

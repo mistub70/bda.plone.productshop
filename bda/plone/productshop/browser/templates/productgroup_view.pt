@@ -10,45 +10,8 @@
 
   <metal:block fill-slot="main">
     <metal:main define-macro="main">
-      <tal:content define="rendered_variant view/rendered_variant;
-                           rendered_controls view/rendered_controls">
-
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
-
-        <h1 class="documentFirstHeading" tal:content="view/title">
-          Title
-        </h1>
-
-        <div tal:replace="structure provider:plone.belowcontenttitle" />
-
-        <div class="documentDescription" tal:content="view/description">
-          Description
-        </div>
-
-        <div tal:replace="structure provider:plone.abovecontentbody" />
-
-        <tal:controls condition="rendered_controls"
-                      replace="structure rendered_controls" />
-
-        <div id="content-core">
-          <tal:productgroup>
-
-            <tal:variant condition="rendered_variant"
-                         replace="structure rendered_variant" />
-
-            <tal:no_variant condition="not:rendered_variant">
-              <h1>No Variant added yet</h1>
-            </tal:no_variant>
-
-            <div class="visualClear"><!--  --></div>
-          </tal:productgroup>
-        </div>
-
-        <tal:controls condition="rendered_controls"
-                      replace="structure rendered_controls" />
-
-        <div tal:replace="structure provider:plone.belowcontentbody" />
-
+      <tal:content define="rendered_variant view/rendered_variant">
+        <tal:variant replace="structure rendered_variant" />
       </tal:content>
     </metal:main>
   </metal:block>

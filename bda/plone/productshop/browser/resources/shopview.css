@@ -1,6 +1,9 @@
 /* variant aspects */
 div.variant_aspects {
+    border-top:#ccc 1px solid;
     border-bottom:#ccc 1px solid;
+    padding-top:1em;
+    margin-top:1em;
     padding-bottom:1em;
     margin-bottom:1em;
 }
@@ -17,10 +20,7 @@ div.variant_aspects div.aspect strong {
 div.productgroup_listing div.variant_aspects {
     padding-bottom:0;
     margin-bottom:0;
-    padding-top:1em;
-    margin-top:1em;
     border-bottom:none;
-    border-top:#ccc 1px solid;
 }
 
 /* listing */

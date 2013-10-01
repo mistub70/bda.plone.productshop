@@ -9,14 +9,12 @@
 <body>
 
   <metal:content-core fill-slot="content-core">
-
     <metal:block define-macro="content-core">
       <div class="productgroup_listing">
-        <tal:product replace="structure context/@@bda.plone.productshop.aspects" />
+        <tal:aspects replace="structure context/@@bda.plone.productshop.aspects" />
       </div>
-      <tal:product replace="structure context/@@bda.plone.productshop.listing" />
+      <tal:listing replace="structure context/@@bda.plone.productshop.listing" />
     </metal:block>
-
   </metal:content-core>
 
 </body>

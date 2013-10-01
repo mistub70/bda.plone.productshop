@@ -5,6 +5,22 @@
             // bind shopview tabs
             $('ul.shopview_tabs').tabs('div.shopview_panes > div');
 
+            // replace variant listing
+            var replace_productgroup_listing = function(obj_uid, data) {
+                if (data.found) {
+                    alert(data.url);
+                } else {
+                }
+            }
+
+            // replace variant view
+            var replace_variant_view = function(obj_uid, data) {
+                if (data.found) {
+                    alert(data.url);
+                } else {
+                }
+            }
+
             // aspect filter
             $('div.variant_aspects select').bind('change', function(event) {
                 var container = $(this).parents('div.variant_aspects');
@@ -21,7 +37,12 @@
                     type: 'json',
                     params: params,
                     success: function(data, status, request) {
-                        alert(data.uid);
+                        if (data.scope == 'productgroup') {
+                            replace_productgroup_listing(uid, data);
+                        }
+                        if (data.scope == 'variant') {
+                            replace_variant_view(uid, data);
+                        }
                     }
                 });
             });
