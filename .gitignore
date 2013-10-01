@@ -3,3 +3,12 @@
 bda/plone/productshop/profiles/.DS_Store
 .DS_Store
 bda.plone.productshop.egg-info/
+.installed.cfg
+.mr.developer.cfg
+.project
+.pydevproject
+bin/
+develop-eggs/
+devsrc/
+parts/
+vpython/
