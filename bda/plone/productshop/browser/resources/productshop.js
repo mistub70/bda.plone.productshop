@@ -26,7 +26,13 @@
                             bdajax.info(msg);
                             return;
                         }
-                        alert(data.url);
+                        bdajax.action({
+                            url: data.url,
+                            params: {},
+                            name: 'bda.plone.productshop.variant',
+                            mode: 'replace',
+                            selector: '.variant_view'
+                        });
                     }
                 });
             },
