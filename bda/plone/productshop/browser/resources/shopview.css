@@ -27,6 +27,14 @@ div.productgroup_listing_aspects div.variant_aspects {
 }
 
 /* listing */
+div.no_products {
+    margin-top:1em;
+    padding-top:1em;
+    border-top:#cccccc 1px solid;
+}
+div.no_products strong {
+    font-size:1.4em;
+}
 div.product {
     margin-top:1em;
     padding-top:1em;

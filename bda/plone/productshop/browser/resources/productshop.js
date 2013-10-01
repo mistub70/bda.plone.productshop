@@ -38,9 +38,14 @@
 
             // productgroup scope callback
             productgroup: function(container, params) {
-                //var evt = $.Event('render_product_listing');
-                //var selector = '.product_listing_' + params.uid;
-                //$(selector).trigger(evt);
+                var selector = '.product_listing_' + params.uid;
+                var listing = $(selector);
+                var url = listing.attr('ajax:target');
+                var target = {
+                    url: url,
+                    params: params
+                };
+                bdajax.trigger('render_product_listing', selector, target);
             }
         },
 

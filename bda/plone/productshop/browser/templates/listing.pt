@@ -8,26 +8,33 @@
      tal:define="products view/products;
                  uid context/UID;
                  css string:product_listing_${uid}"
-     tal:condition="products"
      tal:attributes="class string:product_listing ${css};
                      ajax:target context/absolute_url;
                      ajax:action string:bda.plone.productshop.listing:.${css}:replace">
 
+  <div class="no_products"
+       tal:condition="not:products">
+    <strong>Sorry. No Products found.</strong>
+  </div>
+
   <div class="product" tal:repeat="product products">
 
-    <img src="" alt=""
-         tal:condition="product/preview"
-         tal:replace="structure product/preview" />
-    <img src="++resource++dummy_listing_product.jpg"
-         alt="preview"
-         class="product_listing_image"
-         tal:condition="not:product/preview" />
+    <a href="" tal:attributes="href product/obj/absolute_url">
+      <img src="" alt=""
+           tal:condition="product/preview"
+           tal:replace="structure product/preview" />
+      <img src="++resource++dummy_listing_product.jpg"
+           alt="preview"
+           class="product_listing_image"
+           tal:condition="not:product/preview" />
+    </a>
 
     <div class="product_info">
-      <h3 tal:content="product/obj/Title">Title</h3>
+      <a href="" tal:attributes="href product/obj/absolute_url">
+        <h3 tal:content="product/obj/Title">Title</h3>
+      </a>
       <p tal:content="product/obj/Description">Description</p>
-      <a href=""
-         tal:attributes="href product/obj/absolute_url">
+      <a href="" tal:attributes="href product/obj/absolute_url">
         more...
       </a>
     </div>

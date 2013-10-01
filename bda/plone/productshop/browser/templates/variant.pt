@@ -13,11 +13,11 @@
 
   <div tal:replace="structure provider:plone.belowcontenttitle" />
 
+  <tal:aspects replace="structure context/@@bda.plone.productshop.aspects" />
+
   <div class="documentDescription" tal:content="context/Description">
     Description
   </div>
-
-  <tal:aspects replace="structure context/@@bda.plone.productshop.aspects" />
 
   <div tal:replace="structure provider:plone.abovecontentbody" />
 
