@@ -7,14 +7,13 @@
      ajax:bind="reset_aspects"
      tal:define="aspects view/aspects;
                  uid context/UID;
-                 cssid string:variant_aspects_${uid}"
+                 css string:variant_aspects_${uid}"
      tal:condition="aspects"
-     tal:attributes="id cssid;
-                     class string:variant_aspects ${cssid};
+     tal:attributes="class string:variant_aspects ${css};
                      data-uid uid;
                      data-scope view/scope;
                      ajax:target context/absolute_url;
-                     ajax:action string:bda.plone.productshop.aspects:.${cssid}:replace">
+                     ajax:action string:bda.plone.productshop.aspects:.${css}:replace">
 
   <div class="aspect" tal:repeat="aspect aspects">
 
@@ -39,7 +38,7 @@
     <a href="#"
        ajax:bind="click"
        tal:attributes="ajax:target context/absolute_url;
-                       ajax:event string:reset_aspects:.${cssid}">
+                       ajax:event string:reset_aspects:.${css}">
       reset filter
     </a>
   </div>

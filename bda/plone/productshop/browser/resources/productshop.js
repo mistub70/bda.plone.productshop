@@ -38,7 +38,9 @@
 
             // productgroup scope callback
             productgroup: function(container, params) {
-                alert('handle productgroup');
+                //var evt = $.Event('render_product_listing');
+                //var selector = '.product_listing_' + params.uid;
+                //$(selector).trigger(evt);
             }
         },
 
@@ -48,7 +50,8 @@
             $('ul.shopview_tabs').tabs('div.shopview_panes > div');
 
             // aspect filter
-            $('div.variant_aspects select').bind('change', function(event) {
+            $('div.variant_aspects select').unbind()
+                                           .bind('change', function(event) {
                 var container = $(this).parents('div.variant_aspects');
                 var params = { uid: container.data('uid') };
                 $('select', container).each(function() {

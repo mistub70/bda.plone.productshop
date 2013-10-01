@@ -56,6 +56,14 @@
 
   <browser:page
     for="bda.plone.productshop.interfaces.IProductGroup"
+    name="bda.plone.productshop.listing"
+    permission="zope2.View"
+    class=".views.ProductGroupListing"
+    template="templates/listing.pt"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    for="bda.plone.productshop.interfaces.IProductGroup"
     name="bda.plone.productshop.aspects"
     permission="zope2.View"
     class=".views.ProductGroupAspects"

@@ -44,27 +44,6 @@ def img_tag(context, scale, css_class):
     return scale.tag(css_class=css_class)
 
 
-class ProductListing(BrowserView):
-    image_scale = 'thumb'
-
-    @property
-    def products(self):
-        ret = list()
-        for brain in query_children(self.context):
-            obj = brain.getObject()
-            if not IProduct.providedBy(obj):
-                continue
-            item = dict()
-            item['obj'] = obj
-            item['preview'] = img_tag(
-                obj, self.image_scale, 'product_listing_image')
-            item['buyable_controls'] = True
-            if IProductGroup.providedBy(obj):
-                item['buyable_controls'] = False
-            ret.append(item)
-        return ret
-
-
 class ProductView(BrowserView):
     image_scale = 'mini'
 
@@ -87,6 +66,60 @@ class ProductView(BrowserView):
         return None
 
 
+class ProductListing(BrowserView):
+    image_scale = 'thumb'
+
+    @property
+    def products(self):
+        ret = list()
+        for brain in query_children(self.context):
+            item = self.create_listing_item(brain)
+            if not item:
+                continue
+            ret.append(item)
+        return ret
+
+    def create_listing_item(self, brain):
+        obj = brain.getObject()
+        if not IProduct.providedBy(obj):
+            return None
+        item = dict()
+        item['obj'] = obj
+        item['preview'] = img_tag(
+            obj, self.image_scale, 'product_listing_image')
+        item['buyable_controls'] = True
+        if IProductGroup.providedBy(obj):
+            item['buyable_controls'] = False
+        return item
+
+
+class AspectsExtraction(object):
+
+    @property
+    def aspects_criteria(self):
+        criteria = dict()
+        for definition in available_variant_aspects():
+            key = definition.attribute
+            value = self.request.get(key)
+            if value and value != 'UNSET':
+                criteria['%s_aspect' % key] = value
+        return criteria
+
+
+class ProductGroupListing(ProductListing, AspectsExtraction):
+
+    @property
+    def products(self):
+        ret = list()
+        criteria = self.aspects_criteria
+        for brain in query_children(self.context, criteria=criteria):
+            item = self.create_listing_item(brain)
+            if not item:
+                continue
+            ret.append(item)
+        return ret
+
+
 class ProductGroupView(BrowserView):
 
     @request_property
@@ -105,17 +138,17 @@ class ProductGroupView(BrowserView):
         return None
 
 
-class AspectsBase(BrowserView):
+class Aspects(BrowserView):
     scope = None
 
     @property
     def variants(self):
-        raise NotImplementedError(u'Abstract ``AspectsBase`` does not '
+        raise NotImplementedError(u'Abstract ``Aspects`` does not '
                                   u'implement ``variants``.')
 
     @property
     def aspects(self):
-        raise NotImplementedError(u'Abstract ``AspectsBase`` does not '
+        raise NotImplementedError(u'Abstract ``Aspects`` does not '
                                   u'implement ``aspects``.')
 
     def variant_value(self, definition, context=None):
@@ -133,8 +166,22 @@ class AspectsBase(BrowserView):
                 ret.append(value)
         return ret
 
+    def create_aspect(self, title, name):
+        aspect = dict()
+        aspect['title'] = title
+        aspect['name'] = name
+        aspect['options'] = list()
+        return aspect
 
-class ProductGroupAspects(AspectsBase):
+    def create_option(self, title, value, selected):
+        option = dict()
+        option['title'] = title
+        option['value'] = value
+        option['selected'] = selected
+        return option
+
+
+class ProductGroupAspects(Aspects):
     scope = 'productgroup'
 
     @request_property
@@ -145,21 +192,12 @@ class ProductGroupAspects(AspectsBase):
     def aspects(self):
         aspects = list()
         for definition in available_variant_aspects():
-            aspect = dict()
-            aspect['title'] = definition.title
-            aspect['name'] = definition.attribute
-            aspect['options'] = options = list()
-            #selected_value = self.variant_value(definition)
-            #if not selected_value:
-            #    continue
+            aspect = self.create_aspect(definition.title, definition.attribute)
+            options = aspect['options']
             for value in self.variant_values(definition):
-                option = dict()
-                option['title'] = value
-                option['value'] = value
-                #option['selected'] = value == selected_value
-                option['selected'] = False
-                options.append(option)
+                options.append(self.create_option(value, value, False))
             if options:
+                options.insert(0, self.create_option('all', 'UNSET', True))
                 aspects.append(aspect)
         return aspects
 
@@ -171,7 +209,7 @@ class VariantBase(BrowserView):
         return aq_parent(aq_inner(self.context))
 
 
-class VariantAspects(VariantBase, AspectsBase):
+class VariantAspects(VariantBase, Aspects):
     scope = 'variant'
 
     @request_property
@@ -182,71 +220,17 @@ class VariantAspects(VariantBase, AspectsBase):
     def aspects(self):
         aspects = list()
         for definition in available_variant_aspects():
-            aspect = dict()
-            aspect['title'] = definition.title
-            aspect['name'] = definition.attribute
-            aspect['options'] = options = list()
+            aspect = self.create_aspect(definition.title, definition.attribute)
+            options = aspect['options']
             selected_value = self.variant_value(definition)
-            if not selected_value:
-                continue
             for value in self.variant_values(definition):
-                option = dict()
-                option['title'] = value
-                option['value'] = value
-                option['selected'] = value == selected_value
-                options.append(option)
+                selected = value == selected_value
+                options.append(self.create_option(value, value, selected))
             if options:
+                if not selected_value:
+                    options.insert(0, self.create_option('-', 'UNSET', True))
                 aspects.append(aspect)
         return aspects
-
-
-class VariantLookup(BrowserView):
-
-    @property
-    def product_group(self):
-        uid = self.request.get('uid')
-        if not uid:
-            raise ValueError(u'No execution context UID')
-        obj = get_object_by_uid(self.context, uid)
-        if not obj:
-            raise ValueError(u'Execution context object not found by UID')
-        if IProductGroup.providedBy(obj):
-            return obj
-        if IVariant.providedBy(obj):
-            return aq_parent(obj)
-        raise ValueError(u'Object not implements IProductGroup or IVariant')
-
-    @property
-    def filtered_variants(self):
-        criteria = dict()
-        for definition in available_variant_aspects():
-            key = definition.attribute
-            value = self.request.get(key)
-            if value:
-                criteria['%s_aspect' % key] = value
-        return query_children(self.product_group, criteria=criteria)
-
-    def variant_uid_by_criteria(self):
-        """Return UID of first variant found by aspect criteria.
-
-        Base assumption is that each variant has a unique set of aspects. It
-        makes not much sence to have 2 Variants with color red and weight 10
-        if this 2 aspects are enabled.
-        """
-        found = False
-        oid = uid = url = None
-        for brain in self.filtered_variants:
-            found = True
-            oid = brain.id
-            uid = brain.UID
-            url = brain.getURL()
-            break
-        return json.dumps({
-            'found': found,
-            'oid': oid,
-            'uid': uid,
-            'url': url,
-        })
 
 
 class VariantView(ProductView, VariantBase):
@@ -282,3 +266,50 @@ class VariantView(ProductView, VariantBase):
             if product_group.relatedItems:
                 return product_group.relatedItems
         return None
+
+
+class VariantLookup(BrowserView, AspectsExtraction):
+
+    @property
+    def product_group(self):
+        uid = self.request.get('uid')
+        if not uid:
+            raise ValueError(u'No execution context UID')
+        obj = get_object_by_uid(self.context, uid)
+        if not obj:
+            raise ValueError(u'Execution context object not found by UID')
+        if IProductGroup.providedBy(obj):
+            return obj
+        if IVariant.providedBy(obj):
+            return aq_parent(obj)
+        raise ValueError(u'Object not implements IProductGroup or IVariant')
+
+    def variant_uid_by_criteria(self):
+        """Return UID of first variant found by aspect criteria.
+
+        Base assumption is that each variant has a unique set of aspects. It
+        makes not much sence to have 2 Variants with color red and weight 10
+        if this 2 aspects are enabled.
+        """
+        found = False
+        oid = uid = url = None
+        criteria = self.aspects_criteria
+        try:
+            product_group = self.product_group
+        except ValueError, e:
+            return json.dumps({
+                'found': False,
+                'error': str(e),
+            })
+        for brain in query_children(product_group, criteria=criteria):
+            found = True
+            oid = brain.id
+            uid = brain.UID
+            url = brain.getURL()
+            break
+        return json.dumps({
+            'found': found,
+            'oid': oid,
+            'uid': uid,
+            'url': url,
+        })

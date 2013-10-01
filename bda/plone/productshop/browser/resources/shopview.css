@@ -20,7 +20,7 @@ div.variant_aspects div.aspect strong {
 div.variant_aspects div.invalid_aspects {
     padding:0.3em 0.3em 0 0.3em;
 }
-div.productgroup_listing div.variant_aspects {
+div.productgroup_listing_aspects div.variant_aspects {
     padding-bottom:0;
     margin-bottom:0;
     border-bottom:none;
