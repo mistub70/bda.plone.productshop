@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-01 20:19+0000\n"
+"POT-Creation-Date: 2013-10-02 09:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,37 +115,47 @@ msgid "aspect_weight"
 msgstr "Gewicht"
 
 #. Default: "Aspects"
-#: ./behaviors.py:88
+#: ./behaviors.py:105
 msgid "aspects"
 msgstr "Aspekte"
 
 #. Default: "Color of the product"
-#: ./behaviors.py:93
+#: ./behaviors.py:110
 msgid "color_description"
 msgstr "Farbe des Produkts"
 
 #. Default: "Color"
-#: ./behaviors.py:92
+#: ./behaviors.py:109
 msgid "color_title"
 msgstr "Farbe"
 
 #. Default: "Datasheet of the product"
-#: ./behaviors.py:59
+#: ./behaviors.py:60
 msgid "datasheet_description"
 msgstr "Datenblatt vom Produkt"
 
 #. Default: "Datasheet"
-#: ./behaviors.py:58
+#: ./behaviors.py:59
 msgid "datasheet_title"
 msgstr "Datenblatt"
 
+#. Default: "Variant aspects enabled by default when adding new variants"
+#: ./behaviors.py:79
+msgid "default_variant_aspects_description"
+msgstr "Standardmäßig aktivierte Aspekte beim hinzufügen von Varianten"
+
+#. Default: "Default variant aspects"
+#: ./behaviors.py:77
+msgid "default_variant_aspects_title"
+msgstr "Standard Aspekte"
+
 #. Default: "Demand of the product"
-#: ./behaviors.py:147
+#: ./behaviors.py:164
 msgid "demand_description"
 msgstr "Leistung vom Produkt"
 
 #. Default: "Demand"
-#: ./behaviors.py:146
+#: ./behaviors.py:163
 msgid "demand_title"
 msgstr "Leistung"
 
@@ -155,12 +165,12 @@ msgid "description"
 msgstr "Beschreibung"
 
 #. Default: "Details about the product"
-#: ./behaviors.py:53
+#: ./behaviors.py:54
 msgid "details_description"
 msgstr "Detailbeschreibung vom Produkt"
 
 #. Default: "Details"
-#: ./behaviors.py:52
+#: ./behaviors.py:53
 msgid "details_title"
 msgstr "Details"
 
@@ -175,12 +185,12 @@ msgid "enabled_aspect"
 msgstr "Aspekt ${aspect} zu Objekt hinzugefügt."
 
 #. Default: "Preview image of Product"
-#: ./behaviors.py:47
+#: ./behaviors.py:48
 msgid "image_description"
 msgstr "Vorschaubild vom Produkt"
 
 #. Default: "Product Image"
-#: ./behaviors.py:46
+#: ./behaviors.py:47
 msgid "image_title"
 msgstr "Vorschaubild"
 
@@ -210,12 +220,12 @@ msgid "reset_filter"
 msgstr "setzen Sie die Kriterien zurück"
 
 #. Default: "Size of the product"
-#: ./behaviors.py:129
+#: ./behaviors.py:146
 msgid "size_description"
 msgstr "Größe des Produktes"
 
 #. Default: "Size"
-#: ./behaviors.py:128
+#: ./behaviors.py:145
 msgid "size_title"
 msgstr "Größe"
 
@@ -233,12 +243,12 @@ msgid "variant to use within a Productgroup"
 msgstr "Variante einer Produktgruppe"
 
 #. Default: "Weight of the product"
-#: ./behaviors.py:111
+#: ./behaviors.py:128
 msgid "weight_description"
 msgstr "Gewicht vom Produkt"
 
 #. Default: "Weight"
-#: ./behaviors.py:110
+#: ./behaviors.py:127
 msgid "weight_title"
 msgstr "Gewicht"
 
