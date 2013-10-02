@@ -23,14 +23,17 @@ metadata, an image, a detailed description, a datasheet and related items.
 **Product Group**
 
 A product group is a collection of product like objects with several aspects
-applied to it. The contained items are of type ``Variant``. Further a Product
-provides the same fields as a ``Product``.
+applied to it. The contained items are of type ``Variant``. Further a
+product group provides the same fields as a ``Product``. The default variant
+aspects for newly created variants inside this product group can be defined
+on the product group.
 
 **Variant**
 
 A Variant is a ``Product`` with several aspects applied to it, like weight,
 size, etc. and is contained in a ``Product Group``. The different aspects
-must be enabled explicitly after creation via object actions.
+can be enabled and disabled explicitly after creation via object actions. The
+default aspects enabled are read from parent product group
 
 
 A brief description about the contained views
@@ -236,23 +239,18 @@ profile. Add to ``actions.xml``::
 TODO
 ====
 
-[ ] i18n
+- Define which richtext fields of a product gets rendered as tabs in
+  product view.
 
-[ ] Define which richtext fields of a product gets rendered as tabs in
-    product view.
-
-[ ] Define on product group which variant aspects are enabled by default for
-    contained variants.
-
-[ ] Create control panel. This should contain global configuration which
-    variant aspects are available in the instance.
+- Create control panel. This should contain global configuration which
+  variant aspects are available in the instance.
 
 
 Contributors
 ============
 
-- Espen Moe-Nilssen (Original ``bda.plone.shopviews`` package)
 - Robert Niederreiter (Autor)
+- Espen Moe-Nilssen
 
 
 Dummy product image from
