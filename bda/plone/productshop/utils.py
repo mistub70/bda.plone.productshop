@@ -4,6 +4,10 @@ from z3c.form.field import Fields
 from .interfaces import IVariantAspect
 
 
+def dotted_name(obj):
+    return '%s.%s' % (obj.__module__, obj.__name__)
+
+
 def request_property(func):
     """Decorator like ``property``, but underlying function is only called once
     per request.

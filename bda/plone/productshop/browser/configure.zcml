@@ -139,4 +139,18 @@
     layer="..interfaces.IProductShopExtensionLayer"
     permission="zope2.View" />
 
+  <!-- forms -->
+  <adapter
+    for="Products.CMFCore.interfaces.IFolderish
+         Products.CMFDefault.interfaces.ICMFDefaultSkin
+         plone.dexterity.interfaces.IDexterityFTI"
+    provides="zope.publisher.interfaces.browser.IBrowserPage"
+    name="bda.plone.productshop.variant"
+    factory=".forms.VariantAddView" />
+
+  <class class=".forms.VariantAddView">
+    <require permission="cmf.AddPortalContent"
+             interface="zope.publisher.interfaces.browser.IBrowserPage" />
+  </class>
+
 </configure>

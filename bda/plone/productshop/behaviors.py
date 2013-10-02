@@ -3,6 +3,7 @@ from zope.interface import alsoProvides
 from zope.component import provideAdapter
 from zope.i18nmessageid import MessageFactory
 from z3c.form.widget import ComputedWidgetAttribute
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from plone.supermodel import model
 from plone.directives import form
 from plone.autoform.interfaces import IFormFieldProvider
@@ -67,6 +68,22 @@ alsoProvides(IProductBehavior, IFormFieldProvider)
 class IProductGroupBehavior(IProductBehavior, IProductGroup):
     """Product group behavior.
     """
+    form.fieldset(
+        'settings',
+        fields=['default_variant_aspects'])
+
+    form.widget(default_variant_aspects=CheckBoxFieldWidget)
+    default_variant_aspects = schema.List(
+        title=_(u'default_variant_aspects_title',
+                default=u'Default variant aspects'),
+        description=_(u'default_variant_aspects_description',
+                      default=u'Variant aspects enabled by default when '
+                              u'adding new variants'),
+        required=False,
+        missing_value=set(),
+        value_type=schema.Choice(
+            vocabulary=
+                'bda.plone.productshop.AvailableVariantAspectsVocabulary'))
 
 
 alsoProvides(IProductGroupBehavior, IFormFieldProvider)

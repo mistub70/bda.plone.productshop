@@ -16,6 +16,11 @@
   <include package=".browser" />
   <include file="profiles.zcml" />
 
+  <!-- vocabularies -->
+  <utility
+    component=".vocabularies.AvailableVariantAspectsVocabulary"
+    name="bda.plone.productshop.AvailableVariantAspectsVocabulary" />
+
   <!-- DX behaviors -->
   <plone:behavior
     title="Exclude From navigation for products"
