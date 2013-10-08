@@ -159,11 +159,11 @@ class Aspects(BrowserView):
         return getattr(context, definition.attribute, None)
 
     def variant_values(self, definition):
-        ret = list()
+        ret = set()
         for variant in self.variants:
             value = self.variant_value(definition, variant)
             if value:
-                ret.append(value)
+                ret.add(value)
         return ret
 
     def create_aspect(self, title, name):
