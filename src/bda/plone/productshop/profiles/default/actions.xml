@@ -185,5 +185,140 @@
       <property name="visible">True</property>
     </object>
 
+    <!-- length -->
+    <object name="enable_length"
+            meta_type="CMF Action"
+            i18n:domain="bda.plone.productshop">
+      <property name="title" i18n:translate="">
+          Add length
+      </property>
+      <property name="description" i18n:translate="">
+          Add length to product variant
+      </property>
+      <property name="url_expr">
+          string:${object/absolute_url}/@@enable_length
+      </property>
+      <property name="icon_expr"></property>
+      <property name="available_expr">
+          object/@@can_enable_length
+      </property>
+      <property name="permissions">
+          <element value="Modify portal content" />
+      </property>
+      <property name="visible">True</property>
+    </object>
+
+    <object name="disable_length"
+            meta_type="CMF Action"
+            i18n:domain="bda.plone.productshop">
+      <property name="title" i18n:translate="">
+          Remove length
+      </property>
+      <property name="description" i18n:translate="">
+          Remove length from product variant
+      </property>
+      <property name="url_expr">
+          string:${object/absolute_url}/@@disable_length
+      </property>
+      <property name="icon_expr"></property>
+      <property name="available_expr">
+          object/@@can_disable_length
+      </property>
+      <property name="permissions">
+          <element value="Modify portal content" />
+      </property>
+      <property name="visible">True</property>
+    </object>
+
+    <!-- width -->
+    <object name="enable_width"
+            meta_type="CMF Action"
+            i18n:domain="bda.plone.productshop">
+      <property name="title" i18n:translate="">
+          Add width
+      </property>
+      <property name="description" i18n:translate="">
+          Add width to product variant
+      </property>
+      <property name="url_expr">
+          string:${object/absolute_url}/@@enable_width
+      </property>
+      <property name="icon_expr"></property>
+      <property name="available_expr">
+          object/@@can_enable_width
+      </property>
+      <property name="permissions">
+          <element value="Modify portal content" />
+      </property>
+      <property name="visible">True</property>
+    </object>
+
+    <object name="disable_width"
+            meta_type="CMF Action"
+            i18n:domain="bda.plone.productshop">
+      <property name="title" i18n:translate="">
+          Remove width
+      </property>
+      <property name="description" i18n:translate="">
+          Remove width from product variant
+      </property>
+      <property name="url_expr">
+          string:${object/absolute_url}/@@disable_width
+      </property>
+      <property name="icon_expr"></property>
+      <property name="available_expr">
+          object/@@can_disable_width
+      </property>
+      <property name="permissions">
+          <element value="Modify portal content" />
+      </property>
+      <property name="visible">True</property>
+    </object>
+
+    <!-- height -->
+    <object name="enable_height"
+            meta_type="CMF Action"
+            i18n:domain="bda.plone.productshop">
+      <property name="title" i18n:translate="">
+          Add height
+      </property>
+      <property name="description" i18n:translate="">
+          Add height to product variant
+      </property>
+      <property name="url_expr">
+          string:${object/absolute_url}/@@enable_height
+      </property>
+      <property name="icon_expr"></property>
+      <property name="available_expr">
+          object/@@can_enable_height
+      </property>
+      <property name="permissions">
+          <element value="Modify portal content" />
+      </property>
+      <property name="visible">True</property>
+    </object>
+
+    <object name="disable_height"
+            meta_type="CMF Action"
+            i18n:domain="bda.plone.productshop">
+      <property name="title" i18n:translate="">
+          Remove height
+      </property>
+      <property name="description" i18n:translate="">
+          Remove height from product variant
+      </property>
+      <property name="url_expr">
+          string:${object/absolute_url}/@@disable_height
+      </property>
+      <property name="icon_expr"></property>
+      <property name="available_expr">
+          object/@@can_disable_height
+      </property>
+      <property name="permissions">
+          <element value="Modify portal content" />
+      </property>
+      <property name="visible">True</property>
+    </object>
+
   </object>
 </object>

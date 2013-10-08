@@ -70,10 +70,31 @@
     provides=".behaviors.IDemandBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
+  <plone:behavior
+    title="Length"
+    description="Extend content with product length."
+    provides=".behaviors.ILengthBehavior"
+    for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
+
+  <plone:behavior
+    title="Width"
+    description="Extend content with product width."
+    provides=".behaviors.IWidthBehavior"
+    for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
+
+  <plone:behavior
+    title="Height"
+    description="Extend content with product height."
+    provides=".behaviors.IHeightBehavior"
+    for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
+
   <!-- indexing -->
   <adapter name="color_aspect" factory=".indexer.color_aspect" />
   <adapter name="weight_aspect" factory=".indexer.weight_aspect" />
   <adapter name="size_aspect" factory=".indexer.size_aspect" />
   <adapter name="demand_aspect" factory=".indexer.demand_aspect" />
+  <adapter name="length_aspect" factory=".indexer.length_aspect" />
+  <adapter name="width_aspect" factory=".indexer.width_aspect" />
+  <adapter name="height_aspect" factory=".indexer.height_aspect" />
 
 </configure>

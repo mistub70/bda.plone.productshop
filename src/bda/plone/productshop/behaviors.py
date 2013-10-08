@@ -167,3 +167,57 @@ class IDemandBehavior(IVariantAspect):
 
 
 alsoProvides(IDemandBehavior, IFormFieldProvider)
+
+
+class ILengthBehavior(IVariantAspect):
+    """Length variant behavior.
+    """
+    form.fieldset(
+        'aspects',
+        label=_(u'aspects', default=u'Aspects'),
+        fields=['length'])
+
+    length = schema.TextLine(
+        title=_(u'length_title', default=u'Length'),
+        description=_(u'length_description',
+                      default=u'Length of the product'),
+        required=False)
+
+
+alsoProvides(ILengthBehavior, IFormFieldProvider)
+
+
+class IWidthBehavior(IVariantAspect):
+    """Width variant behavior.
+    """
+    form.fieldset(
+        'aspects',
+        label=_(u'aspects', default=u'Aspects'),
+        fields=['width'])
+
+    width = schema.TextLine(
+        title=_(u'width_title', default=u'Width'),
+        description=_(u'width_description',
+                      default=u'Width of the product'),
+        required=False)
+
+
+alsoProvides(IWidthBehavior, IFormFieldProvider)
+
+
+class IHeightBehavior(IVariantAspect):
+    """Height variant behavior.
+    """
+    form.fieldset(
+        'aspects',
+        label=_(u'aspects', default=u'Aspects'),
+        fields=['height'])
+
+    height = schema.TextLine(
+        title=_(u'height_title', default=u'Height'),
+        description=_(u'height_description',
+                      default=u'Height of the product'),
+        required=False)
+
+
+alsoProvides(IHeightBehavior, IFormFieldProvider)

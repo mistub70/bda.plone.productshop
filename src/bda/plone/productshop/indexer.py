@@ -4,6 +4,9 @@ from .behaviors import (
     IWeightBehavior,
     ISizeBehavior,
     IDemandBehavior,
+    ILengthBehavior,
+    IWidthBehavior,
+    IHeightBehavior,
 )
 
 
@@ -25,3 +28,18 @@ def size_aspect(obj):
 @indexer(IDemandBehavior)
 def demand_aspect(obj):
     return obj.demand
+
+
+@indexer(ILengthBehavior)
+def length_aspect(obj):
+    return obj.length
+
+
+@indexer(IWidthBehavior)
+def width_aspect(obj):
+    return obj.width
+
+
+@indexer(IHeightBehavior)
+def height_aspect(obj):
+    return obj.height

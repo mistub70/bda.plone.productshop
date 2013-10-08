@@ -5,7 +5,8 @@ Changelog
 0.3dev
 ------
 
-- no changes yet
+- Add variant aspects length, width and height
+  [rnix]
 
 
 0.2

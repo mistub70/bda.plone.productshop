@@ -134,4 +134,103 @@
     permission="cmf.ModifyPortalContent"
     layer="..interfaces.IProductShopExtensionLayer" />
 
+  <!-- length -->
+  <browser:page
+    name="enable_length"
+    attribute="enable_aspect"
+    for="..interfaces.IVariant"
+    class=".actions.LengthAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="disable_length"
+    attribute="disable_aspect"
+    for="..interfaces.IVariant"
+    class=".actions.LengthAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="can_enable_length"
+    attribute="can_enable"
+    for="*"
+    class=".actions.LengthAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="can_disable_length"
+    attribute="can_disable"
+    for="*"
+    class=".actions.LengthAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <!-- width -->
+  <browser:page
+    name="enable_width"
+    attribute="enable_aspect"
+    for="..interfaces.IVariant"
+    class=".actions.WidthAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="disable_width"
+    attribute="disable_aspect"
+    for="..interfaces.IVariant"
+    class=".actions.WidthAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="can_enable_width"
+    attribute="can_enable"
+    for="*"
+    class=".actions.WidthAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="can_disable_width"
+    attribute="can_disable"
+    for="*"
+    class=".actions.WidthAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <!-- height -->
+  <browser:page
+    name="enable_height"
+    attribute="enable_aspect"
+    for="..interfaces.IVariant"
+    class=".actions.HeightAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="disable_height"
+    attribute="disable_aspect"
+    for="..interfaces.IVariant"
+    class=".actions.HeightAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="can_enable_height"
+    attribute="can_enable"
+    for="*"
+    class=".actions.HeightAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="can_disable_height"
+    attribute="can_disable"
+    for="*"
+    class=".actions.HeightAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
 </configure>

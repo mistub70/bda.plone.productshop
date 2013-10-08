@@ -17,4 +17,16 @@
     <indexed_attr value="demand_aspect" />
   </index>
 
+  <index name="length_aspect" meta_type="FieldIndex">
+    <indexed_attr value="length_aspect" />
+  </index>
+
+  <index name="width_aspect" meta_type="FieldIndex">
+    <indexed_attr value="width_aspect" />
+  </index>
+
+  <index name="height_aspect" meta_type="FieldIndex">
+    <indexed_attr value="height_aspect" />
+  </index>
+
 </object>

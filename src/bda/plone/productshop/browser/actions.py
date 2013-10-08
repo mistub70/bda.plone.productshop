@@ -10,6 +10,9 @@ from ..behaviors import (
     IWeightBehavior,
     ISizeBehavior,
     IDemandBehavior,
+    ILengthBehavior,
+    IWidthBehavior,
+    IHeightBehavior,
 )
 from ..interfaces import IVariant
 
@@ -72,3 +75,21 @@ class DemandAction(VariantAspectAction):
     aspect_title = _(u'aspect_demand', default=u'Demand')
     aspect_behavior = 'bda.plone.productshop.behaviors.IDemandBehavior'
     aspect_schema = IDemandBehavior
+
+
+class LengthAction(VariantAspectAction):
+    aspect_title = _(u'aspect_length', default=u'Length')
+    aspect_behavior = 'bda.plone.productshop.behaviors.ILengthBehavior'
+    aspect_schema = ILengthBehavior
+
+
+class WidthAction(VariantAspectAction):
+    aspect_title = _(u'aspect_width', default=u'Width')
+    aspect_behavior = 'bda.plone.productshop.behaviors.IWidthBehavior'
+    aspect_schema = IWidthBehavior
+
+
+class HeightAction(VariantAspectAction):
+    aspect_title = _(u'aspect_height', default=u'Height')
+    aspect_behavior = 'bda.plone.productshop.behaviors.IHeightBehavior'
+    aspect_schema = IHeightBehavior

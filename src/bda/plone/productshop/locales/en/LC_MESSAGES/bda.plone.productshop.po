@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-02 09:56+0000\n"
+"POT-Creation-Date: 2013-10-08 14:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,6 +31,22 @@ msgid "Add demand to product variant"
 msgstr "Add demand to product variant"
 
 #: ./profiles/default/actions.xml
+msgid "Add height"
+msgstr "Add height"
+
+#: ./profiles/default/actions.xml
+msgid "Add height to product variant"
+msgstr "Add height to product variant"
+
+#: ./profiles/default/actions.xml
+msgid "Add length"
+msgstr "Add length"
+
+#: ./profiles/default/actions.xml
+msgid "Add length to product variant"
+msgstr "Add length to product variant"
+
+#: ./profiles/default/actions.xml
 msgid "Add size"
 msgstr "Add size"
 
@@ -45,6 +61,14 @@ msgstr "Add weight"
 #: ./profiles/default/actions.xml
 msgid "Add weight to product variant"
 msgstr "Add weight to product variant"
+
+#: ./profiles/default/actions.xml
+msgid "Add width"
+msgstr "Add width"
+
+#: ./profiles/default/actions.xml
+msgid "Add width to product variant"
+msgstr "Add width to product variant"
 
 #: ./profiles/default/types/bda.plone.productshop.product.xml
 msgid "Product"
@@ -79,6 +103,22 @@ msgid "Remove demand from product variant"
 msgstr "Remove demand from product variant"
 
 #: ./profiles/default/actions.xml
+msgid "Remove height"
+msgstr "Remove heigh"
+
+#: ./profiles/default/actions.xml
+msgid "Remove height from product variant"
+msgstr "Remove height from product variant"
+
+#: ./profiles/default/actions.xml
+msgid "Remove length"
+msgstr "Remove length"
+
+#: ./profiles/default/actions.xml
+msgid "Remove length from product variant"
+msgstr "Remove length from product variant"
+
+#: ./profiles/default/actions.xml
 msgid "Remove size"
 msgstr "Remove size"
 
@@ -94,25 +134,48 @@ msgstr "Remove weight"
 msgid "Remove weight from product variant"
 msgstr "Remove weight from product variant"
 
+#: ./profiles/default/actions.xml
+msgid "Remove width"
+msgstr "Remove width"
+
+#: ./profiles/default/actions.xml
+msgid "Remove width from product variant"
+msgstr "Remove width from product variant"
+
 #. Default: "Color"
-#: ./browser/actions.py:54
+#: ./browser/actions.py:57
 msgid "aspect_color"
 msgstr "Color"
 
 #. Default: "Demand"
-#: ./browser/actions.py:72
+#: ./browser/actions.py:75
 msgid "aspect_demand"
 msgstr "Demand"
 
+#. Default: "Height"
+#: ./browser/actions.py:93
+msgid "aspect_height"
+msgstr "Height"
+
+#. Default: "Length"
+#: ./browser/actions.py:81
+msgid "aspect_length"
+msgstr "Length"
+
 #. Default: "Size"
-#: ./browser/actions.py:66
+#: ./browser/actions.py:69
 msgid "aspect_size"
 msgstr "Size"
 
 #. Default: "Weight"
-#: ./browser/actions.py:60
+#: ./browser/actions.py:63
 msgid "aspect_weight"
 msgstr "Weight"
+
+#. Default: "Width"
+#: ./browser/actions.py:87
+msgid "aspect_width"
+msgstr "Width"
 
 #. Default: "Aspects"
 #: ./behaviors.py:105
@@ -175,14 +238,24 @@ msgid "details_title"
 msgstr "Details"
 
 #. Default: "Removed ${aspect} from object."
-#: ./browser/actions.py:40
+#: ./browser/actions.py:43
 msgid "disabled_aspect"
 msgstr "Removed ${aspect} from object."
 
 #. Default: "Added ${aspect} to object."
-#: ./browser/actions.py:30
+#: ./browser/actions.py:33
 msgid "enabled_aspect"
 msgstr "Added ${aspect} to object."
+
+#. Default: "Height of the product"
+#: ./behaviors.py:218
+msgid "height_description"
+msgstr "Height of the product"
+
+#. Default: "Height"
+#: ./behaviors.py:217
+msgid "height_title"
+msgstr "Height"
 
 #. Default: "Preview image of Product"
 #: ./behaviors.py:48
@@ -193,6 +266,16 @@ msgstr "Preview image of Product"
 #: ./behaviors.py:47
 msgid "image_title"
 msgstr "Product Image"
+
+#. Default: "Length of the product"
+#: ./behaviors.py:182
+msgid "length_description"
+msgstr "Length of the product"
+
+#. Default: "Length"
+#: ./behaviors.py:181
+msgid "length_title"
+msgstr "Length"
 
 #. Default: "No product with selected criteria. Change selection or"
 #: ./browser/templates/aspects.pt:37
@@ -251,4 +334,14 @@ msgstr "Weight of the product"
 #: ./behaviors.py:127
 msgid "weight_title"
 msgstr "Weight"
+
+#. Default: "Width of the product"
+#: ./behaviors.py:200
+msgid "width_description"
+msgstr "Width of the product"
+
+#. Default: "Width"
+#: ./behaviors.py:199
+msgid "width_title"
+msgstr "Width"
 
