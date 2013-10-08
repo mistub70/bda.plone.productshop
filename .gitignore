@@ -1,8 +1,8 @@
 *.mo
 *.pyc
-bda/plone/productshop/profiles/.DS_Store
+src/bda/plone/productshop/profiles/.DS_Store
 .DS_Store
-bda.plone.productshop.egg-info/
+src/bda.plone.productshop.egg-info/
 .installed.cfg
 .mr.developer.cfg
 .project
