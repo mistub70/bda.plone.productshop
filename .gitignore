@@ -13,3 +13,4 @@ devsrc/
 parts/
 vpython/
 var/
+dist/

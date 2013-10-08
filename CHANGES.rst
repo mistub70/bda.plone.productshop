@@ -2,8 +2,8 @@
 Changelog
 =========
 
-0.2dev
-------
+0.2
+---
 
 - Productgroup can define default variant aspects
   [rnix]
