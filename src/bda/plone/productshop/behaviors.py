@@ -43,6 +43,12 @@ provideAdapter(ComputedWidgetAttribute(
 class IProductBehavior(model.Schema, IProduct):
     """Product behavior.
     """
+    item_number = schema.TextLine(
+        title=_(u'item_number_title', default=u'Item number'),
+        description=_(u'item_number_description',
+                      default=u'Item number of the product'),
+        required=False)
+
     image = NamedBlobImage(
         title=_(u'image_title', default=u'Product Image'),
         description=_(u'image_description',

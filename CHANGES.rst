@@ -5,17 +5,20 @@ Changelog
 0.3dev
 ------
 
-- Add variant aspects length, width and height
+- Add item number to ``IProduct``.
+  [rnix]
+
+- Add variant aspects length, width and height.
   [rnix]
 
 
 0.2
 ---
 
-- Productgroup can define default variant aspects
+- Productgroup can define default variant aspects.
   [rnix]
 
-- Add german translation
+- Add german translation.
   [rnix]
 
 - Introduce ``IProductExcludeFromNavigation``.
