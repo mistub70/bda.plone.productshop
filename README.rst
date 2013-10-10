@@ -2,7 +2,7 @@
 bda.plone.productshop
 =====================
 
-Product shop extension for ``bda.plone.shop``
+Product shop extension for ``bda.plone.shop``.
 
 
 Overview
