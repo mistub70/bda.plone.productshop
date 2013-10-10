@@ -5,6 +5,9 @@ Changelog
 0.3dev
 ------
 
+- Add ``IShippingBehavior`` to product and variant types.
+  [rnix]
+
 - Add item number to ``IProduct``.
   [rnix]
 
