@@ -5,6 +5,9 @@ Changelog
 0.3dev
 ------
 
+- Handle query criteria as unicode to avoid ``UnicodeDecodeError``.
+  [rnix]
+
 - Add ``IShippingBehavior`` to product and variant types.
   [rnix]
 

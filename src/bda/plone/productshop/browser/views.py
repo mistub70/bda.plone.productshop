@@ -102,7 +102,7 @@ class AspectsExtraction(object):
             key = definition.attribute
             value = self.request.get(key)
             if value and value != 'UNSET':
-                criteria['%s_aspect' % key] = value
+                criteria['%s_aspect' % key] = value.decode('utf-8')
         return criteria
 
 
