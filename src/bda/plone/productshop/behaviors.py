@@ -245,3 +245,21 @@ class IIPCodeBehavior(IVariantAspect):
 
 
 alsoProvides(IIPCodeBehavior, IFormFieldProvider)
+
+
+class IAngleBehavior(IVariantAspect):
+    """Angle variant behavior.
+    """
+    form.fieldset(
+        'aspects',
+        label=_(u'aspects', default=u'Aspects'),
+        fields=['angle'])
+
+    angle = schema.TextLine(
+        title=_(u'angle_title', default=u'Angle'),
+        description=_(u'angle_description',
+                      default=u'Angle of the product'),
+        required=False)
+
+
+alsoProvides(IAngleBehavior, IFormFieldProvider)

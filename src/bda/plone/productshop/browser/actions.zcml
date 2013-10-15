@@ -266,4 +266,37 @@
     permission="cmf.ModifyPortalContent"
     layer="..interfaces.IProductShopExtensionLayer" />
 
+  <!-- angle -->
+  <browser:page
+    name="enable_angle"
+    attribute="enable_aspect"
+    for="..interfaces.IVariant"
+    class=".actions.AngleAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="disable_angle"
+    attribute="disable_aspect"
+    for="..interfaces.IVariant"
+    class=".actions.AngleAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="can_enable_angle"
+    attribute="can_enable"
+    for="*"
+    class=".actions.AngleAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="can_disable_angle"
+    attribute="can_disable"
+    for="*"
+    class=".actions.AngleAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
 </configure>

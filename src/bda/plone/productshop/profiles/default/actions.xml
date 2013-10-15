@@ -365,5 +365,50 @@
       <property name="visible">True</property>
     </object>
 
+    <!-- angle -->
+    <object name="enable_angle"
+            meta_type="CMF Action"
+            i18n:domain="bda.plone.productshop">
+      <property name="title" i18n:translate="">
+          Add angle
+      </property>
+      <property name="description" i18n:translate="">
+          Add angle to product variant
+      </property>
+      <property name="url_expr">
+          string:${object/absolute_url}/@@enable_angle
+      </property>
+      <property name="icon_expr"></property>
+      <property name="available_expr">
+          object/@@can_enable_angle
+      </property>
+      <property name="permissions">
+          <element value="Modify portal content" />
+      </property>
+      <property name="visible">True</property>
+    </object>
+
+    <object name="disable_angle"
+            meta_type="CMF Action"
+            i18n:domain="bda.plone.productshop">
+      <property name="title" i18n:translate="">
+          Remove angle
+      </property>
+      <property name="description" i18n:translate="">
+          Remove angle from product variant
+      </property>
+      <property name="url_expr">
+          string:${object/absolute_url}/@@disable_angle
+      </property>
+      <property name="icon_expr"></property>
+      <property name="available_expr">
+          object/@@can_disable_angle
+      </property>
+      <property name="permissions">
+          <element value="Modify portal content" />
+      </property>
+      <property name="visible">True</property>
+    </object>
+
   </object>
 </object>

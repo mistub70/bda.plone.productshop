@@ -8,6 +8,7 @@ from .behaviors import (
     IWidthBehavior,
     IHeightBehavior,
     IIPCodeBehavior,
+    IAngleBehavior,
 )
 
 
@@ -49,3 +50,8 @@ def height_aspect(obj):
 @indexer(IIPCodeBehavior)
 def ip_code_aspect(obj):
     return obj.ip_code
+
+
+@indexer(IAngleBehavior)
+def angle_aspect(obj):
+    return obj.angle

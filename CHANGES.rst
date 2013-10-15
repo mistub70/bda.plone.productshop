@@ -5,6 +5,9 @@ Changelog
 0.3dev
 ------
 
+- Add ``IAngleBehavior`` variant aspect.
+  [rnix]
+
 - Add ``IIPCodeBehavior`` variant aspect.
   [rnix]
 
@@ -17,7 +20,8 @@ Changelog
 - Add item number to ``IProduct``.
   [rnix]
 
-- Add variant aspects length, width and height.
+- Add variant aspects ``ILengthBehavior``, ``IWidthBehavior`` and
+  ``IHeightBehavior``.
   [rnix]
 
 

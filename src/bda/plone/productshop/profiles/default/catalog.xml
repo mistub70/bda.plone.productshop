@@ -33,4 +33,8 @@
     <indexed_attr value="ip_code_aspect" />
   </index>
 
+  <index name="angle_aspect" meta_type="FieldIndex">
+    <indexed_attr value="angle_aspect" />
+  </index>
+
 </object>

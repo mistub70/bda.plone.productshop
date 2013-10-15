@@ -14,6 +14,7 @@ from ..behaviors import (
     IWidthBehavior,
     IHeightBehavior,
     IIPCodeBehavior,
+    IAngleBehavior,
 )
 from ..interfaces import IVariant
 
@@ -100,3 +101,9 @@ class IPCodeAction(VariantAspectAction):
     aspect_title = _(u'aspect_ip_code', default=u'IP Code')
     aspect_behavior = 'bda.plone.productshop.behaviors.IIPCodeBehavior'
     aspect_schema = IIPCodeBehavior
+
+
+class AngleAction(VariantAspectAction):
+    aspect_title = _(u'aspect_angle', default=u'Angle')
+    aspect_behavior = 'bda.plone.productshop.behaviors.IAngleBehavior'
+    aspect_schema = IAngleBehavior
