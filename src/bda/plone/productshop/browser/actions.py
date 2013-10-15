@@ -13,6 +13,7 @@ from ..behaviors import (
     ILengthBehavior,
     IWidthBehavior,
     IHeightBehavior,
+    IIPCodeBehavior,
 )
 from ..interfaces import IVariant
 
@@ -98,4 +99,4 @@ class HeightAction(VariantAspectAction):
 class IPCodeAction(VariantAspectAction):
     aspect_title = _(u'aspect_ip_code', default=u'IP Code')
     aspect_behavior = 'bda.plone.productshop.behaviors.IIPCodeBehavior'
-    aspect_schema = IDemandBehavior
+    aspect_schema = IIPCodeBehavior

@@ -244,4 +244,4 @@ class IIPCodeBehavior(IVariantAspect):
         required=False)
 
 
-alsoProvides(IInternationalProtectionCodeBehavior, IFormFieldProvider)
+alsoProvides(IIPCodeBehavior, IFormFieldProvider)
