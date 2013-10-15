@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-10 12:06+0000\n"
+"POT-Creation-Date: 2013-10-15 13:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,6 +13,14 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
+
+#: ./profiles/default/actions.xml
+msgid "Add IP Code"
+msgstr "IP Code hinzufügen"
+
+#: ./profiles/default/actions.xml
+msgid "Add IP Code to product variant"
+msgstr "Fügen Sie den Aspekt IP Code zur Variante hinzu"
 
 #: ./profiles/default/actions.xml
 msgid "Add color"
@@ -87,6 +95,14 @@ msgid "Productgroup to hold variations"
 msgstr "Produktgruppe für Varianten"
 
 #: ./profiles/default/actions.xml
+msgid "Remove IP Code"
+msgstr "IP Code entfernen"
+
+#: ./profiles/default/actions.xml
+msgid "Remove IP Code from product variant"
+msgstr "Entfernen Sie den Aspekt IP Code von der Variante"
+
+#: ./profiles/default/actions.xml
 msgid "Remove color"
 msgstr "Farbe entfernen"
 
@@ -156,6 +172,11 @@ msgstr "Leistung"
 #: ./browser/actions.py:93
 msgid "aspect_height"
 msgstr "Höhe"
+
+#. Default: "IP Code"
+#: ./browser/actions.py:99
+msgid "aspect_ip_code"
+msgstr "IP Code"
 
 #. Default: "Length"
 #: ./browser/actions.py:81
@@ -266,6 +287,16 @@ msgstr "Vorschaubild vom Produkt"
 #: ./behaviors.py:53
 msgid "image_title"
 msgstr "Vorschaubild"
+
+#. Default: "International protection code of the product"
+#: ./behaviors.py:242
+msgid "ip_code_description"
+msgstr "Schutzart (IP Code) vom Produkt"
+
+#. Default: "IP Code"
+#: ./behaviors.py:241
+msgid "ip_code_title"
+msgstr "IP Code"
 
 #. Default: "Item number of the product"
 #: ./behaviors.py:48

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-10 12:06+0000\n"
+"POT-Creation-Date: 2013-10-15 13:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,14 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: bda.plone.productshop\n"
+
+#: ./profiles/default/actions.xml
+msgid "Add IP Code"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Add IP Code to product variant"
+msgstr ""
 
 #: ./profiles/default/actions.xml
 msgid "Add color"
@@ -90,6 +98,14 @@ msgid "Productgroup to hold variations"
 msgstr ""
 
 #: ./profiles/default/actions.xml
+msgid "Remove IP Code"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Remove IP Code from product variant"
+msgstr ""
+
+#: ./profiles/default/actions.xml
 msgid "Remove color"
 msgstr ""
 
@@ -158,6 +174,11 @@ msgstr ""
 #. Default: "Height"
 #: ./browser/actions.py:93
 msgid "aspect_height"
+msgstr ""
+
+#. Default: "IP Code"
+#: ./browser/actions.py:99
+msgid "aspect_ip_code"
 msgstr ""
 
 #. Default: "Length"
@@ -268,6 +289,16 @@ msgstr ""
 #. Default: "Product Image"
 #: ./behaviors.py:53
 msgid "image_title"
+msgstr ""
+
+#. Default: "International protection code of the product"
+#: ./behaviors.py:242
+msgid "ip_code_description"
+msgstr ""
+
+#. Default: "IP Code"
+#: ./behaviors.py:241
+msgid "ip_code_title"
 msgstr ""
 
 #. Default: "Item number of the product"
