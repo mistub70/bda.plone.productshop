@@ -227,3 +227,21 @@ class IHeightBehavior(IVariantAspect):
 
 
 alsoProvides(IHeightBehavior, IFormFieldProvider)
+
+
+class IIPCodeBehavior(IVariantAspect):
+    """International protection code variant behavior.
+    """
+    form.fieldset(
+        'aspects',
+        label=_(u'aspects', default=u'Aspects'),
+        fields=['ip_code'])
+
+    ip_code = schema.TextLine(
+        title=_(u'ip_code_title', default=u'IP Code'),
+        description=_(u'ip_code_description',
+                      default=u'International protection code of the product'),
+        required=False)
+
+
+alsoProvides(IInternationalProtectionCodeBehavior, IFormFieldProvider)

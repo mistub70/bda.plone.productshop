@@ -5,6 +5,9 @@ Changelog
 0.3dev
 ------
 
+- Add ``IIPCodeBehavior`` variant aspect.
+  [rnix]
+
 - Handle query criteria as unicode to avoid ``UnicodeDecodeError``.
   [rnix]
 

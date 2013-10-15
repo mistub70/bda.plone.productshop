@@ -93,3 +93,9 @@ class HeightAction(VariantAspectAction):
     aspect_title = _(u'aspect_height', default=u'Height')
     aspect_behavior = 'bda.plone.productshop.behaviors.IHeightBehavior'
     aspect_schema = IHeightBehavior
+
+
+class IPCodeAction(VariantAspectAction):
+    aspect_title = _(u'aspect_ip_code', default=u'IP Code')
+    aspect_behavior = 'bda.plone.productshop.behaviors.IIPCodeBehavior'
+    aspect_schema = IDemandBehavior

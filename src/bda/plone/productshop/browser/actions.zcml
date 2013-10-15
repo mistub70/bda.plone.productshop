@@ -233,4 +233,37 @@
     permission="cmf.ModifyPortalContent"
     layer="..interfaces.IProductShopExtensionLayer" />
 
+  <!-- ip_code -->
+  <browser:page
+    name="enable_ip_code"
+    attribute="enable_aspect"
+    for="..interfaces.IVariant"
+    class=".actions.IPCodeAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="disable_ip_code"
+    attribute="disable_aspect"
+    for="..interfaces.IVariant"
+    class=".actions.IPCodeAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="can_enable_ip_code"
+    attribute="can_enable"
+    for="*"
+    class=".actions.IPCodeAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="can_disable_ip_code"
+    attribute="can_disable"
+    for="*"
+    class=".actions.IPCodeAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
 </configure>

@@ -29,4 +29,8 @@
     <indexed_attr value="height_aspect" />
   </index>
 
+  <index name="ip_code_aspect" meta_type="FieldIndex">
+    <indexed_attr value="ip_code_aspect" />
+  </index>
+
 </object>

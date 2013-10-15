@@ -320,5 +320,50 @@
       <property name="visible">True</property>
     </object>
 
+    <!-- ip_code -->
+    <object name="enable_ip_code"
+            meta_type="CMF Action"
+            i18n:domain="bda.plone.productshop">
+      <property name="title" i18n:translate="">
+          Add IP Code
+      </property>
+      <property name="description" i18n:translate="">
+          Add IP Code to product variant
+      </property>
+      <property name="url_expr">
+          string:${object/absolute_url}/@@enable_ip_code
+      </property>
+      <property name="icon_expr"></property>
+      <property name="available_expr">
+          object/@@can_enable_ip_code
+      </property>
+      <property name="permissions">
+          <element value="Modify portal content" />
+      </property>
+      <property name="visible">True</property>
+    </object>
+
+    <object name="disable_ip_code"
+            meta_type="CMF Action"
+            i18n:domain="bda.plone.productshop">
+      <property name="title" i18n:translate="">
+          Remove IP Code
+      </property>
+      <property name="description" i18n:translate="">
+          Remove IP Code from product variant
+      </property>
+      <property name="url_expr">
+          string:${object/absolute_url}/@@disable_ip_code
+      </property>
+      <property name="icon_expr"></property>
+      <property name="available_expr">
+          object/@@can_disable_ip_code
+      </property>
+      <property name="permissions">
+          <element value="Modify portal content" />
+      </property>
+      <property name="visible">True</property>
+    </object>
+
   </object>
 </object>

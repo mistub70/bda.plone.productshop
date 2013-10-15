@@ -88,6 +88,12 @@
     provides=".behaviors.IHeightBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
+  <plone:behavior
+    title="IP Code"
+    description="Extend content with international protection code."
+    provides=".behaviors.IIPCodeBehavior"
+    for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
+
   <!-- indexing -->
   <adapter name="color_aspect" factory=".indexer.color_aspect" />
   <adapter name="weight_aspect" factory=".indexer.weight_aspect" />
@@ -96,5 +102,6 @@
   <adapter name="length_aspect" factory=".indexer.length_aspect" />
   <adapter name="width_aspect" factory=".indexer.width_aspect" />
   <adapter name="height_aspect" factory=".indexer.height_aspect" />
+  <adapter name="ip_code_aspect" factory=".indexer.ip_code_aspect" />
 
 </configure>
