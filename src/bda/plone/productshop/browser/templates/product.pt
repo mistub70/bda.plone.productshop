@@ -39,12 +39,11 @@
          tal:condition="datasheet"/>
     <div tal:condition="related_items">
       <ul tal:repeat="item related_items">
-        <li tal:define="item_object python:item.to_object;"
-            tal:condition="item_object">
-          <a href="" tal:attributes="href item_object/absolute_url">
-            <span tal:content="item_object/Title" />
+        <li>
+          <a href="" tal:attributes="href item/absolute_url">
+            <span tal:content="item/Title" />
           </a>
-          <span tal:content="item_object/Description" />
+          <span tal:content="item/Description" />
         </li>
       </ul>
     </div>

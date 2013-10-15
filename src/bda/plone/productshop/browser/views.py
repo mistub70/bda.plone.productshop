@@ -62,7 +62,8 @@ class ProductView(BrowserView):
     @property
     def related_items(self):
         if hasattr(self.context, 'relatedItems'):
-            return self.context.relatedItems
+            related = [_.to_object for _ in self.context.relatedItems]
+            return related
         return None
 
 
@@ -260,11 +261,13 @@ class VariantView(ProductView, VariantBase):
         context = self.context
         if hasattr(context, 'relatedItems'):
             if context.relatedItems:
-                return context.relatedItems
+                related = [_.to_object for _ in context.relatedItems]
+                return related
         product_group = self.product_group
         if hasattr(product_group, 'relatedItems'):
             if product_group.relatedItems:
-                return product_group.relatedItems
+                related = [_.to_object for _ in product_group.relatedItems]
+                return related
         return None
 
 
