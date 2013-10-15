@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-15 13:16+0000\n"
+"POT-Creation-Date: 2013-10-15 14:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,14 @@ msgstr "Add IP Code"
 #: ./profiles/default/actions.xml
 msgid "Add IP Code to product variant"
 msgstr "Add IP Code to product variant"
+
+#: ./profiles/default/actions.xml
+msgid "Add angle"
+msgstr "Add angle"
+
+#: ./profiles/default/actions.xml
+msgid "Add angle to product variant"
+msgstr "Add angle to product variant"
 
 #: ./profiles/default/actions.xml
 msgid "Add color"
@@ -103,6 +111,14 @@ msgid "Remove IP Code from product variant"
 msgstr "Remove IP Code from product variant"
 
 #: ./profiles/default/actions.xml
+msgid "Remove angle"
+msgstr "Remove angle"
+
+#: ./profiles/default/actions.xml
+msgid "Remove angle from product variant"
+msgstr "Remove angle from product variant"
+
+#: ./profiles/default/actions.xml
 msgid "Remove color"
 msgstr "Remove color"
 
@@ -158,43 +174,58 @@ msgstr "Remove width"
 msgid "Remove width from product variant"
 msgstr "Remove width from product variant"
 
+#. Default: "Angle of the product"
+#: ./behaviors.py:260
+msgid "angle_description"
+msgstr "Angle of the product"
+
+#. Default: "Angle"
+#: ./behaviors.py:259
+msgid "angle_title"
+msgstr "Angle"
+
+#. Default: "Angle"
+#: ./browser/actions.py:107
+msgid "aspect_angle"
+msgstr "Angle"
+
 #. Default: "Color"
-#: ./browser/actions.py:57
+#: ./browser/actions.py:59
 msgid "aspect_color"
 msgstr "Color"
 
 #. Default: "Demand"
-#: ./browser/actions.py:75
+#: ./browser/actions.py:77
 msgid "aspect_demand"
 msgstr "Demand"
 
 #. Default: "Height"
-#: ./browser/actions.py:93
+#: ./browser/actions.py:95
 msgid "aspect_height"
 msgstr "Height"
 
 #. Default: "IP Code"
-#: ./browser/actions.py:99
+#: ./browser/actions.py:101
 msgid "aspect_ip_code"
 msgstr "IP Code"
 
 #. Default: "Length"
-#: ./browser/actions.py:81
+#: ./browser/actions.py:83
 msgid "aspect_length"
 msgstr "Length"
 
 #. Default: "Size"
-#: ./browser/actions.py:69
+#: ./browser/actions.py:71
 msgid "aspect_size"
 msgstr "Size"
 
 #. Default: "Weight"
-#: ./browser/actions.py:63
+#: ./browser/actions.py:65
 msgid "aspect_weight"
 msgstr "Weight"
 
 #. Default: "Width"
-#: ./browser/actions.py:87
+#: ./browser/actions.py:89
 msgid "aspect_width"
 msgstr "Width"
 
@@ -259,12 +290,12 @@ msgid "details_title"
 msgstr "Details"
 
 #. Default: "Removed ${aspect} from object."
-#: ./browser/actions.py:43
+#: ./browser/actions.py:45
 msgid "disabled_aspect"
 msgstr "Removed ${aspect} from object."
 
 #. Default: "Added ${aspect} to object."
-#: ./browser/actions.py:33
+#: ./browser/actions.py:35
 msgid "enabled_aspect"
 msgstr "Added ${aspect} to object."
 
