@@ -55,6 +55,14 @@
     layer="..interfaces.IProductShopExtensionLayer" />
 
   <browser:page
+    for="bda.plone.shop.interfaces.IBuyable"
+    name="bda.plone.productshop.buyable"
+    permission="zope2.View"
+    class=".views.ProductView"
+    template="templates/product.pt"
+    layer="..interfaces.IProductShopExtensionLayer" />    
+
+  <browser:page
     for="bda.plone.productshop.interfaces.IProductGroup"
     name="bda.plone.productshop.listing"
     permission="zope2.View"

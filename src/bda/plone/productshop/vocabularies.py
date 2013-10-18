@@ -10,6 +10,9 @@ from .utils import (
     available_variant_aspects,
 )
 
+#added by espen
+from zope.component import getUtility
+from plone.dexterity.interfaces import IDexterityFTI
 
 _ = MessageFactory('bda.plone.productshop')
 
@@ -23,3 +26,20 @@ def AvailableVariantAspectsVocabulary(context):
 
 
 directlyProvides(AvailableVariantAspectsVocabulary, IVocabularyFactory)
+
+
+
+def RtfFieldsVocabulary(context):
+    try:
+        fields = list(getUtility(IDexterityFTI, name='bda.plone.productshop.product').lookupSchema())
+    except:
+        fields = ()
+    #datasheet and details are not found as they come from a behaviour
+    #I think we should remove these fields as a behaviour, since
+    #it is not possible to customize them TTW
+    fields += ('datasheet', 'details')
+    terms = [ SimpleTerm(value=pair, token=pair, title=pair) for pair in fields]
+    return SimpleVocabulary(terms)
+
+directlyProvides(RtfFieldsVocabulary, IVocabularyFactory)
+

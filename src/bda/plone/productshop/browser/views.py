@@ -17,6 +17,14 @@ from ..utils import (
     available_variant_aspects,
 )
 
+#added by espen
+from zope.component import getUtility
+from plone.registry.interfaces import IRegistry
+from bda.plone.productshop.interfaces import IShopTabsSettings
+from plone.dexterity.utils import iterSchemata
+from zope.schema import getFields
+from plone.dexterity.interfaces import IDexterityContent
+
 
 _ = MessageFactory('bda.plone.productshop')
 
@@ -50,20 +58,42 @@ class ProductView(BrowserView):
     @property
     def image(self):
         return img_tag(self.context, self.image_scale, 'product_image')
-
+        
+    @property
+    def rtf_fields(self):
+        registry = getUtility(IRegistry)
+    	settings = registry.forInterface(IShopTabsSettings)
+    	return settings.rtf_fields
+    
+    #not sure why this is needed
     @property
     def details(self):
-        return self.context.details
+    	if "Details" in self.rtf_fields:
+        	return self.context.details
 
+    #not sure why this is needed either
     @property
     def datasheet(self):
-        return self.context.datasheet
+        if "Datasheet" in self.rtf_fields:
+        	return self.context.datasheet
+
+    @property
+    def all_rtf_fields(self):
+        richtext_fields = []
+        context=self.context
+        if IDexterityContent.providedBy(context):
+            for schemata in iterSchemata(context):
+                for name, field in getFields(schemata).items():
+                    #checking for rich text field
+                    #if isinstance(field, RichText):
+                    if str(field.__class__) == "<class 'plone.app.textfield.RichText'>" and name in self.rtf_fields:
+                            richtext_fields.append(name)
+        return richtext_fields
 
     @property
     def related_items(self):
         if hasattr(self.context, 'relatedItems'):
-            related = [_.to_object for _ in self.context.relatedItems]
-            return related
+            return self.context.relatedItems
         return None
 
 
@@ -103,7 +133,7 @@ class AspectsExtraction(object):
             key = definition.attribute
             value = self.request.get(key)
             if value and value != 'UNSET':
-                criteria['%s_aspect' % key] = value.decode('utf-8')
+                criteria['%s_aspect' % key] = value
         return criteria
 
 
@@ -261,13 +291,11 @@ class VariantView(ProductView, VariantBase):
         context = self.context
         if hasattr(context, 'relatedItems'):
             if context.relatedItems:
-                related = [_.to_object for _ in context.relatedItems]
-                return related
+                return context.relatedItems
         product_group = self.product_group
         if hasattr(product_group, 'relatedItems'):
             if product_group.relatedItems:
-                related = [_.to_object for _ in product_group.relatedItems]
-                return related
+                return product_group.relatedItems
         return None
 
 

@@ -21,6 +21,10 @@
     component=".vocabularies.AvailableVariantAspectsVocabulary"
     name="bda.plone.productshop.AvailableVariantAspectsVocabulary" />
 
+  <utility
+    component=".vocabularies.RtfFieldsVocabulary"
+    name="bda.plone.productshop.RtfFieldsVocabulary" />
+
   <!-- DX behaviors -->
   <plone:behavior
     title="Exclude From navigation for products"
@@ -88,18 +92,6 @@
     provides=".behaviors.IHeightBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
-  <plone:behavior
-    title="IP Code"
-    description="Extend content with international protection code."
-    provides=".behaviors.IIPCodeBehavior"
-    for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
-
-  <plone:behavior
-    title="Angle"
-    description="Extend content with angle."
-    provides=".behaviors.IAngleBehavior"
-    for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
-
   <!-- indexing -->
   <adapter name="color_aspect" factory=".indexer.color_aspect" />
   <adapter name="weight_aspect" factory=".indexer.weight_aspect" />
@@ -108,7 +100,5 @@
   <adapter name="length_aspect" factory=".indexer.length_aspect" />
   <adapter name="width_aspect" factory=".indexer.width_aspect" />
   <adapter name="height_aspect" factory=".indexer.height_aspect" />
-  <adapter name="ip_code_aspect" factory=".indexer.ip_code_aspect" />
-  <adapter name="angle_aspect" factory=".indexer.angle_aspect" />
 
 </configure>

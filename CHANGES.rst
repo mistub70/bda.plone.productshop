@@ -2,17 +2,21 @@
 Changelog
 =========
 
+0.3.Xdev
+------------
+
+- Add control panel entries with vocabulary from avalable fields
+  [espenmn]
+
+- Add generic view
+  [espenmn]
+  
+- registered the view for IBuyable
+  [espenmn]
+
+
 0.3dev
 ------
-
-- Add ``IAngleBehavior`` variant aspect.
-  [rnix]
-
-- Add ``IIPCodeBehavior`` variant aspect.
-  [rnix]
-
-- Handle query criteria as unicode to avoid ``UnicodeDecodeError``.
-  [rnix]
 
 - Add ``IShippingBehavior`` to product and variant types.
   [rnix]
@@ -20,8 +24,7 @@ Changelog
 - Add item number to ``IProduct``.
   [rnix]
 
-- Add variant aspects ``ILengthBehavior``, ``IWidthBehavior`` and
-  ``IHeightBehavior``.
+- Add variant aspects length, width and height.
   [rnix]
 
 

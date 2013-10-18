@@ -5,8 +5,8 @@
      i18n:domain="bda.plone.productshop"
      tal:omit-tag=""
      tal:define="image view/image;
-                 details view/details;
-                 datasheet view/datasheet;
+                 all_rtf_fields view/all_rtf_fields;
+                 rtf_fields view/rtf_fields;
                  related_items view/related_items">
 
   <img src=""
@@ -21,29 +21,34 @@
        tal:condition="not:image" />
 
   <ul class="shopview_tabs">
-    <li tal:condition="details" class="first">
-      <a href="#" i18n:translate="description">Description</a>
-    </li>
-    <li tal:condition="datasheet">
-      <a href="#" i18n:translate="specifications">Specifications</a>
-    </li>
+    <tal:tabs tal:repeat="rtfield all_rtf_fields">
+      <li tal:define="fieldtitle rtfield/title"> 
+        	<a href="#" tal:condition="context/?rtfield">
+        		<span tal:replace="rtfield/title" />
+        	</a>
+    	</li>
+    </tal:tabs>
     <li tal:condition="related_items">
       <a href="#" i18n:translate="related">Related</a>
     </li>
   </ul>
 
+         
   <div class="shopview_panes">
-    <div tal:content="structure details/output"
-         tal:condition="details" />
-    <div tal:content="structure datasheet/output"
-         tal:condition="datasheet"/>
+    <tal:rtfields tal:repeat="rtfield all_rtf_fields">
+        <tal:check  tal:define="fieldtitle rtfield/title"> 
+    		<div tal:condition="context/?rtfield" 
+    	    	 tal:content="structure context/?rtfield/output" />
+    	</tal:check>
+    </tal:rtfields>
     <div tal:condition="related_items">
       <ul tal:repeat="item related_items">
-        <li>
-          <a href="" tal:attributes="href item/absolute_url">
-            <span tal:content="item/Title" />
+        <li tal:define="item_object python:item.to_object;"
+            tal:condition="item_object">
+          <a href="" tal:attributes="href item_object/absolute_url">
+            <span tal:content="item_object/Title" />
           </a>
-          <span tal:content="item/Description" />
+          <span tal:content="item_object/Description" />
         </li>
       </ul>
     </div>

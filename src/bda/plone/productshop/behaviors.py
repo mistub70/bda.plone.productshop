@@ -39,8 +39,10 @@ provideAdapter(ComputedWidgetAttribute(
     field=IProductExcludeFromNavigation['exclude_from_nav']),
     name='default')
 
-
-class IProductBehavior(model.Schema, IProduct):
+#Feel that it is wrong to inherit a content type as a behaviour
+#Also, it looks like it gives problems with TTW adding of fields
+#class IProductBehavior(model.Schema, IProduct):
+class IProductBehavior(model.Schema):
     """Product behavior.
     """
     item_number = schema.TextLine(
@@ -227,39 +229,3 @@ class IHeightBehavior(IVariantAspect):
 
 
 alsoProvides(IHeightBehavior, IFormFieldProvider)
-
-
-class IIPCodeBehavior(IVariantAspect):
-    """International protection code variant behavior.
-    """
-    form.fieldset(
-        'aspects',
-        label=_(u'aspects', default=u'Aspects'),
-        fields=['ip_code'])
-
-    ip_code = schema.TextLine(
-        title=_(u'ip_code_title', default=u'IP Code'),
-        description=_(u'ip_code_description',
-                      default=u'International protection code of the product'),
-        required=False)
-
-
-alsoProvides(IIPCodeBehavior, IFormFieldProvider)
-
-
-class IAngleBehavior(IVariantAspect):
-    """Angle variant behavior.
-    """
-    form.fieldset(
-        'aspects',
-        label=_(u'aspects', default=u'Aspects'),
-        fields=['angle'])
-
-    angle = schema.TextLine(
-        title=_(u'angle_title', default=u'Angle'),
-        description=_(u'angle_description',
-                      default=u'Angle of the product'),
-        required=False)
-
-
-alsoProvides(IAngleBehavior, IFormFieldProvider)
