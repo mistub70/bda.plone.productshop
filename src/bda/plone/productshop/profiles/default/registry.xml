@@ -1,0 +1,5 @@
+<registry>
+    <records interface="bda.plone.productshop.interfaces.IShopTabsSettings">
+        <value key="rtf_fields"></value>
+    </records>
+</registry>
