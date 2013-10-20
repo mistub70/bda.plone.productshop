@@ -14,3 +14,5 @@ parts/
 vpython/
 var/
 dist/
+coverage/
+report/
