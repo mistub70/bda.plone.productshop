@@ -5,6 +5,9 @@ Changelog
 0.3dev
 ------
 
+- Product listing is now batched.
+  [rnix]
+
 - Add ``IAngleBehavior`` variant aspect.
   [rnix]
 

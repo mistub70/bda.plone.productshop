@@ -69,6 +69,9 @@ class ProductView(BrowserView):
         return None
 
 
+LISTING_SLICESIZE = 10
+
+
 class ProductListingBatch(Batch):
     batchname = 'productlisting'
 
@@ -76,6 +79,10 @@ class ProductListingBatch(Batch):
         self.context = context
         self.request = request
         self.listing = listing
+
+    @property
+    def display(self):
+        return len(self.listing.result) > LISTING_SLICESIZE
 
     @property
     def vocab(self):
@@ -104,9 +111,6 @@ class ProductListingBatch(Batch):
                 'url': url,
             })
         return ret
-
-
-LISTING_SLICESIZE = 10
 
 
 class ProductListing(BrowserView):

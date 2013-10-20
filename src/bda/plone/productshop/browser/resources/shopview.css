@@ -126,9 +126,5 @@ div.batch a.current:hover {
     background-color:transparent;
 }
 div.batch a.page.invisible {
-    color:#cccccc !important;
-}
-div.batch a.invisible:hover {
-    background-color:transparent;
-    cursor:default;
+    display:none;
 }
