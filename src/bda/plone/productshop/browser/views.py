@@ -255,9 +255,13 @@ class ProductGroupAspects(Aspects):
             aspect = self.create_aspect(definition.title, definition.attribute)
             options = aspect['options']
             for value in self.variant_values(definition):
-                options.append(self.create_option(value, value, False))
+                selected = False
+                from_request = self.request.get(definition.attribute)
+                if from_request == value.encode('utf-8'):
+                    selected = True
+                options.append(self.create_option(value, value, selected))
             if options:
-                options.insert(0, self.create_option('all', 'UNSET', True))
+                options.insert(0, self.create_option('all', 'UNSET', False))
                 aspects.append(aspect)
         return aspects
 
