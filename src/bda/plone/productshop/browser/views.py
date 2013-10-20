@@ -6,6 +6,8 @@ from Acquisition import (
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
+from ZTUtils import make_query
+from bda.plone.ajax.batch import Batch
 from bda.plone.cart import get_object_by_uid
 from ..interfaces import (
     IProduct,
@@ -67,18 +69,74 @@ class ProductView(BrowserView):
         return None
 
 
+class ProductListingBatch(Batch):
+    batchname = 'productlisting'
+
+    def __init__(self, context, request, listing):
+        self.context = context
+        self.request = request
+        self.listing = listing
+
+    @property
+    def vocab(self):
+        ret = list()
+        result = self.listing.result
+        count = len(result)
+        slicesize = self.listing.slicesize
+        pages = count / slicesize
+        if count % slicesize != 0:
+            pages += 1
+        current = self.request.get('b_page', '0')
+        params = {}
+        for param in self.listing.batch_params:
+            value = self.request.get(param)
+            if value and value != 'UNSET':
+                params[param] = value
+        for i in range(pages):
+            params['b_page'] = str(i)
+            query = '&'.join(
+                ['%s=%s' % (k, v.decode('utf-8')) for k, v in params.items()])
+            url = '%s?%s' % (self.context.absolute_url(), query)
+            ret.append({
+                'page': '%i' % (i + 1),
+                'current': current == str(i),
+                'visible': True,
+                'url': url,
+            })
+        return ret
+
+
+LISTING_SLICESIZE = 10
+
+
 class ProductListing(BrowserView):
     image_scale = 'thumb'
+    slicesize = LISTING_SLICESIZE
+    batch_params = []
+
+    @property
+    def result(self):
+        return query_children(self.context)
+
+    @property
+    def batch(self):
+        return ProductListingBatch(self.context, self.request, self)()
 
     @property
     def products(self):
         ret = list()
-        for brain in query_children(self.context):
+        for brain in self.slice(self.result):
             item = self.create_listing_item(brain)
             if not item:
                 continue
             ret.append(item)
         return ret
+
+    def slice(self, result):
+        current = int(self.request.get('b_page', '0'))
+        start = current * self.slicesize
+        end = start + self.slicesize
+        return result[start:end]
 
     def create_listing_item(self, brain):
         obj = brain.getObject()
@@ -110,15 +168,16 @@ class AspectsExtraction(object):
 class ProductGroupListing(ProductListing, AspectsExtraction):
 
     @property
-    def products(self):
-        ret = list()
+    def batch_params(self):
+        params = list()
+        for definition in available_variant_aspects():
+            params.append(definition.attribute)
+        return params
+
+    @property
+    def result(self):
         criteria = self.aspects_criteria
-        for brain in query_children(self.context, criteria=criteria):
-            item = self.create_listing_item(brain)
-            if not item:
-                continue
-            ret.append(item)
-        return ret
+        return query_children(self.context, criteria=criteria)
 
 
 class ProductGroupView(BrowserView):

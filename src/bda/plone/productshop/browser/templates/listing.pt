@@ -4,13 +4,15 @@
      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
      i18n:domain="bda.plone.productshop"
      class="product_listing"
-     ajax:bind="render_product_listing"
+     ajax:bind="render_product_listing batchclicked"
      tal:define="products view/products;
                  uid context/UID;
                  css string:product_listing_${uid}"
-     tal:attributes="class string:product_listing ${css};
+     tal:attributes="class string:product_listing productlistingsensitiv ${css};
                      ajax:target context/absolute_url;
                      ajax:action string:bda.plone.productshop.listing:.${css}:replace">
+
+  <tal:listingbatch replace="structure view/batch" />
 
   <div class="no_products"
        tal:condition="not:products">
@@ -50,4 +52,7 @@
       replace="structure product/obj/@@buyable_controls" />
 
   </div>
+
+  <tal:listingbatch replace="structure view/batch" />
+
 </div>
