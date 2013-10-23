@@ -39,38 +39,43 @@ provideAdapter(ComputedWidgetAttribute(
     field=IProductExcludeFromNavigation['exclude_from_nav']),
     name='default')
 
-#Feel that it is wrong to inherit a content type as a behaviour
-#Also, it looks like it gives problems with TTW adding of fields
-#class IProductBehavior(model.Schema, IProduct):
-class IProductBehavior(model.Schema):
-    """Product behavior.
+class IProductBehavior(model.Schema, IProduct):
+    """Product behavior. This is for binding the views
     """
-    item_number = schema.TextLine(
-        title=_(u'item_number_title', default=u'Item number'),
-        description=_(u'item_number_description',
-                      default=u'Item number of the product'),
-        required=False)
 
+
+
+alsoProvides(IProductFieldBehavior, IFormFieldProvider)
+
+class IProductBehavior(model.Schema):
+    """The product fields. Moved to their own behaviour to avoid
+        Problems with customizing them TTW.
+        """
+    item_number = schema.TextLine(
+    	title=_(u'item_number_title', default=u'Item number'),
+        description=_(u'item_number_description',
+            		default=u'Item number of the product'),
+        required=False)
+                                  
     image = NamedBlobImage(
         title=_(u'image_title', default=u'Product Image'),
         description=_(u'image_description',
-                      default=u'Preview image of Product'),
+         	default=u'Preview image of Product'),
         required=False)
-
-    details = RichText(
-        title=_(u'details_title', default=u'Details'),
+                                                         
+	details = RichText(
+    	title=_(u'details_title', default=u'Details'),
         description=_(u'details_description',
-                      default=u'Details about the product'),
-        required=False)
-
-    datasheet = RichText(
+        	default=u'Details about the product'),
+     	required=False)
+                                                                            
+	datasheet = RichText(
         title=_(u'datasheet_title', default=u'Datasheet'),
         description=_(u'datasheet_description',
-                      default=u'Datasheet of the product'),
-        required=False)
+		required=False)
 
 
-alsoProvides(IProductBehavior, IFormFieldProvider)
+alsoProvides(IProductFieldBehavior, IFormFieldProvider)
 
 
 class IProductGroupBehavior(IProductBehavior, IProductGroup):

@@ -33,11 +33,17 @@
     for="plone.dexterity.interfaces.IDexterityContent" />
 
   <plone:behavior
-    title="Product"
-    description="Extend content with product specific information."
-    provides=".behaviors.IProductBehavior"
+    title="Productfields"
+    description="Extend content with product specific fields."
+    provides=".behaviors.IProductFieldsBehavior"
     for="plone.dexterity.interfaces.IDexterityContent" />
 
+  <plone:behavior
+    title="Product"
+    description="Enable product specific views."
+    provides=".behaviors.IProductBehavior"
+    for="plone.dexterity.interfaces.IDexterityContent" />
+    
   <plone:behavior
     title="Product group"
     description="Extend content with product specific information."
