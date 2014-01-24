@@ -1,4 +1,5 @@
 from zope import schema
+from zope.interface import provider
 from zope.component import provideAdapter
 from zope.i18nmessageid import MessageFactory
 from z3c.form.widget import ComputedWidgetAttribute
@@ -15,6 +16,7 @@ from .interfaces import IVariantAspect
 _ = MessageFactory('bda.plone.productshop')
 
 
+@provider(IFormFieldProvider)
 class IProductExcludeFromNavigation(IExcludeFromNavigation):
     """Exclude from navigation behavior for products.
 
@@ -31,6 +33,7 @@ provideAdapter(ComputedWidgetAttribute(
     name='default')
 
 
+@provider(IFormFieldProvider)
 class IProductBehavior(model.Schema):
     """Product behavior.
     """
@@ -59,6 +62,7 @@ class IProductBehavior(model.Schema):
         required=False)
 
 
+@provider(IFormFieldProvider)
 class IProductGroupBehavior(IProductBehavior):
     """Product group behavior.
     """
@@ -80,11 +84,13 @@ class IProductGroupBehavior(IProductBehavior):
                 'bda.plone.productshop.AvailableVariantAspectsVocabulary'))
 
 
+@provider(IFormFieldProvider)
 class IVariantBehavior(IProductBehavior):
     """Variant base behavior.
     """
 
 
+@provider(IFormFieldProvider)
 class IColorBehavior(model.Schema, IVariantAspect):
     """Color variant behavior.
     """
@@ -100,6 +106,7 @@ class IColorBehavior(model.Schema, IVariantAspect):
         required=False)
 
 
+@provider(IFormFieldProvider)
 class IWeightBehavior(model.Schema, IVariantAspect):
     """Weight variant behavior.
     """
@@ -115,6 +122,7 @@ class IWeightBehavior(model.Schema, IVariantAspect):
         required=False)
 
 
+@provider(IFormFieldProvider)
 class ISizeBehavior(model.Schema, IVariantAspect):
     """Size variant behavior.
     """
@@ -130,6 +138,7 @@ class ISizeBehavior(model.Schema, IVariantAspect):
         required=False)
 
 
+@provider(IFormFieldProvider)
 class IDemandBehavior(model.Schema, IVariantAspect):
     """Demand variant behavior.
     """
@@ -145,6 +154,7 @@ class IDemandBehavior(model.Schema, IVariantAspect):
         required=False)
 
 
+@provider(IFormFieldProvider)
 class ILengthBehavior(model.Schema, IVariantAspect):
     """Length variant behavior.
     """
@@ -160,6 +170,7 @@ class ILengthBehavior(model.Schema, IVariantAspect):
         required=False)
 
 
+@provider(IFormFieldProvider)
 class IWidthBehavior(model.Schema, IVariantAspect):
     """Width variant behavior.
     """
@@ -175,6 +186,7 @@ class IWidthBehavior(model.Schema, IVariantAspect):
         required=False)
 
 
+@provider(IFormFieldProvider)
 class IHeightBehavior(model.Schema, IVariantAspect):
     """Height variant behavior.
     """
@@ -190,6 +202,7 @@ class IHeightBehavior(model.Schema, IVariantAspect):
         required=False)
 
 
+@provider(IFormFieldProvider)
 class IIPCodeBehavior(model.Schema, IVariantAspect):
     """International protection code variant behavior.
     """
@@ -205,6 +218,7 @@ class IIPCodeBehavior(model.Schema, IVariantAspect):
         required=False)
 
 
+@provider(IFormFieldProvider)
 class IAngleBehavior(model.Schema, IVariantAspect):
     """Angle variant behavior.
     """
