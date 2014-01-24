@@ -1,18 +1,14 @@
 from zope import schema
-from zope.interface import alsoProvides
 from zope.component import provideAdapter
 from zope.i18nmessageid import MessageFactory
 from z3c.form.widget import ComputedWidgetAttribute
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from plone.supermodel import model
-from plone.directives import form
+from plone.autoform.directives import widget
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.namedfile.field import NamedBlobImage
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 from plone.app.textfield import RichText
-from .interfaces import IProduct
-from .interfaces import IProductGroup
-from .interfaces import IVariant
 from .interfaces import IVariantAspect
 
 
@@ -29,16 +25,13 @@ class IProductExcludeFromNavigation(IExcludeFromNavigation):
     """
 
 
-alsoProvides(IProductExcludeFromNavigation, IFormFieldProvider)
-
-
 provideAdapter(ComputedWidgetAttribute(
     lambda data: True,
     field=IProductExcludeFromNavigation['exclude_from_nav']),
     name='default')
 
 
-class IProductBehavior(model.Schema, IProduct):
+class IProductBehavior(model.Schema):
     """Product behavior.
     """
     item_number = schema.TextLine(
@@ -66,17 +59,14 @@ class IProductBehavior(model.Schema, IProduct):
         required=False)
 
 
-alsoProvides(IProductBehavior, IFormFieldProvider)
-
-
-class IProductGroupBehavior(IProductBehavior, IProductGroup):
+class IProductGroupBehavior(IProductBehavior):
     """Product group behavior.
     """
-    form.fieldset(
+    model.fieldset(
         'settings',
         fields=['default_variant_aspects'])
 
-    form.widget(default_variant_aspects=CheckBoxFieldWidget)
+    widget('default_variant_aspects', CheckBoxFieldWidget)
     default_variant_aspects = schema.List(
         title=_(u'default_variant_aspects_title',
                 default=u'Default variant aspects'),
@@ -90,21 +80,15 @@ class IProductGroupBehavior(IProductBehavior, IProductGroup):
                 'bda.plone.productshop.AvailableVariantAspectsVocabulary'))
 
 
-alsoProvides(IProductGroupBehavior, IFormFieldProvider)
-
-
-class IVariantBehavior(IProductBehavior, IVariant):
+class IVariantBehavior(IProductBehavior):
     """Variant base behavior.
     """
 
 
-alsoProvides(IVariantBehavior, IFormFieldProvider)
-
-
-class IColorBehavior(IVariantAspect):
+class IColorBehavior(model.Schema, IVariantAspect):
     """Color variant behavior.
     """
-    form.fieldset(
+    model.fieldset(
         'aspects',
         label=_(u'aspects', default=u'Aspects'),
         fields=['color'])
@@ -116,13 +100,10 @@ class IColorBehavior(IVariantAspect):
         required=False)
 
 
-alsoProvides(IColorBehavior, IFormFieldProvider)
-
-
-class IWeightBehavior(IVariantAspect):
+class IWeightBehavior(model.Schema, IVariantAspect):
     """Weight variant behavior.
     """
-    form.fieldset(
+    model.fieldset(
         'aspects',
         label=_(u'aspects', default=u'Aspects'),
         fields=['weight'])
@@ -134,13 +115,10 @@ class IWeightBehavior(IVariantAspect):
         required=False)
 
 
-alsoProvides(IWeightBehavior, IFormFieldProvider)
-
-
-class ISizeBehavior(IVariantAspect):
+class ISizeBehavior(model.Schema, IVariantAspect):
     """Size variant behavior.
     """
-    form.fieldset(
+    model.fieldset(
         'aspects',
         label=_(u'aspects', default=u'Aspects'),
         fields=['size'])
@@ -152,13 +130,10 @@ class ISizeBehavior(IVariantAspect):
         required=False)
 
 
-alsoProvides(ISizeBehavior, IFormFieldProvider)
-
-
-class IDemandBehavior(IVariantAspect):
+class IDemandBehavior(model.Schema, IVariantAspect):
     """Demand variant behavior.
     """
-    form.fieldset(
+    model.fieldset(
         'aspects',
         label=_(u'aspects', default=u'Aspects'),
         fields=['demand'])
@@ -170,13 +145,10 @@ class IDemandBehavior(IVariantAspect):
         required=False)
 
 
-alsoProvides(IDemandBehavior, IFormFieldProvider)
-
-
-class ILengthBehavior(IVariantAspect):
+class ILengthBehavior(model.Schema, IVariantAspect):
     """Length variant behavior.
     """
-    form.fieldset(
+    model.fieldset(
         'aspects',
         label=_(u'aspects', default=u'Aspects'),
         fields=['length'])
@@ -188,13 +160,10 @@ class ILengthBehavior(IVariantAspect):
         required=False)
 
 
-alsoProvides(ILengthBehavior, IFormFieldProvider)
-
-
-class IWidthBehavior(IVariantAspect):
+class IWidthBehavior(model.Schema, IVariantAspect):
     """Width variant behavior.
     """
-    form.fieldset(
+    model.fieldset(
         'aspects',
         label=_(u'aspects', default=u'Aspects'),
         fields=['width'])
@@ -206,13 +175,10 @@ class IWidthBehavior(IVariantAspect):
         required=False)
 
 
-alsoProvides(IWidthBehavior, IFormFieldProvider)
-
-
-class IHeightBehavior(IVariantAspect):
+class IHeightBehavior(model.Schema, IVariantAspect):
     """Height variant behavior.
     """
-    form.fieldset(
+    model.fieldset(
         'aspects',
         label=_(u'aspects', default=u'Aspects'),
         fields=['height'])
@@ -224,13 +190,10 @@ class IHeightBehavior(IVariantAspect):
         required=False)
 
 
-alsoProvides(IHeightBehavior, IFormFieldProvider)
-
-
-class IIPCodeBehavior(IVariantAspect):
+class IIPCodeBehavior(model.Schema, IVariantAspect):
     """International protection code variant behavior.
     """
-    form.fieldset(
+    model.fieldset(
         'aspects',
         label=_(u'aspects', default=u'Aspects'),
         fields=['ip_code'])
@@ -242,13 +205,10 @@ class IIPCodeBehavior(IVariantAspect):
         required=False)
 
 
-alsoProvides(IIPCodeBehavior, IFormFieldProvider)
-
-
-class IAngleBehavior(IVariantAspect):
+class IAngleBehavior(model.Schema, IVariantAspect):
     """Angle variant behavior.
     """
-    form.fieldset(
+    model.fieldset(
         'aspects',
         label=_(u'aspects', default=u'Aspects'),
         fields=['angle'])
@@ -258,6 +218,3 @@ class IAngleBehavior(IVariantAspect):
         description=_(u'angle_description',
                       default=u'Angle of the product'),
         required=False)
-
-
-alsoProvides(IAngleBehavior, IFormFieldProvider)
