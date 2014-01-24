@@ -1,7 +1,5 @@
-from plone.dexterity.content import (
-    Item,
-    Container,
-)
+from plone.dexterity.content import Item
+from plone.dexterity.content import Container
 
 
 class Product(Item):

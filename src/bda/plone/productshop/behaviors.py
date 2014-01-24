@@ -10,12 +10,10 @@ from plone.autoform.interfaces import IFormFieldProvider
 from plone.namedfile.field import NamedBlobImage
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 from plone.app.textfield import RichText
-from .interfaces import (
-    IProduct,
-    IProductGroup,
-    IVariant,
-    IVariantAspect,
-)
+from .interfaces import IProduct
+from .interfaces import IProductGroup
+from .interfaces import IVariant
+from .interfaces import IVariantAspect
 
 
 _ = MessageFactory('bda.plone.productshop')

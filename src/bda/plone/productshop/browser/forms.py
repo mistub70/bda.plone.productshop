@@ -1,24 +1,16 @@
-from Acquisition import (
-    aq_inner,
-    aq_base,
-)
+from Acquisition import aq_inner
+from Acquisition import aq_base
 from Acquisition.interfaces import IAcquirer
-from zope.component import (
-    getUtility,
-    createObject,
-)
+from zope.component import getUtility
+from zope.component import createObject
 from z3c.form import form
 from plone.dexterity.interfaces import IDexterityFTI
 from plone.dexterity.utils import getAdditionalSchemata
-from plone.dexterity.browser.add import (
-    DefaultAddForm,
-    DefaultAddView,
-)
+from plone.dexterity.browser.add import DefaultAddForm
+from plone.dexterity.browser.add import DefaultAddView
 from collective.instancebehavior import enable_behaviors
-from ..utils import (
-    dotted_name,
-    available_variant_aspects,
-)
+from ..utils import dotted_name
+from ..utils import available_variant_aspects
 
 
 def get_default_variant_aspects(context):

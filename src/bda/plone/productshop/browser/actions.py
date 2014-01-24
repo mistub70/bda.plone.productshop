@@ -1,21 +1,17 @@
 from zope.i18nmessageid import MessageFactory
 from Products.Five.browser import BrowserView
-from collective.instancebehavior import (
-    instance_behaviors_of,
-    enable_behaviors,
-    disable_behaviors,
-)
-from ..behaviors import (
-    IColorBehavior,
-    IWeightBehavior,
-    ISizeBehavior,
-    IDemandBehavior,
-    ILengthBehavior,
-    IWidthBehavior,
-    IHeightBehavior,
-    IIPCodeBehavior,
-    IAngleBehavior,
-)
+from collective.instancebehavior import instance_behaviors_of
+from collective.instancebehavior import enable_behaviors
+from collective.instancebehavior import disable_behaviors
+from ..behaviors import IColorBehavior
+from ..behaviors import IWeightBehavior
+from ..behaviors import ISizeBehavior
+from ..behaviors import IDemandBehavior
+from ..behaviors import ILengthBehavior
+from ..behaviors import IWidthBehavior
+from ..behaviors import IHeightBehavior
+from ..behaviors import IIPCodeBehavior
+from ..behaviors import IAngleBehavior
 from ..interfaces import IVariant
 
 

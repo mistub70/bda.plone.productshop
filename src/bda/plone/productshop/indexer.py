@@ -1,15 +1,13 @@
 from plone.indexer import indexer
-from .behaviors import (
-    IColorBehavior,
-    IWeightBehavior,
-    ISizeBehavior,
-    IDemandBehavior,
-    ILengthBehavior,
-    IWidthBehavior,
-    IHeightBehavior,
-    IIPCodeBehavior,
-    IAngleBehavior,
-)
+from .behaviors import IColorBehavior
+from .behaviors import IWeightBehavior
+from .behaviors import ISizeBehavior
+from .behaviors import IDemandBehavior
+from .behaviors import ILengthBehavior
+from .behaviors import IWidthBehavior
+from .behaviors import IHeightBehavior
+from .behaviors import IIPCodeBehavior
+from .behaviors import IAngleBehavior
 
 
 @indexer(IColorBehavior)

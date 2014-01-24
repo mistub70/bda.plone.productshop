@@ -1,23 +1,17 @@
 import json
-from Acquisition import (
-    aq_inner,
-    aq_parent,
-)
+from Acquisition import aq_inner
+from Acquisition import aq_parent
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from ZTUtils import make_query
 from bda.plone.ajax.batch import Batch
 from bda.plone.cart import get_object_by_uid
-from ..interfaces import (
-    IProduct,
-    IProductGroup,
-    IVariant,
-)
-from ..utils import (
-    request_property,
-    available_variant_aspects,
-)
+from ..interfaces import IProduct
+from ..interfaces import IProductGroup
+from ..interfaces import IVariant
+from ..utils import request_property
+from ..utils import available_variant_aspects
 
 
 _ = MessageFactory('bda.plone.productshop')

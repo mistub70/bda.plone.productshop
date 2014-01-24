@@ -1,14 +1,10 @@
 from zope.interface import directlyProvides
 from zope.schema.interfaces import IVocabularyFactory
-from zope.schema.vocabulary import (
-    SimpleVocabulary,
-    SimpleTerm,
-)
+from zope.schema.vocabulary import SimpleVocabulary
+from zope.schema.vocabulary import SimpleTerm
 from zope.i18nmessageid import MessageFactory
-from .utils import (
-    dotted_name,
-    available_variant_aspects,
-)
+from .utils import dotted_name
+from .utils import available_variant_aspects
 
 
 _ = MessageFactory('bda.plone.productshop')

@@ -1,8 +1,6 @@
 import unittest2 as unittest
-from bda.plone.productshop.tests import (
-    ProductShop_INTEGRATION_TESTING,
-    set_browserlayer,
-)
+from bda.plone.productshop.tests import ProductShop_INTEGRATION_TESTING
+from bda.plone.productshop.tests import set_browserlayer
 
 
 class TestProductShop(unittest.TestCase):
