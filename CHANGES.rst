@@ -2,6 +2,13 @@
 Changelog
 =========
 
+0.4dev
+------
+
+- Apply notification text behaviors to product shop types.
+  [rnix]
+
+
 0.3
 ---
 

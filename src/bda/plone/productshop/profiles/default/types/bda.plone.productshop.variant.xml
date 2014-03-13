@@ -29,6 +29,8 @@
     <element value="bda.plone.shop.dx.IBuyableBehavior"/>
     <element value="bda.plone.shop.dx.IStockBehavior"/>
     <element value="bda.plone.shop.dx.IShippingBehavior"/>
+    <element value="bda.plone.shop.dx.IItemNotificationTextBehavior" />
+    <element value="bda.plone.shop.dx.IGlobalNotificationTextBehavior" />
 
     <!-- shop view related -->
     <element value="bda.plone.productshop.behaviors.IProductExcludeFromNavigation" />
