@@ -24,7 +24,7 @@ def query_children(context, criteria=dict()):
             'query': '/'.join(context.getPhysicalPath()),
             'depth': 1,
         },
-        'order_by': 'objPositionInParent',
+        'sort_on': 'getObjPositionInParent',
     }
     query.update(criteria)
     return cat(**query)
