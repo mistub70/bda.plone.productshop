@@ -331,6 +331,11 @@ class VariantView(ProductView, VariantBase):
                 return related
         return None
 
+    def __call__(self, *args):
+        if '_' in self.request.form:
+            self.request.response.setHeader('X-Theme-Disabled', 'True')
+        return super(VariantView, self).__call__()
+
 
 class VariantLookup(BrowserView, AspectsExtraction):
 
