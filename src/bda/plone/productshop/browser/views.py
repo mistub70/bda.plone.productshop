@@ -63,8 +63,59 @@ class ProductView(BrowserView):
         return None
 
 
+TILE_COLUMNS = 4
+
+
 class ProductTiles(BrowserView):
-    pass
+    image_scale = 'preview'
+
+    def query_tile_items(self, context, tile_items):
+        for brain in query_children(context):
+            if brain.portal_type == 'bda.plone.productshop.productgroup' \
+                    or brain.portal_type == 'bda.plone.productshop.product':
+                tile_items.append(brain.getObject())
+            elif brain.portal_type == 'Folder':
+                self.query_tile_items(brain.getObject(), tile_items)
+
+    def tile_item_url(self, tile_item):
+        anchor = self.context
+        context = tile_item
+        while True:
+            parent = aq_parent(context)
+            if parent == anchor:
+                return context.absolute_url()
+            context = parent
+
+    def rows(self):
+        tile_items = list()
+        self.query_tile_items(self.context, tile_items)
+        columns = TILE_COLUMNS
+        rows = len(tile_items) / columns
+        if len(tile_items) % columns > 0:
+            rows += 1
+        ret = list()
+        index = 0
+        for i in range(rows):
+            row = list()
+            ret.append(row)
+            abort = False
+            for j in range(columns):
+                if index < len(tile_items):
+                    tile_item = tile_items[index]
+                    row.append({
+                        'title': tile_item.Title(),
+                        'description': tile_item.Description(),
+                        'url': self.tile_item_url(tile_item),
+                        'preview': img_tag(
+                            tile_item, self.image_scale, 'product_tile_image')
+                    })
+                else:
+                    abort = True
+                    row.append(None)
+                index += 1
+            if abort:
+                break
+        return ret
 
 
 LISTING_SLICESIZE = 10

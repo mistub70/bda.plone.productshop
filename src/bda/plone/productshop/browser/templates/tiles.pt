@@ -1,3 +1,45 @@
 <div class="product_tiles">
-  Product tiles
+
+  <div class="product_tiles_row"
+       tal:repeat="row view/rows">
+
+    <div class="product_tiles_column"
+         tal:repeat="column row">
+
+      <div class="product_tile"
+           tal:condition="column">
+
+        <div class="product_tile_title">
+          <a href=""
+             tal:attributes="href column/url">
+            <h3 tal:content="column/title">
+              Title
+            </h3>
+          </a>
+        </div>
+
+        <img src=""
+             alt=""
+             class="product_tile_image"
+             tal:condition="column/preview"
+             tal:replace="structure column/preview" />
+
+        <img src="++resource++dummy_product.jpg"
+             alt="product image"
+             class="product_tile_image"
+             tal:condition="not:column/preview" />
+
+        <div class="product_tile_description">
+          <p tal:content="column/description"
+             tal:condition="column/description">
+            Description
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
