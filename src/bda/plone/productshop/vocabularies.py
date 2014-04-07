@@ -3,8 +3,8 @@ from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.vocabulary import SimpleTerm
 from zope.i18nmessageid import MessageFactory
-from .utils import dotted_name
-from .utils import available_variant_aspects
+from bda.plone.productshop.utils import dotted_name
+from bda.plone.productshop.utils import available_variant_aspects
 
 
 _ = MessageFactory('bda.plone.productshop')

@@ -9,8 +9,8 @@ from plone.dexterity.utils import getAdditionalSchemata
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from collective.instancebehavior import enable_behaviors
-from ..utils import dotted_name
-from ..utils import available_variant_aspects
+from bda.plone.productshop.utils import dotted_name
+from bda.plone.productshop.utils import available_variant_aspects
 
 
 def get_default_variant_aspects(context):

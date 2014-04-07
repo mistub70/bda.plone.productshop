@@ -1,9 +1,9 @@
 from zope.interface import implementer
 from plone.dexterity.content import Item
 from plone.dexterity.content import Container
-from .interfaces import IProduct
-from .interfaces import IProductGroup
-from .interfaces import IVariant
+from bda.plone.productshop.interfaces import IProduct
+from bda.plone.productshop.interfaces import IProductGroup
+from bda.plone.productshop.interfaces import IVariant
 
 
 @implementer(IProduct)

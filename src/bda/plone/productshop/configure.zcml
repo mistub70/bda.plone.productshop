@@ -100,6 +100,12 @@
     provides=".behaviors.IAngleBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
+  <plone:behavior
+    title="Material"
+    description="Extend content with material."
+    provides=".behaviors.IMaterialBehavior"
+    for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
+
   <!-- indexing -->
   <adapter name="color_aspect" factory=".indexer.color_aspect" />
   <adapter name="weight_aspect" factory=".indexer.weight_aspect" />
@@ -110,5 +116,6 @@
   <adapter name="height_aspect" factory=".indexer.height_aspect" />
   <adapter name="ip_code_aspect" factory=".indexer.ip_code_aspect" />
   <adapter name="angle_aspect" factory=".indexer.angle_aspect" />
+  <adapter name="material_aspect" factory=".indexer.material_aspect" />
 
 </configure>

@@ -299,4 +299,37 @@
     permission="cmf.ModifyPortalContent"
     layer="..interfaces.IProductShopExtensionLayer" />
 
+  <!-- material -->
+  <browser:page
+    name="enable_material"
+    attribute="enable_aspect"
+    for="..interfaces.IVariant"
+    class=".actions.MaterialAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="disable_material"
+    attribute="disable_aspect"
+    for="..interfaces.IVariant"
+    class=".actions.MaterialAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="can_enable_material"
+    attribute="can_enable"
+    for="*"
+    class=".actions.MaterialAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
+  <browser:page
+    name="can_disable_material"
+    attribute="can_disable"
+    for="*"
+    class=".actions.MaterialAction"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
 </configure>

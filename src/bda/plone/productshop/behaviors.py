@@ -10,7 +10,7 @@ from plone.autoform.interfaces import IFormFieldProvider
 from plone.namedfile.field import NamedBlobImage
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 from plone.app.textfield import RichText
-from .interfaces import IVariantAspect
+from bda.plone.productshop.interfaces import IVariantAspect
 
 
 _ = MessageFactory('bda.plone.productshop')
@@ -231,4 +231,20 @@ class IAngleBehavior(model.Schema, IVariantAspect):
         title=_(u'angle_title', default=u'Angle'),
         description=_(u'angle_description',
                       default=u'Angle of the product'),
+        required=False)
+
+
+@provider(IFormFieldProvider)
+class IMaterialBehavior(model.Schema, IVariantAspect):
+    """Material variant behavior.
+    """
+    model.fieldset(
+        'aspects',
+        label=_(u'aspects', default=u'Aspects'),
+        fields=['material'])
+
+    material = schema.TextLine(
+        title=_(u'material_title', default=u'Material'),
+        description=_(u'material_description',
+                      default=u'Material of the product'),
         required=False)

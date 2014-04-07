@@ -410,5 +410,50 @@
       <property name="visible">True</property>
     </object>
 
+    <!-- material -->
+    <object name="enable_material"
+            meta_type="CMF Action"
+            i18n:domain="bda.plone.productshop">
+      <property name="title" i18n:translate="">
+          Add material
+      </property>
+      <property name="description" i18n:translate="">
+          Add material to product variant
+      </property>
+      <property name="url_expr">
+          string:${object/absolute_url}/@@enable_material
+      </property>
+      <property name="icon_expr"></property>
+      <property name="available_expr">
+          object/@@can_enable_material
+      </property>
+      <property name="permissions">
+          <element value="Modify portal content" />
+      </property>
+      <property name="visible">True</property>
+    </object>
+
+    <object name="disable_material"
+            meta_type="CMF Action"
+            i18n:domain="bda.plone.productshop">
+      <property name="title" i18n:translate="">
+          Remove material
+      </property>
+      <property name="description" i18n:translate="">
+          Remove material from product variant
+      </property>
+      <property name="url_expr">
+          string:${object/absolute_url}/@@disable_material
+      </property>
+      <property name="icon_expr"></property>
+      <property name="available_expr">
+          object/@@can_disable_material
+      </property>
+      <property name="permissions">
+          <element value="Modify portal content" />
+      </property>
+      <property name="visible">True</property>
+    </object>
+
   </object>
 </object>

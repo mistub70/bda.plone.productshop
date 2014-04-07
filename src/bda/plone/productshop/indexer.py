@@ -1,13 +1,14 @@
 from plone.indexer import indexer
-from .behaviors import IColorBehavior
-from .behaviors import IWeightBehavior
-from .behaviors import ISizeBehavior
-from .behaviors import IDemandBehavior
-from .behaviors import ILengthBehavior
-from .behaviors import IWidthBehavior
-from .behaviors import IHeightBehavior
-from .behaviors import IIPCodeBehavior
-from .behaviors import IAngleBehavior
+from bda.plone.productshop.behaviors import IColorBehavior
+from bda.plone.productshop.behaviors import IWeightBehavior
+from bda.plone.productshop.behaviors import ISizeBehavior
+from bda.plone.productshop.behaviors import IDemandBehavior
+from bda.plone.productshop.behaviors import ILengthBehavior
+from bda.plone.productshop.behaviors import IWidthBehavior
+from bda.plone.productshop.behaviors import IHeightBehavior
+from bda.plone.productshop.behaviors import IIPCodeBehavior
+from bda.plone.productshop.behaviors import IAngleBehavior
+from bda.plone.productshop.behaviors import IMaterialBehavior
 
 
 @indexer(IColorBehavior)
@@ -53,3 +54,8 @@ def ip_code_aspect(obj):
 @indexer(IAngleBehavior)
 def angle_aspect(obj):
     return obj.angle
+
+
+@indexer(IMaterialBehavior)
+def material_aspect(obj):
+    return obj.material

@@ -1,7 +1,7 @@
 from zope.component import getUtilitiesFor
 from plone.behavior.interfaces import IBehavior
 from z3c.form.field import Fields
-from .interfaces import IVariantAspect
+from bda.plone.productshop.interfaces import IVariantAspect
 
 
 def dotted_name(obj):

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-15 14:19+0000\n"
+"POT-Creation-Date: 2014-04-07 14:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,6 +61,14 @@ msgstr "Add length"
 #: ./profiles/default/actions.xml
 msgid "Add length to product variant"
 msgstr "Add length to product variant"
+
+#: ./profiles/default/actions.xml
+msgid "Add material"
+msgstr "Add material"
+
+#: ./profiles/default/actions.xml
+msgid "Add material to product variant"
+msgstr "Add material to product variant"
 
 #: ./profiles/default/actions.xml
 msgid "Add size"
@@ -151,6 +159,14 @@ msgid "Remove length from product variant"
 msgstr "Remove length from product variant"
 
 #: ./profiles/default/actions.xml
+msgid "Remove material"
+msgstr "Remove material"
+
+#: ./profiles/default/actions.xml
+msgid "Remove material from product variant"
+msgstr "Remove material from product variant"
+
+#: ./profiles/default/actions.xml
 msgid "Remove size"
 msgstr "Remove size"
 
@@ -175,102 +191,107 @@ msgid "Remove width from product variant"
 msgstr "Remove width from product variant"
 
 #. Default: "Angle of the product"
-#: ./behaviors.py:260
+#: ./behaviors.py:232
 msgid "angle_description"
 msgstr "Angle of the product"
 
 #. Default: "Angle"
-#: ./behaviors.py:259
+#: ./behaviors.py:231
 msgid "angle_title"
 msgstr "Angle"
 
 #. Default: "Angle"
-#: ./browser/actions.py:107
+#: ./browser/actions.py:104
 msgid "aspect_angle"
 msgstr "Angle"
 
 #. Default: "Color"
-#: ./browser/actions.py:59
+#: ./browser/actions.py:56
 msgid "aspect_color"
 msgstr "Color"
 
 #. Default: "Demand"
-#: ./browser/actions.py:77
+#: ./browser/actions.py:74
 msgid "aspect_demand"
 msgstr "Demand"
 
 #. Default: "Height"
-#: ./browser/actions.py:95
+#: ./browser/actions.py:92
 msgid "aspect_height"
 msgstr "Height"
 
 #. Default: "IP Code"
-#: ./browser/actions.py:101
+#: ./browser/actions.py:98
 msgid "aspect_ip_code"
 msgstr "IP Code"
 
 #. Default: "Length"
-#: ./browser/actions.py:83
+#: ./browser/actions.py:80
 msgid "aspect_length"
 msgstr "Length"
 
+#. Default: "Material"
+#: ./browser/actions.py:110
+msgid "aspect_material"
+msgstr "Material"
+
 #. Default: "Size"
-#: ./browser/actions.py:71
+#: ./browser/actions.py:68
 msgid "aspect_size"
 msgstr "Size"
 
 #. Default: "Weight"
-#: ./browser/actions.py:65
+#: ./browser/actions.py:62
 msgid "aspect_weight"
 msgstr "Weight"
 
 #. Default: "Width"
-#: ./browser/actions.py:89
+#: ./browser/actions.py:86
 msgid "aspect_width"
 msgstr "Width"
 
 #. Default: "Aspects"
-#: ./behaviors.py:111
+#: ./behaviors.py:99
 msgid "aspects"
 msgstr "Aspects"
 
 #. Default: "Color of the product"
-#: ./behaviors.py:116
+#: ./behaviors.py:104
 msgid "color_description"
 msgstr "Color of the product"
 
 #. Default: "Color"
-#: ./behaviors.py:115
+#: ./behaviors.py:103
 msgid "color_title"
 msgstr "Color"
 
 #. Default: "Datasheet of the product"
-#: ./behaviors.py:66
+#: ./behaviors.py:60
 msgid "datasheet_description"
 msgstr "Datasheet of the product"
 
 #. Default: "Datasheet"
-#: ./behaviors.py:65
+#: ./behaviors.py:59
 msgid "datasheet_title"
 msgstr "Datasheet"
 
 #. Default: "Variant aspects enabled by default when adding new variants"
-#: ./behaviors.py:85
+#: ./behaviors.py:77
 msgid "default_variant_aspects_description"
 msgstr "Variant aspects enabled by default when adding new variants"
 
 #. Default: "Default variant aspects"
-#: ./behaviors.py:83
+#: ./behaviors.py:75
 msgid "default_variant_aspects_title"
 msgstr "Default variant aspects"
 
 #. Default: "Demand of the product"
-#: ./behaviors.py:170
+#: ./behaviors.py:152
 msgid "demand_description"
 msgstr "Demand of the product"
 
 #. Default: "Demand"
-#: ./behaviors.py:169
+#: ./behaviors.py:151
 msgid "demand_title"
 msgstr "Demand"
 
@@ -280,74 +301,84 @@ msgid "description"
 msgstr "Description"
 
 #. Default: "Details about the product"
-#: ./behaviors.py:60
+#: ./behaviors.py:54
 msgid "details_description"
 msgstr "Details about the product"
 
 #. Default: "Details"
-#: ./behaviors.py:59
+#: ./behaviors.py:53
 msgid "details_title"
 msgstr "Details"
 
 #. Default: "Removed ${aspect} from object."
-#: ./browser/actions.py:45
+#: ./browser/actions.py:42
 msgid "disabled_aspect"
 msgstr "Removed ${aspect} from object."
 
 #. Default: "Added ${aspect} to object."
-#: ./browser/actions.py:35
+#: ./browser/actions.py:32
 msgid "enabled_aspect"
 msgstr "Added ${aspect} to object."
 
 #. Default: "Height of the product"
-#: ./behaviors.py:224
+#: ./behaviors.py:200
 msgid "height_description"
 msgstr "Height of the product"
 
 #. Default: "Height"
-#: ./behaviors.py:223
+#: ./behaviors.py:199
 msgid "height_title"
 msgstr "Height"
 
 #. Default: "Preview image of Product"
-#: ./behaviors.py:54
+#: ./behaviors.py:48
 msgid "image_description"
 msgstr "Preview image of Product"
 
 #. Default: "Product Image"
-#: ./behaviors.py:53
+#: ./behaviors.py:47
 msgid "image_title"
 msgstr "Product Image"
 
 #. Default: "International protection code of the product"
-#: ./behaviors.py:242
+#: ./behaviors.py:216
 msgid "ip_code_description"
 msgstr "International protection code of the product"
 
 #. Default: "IP Code"
-#: ./behaviors.py:241
+#: ./behaviors.py:215
 msgid "ip_code_title"
 msgstr "IP Code"
 
 #. Default: "Item number of the product"
-#: ./behaviors.py:48
+#: ./behaviors.py:42
 msgid "item_number_description"
 msgstr "Item number of the product"
 
 #. Default: "Item number"
-#: ./behaviors.py:47
+#: ./behaviors.py:41
 msgid "item_number_title"
 msgstr "Item number"
 
 #. Default: "Length of the product"
-#: ./behaviors.py:188
+#: ./behaviors.py:168
 msgid "length_description"
 msgstr "Length of the product"
 
 #. Default: "Length"
-#: ./behaviors.py:187
+#: ./behaviors.py:167
 msgid "length_title"
 msgstr "Length"
+
+#. Default: "Material of the product"
+#: ./behaviors.py:248
+msgid "material_description"
+msgstr "Material of the product"
+
+#. Default: "Material"
+#: ./behaviors.py:247
+msgid "material_title"
+msgstr "Material"
 
 #. Default: "No product with selected criteria. Change selection or"
 #: ./browser/templates/aspects.pt:37
@@ -355,12 +386,12 @@ msgid "no_product_by_criteria"
 msgstr "No product with selected criteria. Change selection or"
 
 #. Default: "Sorry. No Products found."
-#: ./browser/templates/listing.pt:17
+#: ./browser/templates/listing.pt:19
 msgid "no_products_found"
 msgstr "Sorry. No Products found."
 
 #. Default: "read more..."
-#: ./browser/templates/listing.pt:39
+#: ./browser/templates/listing.pt:41
 msgid "read_more"
 msgstr "read more..."
 
@@ -375,12 +406,12 @@ msgid "reset_filter"
 msgstr "reset filter"
 
 #. Default: "Size of the product"
-#: ./behaviors.py:152
+#: ./behaviors.py:136
 msgid "size_description"
 msgstr "Size of the product"
 
 #. Default: "Size"
-#: ./behaviors.py:151
+#: ./behaviors.py:135
 msgid "size_title"
 msgstr "Size"
 
@@ -398,22 +429,22 @@ msgid "variant to use within a Productgroup"
 msgstr "variant to use within a Productgroup"
 
 #. Default: "Weight of the product"
-#: ./behaviors.py:134
+#: ./behaviors.py:120
 msgid "weight_description"
 msgstr "Weight of the product"
 
 #. Default: "Weight"
-#: ./behaviors.py:133
+#: ./behaviors.py:119
 msgid "weight_title"
 msgstr "Weight"
 
 #. Default: "Width of the product"
-#: ./behaviors.py:206
+#: ./behaviors.py:184
 msgid "width_description"
 msgstr "Width of the product"
 
 #. Default: "Width"
-#: ./behaviors.py:205
+#: ./behaviors.py:183
 msgid "width_title"
 msgstr "Width"
 

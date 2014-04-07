@@ -5,6 +5,12 @@ Changelog
 0.4dev
 ------
 
+- Absolute imports.
+  [rnix]
+
+- Add ``IMaterialBehavior`` variant aspect.
+  [rnix]
+
 - Apply notification text behaviors to product shop types.
   [rnix]
 

@@ -7,11 +7,11 @@ from Products.CMFCore.utils import getToolByName
 from ZTUtils import make_query
 from bda.plone.ajax.batch import Batch
 from bda.plone.cart import get_object_by_uid
-from ..interfaces import IProduct
-from ..interfaces import IProductGroup
-from ..interfaces import IVariant
-from ..utils import request_property
-from ..utils import available_variant_aspects
+from bda.plone.productshop.interfaces import IProduct
+from bda.plone.productshop.interfaces import IProductGroup
+from bda.plone.productshop.interfaces import IVariant
+from bda.plone.productshop.utils import request_property
+from bda.plone.productshop.utils import available_variant_aspects
 
 
 _ = MessageFactory('bda.plone.productshop')

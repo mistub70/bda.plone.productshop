@@ -97,6 +97,7 @@ Following steps are necessary to add a variant aspect
 Create a variant behavior like the ones in
 ``bda.plone.productshop.behaviors``::
 
+    @provider(IFormFieldProvider)
     class IDemandBehavior(IVariantAspect):
         """Demand variant behavior.
         """
@@ -109,8 +110,6 @@ Create a variant behavior like the ones in
             description=_(u'demand_description',
                           default=u'Demand of the product'),
             required=False)
-
-    alsoProvides(IDemandBehavior, IFormFieldProvider)
 
 **Note**: Aspect field type must always be a text line to work correctly with
           the filter views.

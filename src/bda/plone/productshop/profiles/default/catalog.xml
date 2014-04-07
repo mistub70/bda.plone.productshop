@@ -37,4 +37,8 @@
     <indexed_attr value="angle_aspect" />
   </index>
 
+  <index name="material_aspect" meta_type="FieldIndex">
+    <indexed_attr value="material_aspect" />
+  </index>
+
 </object>

@@ -3,16 +3,17 @@ from Products.Five.browser import BrowserView
 from collective.instancebehavior import instance_behaviors_of
 from collective.instancebehavior import enable_behaviors
 from collective.instancebehavior import disable_behaviors
-from ..behaviors import IColorBehavior
-from ..behaviors import IWeightBehavior
-from ..behaviors import ISizeBehavior
-from ..behaviors import IDemandBehavior
-from ..behaviors import ILengthBehavior
-from ..behaviors import IWidthBehavior
-from ..behaviors import IHeightBehavior
-from ..behaviors import IIPCodeBehavior
-from ..behaviors import IAngleBehavior
-from ..interfaces import IVariant
+from bda.plone.productshop.behaviors import IColorBehavior
+from bda.plone.productshop.behaviors import IWeightBehavior
+from bda.plone.productshop.behaviors import ISizeBehavior
+from bda.plone.productshop.behaviors import IDemandBehavior
+from bda.plone.productshop.behaviors import ILengthBehavior
+from bda.plone.productshop.behaviors import IWidthBehavior
+from bda.plone.productshop.behaviors import IHeightBehavior
+from bda.plone.productshop.behaviors import IIPCodeBehavior
+from bda.plone.productshop.behaviors import IAngleBehavior
+from bda.plone.productshop.behaviors import IMaterialBehavior
+from bda.plone.productshop.interfaces import IVariant
 
 
 _ = MessageFactory('bda.plone.productshop')
@@ -103,3 +104,9 @@ class AngleAction(VariantAspectAction):
     aspect_title = _(u'aspect_angle', default=u'Angle')
     aspect_behavior = 'bda.plone.productshop.behaviors.IAngleBehavior'
     aspect_schema = IAngleBehavior
+
+
+class MaterialAction(VariantAspectAction):
+    aspect_title = _(u'aspect_material', default=u'Material')
+    aspect_behavior = 'bda.plone.productshop.behaviors.IMaterialBehavior'
+    aspect_schema = IMaterialBehavior
