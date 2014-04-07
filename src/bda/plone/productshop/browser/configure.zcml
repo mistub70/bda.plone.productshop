@@ -37,7 +37,15 @@
     file="resources/dummy_listing_product.jpg"
     layer="..interfaces.IProductShopExtensionLayer" />
 
-  <!-- tiles -->
+  <!-- tile views -->
+  <browser:page
+    for="Products.CMFCore.interfaces.IFolderish"
+    name="bda.plone.productshop.tiles"
+    permission="zope2.View"
+    class=".views.ProductTiles"
+    template="templates/tiles.pt"
+    layer="..interfaces.IProductShopExtensionLayer" />
+
   <browser:page
     for="Products.CMFCore.interfaces.IFolderish"
     name="bda.plone.productshop.listing"
@@ -94,6 +102,13 @@
     layer="..interfaces.IProductShopExtensionLayer" />
 
   <!-- content views -->
+  <browser:page
+    for="Products.CMFCore.interfaces.IFolderish"
+    name="product_tiles"
+    template="templates/product_tiles.pt"
+    layer="..interfaces.IProductShopExtensionLayer"
+    permission="zope2.View" />
+
   <browser:page
     for="Products.CMFCore.interfaces.IFolderish"
     name="product_listing"

@@ -5,6 +5,12 @@ Changelog
 0.4dev
 ------
 
+- Add product tiles view for plone site and folders.
+  [rnix]
+
+- Enable discount settings on productgroup.
+  [rnix]
+
 - Absolute imports.
   [rnix]
 

@@ -1,6 +1,7 @@
 from zope.interface import Interface
 from plone.namedfile.interfaces import IImageScaleTraversable
 from collective.instancebehavior import IInstanceBehaviorAssignableContent
+from bda.plone.discount.interfaces import IDiscountSettingsEnabled
 
 
 class IProductShopExtensionLayer(Interface):
@@ -17,7 +18,7 @@ class IProduct(Interface, IImageScaleTraversable):
     """
 
 
-class IProductGroup(IProduct):
+class IProductGroup(IProduct, IDiscountSettingsEnabled):
     """Marker interface for product group content.
     """
 

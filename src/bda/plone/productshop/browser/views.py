@@ -63,6 +63,10 @@ class ProductView(BrowserView):
         return None
 
 
+class ProductTiles(BrowserView):
+    pass
+
+
 LISTING_SLICESIZE = 10
 
 
