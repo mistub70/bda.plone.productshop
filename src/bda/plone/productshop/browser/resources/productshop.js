@@ -51,6 +51,10 @@
 
         // productshop binder function
         binder: function(context) {
+            // tile resize
+            var tiles = $('div.product_tile');
+            tiles.css({'height': tiles.width() + 'px'});
+
             // bind shopview tabs
             $('ul.shopview_tabs').tabs('div.shopview_panes > div');
 

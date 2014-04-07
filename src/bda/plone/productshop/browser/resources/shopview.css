@@ -42,7 +42,6 @@ div.product_tile {
     border:#ccc 1px solid;
     margin:1px;
     position:relative;
-    height:240px;
 }
 div.product_tile_title {
     position:absolute;
@@ -50,8 +49,11 @@ div.product_tile_title {
     width:100%;
     background-color:rgba(0, 0, 0, 0.4);
 }
+div.product_tile_title :hover {
+    background-color:rgba(0, 0, 0, 0.5);
+}
 div.product_tile_title h3 {
-    margin:1em;
+    padding:1em;
     color:#fff;
 }
 div.product_tile_description {
