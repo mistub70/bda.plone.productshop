@@ -43,14 +43,14 @@ div.product_tile {
     margin:1px;
     position:relative;
 }
+div.product_tile:hover {
+    opacity:0.8;
+}
 div.product_tile_title {
     position:absolute;
     top:0;
     width:100%;
     background-color:rgba(0, 0, 0, 0.4);
-}
-div.product_tile_title :hover {
-    background-color:rgba(0, 0, 0, 0.5);
 }
 div.product_tile_title h3 {
     padding:1em;

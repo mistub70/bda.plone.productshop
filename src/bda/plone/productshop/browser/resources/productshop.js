@@ -7,6 +7,9 @@
             });
         }
         productshop.binder(document);
+        $(window).bind('resize', function(evt) {
+            productshop.rezize_tiles();
+        });
     });
 
     productshop = {
@@ -49,11 +52,15 @@
             }
         },
 
+        rezize_tiles: function() {
+            var tiles = $('div.product_tile');
+            tiles.css({'height': tiles.width() + 'px'});
+        },
+
         // productshop binder function
         binder: function(context) {
             // tile resize
-            var tiles = $('div.product_tile');
-            tiles.css({'height': tiles.width() + 'px'});
+            productshop.rezize_tiles();
 
             // bind shopview tabs
             $('ul.shopview_tabs').tabs('div.shopview_panes > div');

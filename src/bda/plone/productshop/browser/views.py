@@ -120,9 +120,13 @@ class ProductTiles(BrowserView):
                     """ % {
                         'image': item_preview,
                     }
+                    item_description = item_context.Description()
+                    item_description = \
+                        item_description and \
+                        item_description[:60] + '...' or None
                     row.append({
                         'title': item_context.Title(),
-                        'description': item_context.Description(),
+                        'description': item_description,
                         'url': item_context.absolute_url(),
                         'style': item_style,
                     })
