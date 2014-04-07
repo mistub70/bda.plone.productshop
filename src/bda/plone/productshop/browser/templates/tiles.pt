@@ -7,7 +7,8 @@
          tal:repeat="column row">
 
       <div class="product_tile"
-           tal:condition="column">
+           tal:condition="column"
+           tal:attributes="style column/style">
 
         <div class="product_tile_title">
           <a href=""
@@ -17,17 +18,6 @@
             </h3>
           </a>
         </div>
-
-        <img src=""
-             alt=""
-             class="product_tile_image"
-             tal:condition="column/preview"
-             tal:replace="structure column/preview" />
-
-        <img src="++resource++dummy_product.jpg"
-             alt="product image"
-             class="product_tile_image"
-             tal:condition="not:column/preview" />
 
         <div class="product_tile_description">
           <p tal:content="column/description"

@@ -30,11 +30,15 @@ def query_children(context, criteria=dict()):
     return cat(**query)
 
 
-def img_tag(context, scale, css_class):
+def img_scale(context, scale_name):
     if not context.image:
         return None
     scales = context.restrictedTraverse('@@images')
-    scale = scales.scale('image', scale)
+    return scales.scale('image', scale_name)
+
+
+def img_tag(context, scale_name, css_class):
+    scale = img_scale(context, scale_name)
     if not scale:
         return None
     return scale.tag(css_class=css_class)
@@ -77,13 +81,13 @@ class ProductTiles(BrowserView):
             elif brain.portal_type == 'Folder':
                 self.query_tile_items(brain.getObject(), tile_items)
 
-    def tile_item_url(self, tile_item):
-        anchor = self.context
-        context = tile_item
+    def tile_item_context(self, tile_item):
+        anchor = aq_inner(self.context)
+        context = aq_inner(tile_item)
         while True:
-            parent = aq_parent(context)
+            parent = aq_parent(aq_inner(context))
             if parent == anchor:
-                return context.absolute_url()
+                return context
             context = parent
 
     def rows(self):
@@ -102,12 +106,25 @@ class ProductTiles(BrowserView):
             for j in range(columns):
                 if index < len(tile_items):
                     tile_item = tile_items[index]
+                    item_scale = img_scale(tile_item, self.image_scale)
+                    item_context = self.tile_item_context(tile_item)
+                    if item_scale is not None:
+                        item_preview = item_scale.url
+                    else:
+                        item_preview = '++resource++dummy_product.jpg'
+                    item_style = """
+                        background-image:url('%(image)s');
+                        background-size:cover;
+                        background-position:center;
+                        background-repeat:no-repeat;
+                    """ % {
+                        'image': item_preview,
+                    }
                     row.append({
-                        'title': tile_item.Title(),
-                        'description': tile_item.Description(),
-                        'url': self.tile_item_url(tile_item),
-                        'preview': img_tag(
-                            tile_item, self.image_scale, 'product_tile_image')
+                        'title': item_context.Title(),
+                        'description': item_context.Description(),
+                        'url': item_context.absolute_url(),
+                        'style': item_style,
                     })
                 else:
                     abort = True
