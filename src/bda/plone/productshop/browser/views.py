@@ -1,4 +1,5 @@
 import json
+from random import shuffle
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from zope.i18nmessageid import MessageFactory
@@ -73,13 +74,19 @@ TILE_COLUMNS = 4
 class ProductTiles(BrowserView):
     image_scale = 'preview'
 
-    def query_tile_items(self, context, tile_items):
-        for brain in query_children(context):
+    def query_tile_items(self, context, tile_items, aggregate=True):
+        brains = [brain for brain in query_children(context)]
+        shuffle(brains)
+        for brain in brains:
             if brain.portal_type == 'bda.plone.productshop.productgroup' \
                     or brain.portal_type == 'bda.plone.productshop.product':
                 tile_items.append(brain.getObject())
+                if not aggregate:
+                    return
             elif brain.portal_type == 'Folder':
-                self.query_tile_items(brain.getObject(), tile_items)
+                self.query_tile_items(brain.getObject(),
+                                      tile_items,
+                                      aggregate=False)
 
     def tile_item_context(self, tile_item):
         anchor = aq_inner(self.context)
