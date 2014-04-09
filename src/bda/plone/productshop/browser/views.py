@@ -76,7 +76,8 @@ class ProductTiles(BrowserView):
 
     def query_tile_items(self, context, tile_items, aggregate=True):
         brains = [brain for brain in query_children(context)]
-        shuffle(brains)
+        if not aggregate:
+            shuffle(brains)
         for brain in brains:
             if brain.portal_type == 'bda.plone.productshop.productgroup' \
                     or brain.portal_type == 'bda.plone.productshop.product':
@@ -87,6 +88,7 @@ class ProductTiles(BrowserView):
                 self.query_tile_items(brain.getObject(),
                                       tile_items,
                                       aggregate=False)
+                return
 
     def tile_item_context(self, tile_item):
         anchor = aq_inner(self.context)
