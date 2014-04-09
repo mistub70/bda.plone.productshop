@@ -3,32 +3,36 @@
   <div class="product_tiles_row"
        tal:repeat="row view/rows">
 
-    <div class="product_tiles_column"
-         tal:repeat="column row">
+    <tal:column repeat="column row">
 
-      <tal:product_tile condition="column">
-        <a href=""
-           tal:attributes="href column/url">
-          <div class="product_tile"
-               tal:attributes="style column/style">
+      <div class="product_tiles_column"
+           tal:attributes="style string:width:${column/width}%;">
 
-            <div class="product_tile_title">
-              <h3 tal:content="column/title">
-                Title
-              </h3>
+        <tal:product_tile condition="column/display">
+          <a href=""
+             tal:attributes="href column/url">
+            <div class="product_tile"
+                 tal:attributes="style column/style">
+
+              <div class="product_tile_title">
+                <h3 tal:content="column/title">
+                  Title
+                </h3>
+              </div>
+
+              <div class="product_tile_description">
+                <p tal:content="column/description"
+                   tal:condition="column/description">
+                  Description
+                </p>
+              </div>
             </div>
+          </a>
+        </tal:product_tile>
 
-            <div class="product_tile_description">
-              <p tal:content="column/description"
-                 tal:condition="column/description">
-                Description
-              </p>
-            </div>
-          </div>
-        </a>
-      </tal:product_tile>
+      </div>
 
-    </div>
+    </tal:column>
 
   </div>
 

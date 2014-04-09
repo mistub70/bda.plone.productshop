@@ -134,6 +134,8 @@ class ProductTiles(BrowserView):
                         item_description and \
                         item_description[:60] + '...' or None
                     row.append({
+                        'display': True,
+                        'width': 100.0 / TILE_COLUMNS,
                         'title': item_context.Title(),
                         'description': item_description,
                         'url': item_context.absolute_url(),
@@ -141,7 +143,10 @@ class ProductTiles(BrowserView):
                     })
                 else:
                     abort = True
-                    row.append(None)
+                    row.append({
+                        'display': False,
+                        'width': 100.0 / TILE_COLUMNS,
+                    })
                 index += 1
             if abort:
                 break
