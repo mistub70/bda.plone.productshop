@@ -93,14 +93,13 @@ div.overlay_buyable_controls div.availability {
     position:relative;
 }
 div.overlay_buyable_controls div.availability_details {
-    background-color:#efefef;
-    border:none;
     min-width:0;
     display:block !important;
     position:static;
-    background-color:#fff;
     padding:0;
     margin-top:0.8em;
+    border:none;
+    box-shadow:none;
 }
 div.overlay_buyable_controls div.buyable dl.details {
     border-top:#ccc 1px solid;
