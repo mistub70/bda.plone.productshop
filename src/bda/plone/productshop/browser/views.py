@@ -2,15 +2,19 @@ import json
 from random import shuffle
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from ZTUtils import make_query
+from zope.component import getUtility
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
-from ZTUtils import make_query
+from plone.registry.interfaces import IRegistry
 from bda.plone.ajax.batch import Batch
 from bda.plone.cart import get_object_by_uid
 from bda.plone.productshop.interfaces import IProduct
 from bda.plone.productshop.interfaces import IProductGroup
 from bda.plone.productshop.interfaces import IVariant
+from bda.plone.productshop.interfaces import IProductShopSettings
+from bda.plone.productshop.behaviors import IProductTilesViewSettingsBehavior
 from bda.plone.productshop.utils import request_property
 from bda.plone.productshop.utils import available_variant_aspects
 
@@ -68,11 +72,10 @@ class ProductView(BrowserView):
         return None
 
 
-TILE_COLUMNS = 4
+FALLBACK_TILE_COLUMNS = 4
 
 
 class ProductTiles(BrowserView):
-    image_scale = 'preview'
 
     def query_tile_items(self, context, tile_items, aggregate=True):
         brains = [brain for brain in query_children(context)]
@@ -102,10 +105,36 @@ class ProductTiles(BrowserView):
                 return context
             context = parent
 
+    @property
+    def tile_columns(self):
+        # read and return from context settings if behavior applied
+        if IProductTilesViewSettingsBehavior.providedBy(self.context):
+            tile_columns = self.context.product_tiles_view_columns
+            if tile_columns and tile_columns > 0:
+                return tile_columns
+        # read and return from productshop settings
+        registry = getUtility(IRegistry)
+        settings = registry.forInterface(IProductShopSettings)
+        tile_columns = settings.product_tiles_view_columns
+        if tile_columns and tile_columns > 0:
+            return tile_columns
+        # fallback
+        return FALLBACK_TILE_COLUMNS
+
+    @property
+    def tile_item_image_scale(self):
+        # read and return from context settings if behavior applied
+        if IProductTilesViewSettingsBehavior.providedBy(self.context):
+            return self.context.product_tiles_view_image_scale
+        # read and return from productshop settings
+        registry = getUtility(IRegistry)
+        settings = registry.forInterface(IProductShopSettings)
+        return settings.product_tiles_view_image_scale
+
     def rows(self):
         tile_items = list()
         self.query_tile_items(self.context, tile_items)
-        columns = TILE_COLUMNS
+        columns = self.tile_columns
         rows = len(tile_items) / columns
         if len(tile_items) % columns > 0:
             rows += 1
@@ -118,7 +147,8 @@ class ProductTiles(BrowserView):
             for j in range(columns):
                 if index < len(tile_items):
                     tile_item = tile_items[index]
-                    item_scale = img_scale(tile_item, self.image_scale)
+                    item_scale = img_scale(tile_item,
+                                           self.tile_item_image_scale)
                     item_context = self.tile_item_context(tile_item)
                     if item_scale is not None:
                         item_preview = item_scale.url
@@ -138,7 +168,7 @@ class ProductTiles(BrowserView):
                         item_description[:60] + '...' or None
                     row.append({
                         'display': True,
-                        'width': 100.0 / TILE_COLUMNS,
+                        'width': 100.0 / columns,
                         'title': item_context.Title(),
                         'description': item_description,
                         'url': item_context.absolute_url(),
@@ -148,7 +178,7 @@ class ProductTiles(BrowserView):
                     abort = True
                     row.append({
                         'display': False,
-                        'width': 100.0 / TILE_COLUMNS,
+                        'width': 100.0 / columns,
                     })
                 index += 1
             if abort:

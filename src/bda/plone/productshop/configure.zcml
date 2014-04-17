@@ -21,11 +21,21 @@
     component=".vocabularies.AvailableVariantAspectsVocabulary"
     name="bda.plone.productshop.AvailableVariantAspectsVocabulary" />
 
+  <utility
+    component=".vocabularies.ImageScaleVocabulary"
+    name="bda.plone.productshop.ImageScaleVocabulary" />
+
   <!-- DX behaviors -->
   <plone:behavior
     title="Exclude From navigation for products"
     description="Allow products to be excluded from navigation"
     provides=".behaviors.IProductExcludeFromNavigation"
+    for="plone.dexterity.interfaces.IDexterityContent" />
+
+  <plone:behavior
+    title="Product Tiles View Settings"
+    description="Extend content with product tiles view specific settings."
+    provides=".behaviors.IProductTilesViewSettingsBehavior"
     for="plone.dexterity.interfaces.IDexterityContent" />
 
   <plone:behavior

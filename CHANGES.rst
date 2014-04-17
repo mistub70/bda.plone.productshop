@@ -2,6 +2,15 @@
 Changelog
 =========
 
+0.5dev
+------
+
+- Add ``IProductShopSettings`` and ``IProductTilesViewSettingsBehavior``, both
+  providing ``product_tiles_view_columns`` and
+  ``product_tiles_view_image_scale`` properties, used in ``ProductTiles`` view.
+  [rnix]
+
+
 0.4
 ---
 

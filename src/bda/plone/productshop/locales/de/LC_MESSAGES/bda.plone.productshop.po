@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-04-07 14:50+0000\n"
+"POT-Creation-Date: 2014-04-17 09:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -191,12 +191,12 @@ msgid "Remove width from product variant"
 msgstr "Entfernen Sie den Aspekt Breite von der Variante"
 
 #. Default: "Angle of the product"
-#: ./behaviors.py:232
+#: ./behaviors.py:261
 msgid "angle_description"
 msgstr "Winkel des Produktes"
 
 #. Default: "Angle"
-#: ./behaviors.py:231
+#: ./behaviors.py:260
 msgid "angle_title"
 msgstr "Winkel"
 
@@ -251,47 +251,47 @@ msgid "aspect_width"
 msgstr "Breite"
 
 #. Default: "Aspects"
-#: ./behaviors.py:99
+#: ./behaviors.py:128
 msgid "aspects"
 msgstr "Aspekte"
 
 #. Default: "Color of the product"
-#: ./behaviors.py:104
+#: ./behaviors.py:133
 msgid "color_description"
 msgstr "Farbe des Produkts"
 
 #. Default: "Color"
-#: ./behaviors.py:103
+#: ./behaviors.py:132
 msgid "color_title"
 msgstr "Farbe"
 
 #. Default: "Datasheet of the product"
-#: ./behaviors.py:60
+#: ./behaviors.py:89
 msgid "datasheet_description"
 msgstr "Datenblatt vom Produkt"
 
 #. Default: "Datasheet"
-#: ./behaviors.py:59
+#: ./behaviors.py:88
 msgid "datasheet_title"
 msgstr "Datenblatt"
 
 #. Default: "Variant aspects enabled by default when adding new variants"
-#: ./behaviors.py:77
+#: ./behaviors.py:106
 msgid "default_variant_aspects_description"
 msgstr "Standardmäßig aktivierte Aspekte beim hinzufügen von Varianten"
 
 #. Default: "Default variant aspects"
-#: ./behaviors.py:75
+#: ./behaviors.py:104
 msgid "default_variant_aspects_title"
 msgstr "Standard Aspekte"
 
 #. Default: "Demand of the product"
-#: ./behaviors.py:152
+#: ./behaviors.py:181
 msgid "demand_description"
 msgstr "Leistung vom Produkt"
 
 #. Default: "Demand"
-#: ./behaviors.py:151
+#: ./behaviors.py:180
 msgid "demand_title"
 msgstr "Leistung"
 
@@ -301,12 +301,12 @@ msgid "description"
 msgstr "Beschreibung"
 
 #. Default: "Details about the product"
-#: ./behaviors.py:54
+#: ./behaviors.py:83
 msgid "details_description"
 msgstr "Detailbeschreibung vom Produkt"
 
 #. Default: "Details"
-#: ./behaviors.py:53
+#: ./behaviors.py:82
 msgid "details_title"
 msgstr "Details"
 
@@ -321,62 +321,62 @@ msgid "enabled_aspect"
 msgstr "Aspekt ${aspect} zu Objekt hinzugefügt."
 
 #. Default: "Height of the product"
-#: ./behaviors.py:200
+#: ./behaviors.py:229
 msgid "height_description"
 msgstr "Höhe vom Produkt"
 
 #. Default: "Height"
-#: ./behaviors.py:199
+#: ./behaviors.py:228
 msgid "height_title"
 msgstr "Höhe"
 
 #. Default: "Preview image of Product"
-#: ./behaviors.py:48
+#: ./behaviors.py:77
 msgid "image_description"
 msgstr "Vorschaubild vom Produkt"
 
 #. Default: "Product Image"
-#: ./behaviors.py:47
+#: ./behaviors.py:76
 msgid "image_title"
 msgstr "Vorschaubild"
 
 #. Default: "International protection code of the product"
-#: ./behaviors.py:216
+#: ./behaviors.py:245
 msgid "ip_code_description"
 msgstr "Schutzart (IP Code) vom Produkt"
 
 #. Default: "IP Code"
-#: ./behaviors.py:215
+#: ./behaviors.py:244
 msgid "ip_code_title"
 msgstr "IP Code"
 
 #. Default: "Item number of the product"
-#: ./behaviors.py:42
+#: ./behaviors.py:71
 msgid "item_number_description"
 msgstr "Artikelnummer vom Produkt"
 
 #. Default: "Item number"
-#: ./behaviors.py:41
+#: ./behaviors.py:70
 msgid "item_number_title"
 msgstr "Artikelnummer"
 
 #. Default: "Length of the product"
-#: ./behaviors.py:168
+#: ./behaviors.py:197
 msgid "length_description"
 msgstr "Länge vom Produkt"
 
 #. Default: "Length"
-#: ./behaviors.py:167
+#: ./behaviors.py:196
 msgid "length_title"
 msgstr "Länge"
 
 #. Default: "Material of the product"
-#: ./behaviors.py:248
+#: ./behaviors.py:277
 msgid "material_description"
 msgstr "Material vom Produkt"
 
 #. Default: "Material"
-#: ./behaviors.py:247
+#: ./behaviors.py:276
 msgid "material_title"
 msgstr "Material"
 
@@ -389,6 +389,35 @@ msgstr "Kein Produkt mit den ausgewählten Kriterien gefunden. Ändern Sie die A
 #: ./browser/templates/listing.pt:19
 msgid "no_products_found"
 msgstr "Entuldigen Sie bitte. Keine Produkte mit den ausgewählten Kriterien gefunden"
+
+#. Default: "Number of columns shown in product tiles view"
+#: ./behaviors.py:52
+#: ./interfaces.py:61
+msgid "product_tiles_view_columns_description"
+msgstr "Anzahl Spalten die in der Kachelansicht angezeigt werden"
+
+#. Default: "Product tiles view Columns"
+#: ./behaviors.py:50
+#: ./interfaces.py:59
+msgid "product_tiles_view_columns_title"
+msgstr "Kachelansicht Spalten"
+
+#. Default: "Image scale used for product tiles"
+#: ./behaviors.py:59
+#: ./interfaces.py:68
+msgid "product_tiles_view_image_scale_description"
+msgstr "Bild Skalierung welche für die Kachelansicht verwendet wird"
+
+#. Default: "Product tiles image scale"
+#: ./behaviors.py:57
+#: ./interfaces.py:66
+msgid "product_tiles_view_image_scale_title"
+msgstr "Bild Skalierung Kacheln"
+
+#. Default: "Products"
+#: ./interfaces.py:54
+msgid "products"
+msgstr "Produkte"
 
 #. Default: "read more..."
 #: ./browser/templates/listing.pt:41
@@ -406,12 +435,12 @@ msgid "reset_filter"
 msgstr "setzen Sie die Kriterien zurück"
 
 #. Default: "Size of the product"
-#: ./behaviors.py:136
+#: ./behaviors.py:165
 msgid "size_description"
 msgstr "Größe des Produktes"
 
 #. Default: "Size"
-#: ./behaviors.py:135
+#: ./behaviors.py:164
 msgid "size_title"
 msgstr "Größe"
 
@@ -429,22 +458,22 @@ msgid "variant to use within a Productgroup"
 msgstr "Variante einer Produktgruppe"
 
 #. Default: "Weight of the product"
-#: ./behaviors.py:120
+#: ./behaviors.py:149
 msgid "weight_description"
 msgstr "Gewicht vom Produkt"
 
 #. Default: "Weight"
-#: ./behaviors.py:119
+#: ./behaviors.py:148
 msgid "weight_title"
 msgstr "Gewicht"
 
 #. Default: "Width of the product"
-#: ./behaviors.py:184
+#: ./behaviors.py:213
 msgid "width_description"
 msgstr "Breite vom Produkt"
 
 #. Default: "Width"
-#: ./behaviors.py:183
+#: ./behaviors.py:212
 msgid "width_title"
 msgstr "Breite"
 

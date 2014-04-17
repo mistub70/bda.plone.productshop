@@ -34,6 +34,35 @@ provideAdapter(ComputedWidgetAttribute(
 
 
 @provider(IFormFieldProvider)
+class IProductTilesViewSettingsBehavior(model.Schema):
+    """Product tiles view settings behavior.
+
+    This behavior is not applied to any content types by default. It can be
+    used on folderish objects where product tiles view is enabled in order to
+    configure product tiles view.
+    """
+    model.fieldset(
+        'settings',
+        fields=['product_tiles_view_columns',
+                'product_tiles_view_image_scale'])
+
+    product_tiles_view_columns = schema.Int(
+        title=_(u'product_tiles_view_columns_title',
+                default=u'Product tiles view Columns'),
+        description=_(u'product_tiles_view_columns_description',
+                      default=u'Number of columns shown in product tiles view'),
+        required=False)
+
+    product_tiles_view_image_scale = schema.Choice(
+        title=_(u'product_tiles_view_image_scale_title',
+                default=u'Product tiles image scale'),
+        description=_(u'product_tiles_view_image_scale_description',
+                      default=u'Image scale used for product tiles'),
+        vocabulary='bda.plone.productshop.ImageScaleVocabulary',
+        required=False)
+
+
+@provider(IFormFieldProvider)
 class IProductBehavior(model.Schema):
     """Product behavior.
     """

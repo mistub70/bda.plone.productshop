@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-04-07 14:50+0000\n"
+"POT-Creation-Date: 2014-04-17 09:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -194,12 +194,12 @@ msgid "Remove width from product variant"
 msgstr ""
 
 #. Default: "Angle of the product"
-#: ./behaviors.py:232
+#: ./behaviors.py:261
 msgid "angle_description"
 msgstr ""
 
 #. Default: "Angle"
-#: ./behaviors.py:231
+#: ./behaviors.py:260
 msgid "angle_title"
 msgstr ""
 
@@ -254,47 +254,47 @@ msgid "aspect_width"
 msgstr ""
 
 #. Default: "Aspects"
-#: ./behaviors.py:99
+#: ./behaviors.py:128
 msgid "aspects"
 msgstr ""
 
 #. Default: "Color of the product"
-#: ./behaviors.py:104
+#: ./behaviors.py:133
 msgid "color_description"
 msgstr ""
 
 #. Default: "Color"
-#: ./behaviors.py:103
+#: ./behaviors.py:132
 msgid "color_title"
 msgstr ""
 
 #. Default: "Datasheet of the product"
-#: ./behaviors.py:60
+#: ./behaviors.py:89
 msgid "datasheet_description"
 msgstr ""
 
 #. Default: "Datasheet"
-#: ./behaviors.py:59
+#: ./behaviors.py:88
 msgid "datasheet_title"
 msgstr ""
 
 #. Default: "Variant aspects enabled by default when adding new variants"
-#: ./behaviors.py:77
+#: ./behaviors.py:106
 msgid "default_variant_aspects_description"
 msgstr ""
 
 #. Default: "Default variant aspects"
-#: ./behaviors.py:75
+#: ./behaviors.py:104
 msgid "default_variant_aspects_title"
 msgstr ""
 
 #. Default: "Demand of the product"
-#: ./behaviors.py:152
+#: ./behaviors.py:181
 msgid "demand_description"
 msgstr ""
 
 #. Default: "Demand"
-#: ./behaviors.py:151
+#: ./behaviors.py:180
 msgid "demand_title"
 msgstr ""
 
@@ -304,12 +304,12 @@ msgid "description"
 msgstr ""
 
 #. Default: "Details about the product"
-#: ./behaviors.py:54
+#: ./behaviors.py:83
 msgid "details_description"
 msgstr ""
 
 #. Default: "Details"
-#: ./behaviors.py:53
+#: ./behaviors.py:82
 msgid "details_title"
 msgstr ""
 
@@ -324,62 +324,62 @@ msgid "enabled_aspect"
 msgstr ""
 
 #. Default: "Height of the product"
-#: ./behaviors.py:200
+#: ./behaviors.py:229
 msgid "height_description"
 msgstr ""
 
 #. Default: "Height"
-#: ./behaviors.py:199
+#: ./behaviors.py:228
 msgid "height_title"
 msgstr ""
 
 #. Default: "Preview image of Product"
-#: ./behaviors.py:48
+#: ./behaviors.py:77
 msgid "image_description"
 msgstr ""
 
 #. Default: "Product Image"
-#: ./behaviors.py:47
+#: ./behaviors.py:76
 msgid "image_title"
 msgstr ""
 
 #. Default: "International protection code of the product"
-#: ./behaviors.py:216
+#: ./behaviors.py:245
 msgid "ip_code_description"
 msgstr ""
 
 #. Default: "IP Code"
-#: ./behaviors.py:215
+#: ./behaviors.py:244
 msgid "ip_code_title"
 msgstr ""
 
 #. Default: "Item number of the product"
-#: ./behaviors.py:42
+#: ./behaviors.py:71
 msgid "item_number_description"
 msgstr ""
 
 #. Default: "Item number"
-#: ./behaviors.py:41
+#: ./behaviors.py:70
 msgid "item_number_title"
 msgstr ""
 
 #. Default: "Length of the product"
-#: ./behaviors.py:168
+#: ./behaviors.py:197
 msgid "length_description"
 msgstr ""
 
 #. Default: "Length"
-#: ./behaviors.py:167
+#: ./behaviors.py:196
 msgid "length_title"
 msgstr ""
 
 #. Default: "Material of the product"
-#: ./behaviors.py:248
+#: ./behaviors.py:277
 msgid "material_description"
 msgstr ""
 
 #. Default: "Material"
-#: ./behaviors.py:247
+#: ./behaviors.py:276
 msgid "material_title"
 msgstr ""
 
@@ -391,6 +391,35 @@ msgstr ""
 #. Default: "Sorry. No Products found."
 #: ./browser/templates/listing.pt:19
 msgid "no_products_found"
+msgstr ""
+
+#. Default: "Number of columns shown in product tiles view"
+#: ./behaviors.py:52
+#: ./interfaces.py:61
+msgid "product_tiles_view_columns_description"
+msgstr ""
+
+#. Default: "Product tiles view Columns"
+#: ./behaviors.py:50
+#: ./interfaces.py:59
+msgid "product_tiles_view_columns_title"
+msgstr ""
+
+#. Default: "Image scale used for product tiles"
+#: ./behaviors.py:59
+#: ./interfaces.py:68
+msgid "product_tiles_view_image_scale_description"
+msgstr ""
+
+#. Default: "Product tiles image scale"
+#: ./behaviors.py:57
+#: ./interfaces.py:66
+msgid "product_tiles_view_image_scale_title"
+msgstr ""
+
+#. Default: "Products"
+#: ./interfaces.py:54
+msgid "products"
 msgstr ""
 
 #. Default: "read more..."
@@ -409,12 +438,12 @@ msgid "reset_filter"
 msgstr ""
 
 #. Default: "Size of the product"
-#: ./behaviors.py:136
+#: ./behaviors.py:165
 msgid "size_description"
 msgstr ""
 
 #. Default: "Size"
-#: ./behaviors.py:135
+#: ./behaviors.py:164
 msgid "size_title"
 msgstr ""
 
@@ -432,22 +461,22 @@ msgid "variant to use within a Productgroup"
 msgstr ""
 
 #. Default: "Weight of the product"
-#: ./behaviors.py:120
+#: ./behaviors.py:149
 msgid "weight_description"
 msgstr ""
 
 #. Default: "Weight"
-#: ./behaviors.py:119
+#: ./behaviors.py:148
 msgid "weight_title"
 msgstr ""
 
 #. Default: "Width of the product"
-#: ./behaviors.py:184
+#: ./behaviors.py:213
 msgid "width_description"
 msgstr ""
 
 #. Default: "Width"
-#: ./behaviors.py:183
+#: ./behaviors.py:212
 msgid "width_title"
 msgstr ""
 
