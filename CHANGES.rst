@@ -2,8 +2,8 @@
 Changelog
 =========
 
-0.5dev
-------
+0.5
+---
 
 - Display buyable controls as overlay on mouse over on product tiles if
   displayed item in tile is buyable.
