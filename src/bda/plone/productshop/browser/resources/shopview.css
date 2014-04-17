@@ -74,6 +74,9 @@ div.overlay_buyable_controls {
     background-color:#fff;
     border:#333 1px solid;
     box-shadow:0px 0px 3px #333;
+    min-width:150px;
+    max-width:300px;
+    min-height:200px;
 }
 div.overlay_buyable_controls div.buyable {
     margin-top:1em;
@@ -111,6 +114,9 @@ div.overlay_buyable_controls div.buyable dl.details dt {
 div.overlay_buyable_controls div.buyable dl.details dt,
 div.overlay_buyable_controls div.buyable dl.details dd {
     display:block;
+}
+div.overlay_buyable_controls div.buyable dd.price.discount {
+    font-size:110%;
 }
 div.overlay_buyable_controls a.buyable_add_to_cart:link,
 div.overlay_buyable_controls a.buyable_add_to_cart:active,

@@ -67,28 +67,25 @@
             if (overlay.data('buyable_url') == buyable_url) {
                 return;
             }
-            var overlay_width = 150;
-            var overlay_height = 200;
-            overlay.css('min-width', overlay_width + 'px');
-            overlay.css('min-height', overlay_height + 'px');
+            overlay.data('buyable_url', buyable_url);
+            var tiles_width = tiles.width();
             var tile_position = tile.position();
             var tile_top = tile_position.top;
-            overlay.css('top', (tile_top + 50) + 'px');
-            var tiles_width = tiles.width();
-            var tile_width = tile.width();
             var tile_left = tile_position.left;
-            if (tile_left + overlay_width < tiles_width) {
-                overlay.css('left', (tile_left + 20) + 'px');
-            } else {
-                overlay.css('left', (tiles_width - overlay_width - 20) + 'px');
-            }
-            overlay.empty();
             bdajax.request({
                 success: function(data) {
-                    overlay.data('buyable_url', buyable_url);
+                    overlay.empty();
                     overlay.html(data);
                     overlay.bdajax();
                     overlay.show();
+                    overlay.css('top', (tile_top + 50) + 'px');
+                    var overlay_width = overlay.width();
+                    if (tile_left + overlay_width < tiles_width) {
+                        overlay.css('left', (tile_left + 20) + 'px');
+                    } else {
+                        overlay.css('left',
+                                    (tiles_width - overlay_width - 20) + 'px');
+                    }
                 },
                 url: buyable_url + '/@@buyable_controls'
             });
