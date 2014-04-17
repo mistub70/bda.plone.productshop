@@ -67,10 +67,10 @@
             if (overlay.data('buyable_url') == buyable_url) {
                 return;
             }
-            var overlay_width = 220;
-            var overlay_height = 250;
-            overlay.css('width', overlay_width + 'px');
-            overlay.css('height', overlay_height + 'px');
+            var overlay_width = 150;
+            var overlay_height = 200;
+            overlay.css('min-width', overlay_width + 'px');
+            overlay.css('min-height', overlay_height + 'px');
             var tile_position = tile.position();
             var tile_top = tile_position.top;
             overlay.css('top', (tile_top + 50) + 'px');
