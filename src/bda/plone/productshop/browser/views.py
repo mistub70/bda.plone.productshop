@@ -10,6 +10,7 @@ from Products.CMFCore.utils import getToolByName
 from plone.registry.interfaces import IRegistry
 from bda.plone.ajax.batch import Batch
 from bda.plone.cart import get_object_by_uid
+from bda.plone.shop.interfaces import IBuyable
 from bda.plone.productshop.interfaces import IProduct
 from bda.plone.productshop.interfaces import IProductGroup
 from bda.plone.productshop.interfaces import IVariant
@@ -149,6 +150,10 @@ class ProductTiles(BrowserView):
                     tile_item = tile_items[index]
                     item_scale = img_scale(tile_item,
                                            self.tile_item_image_scale)
+                    if IBuyable.providedBy(tile_item):
+                        buyable_url = tile_item.absolute_url()
+                    else:
+                        buyable_url = None
                     item_context = self.tile_item_context(tile_item)
                     if item_scale is not None:
                         item_preview = item_scale.url
@@ -173,6 +178,7 @@ class ProductTiles(BrowserView):
                         'description': item_description,
                         'url': item_context.absolute_url(),
                         'style': item_style,
+                        'buyable_url': buyable_url,
                     })
                 else:
                     abort = True

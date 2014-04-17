@@ -12,7 +12,8 @@
           <a href=""
              tal:attributes="href column/url">
             <div class="product_tile"
-                 tal:attributes="style column/style">
+                 tal:attributes="style column/style;
+                                 data-buyable_url column/buyable_url">
 
               <div class="product_tile_title">
                 <h3 tal:content="column/title">
@@ -35,5 +36,7 @@
     </tal:column>
 
   </div>
+
+  <div class="overlay_buyable_controls"></div>
 
 </div>

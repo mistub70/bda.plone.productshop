@@ -5,6 +5,10 @@ Changelog
 0.5dev
 ------
 
+- Display buyable controls as overlay on mouse over on product tiles if
+  displayed item in tile is buyable.
+  [rnix]
+
 - Add ``IProductShopSettings`` and ``IProductTilesViewSettingsBehavior``, both
   providing ``product_tiles_view_columns`` and
   ``product_tiles_view_image_scale`` properties, used in ``ProductTiles`` view.

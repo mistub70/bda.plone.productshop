@@ -67,6 +67,49 @@ div.product_tile_description p {
     margin:1em;
     color:#fff;
 }
+div.overlay_buyable_controls {
+    display:none;
+    z-index:100;
+    position:absolute;
+    background-color:#fff;
+    border:#333 1px solid;
+    box-shadow:0px 0px 3px #333;
+}
+div.overlay_buyable_controls div.buyable {
+    margin-top:1em;
+    margin-bottom:1em;
+    margin-left:1em;
+    margin-right:1em;
+    text-align:left;
+}
+div.overlay_buyable_controls div.availability {
+    display:block;
+    float:none;
+    margin-top:0.2em;
+    margin-bottom:1em;
+    position:relative;
+}
+div.overlay_buyable_controls div.buyable dl.details {
+    margin-bottom:0;
+    display:block;
+}
+div.overlay_buyable_controls div.buyable dl.details dt {
+    margin-left:0;
+}
+div.overlay_buyable_controls div.buyable dl.details dt,
+div.overlay_buyable_controls div.buyable dl.details dd {
+    display:block;
+}
+div.overlay_buyable_controls a.buyable_add_to_cart:link,
+div.overlay_buyable_controls a.buyable_add_to_cart:active,
+div.overlay_buyable_controls a.buyable_add_to_cart:hover,
+div.overlay_buyable_controls a.buyable_add_to_cart:visited,
+div.overlay_buyable_controls a.buyable_update_cart:link,
+div.overlay_buyable_controls a.buyable_update_cart:active,
+div.overlay_buyable_controls a.buyable_update_cart:hover,
+div.overlay_buyable_controls a.buyable_update_cart:visited {
+    margin-left:0;
+}
 
 /* listing */
 div.no_products {
