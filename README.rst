@@ -39,6 +39,18 @@ default aspects enabled are read from parent product group
 A brief description about the contained views
 ---------------------------------------------
 
+**product tiles**
+
+The product tiles view can be applied on site root and folders. The view
+displays a grid of tiles built of contained folders and buyable items. If tile
+context is a folder, title and description are taken from the folder, and the
+preview image is taken randomly from a contained buyable item. If tile context
+is a buyable item, title, description and preview image are taken from it and
+on mouse over buyable controls are rendered in an overlay for this item. The
+number of grid columns rendered can be defined globally in control panel, or,
+if ``IProductTilesViewSettingsBehavior`` is applied on folders directly
+(``plone.app.contenttypes`` only, Archetypes folders are not suppoerted).
+
 **product listing**
 
 The product listing can be applied on folders and on product groups. When

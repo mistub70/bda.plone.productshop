@@ -8,8 +8,8 @@
 
   <!-- browser resources -->
   <browser:resource
-    name="bda.plone.shopview.css"
-    file="resources/shopview.css"
+    name="productshop.css"
+    file="resources/productshop.css"
     layer="..interfaces.IProductShopExtensionLayer" />
 
   <browser:resource

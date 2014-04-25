@@ -59,9 +59,6 @@
 
         show_overlay_buyable_controls: function(tile) {
             var buyable_url = tile.data('buyable_url');
-            if (!buyable_url) {
-                return;
-            }
             var tiles = tile.parents('.product_tiles');
             var overlay = $('.overlay_buyable_controls', tiles);
             if (overlay.data('buyable_url') == buyable_url) {
@@ -105,7 +102,12 @@
             // tile overlay buyable controls
             $('.product_tile', context).unbind()
                                        .bind('mouseenter', function(event) {
-                productshop.show_overlay_buyable_controls($(this));
+                var tile = $(this);
+                if (!tile.data('buyable_url')) {
+                    productshop.hide_overlay_buyable_controls();
+                } else {
+                    productshop.show_overlay_buyable_controls(tile);
+                }
             })
             $('.product_tiles', context).unbind()
                                         .bind('mouseleave', function(event) {

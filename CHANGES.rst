@@ -2,6 +2,18 @@
 Changelog
 =========
 
+0.6dev
+------
+
+- Rename ``shopviews.css`` to ``productshop.css``. Re-applying GS profile
+  required.
+  [rnix]
+
+- Fix product tiles view, overlay buyable controls are shown only if tile item
+  represents buyable item directly.
+  [rnix]
+
+
 0.5
 ---
 

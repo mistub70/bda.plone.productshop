@@ -3,7 +3,7 @@
 
   <stylesheet
     title=""
-    id="++resource++bda.plone.shopview.css"
+    id="++resource++productshop.css"
     media="screen"
     rel="stylesheet"
     rendering="link"
@@ -11,6 +11,7 @@
     compression="safe"
     cookable="True"
     enabled="1"
-    expression="" />
+    expression=""
+    insert-after="++resource++bda.plone.shop.css" />
 
 </object>

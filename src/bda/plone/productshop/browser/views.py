@@ -148,13 +148,13 @@ class ProductTiles(BrowserView):
             for j in range(columns):
                 if index < len(tile_items):
                     tile_item = tile_items[index]
-                    item_scale = img_scale(tile_item,
-                                           self.tile_item_image_scale)
-                    if IBuyable.providedBy(tile_item):
-                        buyable_url = tile_item.absolute_url()
+                    item_context = self.tile_item_context(tile_item)
+                    if IBuyable.providedBy(item_context):
+                        buyable_url = item_context.absolute_url()
                     else:
                         buyable_url = None
-                    item_context = self.tile_item_context(tile_item)
+                    item_scale = img_scale(tile_item,
+                                           self.tile_item_image_scale)
                     if item_scale is not None:
                         item_preview = item_scale.url
                     else:
