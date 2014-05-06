@@ -5,6 +5,10 @@ Changelog
 0.6dev
 ------
 
+- Add ``bda.plone.shop.dx.IBuyablePeriodBehavior`` to product and variant
+  content types.
+  [rnix]
+
 - Rename ``shopviews.css`` to ``productshop.css``. Re-applying GS profile
   required.
   [rnix]
