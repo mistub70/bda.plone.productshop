@@ -5,6 +5,9 @@ Changelog
 0.6dev
 ------
 
+- Consider image field on folder if present in product tiles view.
+  [rnix]
+
 - Add ``bda.plone.productshop.behavior.IProductManualBehavior`` and apply it
   to product and variant content types.
   [rnix]

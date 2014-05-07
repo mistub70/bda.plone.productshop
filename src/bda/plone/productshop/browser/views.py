@@ -89,13 +89,18 @@ class ProductTiles(BrowserView):
                 if not aggregate:
                     return
             elif brain.portal_type == 'Folder':
-                count = len(tile_items)
-                self.query_tile_items(brain.getObject(),
-                                      tile_items,
-                                      aggregate=False)
-                # case multi level folder structure
-                if len(tile_items) > count + 1:
-                    del tile_items[count + 1:]
+                obj = brain.getObject()
+                # case leadimage
+                if hasattr(obj, 'image'):
+                    tile_items.append(obj)
+                else:
+                    count = len(tile_items)
+                    self.query_tile_items(brain.getObject(),
+                                          tile_items,
+                                          aggregate=False)
+                    # case multi level folder structure
+                    if len(tile_items) > count + 1:
+                        del tile_items[count + 1:]
 
     def tile_item_context(self, tile_item):
         anchor = aq_inner(self.context)
