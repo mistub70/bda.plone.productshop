@@ -39,6 +39,12 @@
     for="plone.dexterity.interfaces.IDexterityContent" />
 
   <plone:behavior
+    title="Product Manual"
+    description="Extend content with product manual file."
+    provides=".behaviors.IProductManualBehavior"
+    for="plone.dexterity.interfaces.IDexterityContent" />
+
+  <plone:behavior
     title="Product"
     description="Extend content with product specific information."
     provides=".behaviors.IProductBehavior"

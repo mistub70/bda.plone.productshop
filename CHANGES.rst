@@ -5,6 +5,10 @@ Changelog
 0.6dev
 ------
 
+- Add ``bda.plone.productshop.behavior.IProductManualBehavior`` and apply it
+  to product and variant content types.
+  [rnix]
+
 - Add ``bda.plone.shop.dx.IBuyablePeriodBehavior`` to product and variant
   content types.
   [rnix]

@@ -7,6 +7,7 @@ from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from plone.supermodel import model
 from plone.autoform.directives import widget
 from plone.autoform.interfaces import IFormFieldProvider
+from plone.namedfile.field import NamedBlobFile
 from plone.namedfile.field import NamedBlobImage
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 from plone.app.textfield import RichText
@@ -59,6 +60,17 @@ class IProductTilesViewSettingsBehavior(model.Schema):
         description=_(u'product_tiles_view_image_scale_description',
                       default=u'Image scale used for product tiles'),
         vocabulary='bda.plone.productshop.ImageScaleVocabulary',
+        required=False)
+
+
+@provider(IFormFieldProvider)
+class IProductManualBehavior(model.Schema):
+    """Product manual behavior.
+    """
+    manual = NamedBlobFile(
+        title=_(u'manual_title', default=u'Product Manual'),
+        description=_(u'manual_description',
+                      default=u'Manual of Product'),
         required=False)
 
 

@@ -36,6 +36,7 @@
     <!-- shop view related -->
     <element value="bda.plone.productshop.behaviors.IProductExcludeFromNavigation" />
     <element value="bda.plone.productshop.behaviors.IVariantBehavior" />
+    <element value="bda.plone.productshop.behaviors.IProductManualBehavior" />
     <element value="plone.app.relationfield.behavior.IRelatedItems" />
   </property>
 
