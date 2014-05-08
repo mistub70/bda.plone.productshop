@@ -100,8 +100,8 @@
             productshop.rezize_tiles();
 
             // tile overlay buyable controls
-            $('.product_tile', context).unbind()
-                                       .bind('mouseenter', function(event) {
+            var tiles = $('.product_tile', context);
+            tiles.unbind().bind('mouseenter', function(event) {
                 var tile = $(this);
                 if (!tile.data('buyable_url')) {
                     productshop.hide_overlay_buyable_controls();
@@ -109,8 +109,14 @@
                     productshop.show_overlay_buyable_controls(tile);
                 }
             })
-            $('.product_tiles', context).unbind()
-                                        .bind('mouseleave', function(event) {
+            var columns = $('.product_tiles_column', context);
+            columns.unbind().bind('mouseenter', function(event) {
+                if (!$(this).children().length) {
+                    productshop.hide_overlay_buyable_controls();
+                }
+            });
+            var container = $('.product_tiles', context);
+            container.unbind().bind('mouseleave', function(event) {
                 productshop.hide_overlay_buyable_controls();
             });
 

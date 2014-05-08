@@ -5,6 +5,13 @@ Changelog
 0.6dev
 ------
 
+- Also hide buyable controls overlay if mouse cursor enters empty placeholder
+  column.
+  [rnix]
+
+- Consider view buyable information permission in product tiles.
+  [rnix]
+
 - Consider image field on folder if present in product tiles view.
   [rnix]
 

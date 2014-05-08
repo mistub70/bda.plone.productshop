@@ -1,5 +1,6 @@
 import json
 from random import shuffle
+from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from ZTUtils import make_query
@@ -10,6 +11,7 @@ from Products.CMFCore.utils import getToolByName
 from plone.registry.interfaces import IRegistry
 from bda.plone.ajax.batch import Batch
 from bda.plone.cart import get_object_by_uid
+from bda.plone.shop import permissions
 from bda.plone.shop.interfaces import IBuyable
 from bda.plone.productshop.interfaces import IProduct
 from bda.plone.productshop.interfaces import IProductGroup
@@ -146,6 +148,7 @@ class ProductTiles(BrowserView):
             rows += 1
         ret = list()
         index = 0
+        sm = getSecurityManager()
         for i in range(rows):
             row = list()
             ret.append(row)
@@ -154,7 +157,9 @@ class ProductTiles(BrowserView):
                 if index < len(tile_items):
                     tile_item = tile_items[index]
                     item_context = self.tile_item_context(tile_item)
-                    if IBuyable.providedBy(item_context):
+                    if IBuyable.providedBy(item_context) and \
+                            sm.checkPermission(permissions.ViewBuyableInfo,
+                                               item_context):
                         buyable_url = item_context.absolute_url()
                     else:
                         buyable_url = None
