@@ -68,6 +68,16 @@ class ProductView(BrowserView):
         return self.context.datasheet
 
     @property
+    def manual(self):
+        manual = getattr(self.context, 'manual', None)
+        if not manual:
+            return None
+        return {
+            'url': '%s/@@download/manual' % self.context.absolute_url(),
+            'title': manual.filename,
+        }
+
+    @property
     def related_items(self):
         if hasattr(self.context, 'relatedItems'):
             related = [_.to_object for _ in self.context.relatedItems]

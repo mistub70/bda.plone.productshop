@@ -5,6 +5,9 @@ Changelog
 0.6dev
 ------
 
+- Display link to manual download in product view description tab if present.
+  [rnix]
+
 - Also hide buyable controls overlay if mouse cursor enters empty placeholder
   column.
   [rnix]
