@@ -32,6 +32,7 @@
     <element value="bda.plone.shop.dx.IItemNotificationTextBehavior" />
     <element value="bda.plone.shop.dx.IGlobalNotificationTextBehavior" />
     <element value="bda.plone.shop.dx.IBuyablePeriodBehavior" />
+    <element value="bda.plone.shop.dx.ITradingBehavior" />
 
     <!-- shop view related -->
     <element value="bda.plone.productshop.behaviors.IProductExcludeFromNavigation" />

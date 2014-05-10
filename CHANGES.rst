@@ -5,6 +5,16 @@ Changelog
 0.6dev
 ------
 
+- Remove ``item_number`` from
+  ``bda.plone.productshop.behaviors.IProductBehavior``. It's provided by
+  ``bda.plone.shop.dx.ITradingBehavior`` now for products and variants, and
+  productgroups do not rely on this information at all.
+  [rnix]
+
+- Apply ``bda.plone.shop.dx.ITradingBehavior`` behavior to product and variant
+  content types.
+  [rnix]
+
 - Display link to manual download in product view description tab if present.
   [rnix]
 
