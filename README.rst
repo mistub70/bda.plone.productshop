@@ -113,7 +113,7 @@ Create a variant behavior like the ones in
     class IDemandBehavior(IVariantAspect):
         """Demand variant behavior.
         """
-        form.fieldset(
+        model.fieldset(
             'aspects',
             label=_(u'aspects', default=u'Aspects'),
             fields=['demand'])
