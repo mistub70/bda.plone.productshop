@@ -2,8 +2,8 @@
 Changelog
 =========
 
-0.6dev
-------
+0.6
+---
 
 - Format ``actions.xml`` to make action translations work properly. GS Profile
   application required.
