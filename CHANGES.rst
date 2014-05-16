@@ -5,6 +5,10 @@ Changelog
 0.6dev
 ------
 
+- Format ``actions.xml`` to make action translations work properly. GS Profile
+  application required.
+  [rnix]
+
 - Remove ``item_number`` from
   ``bda.plone.productshop.behaviors.IProductBehavior``. It's provided by
   ``bda.plone.shop.dx.ITradingBehavior`` now for products and variants, and
