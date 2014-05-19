@@ -5,7 +5,8 @@ Changelog
 0.7.dev0
 --------
 
-- No changes yet
+- Add Generic Setup ``viewlets.xml`` file and hide
+  ``plone.belowcontentbody.relateditems`` by default.
   [rnix]
 
 
