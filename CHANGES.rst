@@ -2,7 +2,7 @@
 Changelog
 =========
 
-0.7.dev0
+0.7.dev1
 --------
 
 - Display invalid aspects message in red.
