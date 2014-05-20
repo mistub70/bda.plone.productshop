@@ -5,6 +5,10 @@ Changelog
 0.7.dev0
 --------
 
+- Check for ``ILeadImage`` on folder instead of whether ``image`` attributes
+  exists in ``ProductTiles.query_tile_items``.
+  [rnix]
+
 - Add Generic Setup ``viewlets.xml`` file and hide
   ``plone.belowcontentbody.relateditems`` by default.
   [rnix]

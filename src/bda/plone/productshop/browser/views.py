@@ -9,6 +9,7 @@ from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from plone.registry.interfaces import IRegistry
+from plone.app.contenttypes.behaviors.leadimage import ILeadImage
 from bda.plone.ajax.batch import Batch
 from bda.plone.cart import get_object_by_uid
 from bda.plone.shop import permissions
@@ -102,8 +103,7 @@ class ProductTiles(BrowserView):
                     return
             elif brain.portal_type == 'Folder':
                 obj = brain.getObject()
-                # case leadimage
-                if hasattr(obj, 'image'):
+                if ILeadImage.providedBy(obj) and ILeadImage(obj).image:
                     tile_items.append(obj)
                 else:
                     count = len(tile_items)
