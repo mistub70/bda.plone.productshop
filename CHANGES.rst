@@ -5,6 +5,9 @@ Changelog
 0.7.dev0
 --------
 
+- Display invalid aspects message in red.
+  [rnix]
+
 - Check for ``ILeadImage`` on folder instead of whether ``image`` attributes
   exists in ``ProductTiles.query_tile_items``.
   [rnix]

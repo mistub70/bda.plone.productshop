@@ -18,7 +18,13 @@ div.variant_aspects div.aspect strong {
     top:3px;
 }
 div.variant_aspects div.invalid_aspects {
+    color:#ff0000;
     padding:0.3em 0.3em 0 0.3em;
+}
+div.variant_aspects div.invalid_aspects a:link,
+div.variant_aspects div.invalid_aspects a:visited,
+div.variant_aspects div.invalid_aspects a:hover {
+    color:#ff0000 !important;
 }
 div.productgroup_listing_aspects div.variant_aspects {
     padding-bottom:0;
