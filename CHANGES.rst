@@ -2,8 +2,8 @@
 Changelog
 =========
 
-0.7.dev1
---------
+0.7
+---
 
 - Display invalid aspects message in red.
   [rnix]
