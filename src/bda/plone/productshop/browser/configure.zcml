@@ -145,6 +145,15 @@
     layer="..interfaces.IProductShopExtensionLayer"
     permission="zope2.View" />
 
+  <!-- product image overlay -->
+  <browser:page
+    for="*"
+    name="product_image"
+    class=".views.ProductView"
+    attribute="overlay_product_image"
+    layer="..interfaces.IProductShopExtensionLayer"
+    permission="zope2.View" />
+
   <!-- helper views -->
   <browser:page
     for="*"

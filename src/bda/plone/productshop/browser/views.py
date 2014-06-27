@@ -55,6 +55,7 @@ def img_tag(context, scale_name, css_class):
 
 class ProductView(BrowserView):
     image_scale = 'mini'
+    overlay_image_scale = 'large'
 
     @property
     def image(self):
@@ -84,6 +85,12 @@ class ProductView(BrowserView):
             related = [_.to_object for _ in self.context.relatedItems]
             return related
         return None
+
+    def overlay_product_image(self):
+        self.request.response.setHeader('X-Theme-Disabled', 'True')
+        return img_tag(self.context,
+                       self.overlay_image_scale,
+                       'overlay_product_image')
 
 
 FALLBACK_TILE_COLUMNS = 4

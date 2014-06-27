@@ -120,6 +120,15 @@
                 productshop.hide_overlay_buyable_controls();
             });
 
+            // product image overlay
+            $('img.product_image').bind('click', function(evt) {
+                var wrapper = $(this).parent();
+                var overlay_api = bdajax.overlay({
+                    action: 'product_image',
+                    target: wrapper.attr('ajax:target')
+                });
+            });
+
             // bind shopview tabs
             $('ul.shopview_tabs').tabs('div.shopview_panes > div');
 
