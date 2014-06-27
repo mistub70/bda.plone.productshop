@@ -23,7 +23,8 @@
 
   <div class="product" tal:repeat="product products">
 
-    <a href="" tal:attributes="href product/obj/absolute_url">
+    <a href=""
+       tal:attributes="href product/obj/absolute_url">
       <img src="" alt=""
            tal:condition="product/preview"
            tal:replace="structure product/preview" />

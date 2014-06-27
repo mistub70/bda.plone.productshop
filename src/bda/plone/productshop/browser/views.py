@@ -487,6 +487,17 @@ class VariantView(ProductView, VariantBase):
                 return related
         return None
 
+    def overlay_product_image(self):
+        self.request.response.setHeader('X-Theme-Disabled', 'True')
+        context_image = img_tag(self.context,
+                                self.overlay_image_scale,
+                                'overlay_product_image')
+        if context_image:
+            return context_image
+        return img_tag(self.product_group,
+                       self.overlay_image_scale,
+                       'overlay_product_image')
+
     def __call__(self, *args):
         if '_' in self.request.form:
             self.request.response.setHeader('X-Theme-Disabled', 'True')

@@ -147,9 +147,17 @@
 
   <!-- product image overlay -->
   <browser:page
-    for="*"
+    for="bda.plone.productshop.interfaces.IProduct"
     name="product_image"
     class=".views.ProductView"
+    attribute="overlay_product_image"
+    layer="..interfaces.IProductShopExtensionLayer"
+    permission="zope2.View" />
+
+  <browser:page
+    for="bda.plone.productshop.interfaces.IVariant"
+    name="product_image"
+    class=".views.VariantView"
     attribute="overlay_product_image"
     layer="..interfaces.IProductShopExtensionLayer"
     permission="zope2.View" />
