@@ -2,8 +2,8 @@
 Changelog
 =========
 
-0.8.dev0
---------
+0.8
+---
 
 - Add ajax overlay with large product image in product view when clicking on
   thumb.
