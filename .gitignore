@@ -22,4 +22,7 @@
 include/
 lib/
 local/
+buildout-cache/
+htmlcov/
+
 

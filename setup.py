@@ -40,7 +40,9 @@ setup(
     ],
     extras_require={
         'test': [
+            'interlude',
             'plone.app.testing',
+            'plone.app.contenttypes',
         ]
     },
     entry_points="""
