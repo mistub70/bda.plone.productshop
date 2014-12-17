@@ -18,3 +18,8 @@
 /dist/
 /coverage/
 /report/
+.idea/
+include/
+lib/
+local/
+
