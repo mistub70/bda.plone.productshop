@@ -2,8 +2,12 @@
 bda.plone.productshop
 =====================
 
-Product shop extension for ``bda.plone.shop``.
+.. image:: https://travis-ci.org/bluedynamics/bda.plone.productshop.svg?branch=master
+    :target: https://travis-ci.org/bluedynamics/bda.plone.productshop
+.. image:: https://coveralls.io/repos/bluedynamics/bda.plone.productshop/badge.png 
+    :target: https://coveralls.io/r/bluedynamics/bda.plone.productshop 
 
+Product shop extension for ``bda.plone.shop``.
 
 Overview
 ========
