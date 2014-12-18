@@ -1,26 +1,26 @@
-import json
-from random import shuffle
+# -*- coding: utf-8 -*-
 from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from ZTUtils import make_query
-from zope.component import getUtility
-from zope.i18nmessageid import MessageFactory
-from Products.Five import BrowserView
-from Products.CMFCore.utils import getToolByName
-from plone.registry.interfaces import IRegistry
-from plone.app.contenttypes.behaviors.leadimage import ILeadImage
 from bda.plone.ajax.batch import Batch
 from bda.plone.cart import get_object_by_uid
-from bda.plone.shop import permissions
-from bda.plone.shop.interfaces import IBuyable
+from bda.plone.productshop.behaviors import IProductTilesViewSettingsBehavior
 from bda.plone.productshop.interfaces import IProduct
 from bda.plone.productshop.interfaces import IProductGroup
-from bda.plone.productshop.interfaces import IVariant
 from bda.plone.productshop.interfaces import IProductShopSettings
-from bda.plone.productshop.behaviors import IProductTilesViewSettingsBehavior
-from bda.plone.productshop.utils import request_property
+from bda.plone.productshop.interfaces import IVariant
 from bda.plone.productshop.utils import available_variant_aspects
+from bda.plone.productshop.utils import request_property
+from bda.plone.shop import permissions
+from bda.plone.shop.interfaces import IBuyable
+from plone.app.contenttypes.behaviors.leadimage import ILeadImage
+from plone.registry.interfaces import IRegistry
+from Products.CMFCore.utils import getToolByName
+from Products.Five import BrowserView
+from random import shuffle
+from zope.component import getUtility
+from zope.i18nmessageid import MessageFactory
+import json
 
 
 _ = MessageFactory('bda.plone.productshop')
@@ -75,7 +75,7 @@ class ProductView(BrowserView):
         if not manual:
             return None
         return {
-            'url': '%s/@@download/manual' % self.context.absolute_url(),
+            'url': '{0}/@@download/manual'.format(self.context.absolute_url()),
             'title': manual.filename,
         }
 
@@ -187,13 +187,11 @@ class ProductTiles(BrowserView):
                     else:
                         item_preview = '++resource++dummy_product.jpg'
                     item_style = """
-                        background-image:url('%(image)s');
+                        background-image:url('{image}');
                         background-size:cover;
                         background-position:center;
                         background-repeat:no-repeat;
-                    """ % {
-                        'image': item_preview,
-                    }
+                    """.format(image=item_preview)
                     item_description = item_context.Description()
                     item_description = \
                         item_description and \
@@ -252,10 +250,11 @@ class ProductListingBatch(Batch):
         for i in range(pages):
             params['b_page'] = str(i)
             query = '&'.join(
-                ['%s=%s' % (k, v.decode('utf-8')) for k, v in params.items()])
-            url = '%s?%s' % (self.context.absolute_url(), query)
+                ['{0}={1}'.format(k, v.decode('utf-8'))
+                 for k, v in params.items()])
+            url = '{0}?{1}'.format(self.context.absolute_url(), query)
             ret.append({
-                'page': '%i' % (i + 1),
+                'page': str(i + 1),
                 'current': current == str(i),
                 'visible': True,
                 'url': url,
@@ -315,7 +314,7 @@ class AspectsExtraction(object):
             key = definition.attribute
             value = self.request.get(key)
             if value and value != 'UNSET':
-                criteria['%s_aspect' % key] = value.decode('utf-8')
+                criteria['{0}_aspect'.format(key)] = value.decode('utf-8')
         return criteria
 
 

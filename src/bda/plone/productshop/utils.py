@@ -1,11 +1,12 @@
-from zope.component import getUtilitiesFor
+# -*- coding: utf-8 -*-
+from bda.plone.productshop.interfaces import IVariantAspect
 from plone.behavior.interfaces import IBehavior
 from z3c.form.field import Fields
-from bda.plone.productshop.interfaces import IVariantAspect
+from zope.component import getUtilitiesFor
 
 
 def dotted_name(obj):
-    return '%s.%s' % (obj.__module__, obj.__name__)
+    return '{0}.{1}'.format(obj.__module__, obj.__name__)
 
 
 def request_property(func):
@@ -18,8 +19,11 @@ def request_property(func):
     Works only on instances providing a ``request`` attribute.
     """
     def wrapper(self):
-        cache_key = '%s.%s.%s' \
-            % (str(id(self)), self.__class__.__name__, func.__name__)
+        cache_key = '{0}.{1}.{2}'.format(
+            str(id(self)),
+            self.__class__.__name__,
+            func.__name__
+        )
         try:
             return getattr(self.request, cache_key)
         except AttributeError:

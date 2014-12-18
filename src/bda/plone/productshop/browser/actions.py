@@ -1,19 +1,19 @@
-from zope.i18nmessageid import MessageFactory
-from Products.Five.browser import BrowserView
-from collective.instancebehavior import instance_behaviors_of
-from collective.instancebehavior import enable_behaviors
-from collective.instancebehavior import disable_behaviors
+# -*- coding: utf-8 -*-
+from bda.plone.productshop.behaviors import IAngleBehavior
 from bda.plone.productshop.behaviors import IColorBehavior
-from bda.plone.productshop.behaviors import IWeightBehavior
-from bda.plone.productshop.behaviors import ISizeBehavior
 from bda.plone.productshop.behaviors import IDemandBehavior
-from bda.plone.productshop.behaviors import ILengthBehavior
-from bda.plone.productshop.behaviors import IWidthBehavior
 from bda.plone.productshop.behaviors import IHeightBehavior
 from bda.plone.productshop.behaviors import IIPCodeBehavior
-from bda.plone.productshop.behaviors import IAngleBehavior
+from bda.plone.productshop.behaviors import ILengthBehavior
 from bda.plone.productshop.behaviors import IMaterialBehavior
+from bda.plone.productshop.behaviors import ISizeBehavior
+from bda.plone.productshop.behaviors import IWeightBehavior
+from bda.plone.productshop.behaviors import IWidthBehavior
 from bda.plone.productshop.interfaces import IVariant
+from collective.instancebehavior import disable_behaviors
+from collective.instancebehavior import enable_behaviors
+from Products.Five.browser import BrowserView
+from zope.i18nmessageid import MessageFactory
 
 
 _ = MessageFactory('bda.plone.productshop')

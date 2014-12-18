@@ -1,17 +1,18 @@
-from zope import schema
-from zope.interface import provider
-from zope.component import provideAdapter
-from zope.i18nmessageid import MessageFactory
-from z3c.form.widget import ComputedWidgetAttribute
-from z3c.form.browser.checkbox import CheckBoxFieldWidget
-from plone.supermodel import model
+# -*- coding: utf-8 -*-
+from bda.plone.productshop.interfaces import IVariantAspect
+from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
+from plone.app.textfield import RichText
 from plone.autoform.directives import widget
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.namedfile.field import NamedBlobFile
 from plone.namedfile.field import NamedBlobImage
-from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
-from plone.app.textfield import RichText
-from bda.plone.productshop.interfaces import IVariantAspect
+from plone.supermodel import model
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
+from z3c.form.widget import ComputedWidgetAttribute
+from zope import schema
+from zope.component import provideAdapter
+from zope.i18nmessageid import MessageFactory
+from zope.interface import provider
 
 
 _ = MessageFactory('bda.plone.productshop')
@@ -50,8 +51,9 @@ class IProductTilesViewSettingsBehavior(model.Schema):
     product_tiles_view_columns = schema.Int(
         title=_(u'product_tiles_view_columns_title',
                 default=u'Product tiles view Columns'),
-        description=_(u'product_tiles_view_columns_description',
-                      default=u'Number of columns shown in product tiles view'),
+        description=_(
+            u'product_tiles_view_columns_description',
+            default=u'Number of columns shown in product tiles view'),
         required=False)
 
     product_tiles_view_image_scale = schema.Choice(
@@ -116,8 +118,10 @@ class IProductGroupBehavior(IProductBehavior):
         required=False,
         missing_value=set(),
         value_type=schema.Choice(
-            vocabulary=
-                'bda.plone.productshop.AvailableVariantAspectsVocabulary'))
+            vocabulary='bda.plone.productshop.'
+                       'AvailableVariantAspectsVocabulary'
+        )
+    )
 
 
 @provider(IFormFieldProvider)

@@ -1,11 +1,12 @@
-from zope.interface import Interface
-from plone.namedfile.interfaces import IImageScaleTraversable
-from collective.instancebehavior import IInstanceBehaviorAssignableContent
+# -*- coding: utf-8 -*-
 from bda.plone.discount.interfaces import IDiscountSettingsEnabled
 from bda.plone.shop.interfaces import IShopSettingsProvider
+from collective.instancebehavior import IInstanceBehaviorAssignableContent
+from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.supermodel import model
 from zope import schema
 from zope.i18nmessageid import MessageFactory
+from zope.interface import Interface
 from zope.interface import provider
 
 
@@ -58,8 +59,9 @@ class IProductShopSettings(model.Schema):
     product_tiles_view_columns = schema.Int(
         title=_(u'product_tiles_view_columns_title',
                 default=u'Product tiles view Columns'),
-        description=_(u'product_tiles_view_columns_description',
-                      default=u'Number of columns shown in product tiles view'),
+        description=_(
+            u'product_tiles_view_columns_description',
+            default=u'Number of columns shown in product tiles view'),
         required=False)
 
     product_tiles_view_image_scale = schema.Choice(

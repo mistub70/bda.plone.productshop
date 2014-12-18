@@ -1,11 +1,12 @@
+# -*- coding: utf-8 -*-
+from bda.plone.productshop.utils import available_variant_aspects
+from bda.plone.productshop.utils import dotted_name
+from plone.app.imaging.utils import getAllowedSizes
+from zope.i18nmessageid import MessageFactory
 from zope.interface import provider
 from zope.schema.interfaces import IVocabularyFactory
-from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.vocabulary import SimpleTerm
-from zope.i18nmessageid import MessageFactory
-from plone.app.imaging.utils import getAllowedSizes
-from bda.plone.productshop.utils import dotted_name
-from bda.plone.productshop.utils import available_variant_aspects
+from zope.schema.vocabulary import SimpleVocabulary
 
 
 _ = MessageFactory('bda.plone.productshop')
@@ -23,6 +24,6 @@ def AvailableVariantAspectsVocabulary(context):
 @provider(IVocabularyFactory)
 def ImageScaleVocabulary(context):
     allowed_sizes = getAllowedSizes()
-    items = [(u'%s(%s, %s)' %(key, value[0], value[1]), key)
-        for key, value in allowed_sizes.items() if allowed_sizes]
+    items = [(u'{0}({1}, {2})'.format(key, value[0], value[1]), key)
+             for key, value in allowed_sizes.items() if allowed_sizes]
     return SimpleVocabulary.fromItems(items)

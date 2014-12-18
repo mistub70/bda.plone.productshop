@@ -1,9 +1,10 @@
-from zope.interface import implementer
-from plone.dexterity.content import Item
-from plone.dexterity.content import Container
+# -*- coding: utf-8 -*-
 from bda.plone.productshop.interfaces import IProduct
 from bda.plone.productshop.interfaces import IProductGroup
 from bda.plone.productshop.interfaces import IVariant
+from plone.dexterity.content import Container
+from plone.dexterity.content import Item
+from zope.interface import implementer
 
 
 @implementer(IProduct)

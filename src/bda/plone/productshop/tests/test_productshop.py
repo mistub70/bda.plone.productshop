@@ -1,6 +1,7 @@
-import unittest2 as unittest
+# -*- coding: utf-8 -*-
 from bda.plone.productshop.tests import ProductShop_INTEGRATION_TESTING
 from bda.plone.productshop.tests import set_browserlayer
+import unittest2 as unittest
 
 
 class TestProductShop(unittest.TestCase):
@@ -12,4 +13,4 @@ class TestProductShop(unittest.TestCase):
         set_browserlayer(self.request)
 
     def test_foo(self):
-        self.assertEquals(1, 1)
+        self.assertEqual(1, 1)
