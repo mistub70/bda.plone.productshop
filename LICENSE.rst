@@ -2,7 +2,7 @@
 License
 =======
 
-Copyright (c) 2013, Espen Moe-Nilssen, BlueDynamics Alliance
+Copyright (c) 2013-2015, Espen Moe-Nilssen, BlueDynamics Alliance
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
