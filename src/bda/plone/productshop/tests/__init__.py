@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from zope.interface import alsoProvides
+from bda.plone.productshop.interfaces import IProductShopExtensionLayer
+from bda.plone.shop.tests import Shop_FIXTURE
 from plone.app.testing import IntegrationTesting
-from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
-from ..interfaces import IProductShopExtensionLayer
+from zope.interface import alsoProvides
 
 
 def set_browserlayer(request):
@@ -16,7 +16,7 @@ def set_browserlayer(request):
 
 
 class ProductShopLayer(PloneSandboxLayer):
-    defaultBases = (PLONE_FIXTURE,)
+    defaultBases = (Shop_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
         import bda.plone.productshop

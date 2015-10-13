@@ -18,11 +18,11 @@
 /dist/
 /coverage/
 /report/
-.idea/
-include/
-lib/
-local/
-buildout-cache/
-htmlcov/
-
+/.idea/
+/include/
+/lib/
+/local/
+/buildout-cache/
+/htmlcov/
+/.pydevproject.bak
 
