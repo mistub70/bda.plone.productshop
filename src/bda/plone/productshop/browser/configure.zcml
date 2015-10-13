@@ -174,7 +174,7 @@
   <!-- forms -->
   <adapter
     for="Products.CMFCore.interfaces.IFolderish
-         Products.CMFDefault.interfaces.ICMFDefaultSkin
+         bda.plone.productshop.interfaces.IProductShopExtensionLayer
          plone.dexterity.interfaces.IDexterityFTI"
     provides="zope.publisher.interfaces.browser.IBrowserPage"
     name="bda.plone.productshop.variant"
