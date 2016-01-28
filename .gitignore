@@ -25,4 +25,6 @@
 /buildout-cache/
 /htmlcov/
 /.pydevproject.bak
-
+/.plone.versioncheck.*
+/pip-selfcheck.json
+/share/
