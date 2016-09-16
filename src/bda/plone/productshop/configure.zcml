@@ -27,97 +27,97 @@
 
   <!-- DX behaviors -->
   <plone:behavior
-    title="Exclude From navigation for products"
+    title="Product Shop: Exclude From navigation for products"
     description="Allow products to be excluded from navigation"
     provides=".behaviors.IProductExcludeFromNavigation"
     for="plone.dexterity.interfaces.IDexterityContent" />
 
   <plone:behavior
-    title="Product Tiles View Settings"
+    title="Product Shop: Product Tiles View Settings"
     description="Extend content with product tiles view specific settings."
     provides=".behaviors.IProductTilesViewSettingsBehavior"
     for="plone.dexterity.interfaces.IDexterityContent" />
 
   <plone:behavior
-    title="Product Manual"
+    title="Product Shop: Product Manual"
     description="Extend content with product manual file."
     provides=".behaviors.IProductManualBehavior"
     for="plone.dexterity.interfaces.IDexterityContent" />
 
   <plone:behavior
-    title="Product"
+    title="Product Shop: Product"
     description="Extend content with product specific information."
     provides=".behaviors.IProductBehavior"
     for="plone.dexterity.interfaces.IDexterityContent" />
 
   <plone:behavior
-    title="Product group"
+    title="Product Shop: Product group"
     description="Extend content with product specific information."
     provides=".behaviors.IProductGroupBehavior"
     for="plone.dexterity.interfaces.IDexterityContent" />
 
   <plone:behavior
-    title="Variant"
+    title="Product Shop: Variant"
     description="Extend content being a variant."
     provides=".behaviors.IVariantBehavior"
     for="plone.dexterity.interfaces.IDexterityContent" />
 
   <plone:behavior
-    title="Color"
+    title="Product Shop: Color"
     description="Extend content with product color variant."
     provides=".behaviors.IColorBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
   <plone:behavior
-    title="Weight"
+    title="Product Shop: Weight"
     description="Extend content with product weight."
     provides=".behaviors.IWeightBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
   <plone:behavior
-    title="Size"
+    title="Product Shop: Size"
     description="Extend content with product size."
     provides=".behaviors.ISizeBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
   <plone:behavior
-    title="Demand"
+    title="Product Shop: Demand"
     description="Extend content with product demand."
     provides=".behaviors.IDemandBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
   <plone:behavior
-    title="Length"
+    title="Product Shop: Length"
     description="Extend content with product length."
     provides=".behaviors.ILengthBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
   <plone:behavior
-    title="Width"
+    title="Product Shop: Width"
     description="Extend content with product width."
     provides=".behaviors.IWidthBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
   <plone:behavior
-    title="Height"
+    title="Product Shop: Height"
     description="Extend content with product height."
     provides=".behaviors.IHeightBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
   <plone:behavior
-    title="IP Code"
+    title="Product Shop: IP Code"
     description="Extend content with international protection code."
     provides=".behaviors.IIPCodeBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
   <plone:behavior
-    title="Angle"
+    title="Product Shop: Angle"
     description="Extend content with angle."
     provides=".behaviors.IAngleBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
 
   <plone:behavior
-    title="Material"
+    title="Product Shop: Material"
     description="Extend content with material."
     provides=".behaviors.IMaterialBehavior"
     for="collective.instancebehavior.IInstanceBehaviorAssignableContent" />
