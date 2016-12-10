@@ -3,6 +3,7 @@
      xmlns:tal="http://xml.zope.org/namespaces/tal"
      xmlns:ajax="http://namesspaces.bluedynamics.eu/ajax"
      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     xmlns:ajax="http://namesspaces.bluedynamics.eu/ajax"
      i18n:domain="bda.plone.productshop"
      class="product_listing"
      ajax:bind="render_product_listing batchclicked"
